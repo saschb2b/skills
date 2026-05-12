@@ -1,0 +1,9 @@
+{
+  "name": "saschb2b-skills",
+  "skills": [
+    "./skills/engineering/audit-pr-target",
+    "./skills/engineering/scaffold-mcp-server",
+    "./skills/productivity/questions-before-pixels",
+    "./skills/productivity/story-not-braindump"
+  ]
+}

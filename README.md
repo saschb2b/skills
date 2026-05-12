@@ -1,35 +1,100 @@
 # Sascha's Skills
 
-A small, growing collection of Claude Code skills distilled from posts at [saschb2b.com/blog](https://saschb2b.com/blog). Each skill is one post's argument turned into a checklist an agent can actually run.
+[![skills.sh](https://skills.sh/b/saschb2b/skills)](https://skills.sh/saschb2b/skills)
+
+A small, growing collection of [Claude Code](https://claude.ai/code) skills distilled from posts on [saschb2b.com/blog](https://saschb2b.com/blog).
+
+Each skill takes a single blog post and turns its argument into a checklist an agent can step through, end to end. Together they cover the kind of expert practice teams agree with on a calm day and skip on a busy one: the security audit nobody runs, the architecture everyone reinvents, the UX questions the generator skips past, the ticket discipline that drops on a busy Monday.
 
 ## Install
 
-All at once:
+All four at once:
 
-```sh
+```bash
 npx skills@latest add saschb2b/skills
 ```
 
-Or pick individually:
+One at a time:
 
-```sh
+```bash
 npx skills@latest add saschb2b/skills/audit-pr-target
 npx skills@latest add saschb2b/skills/scaffold-mcp-server
 npx skills@latest add saschb2b/skills/questions-before-pixels
 npx skills@latest add saschb2b/skills/story-not-braindump
 ```
 
-## Skills
+Browse the rendered docs at [saschb2b.com/skills](https://saschb2b.com/skills).
+
+## Why these skills exist
+
+I built each one because the corresponding post wasn't enough. Writing down what to do is the easy part. Running the checklist on every repo, every PR, every ticket, is where I kept failing. The agent runs the checklist for me.
+
+### 1. The security audit nobody runs
+
+> "The dangerous workflow looks benign in review."
+>
+> from [The pull_request_target Trap](https://saschb2b.com/blog/pull-request-target-trap)
+
+**The problem.** In the year leading up to May 2026, TanStack, Nx, PostHog, Trivy, `tj-actions/changed-files`, and a wave of 500+ targeted forks were all compromised through the same `pull_request_target` misuse. The pattern is a one-line YAML choice. The audit is grep plus ten yes/no questions. Almost nobody runs it.
+
+**The fix:** [`/audit-pr-target`](./skills/engineering/audit-pr-target/SKILL.md). The agent greps every workflow, walks the ten-point checklist per match, names findings by severity, and proposes the right fix (switch the trigger, two-workflow pattern, drop the PR-head checkout, scope the cache, pin actions by SHA). Run it on every repo once. Run it again after every supply chain headline.
+
+### 2. The architecture you reinvent every time
+
+> "The protocol is simple. The architecture is reusable. The hard part is always the bridge."
+>
+> from [How to Build an MCP Server](https://saschb2b.com/blog/how-to-build-mcp-server)
+
+**The problem.** Every MCP server has the same five layers: transport, tool definitions, router, bridge, security. The pattern is identical from one target to the next. The bridge, the layer that actually talks to the underlying tool, is 80% of the work. New authors spend a day rediscovering the skeleton before they touch the part that matters.
+
+**The fix:** [`/scaffold-mcp-server`](./skills/engineering/scaffold-mcp-server/SKILL.md). The agent stamps out the five layers, walks the bridge decision matrix (scripting API, REST, CLI, socket, SDK), enforces the security non-negotiables (`execFile` over `exec`, path validation, process isolation), and stops the author from over-defining tools before one works end to end.
+
+### 3. The UX questions the generator skips past
+
+> "Polish is no longer a moat. It is a default. What is not a default is the thinking underneath."
+>
+> from [Questions Before Pixels](https://saschb2b.com/blog/questions-before-pixels)
+
+**The problem.** A competent generator produces a beautiful screen in under a minute. The visible part of design is now nearly free. The invisible part (should this screen exist, what was the user doing thirty seconds before, what happens when they're wrong) is where teams quietly skip the work because the artifact already looks done.
+
+**The fix:** [`/questions-before-pixels`](./skills/productivity/questions-before-pixels/SKILL.md). The agent runs the UI-vs-UX diagnostic on a reported "UX problem", then walks the twelve questions in the order they bite. Forces the answers to exist before the first pixel moves.
+
+### 4. The ticket discipline you drop on busy Mondays
+
+> "If a designer, a PM, or a new engineer reads the ticket cold, can they tell what we're changing and why it matters?"
+>
+> from [Stories, Not Braindumps](https://saschb2b.com/blog/stories-not-braindumps)
+
+**The problem.** Every team that has been running Scrum for a while can break work down. The board fills up. The work ships. And yet, when someone outside the team opens a ticket, they cannot tell what is being built or for whom. The information is there. It was written for the author, not for the next reader.
+
+**The fix:** [`/story-not-braindump`](./skills/productivity/story-not-braindump/SKILL.md). The agent takes a draft ticket, runs INVEST plus Connextra, rewrites it as a contract between roles. If the only failing INVEST letter is `S`, it splits with SPIDR. Stops the horizontal-by-layer split that breaks Independent, Valuable, and Testable simultaneously.
+
+## Reference
 
 ### Engineering
 
-- **`/audit-pr-target`** — Audit `.github/workflows/` for the `pull_request_target` misuse pattern that compromised TanStack, Nx, PostHog, and Trivy. Based on [The pull_request_target Trap](https://saschb2b.com/blog/pull-request-target-trap).
-- **`/scaffold-mcp-server`** — Stand up a Model Context Protocol server in TypeScript using the proven five-layer architecture. Based on [How to Build an MCP Server](https://saschb2b.com/blog/how-to-build-mcp-server).
+Code-adjacent work.
+
+- **[audit-pr-target](./skills/engineering/audit-pr-target/SKILL.md)**. Audit `.github/workflows/` for the `pull_request_target` misuse pattern that compromised TanStack, Nx, PostHog, and Trivy. Greps every workflow, walks a 10-point severity checklist, names findings, proposes the right fix.
+- **[scaffold-mcp-server](./skills/engineering/scaffold-mcp-server/SKILL.md)**. Stand up a Model Context Protocol server in TypeScript using the five-layer architecture. Picks a bridge pattern based on what the target software offers.
 
 ### Productivity
 
-- **`/questions-before-pixels`** — Run the 12-question UX handbook and the UI-vs-UX diagnostic before any pixels get drawn. Based on [Questions Before Pixels](https://saschb2b.com/blog/questions-before-pixels).
-- **`/story-not-braindump`** — Turn a draft ticket into a real user story with INVEST + Connextra, and split too-big stories with SPIDR. Based on [Stories, Not Braindumps](https://saschb2b.com/blog/stories-not-braindumps).
+Process and discipline, not code-specific.
+
+- **[questions-before-pixels](./skills/productivity/questions-before-pixels/SKILL.md)**. Force UX questioning before any UI work. UI-vs-UX diagnostic, then twelve questions in the order they bite.
+- **[story-not-braindump](./skills/productivity/story-not-braindump/SKILL.md)**. Reshape a draft Jira or GitHub ticket as a real user story with INVEST-clean ACs. Splits oversized stories with SPIDR.
+
+## Authoring your own
+
+These are personal skills, but the structure is reusable. To write your own:
+
+1. Add a folder under `skills/<bucket>/<slug>/`
+2. Drop in a `SKILL.md` with frontmatter (`name`, `description`, optional `date`, `source_post`)
+3. Start the `description` with what the skill does, then `Use when ...` triggers. This is the only field the agent reads when deciding to load the skill.
+4. Keep `SKILL.md` under ~100 lines. If it bulges, split into sibling files and link to them.
+
+See [CLAUDE.md](./CLAUDE.md) for the full conventions.
 
 ## License
 
