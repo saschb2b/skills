@@ -2,7 +2,7 @@
 
 [![skills.sh](https://skills.sh/b/saschb2b/skills)](https://skills.sh/saschb2b/skills)
 
-A small, growing collection of [Claude Code](https://claude.ai/code) skills distilled from posts on [saschb2b.com/blog](https://saschb2b.com/blog).
+A small, growing collection of agent skills distilled from posts on [saschb2b.com/blog](https://saschb2b.com/blog). Designed to be small, composable, and to work with any agent that supports the [skills.sh](https://skills.sh) installer (Claude Code, Cursor, Codex, Cline, Windsurf, OpenCode, and others).
 
 Each skill takes a single blog post and turns its argument into a checklist an agent can step through, end to end. Together they cover the kind of expert practice teams agree with on a calm day and skip on a busy one: the security audit nobody runs, the architecture everyone reinvents, the React pattern your LLM still writes the old way, the API codegen your LLM still wires the old way, the UX questions the generator skips past, the ticket discipline that drops on a busy Monday.
 

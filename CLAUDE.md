@@ -1,6 +1,6 @@
 # Skills Repo Conventions
 
-This repo is a collection of [Claude Code](https://claude.ai/code) skills. Each skill is one self-contained folder under `skills/<bucket>/<slug>/` with a `SKILL.md` inside.
+This repo is a collection of agent skills. Each skill is one self-contained folder under `skills/<bucket>/<slug>/` with a `SKILL.md` inside. Skills work with any coding agent that supports the [skills.sh](https://skills.sh) installer (Claude Code, Cursor, Codex, Cline, Windsurf, OpenCode).
 
 ## Layout
 
