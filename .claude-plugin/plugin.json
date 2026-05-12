@@ -3,6 +3,7 @@
   "skills": [
     "./skills/engineering/audit-actions",
     "./skills/engineering/scaffold-mcp",
+    "./skills/engineering/react-compiler",
     "./skills/productivity/ask-ux",
     "./skills/productivity/to-story"
   ]

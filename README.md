@@ -4,11 +4,11 @@
 
 A small, growing collection of [Claude Code](https://claude.ai/code) skills distilled from posts on [saschb2b.com/blog](https://saschb2b.com/blog).
 
-Each skill takes a single blog post and turns its argument into a checklist an agent can step through, end to end. Together they cover the kind of expert practice teams agree with on a calm day and skip on a busy one: the security audit nobody runs, the architecture everyone reinvents, the UX questions the generator skips past, the ticket discipline that drops on a busy Monday.
+Each skill takes a single blog post and turns its argument into a checklist an agent can step through, end to end. Together they cover the kind of expert practice teams agree with on a calm day and skip on a busy one: the security audit nobody runs, the architecture everyone reinvents, the React pattern your LLM still writes the old way, the UX questions the generator skips past, the ticket discipline that drops on a busy Monday.
 
 ## Install
 
-All four at once:
+All at once:
 
 ```bash
 npx skills@latest add saschb2b/skills
@@ -19,6 +19,7 @@ One at a time:
 ```bash
 npx skills@latest add saschb2b/skills/audit-actions
 npx skills@latest add saschb2b/skills/scaffold-mcp
+npx skills@latest add saschb2b/skills/react-compiler
 npx skills@latest add saschb2b/skills/ask-ux
 npx skills@latest add saschb2b/skills/to-story
 ```
@@ -49,7 +50,17 @@ I built each one because the corresponding post wasn't enough. Writing down what
 
 **The fix:** [`/scaffold-mcp`](./skills/engineering/scaffold-mcp/SKILL.md). The agent stamps out the five layers, walks the bridge decision matrix (scripting API, REST, CLI, socket, SDK), enforces the security non-negotiables (`execFile` over `exec`, path validation, process isolation), and stops the author from over-defining tools before one works end to end.
 
-### 3. The UX questions the generator skips past
+### 3. The React pattern your LLM still writes the old way
+
+> "Treat a `useMemo` or `useCallback` in 2026 the way you would treat a manual `for` loop in modern JavaScript. Usually fine. Occasionally necessary. Mostly a sign that the author wrote this before better tools existed."
+>
+> from [The React Compiler at Eighteen Months](https://saschb2b.com/blog/react-compiler-year-in-review)
+
+**The problem.** Every coding agent's React output is shaped by training data that precedes the React Compiler. The defaults are 2020-2024 React: `useMemo` for any derived value, `useCallback` for every handler, `React.memo` around every component. In a compiler-enabled codebase that is noise at best and a silent compiler bail-out at worst.
+
+**The fix:** [`/react-compiler`](./skills/engineering/react-compiler/SKILL.md). The agent skips manual memoization when writing new components and audits existing code against the documented exception cases. Also handles the strict `eslint-plugin-react-hooks` configuration that makes silent compiler bails visible at build time.
+
+### 4. The UX questions the generator skips past
 
 > "Polish is no longer a moat. It is a default. What is not a default is the thinking underneath."
 >
@@ -59,7 +70,7 @@ I built each one because the corresponding post wasn't enough. Writing down what
 
 **The fix:** [`/ask-ux`](./skills/productivity/ask-ux/SKILL.md). The agent runs the UI-vs-UX diagnostic on a reported "UX problem", then walks the twelve questions in the order they bite. Forces the answers to exist before the first pixel moves.
 
-### 4. The ticket discipline you drop on busy Mondays
+### 5. The ticket discipline you drop on busy Mondays
 
 > "If a designer, a PM, or a new engineer reads the ticket cold, can they tell what we're changing and why it matters?"
 >
@@ -77,6 +88,7 @@ Code-adjacent work.
 
 - **[audit-actions](./skills/engineering/audit-actions/SKILL.md)**. Audit `.github/workflows/` for the `pull_request_target` misuse pattern that compromised TanStack, Nx, PostHog, and Trivy. Greps every workflow, walks a 10-point severity checklist, names findings, proposes the right fix.
 - **[scaffold-mcp](./skills/engineering/scaffold-mcp/SKILL.md)**. Stand up a Model Context Protocol server in TypeScript using the five-layer architecture. Picks a bridge pattern based on what the target software offers.
+- **[react-compiler](./skills/engineering/react-compiler/SKILL.md)**. Write and review React as if the Compiler is enabled. Skip manual `useMemo`, `useCallback`, and `React.memo` by default. Audit existing code for stale memoization and the five silent-bail patterns. Sets the strict `eslint-plugin-react-hooks` rules. Counterweight to LLM training data that precedes the compiler.
 
 ### Productivity
 
