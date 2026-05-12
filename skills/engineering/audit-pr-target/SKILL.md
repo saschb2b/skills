@@ -1,6 +1,8 @@
 ---
 name: audit-pr-target
 description: Audit a repository's GitHub Actions workflows for unsafe pull_request_target usage that can lead to supply chain compromise. Use when the user asks to audit workflows, review CI/CD security, check pwn request risk, harden Actions, or after a supply chain incident in a dependency. Also use proactively when reviewing any PR that touches .github/workflows/.
+date: 2026-05-12
+source_post: pull-request-target-trap
 ---
 
 # Audit pull_request_target
