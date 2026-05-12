@@ -64,7 +64,7 @@ The repo is installed via the [skills.sh](https://skills.sh) registry:
 
 ```sh
 npx skills@latest add saschb2b/skills
-npx skills@latest add saschb2b/skills --skill=<slug>
+npx skills@latest add saschb2b/skills --skill <slug>
 ```
 
 It is also registered as a Claude Code plugin via `.claude-plugin/plugin.json`.

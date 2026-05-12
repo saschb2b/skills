@@ -17,12 +17,12 @@ npx skills@latest add saschb2b/skills
 One at a time:
 
 ```bash
-npx skills@latest add saschb2b/skills --skill=audit-actions
-npx skills@latest add saschb2b/skills --skill=scaffold-mcp
-npx skills@latest add saschb2b/skills --skill=react-compiler
-npx skills@latest add saschb2b/skills --skill=codegen-api
-npx skills@latest add saschb2b/skills --skill=ask-ux
-npx skills@latest add saschb2b/skills --skill=to-story
+npx skills@latest add saschb2b/skills --skill audit-actions
+npx skills@latest add saschb2b/skills --skill scaffold-mcp
+npx skills@latest add saschb2b/skills --skill react-compiler
+npx skills@latest add saschb2b/skills --skill codegen-api
+npx skills@latest add saschb2b/skills --skill ask-ux
+npx skills@latest add saschb2b/skills --skill to-story
 ```
 
 Browse the rendered docs at [saschb2b.com/skills](https://saschb2b.com/skills).
