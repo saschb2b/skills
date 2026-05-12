@@ -4,7 +4,7 @@
 
 A small, growing collection of [Claude Code](https://claude.ai/code) skills distilled from posts on [saschb2b.com/blog](https://saschb2b.com/blog).
 
-Each skill takes a single blog post and turns its argument into a checklist an agent can step through, end to end. Together they cover the kind of expert practice teams agree with on a calm day and skip on a busy one: the security audit nobody runs, the architecture everyone reinvents, the React pattern your LLM still writes the old way, the UX questions the generator skips past, the ticket discipline that drops on a busy Monday.
+Each skill takes a single blog post and turns its argument into a checklist an agent can step through, end to end. Together they cover the kind of expert practice teams agree with on a calm day and skip on a busy one: the security audit nobody runs, the architecture everyone reinvents, the React pattern your LLM still writes the old way, the API codegen your LLM still wires the old way, the UX questions the generator skips past, the ticket discipline that drops on a busy Monday.
 
 ## Install
 
@@ -20,6 +20,7 @@ One at a time:
 npx skills@latest add saschb2b/skills/audit-actions
 npx skills@latest add saschb2b/skills/scaffold-mcp
 npx skills@latest add saschb2b/skills/react-compiler
+npx skills@latest add saschb2b/skills/codegen-api
 npx skills@latest add saschb2b/skills/ask-ux
 npx skills@latest add saschb2b/skills/to-story
 ```
@@ -60,7 +61,17 @@ I built each one because the corresponding post wasn't enough. Writing down what
 
 **The fix:** [`/react-compiler`](./skills/engineering/react-compiler/SKILL.md). The agent skips manual memoization when writing new components and audits existing code against the documented exception cases. Also handles the strict `eslint-plugin-react-hooks` configuration that makes silent compiler bails visible at build time.
 
-### 4. The UX questions the generator skips past
+### 4. The API codegen your LLM still wires the old way
+
+> "The ecosystem has converged. Both the REST and GraphQL worlds independently arrived at the same conclusion: stop generating framework-specific hooks, start generating framework-agnostic options and typed documents instead."
+>
+> from [Typesafe API Code Generation for React in 2026](https://saschb2b.com/blog/typesafe-api-codegen-2026)
+
+**The problem.** LLM training data predates the 2024-2025 shift from generated hooks to generated options. The defaults look like 2022: `useGetPet()`, `useFilmsQuery()`, per-query result types passed as prop types, `@graphql-codegen/typescript-react-apollo` plugins now community-stale. None of that is wrong, exactly. It no longer composes the way the modern ecosystem expects.
+
+**The fix:** [`/codegen-api`](./skills/engineering/codegen-api/SKILL.md). The agent picks the right tool for the API source and data-fetching library (`hey-api` for OpenAPI, `graphql-codegen` client preset for GraphQL with Apollo or urql or TanStack, `gql.tada` for small GraphQL schemas without a build step), wires the minimal config, and uses the generated primitives directly with the library's own hooks. Fragment masking handles component composition without per-query prop types or hook wrappers.
+
+### 5. The UX questions the generator skips past
 
 > "Polish is no longer a moat. It is a default. What is not a default is the thinking underneath."
 >
@@ -70,7 +81,7 @@ I built each one because the corresponding post wasn't enough. Writing down what
 
 **The fix:** [`/ask-ux`](./skills/productivity/ask-ux/SKILL.md). The agent runs the UI-vs-UX diagnostic on a reported "UX problem", then walks the twelve questions in the order they bite. Forces the answers to exist before the first pixel moves.
 
-### 5. The ticket discipline you drop on busy Mondays
+### 6. The ticket discipline you drop on busy Mondays
 
 > "If a designer, a PM, or a new engineer reads the ticket cold, can they tell what we're changing and why it matters?"
 >
@@ -88,7 +99,8 @@ Code-adjacent work.
 
 - **[audit-actions](./skills/engineering/audit-actions/SKILL.md)**. Audit `.github/workflows/` for the `pull_request_target` misuse pattern that compromised TanStack, Nx, PostHog, and Trivy. Greps every workflow, walks a 10-point severity checklist, names findings, proposes the right fix.
 - **[scaffold-mcp](./skills/engineering/scaffold-mcp/SKILL.md)**. Stand up a Model Context Protocol server in TypeScript using the five-layer architecture. Picks a bridge pattern based on what the target software offers.
-- **[react-compiler](./skills/engineering/react-compiler/SKILL.md)**. Write and review React as if the Compiler is enabled. Skip manual `useMemo`, `useCallback`, and `React.memo` by default. Audit existing code for stale memoization and the five silent-bail patterns. Sets the strict `eslint-plugin-react-hooks` rules. Counterweight to LLM training data that precedes the compiler.
+- **[react-compiler](./skills/engineering/react-compiler/SKILL.md)**. Write and review React as if the Compiler is enabled. Skip manual `useMemo`, `useCallback`, and `React.memo` by default. Audit existing code for stale memoization and the five silent-bail patterns. Sets the strict `eslint-plugin-react-hooks` rules.
+- **[codegen-api](./skills/engineering/codegen-api/SKILL.md)**. Set up typesafe API code generation in 2026. Decision matrix for OpenAPI (`hey-api`) and GraphQL (`graphql-codegen` client preset, or `gql.tada` for no build step). Generates options factories and typed documents instead of legacy hooks. Fragment masking for composition.
 
 ### Productivity
 

@@ -4,6 +4,7 @@
     "./skills/engineering/audit-actions",
     "./skills/engineering/scaffold-mcp",
     "./skills/engineering/react-compiler",
+    "./skills/engineering/codegen-api",
     "./skills/productivity/ask-ux",
     "./skills/productivity/to-story"
   ]
