@@ -1,5 +1,5 @@
 ---
-name: scaffold-mcp-server
+name: scaffold-mcp
 description: Scaffold a new Model Context Protocol (MCP) server in TypeScript using the proven five-layer architecture. Use when the user wants to build an MCP server, expose a piece of software to AI agents (Claude Code, Cursor, Cline, Windsurf), connect a tool to an LLM, or asks "how do I make X accessible to AI?". Also use when starting any new agent-tool integration where the target software has its own scripting API, CLI, or HTTP surface.
 date: 2026-05-12
 source_post: how-to-build-mcp-server

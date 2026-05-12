@@ -17,10 +17,10 @@ npx skills@latest add saschb2b/skills
 One at a time:
 
 ```bash
-npx skills@latest add saschb2b/skills/audit-pr-target
-npx skills@latest add saschb2b/skills/scaffold-mcp-server
-npx skills@latest add saschb2b/skills/questions-before-pixels
-npx skills@latest add saschb2b/skills/story-not-braindump
+npx skills@latest add saschb2b/skills/audit-actions
+npx skills@latest add saschb2b/skills/scaffold-mcp
+npx skills@latest add saschb2b/skills/ask-ux
+npx skills@latest add saschb2b/skills/to-story
 ```
 
 Browse the rendered docs at [saschb2b.com/skills](https://saschb2b.com/skills).
@@ -37,7 +37,7 @@ I built each one because the corresponding post wasn't enough. Writing down what
 
 **The problem.** In the year leading up to May 2026, TanStack, Nx, PostHog, Trivy, `tj-actions/changed-files`, and a wave of 500+ targeted forks were all compromised through the same `pull_request_target` misuse. The pattern is a one-line YAML choice. The audit is grep plus ten yes/no questions. Almost nobody runs it.
 
-**The fix:** [`/audit-pr-target`](./skills/engineering/audit-pr-target/SKILL.md). The agent greps every workflow, walks the ten-point checklist per match, names findings by severity, and proposes the right fix (switch the trigger, two-workflow pattern, drop the PR-head checkout, scope the cache, pin actions by SHA). Run it on every repo once. Run it again after every supply chain headline.
+**The fix:** [`/audit-actions`](./skills/engineering/audit-actions/SKILL.md). The agent greps every workflow, walks the ten-point checklist per match, names findings by severity, and proposes the right fix (switch the trigger, two-workflow pattern, drop the PR-head checkout, scope the cache, pin actions by SHA). Run it on every repo once. Run it again after every supply chain headline.
 
 ### 2. The architecture you reinvent every time
 
@@ -47,7 +47,7 @@ I built each one because the corresponding post wasn't enough. Writing down what
 
 **The problem.** Every MCP server has the same five layers: transport, tool definitions, router, bridge, security. The pattern is identical from one target to the next. The bridge, the layer that actually talks to the underlying tool, is 80% of the work. New authors spend a day rediscovering the skeleton before they touch the part that matters.
 
-**The fix:** [`/scaffold-mcp-server`](./skills/engineering/scaffold-mcp-server/SKILL.md). The agent stamps out the five layers, walks the bridge decision matrix (scripting API, REST, CLI, socket, SDK), enforces the security non-negotiables (`execFile` over `exec`, path validation, process isolation), and stops the author from over-defining tools before one works end to end.
+**The fix:** [`/scaffold-mcp`](./skills/engineering/scaffold-mcp/SKILL.md). The agent stamps out the five layers, walks the bridge decision matrix (scripting API, REST, CLI, socket, SDK), enforces the security non-negotiables (`execFile` over `exec`, path validation, process isolation), and stops the author from over-defining tools before one works end to end.
 
 ### 3. The UX questions the generator skips past
 
@@ -57,7 +57,7 @@ I built each one because the corresponding post wasn't enough. Writing down what
 
 **The problem.** A competent generator produces a beautiful screen in under a minute. The visible part of design is now nearly free. The invisible part (should this screen exist, what was the user doing thirty seconds before, what happens when they're wrong) is where teams quietly skip the work because the artifact already looks done.
 
-**The fix:** [`/questions-before-pixels`](./skills/productivity/questions-before-pixels/SKILL.md). The agent runs the UI-vs-UX diagnostic on a reported "UX problem", then walks the twelve questions in the order they bite. Forces the answers to exist before the first pixel moves.
+**The fix:** [`/ask-ux`](./skills/productivity/ask-ux/SKILL.md). The agent runs the UI-vs-UX diagnostic on a reported "UX problem", then walks the twelve questions in the order they bite. Forces the answers to exist before the first pixel moves.
 
 ### 4. The ticket discipline you drop on busy Mondays
 
@@ -67,7 +67,7 @@ I built each one because the corresponding post wasn't enough. Writing down what
 
 **The problem.** Every team that has been running Scrum for a while can break work down. The board fills up. The work ships. And yet, when someone outside the team opens a ticket, they cannot tell what is being built or for whom. The information is there. It was written for the author, not for the next reader.
 
-**The fix:** [`/story-not-braindump`](./skills/productivity/story-not-braindump/SKILL.md). The agent takes a draft ticket, runs INVEST plus Connextra, rewrites it as a contract between roles. If the only failing INVEST letter is `S`, it splits with SPIDR. Stops the horizontal-by-layer split that breaks Independent, Valuable, and Testable simultaneously.
+**The fix:** [`/to-story`](./skills/productivity/to-story/SKILL.md). The agent takes a draft ticket, runs INVEST plus Connextra, rewrites it as a contract between roles. If the only failing INVEST letter is `S`, it splits with SPIDR. Stops the horizontal-by-layer split that breaks Independent, Valuable, and Testable simultaneously.
 
 ## Reference
 
@@ -75,15 +75,15 @@ I built each one because the corresponding post wasn't enough. Writing down what
 
 Code-adjacent work.
 
-- **[audit-pr-target](./skills/engineering/audit-pr-target/SKILL.md)**. Audit `.github/workflows/` for the `pull_request_target` misuse pattern that compromised TanStack, Nx, PostHog, and Trivy. Greps every workflow, walks a 10-point severity checklist, names findings, proposes the right fix.
-- **[scaffold-mcp-server](./skills/engineering/scaffold-mcp-server/SKILL.md)**. Stand up a Model Context Protocol server in TypeScript using the five-layer architecture. Picks a bridge pattern based on what the target software offers.
+- **[audit-actions](./skills/engineering/audit-actions/SKILL.md)**. Audit `.github/workflows/` for the `pull_request_target` misuse pattern that compromised TanStack, Nx, PostHog, and Trivy. Greps every workflow, walks a 10-point severity checklist, names findings, proposes the right fix.
+- **[scaffold-mcp](./skills/engineering/scaffold-mcp/SKILL.md)**. Stand up a Model Context Protocol server in TypeScript using the five-layer architecture. Picks a bridge pattern based on what the target software offers.
 
 ### Productivity
 
 Process and discipline, not code-specific.
 
-- **[questions-before-pixels](./skills/productivity/questions-before-pixels/SKILL.md)**. Force UX questioning before any UI work. UI-vs-UX diagnostic, then twelve questions in the order they bite.
-- **[story-not-braindump](./skills/productivity/story-not-braindump/SKILL.md)**. Reshape a draft Jira or GitHub ticket as a real user story with INVEST-clean ACs. Splits oversized stories with SPIDR.
+- **[ask-ux](./skills/productivity/ask-ux/SKILL.md)**. Force UX questioning before any UI work. UI-vs-UX diagnostic, then twelve questions in the order they bite.
+- **[to-story](./skills/productivity/to-story/SKILL.md)**. Reshape a draft Jira or GitHub ticket as a real user story with INVEST-clean ACs. Splits oversized stories with SPIDR.
 
 ## Authoring your own
 
