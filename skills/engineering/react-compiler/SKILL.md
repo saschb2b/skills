@@ -1,6 +1,6 @@
 ---
 name: react-compiler
-description: Write and review React code as if the React Compiler is enabled. Skip manual useMemo, useCallback, and React.memo by default, and audit existing code for stale manual memoization. Use when writing or refactoring any React component in a React 19+ codebase, when reviewing a React PR, when setting up the eslint-plugin-react-hooks configuration, or when seeing memoization patterns in code an LLM produced. Especially useful as a counterweight to training data that precedes the compiler and defaults to scattering memoization everywhere.
+description: Write and review React code as if the React Compiler is enabled. Skip manual useMemo, useCallback, and React.memo by default, and audit existing code for stale manual memoization. Use when writing or refactoring any React component in a React 19+ codebase, when reviewing a React PR, when setting up the eslint-plugin-react-hooks configuration, or when seeing memoization patterns in code an LLM produced. Useful as a counterweight: the bulk of any agent's React training corpus is pre-compiler, so the default output skews toward manual memoization unless prompted otherwise.
 date: 2026-05-12
 source_post: react-compiler-year-in-review
 ---
@@ -11,7 +11,7 @@ source_post: react-compiler-year-in-review
 
 **The compiler memoizes. You do not.**
 
-In any React 19+ codebase with the compiler enabled, do not add `useMemo`, `useCallback`, or `React.memo` by default. The compiler handles memoization at finer granularity than a human writes, and adding manual versions is at best noise. This is the most common failure mode in LLM-generated React: training data precedes the compiler and defaults to scattering memoization everywhere.
+In any React 19+ codebase with the compiler enabled, do not add `useMemo`, `useCallback`, or `React.memo` by default. The compiler handles memoization at finer granularity than a human writes, and adding manual versions is at best noise. This is the most common failure mode in LLM-generated React: the bulk of any agent's React training corpus is pre-compiler, so the default output skews toward manual memoization.
 
 ## Default behavior when writing React
 

@@ -57,7 +57,7 @@ I built each one because the corresponding post wasn't enough. Writing down what
 >
 > from [The React Compiler at Eighteen Months](https://saschb2b.com/blog/react-compiler-year-in-review)
 
-**The problem.** Every coding agent's React output is shaped by training data that precedes the React Compiler. The defaults are 2020-2024 React: `useMemo` for any derived value, `useCallback` for every handler, `React.memo` around every component. In a compiler-enabled codebase that is noise at best and a silent compiler bail-out at worst.
+**The problem.** Most coding agents' React output is shaped by training corpora dominated by pre-compiler React. The defaults look 2020-2024: `useMemo` for any derived value, `useCallback` for every handler, `React.memo` around every component. In a compiler-enabled codebase that is noise at best and a silent compiler bail-out at worst.
 
 **The fix:** [`/react-compiler`](./skills/engineering/react-compiler/SKILL.md). The agent skips manual memoization when writing new components and audits existing code against the documented exception cases. Also handles the strict `eslint-plugin-react-hooks` configuration that makes silent compiler bails visible at build time.
 
@@ -67,7 +67,7 @@ I built each one because the corresponding post wasn't enough. Writing down what
 >
 > from [Typesafe API Code Generation for React in 2026](https://saschb2b.com/blog/typesafe-api-codegen-2026)
 
-**The problem.** LLM training data predates the 2024-2025 shift from generated hooks to generated options. The defaults look like 2022: `useGetPet()`, `useFilmsQuery()`, per-query result types passed as prop types, `@graphql-codegen/typescript-react-apollo` plugins now community-stale. None of that is wrong, exactly. It no longer composes the way the modern ecosystem expects.
+**The problem.** The bulk of API codegen examples in any agent's training corpus reflects the pre-2024 hooks pattern. The defaults look like 2022: `useGetPet()`, `useFilmsQuery()`, per-query result types passed as prop types, `@graphql-codegen/typescript-react-apollo` plugins now community-stale. None of that is wrong, exactly. It no longer composes the way the modern ecosystem expects.
 
 **The fix:** [`/codegen-api`](./skills/engineering/codegen-api/SKILL.md). The agent picks the right tool for the API source and data-fetching library (`hey-api` for OpenAPI, `graphql-codegen` client preset for GraphQL with Apollo or urql or TanStack, `gql.tada` for small GraphQL schemas without a build step), wires the minimal config, and uses the generated primitives directly with the library's own hooks. Fragment masking handles component composition without per-query prop types or hook wrappers.
 

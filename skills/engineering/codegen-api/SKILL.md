@@ -1,6 +1,6 @@
 ---
 name: codegen-api
-description: Set up typesafe API code generation in 2026, preferring framework-agnostic options factories over generated hooks. Walks the decision matrix for REST (OpenAPI via hey-api) and GraphQL (graphql-codegen client preset, gql.tada), wires the minimal config for the chosen stack, and uses fragment masking for component composition. Use when starting an API integration, wiring an OpenAPI spec into a frontend, setting up GraphQL types, asked about useQuery, queryOptions, TypedDocumentNode, or fragment masking, or when seeing legacy patterns like generated useGetX hooks, per-query prop types, or @graphql-codegen/typescript-react-apollo. Counterweight to training data that predates the 2024-2025 "options not hooks" shift.
+description: Set up typesafe API code generation in 2026, preferring framework-agnostic options factories over generated hooks. Walks the decision matrix for REST (OpenAPI via hey-api) and GraphQL (graphql-codegen client preset, gql.tada), wires the minimal config for the chosen stack, and uses fragment masking for component composition. Use when starting an API integration, wiring an OpenAPI spec into a frontend, setting up GraphQL types, asked about useQuery, queryOptions, TypedDocumentNode, or fragment masking, or when seeing legacy patterns like generated useGetX hooks, per-query prop types, or @graphql-codegen/typescript-react-apollo. Counterweight: the bulk of API codegen examples in any agent's training corpus reflects the pre-2024 hooks pattern, so the default output skews old.
 date: 2026-05-12
 source_post: typesafe-api-codegen-2026
 ---
@@ -13,7 +13,7 @@ source_post: typesafe-api-codegen-2026
 
 Both ecosystems converged in 2024-2025. REST and GraphQL codegens stopped emitting framework-specific hooks (`useGetPet`, `useFilmsQuery`) and started emitting framework-agnostic primitives that plug into the data-fetching library's existing hooks. Do not reach for legacy codegen plugins that emit hooks or per-query prop types.
 
-This is the most common failure mode in LLM-generated API wiring: training data predates the shift and defaults to `@graphql-codegen/typescript-react-apollo`, `typescript-react-query`, or `openapi-typescript-codegen` hook output.
+This is the most common failure mode in LLM-generated API wiring: the bulk of training corpora reflects the pre-shift hooks pattern, so the default output reaches for `@graphql-codegen/typescript-react-apollo`, `typescript-react-query`, or `openapi-typescript-codegen` hook generators.
 
 ## Step 1: Pick the path
 
