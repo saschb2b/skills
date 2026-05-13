@@ -47,6 +47,7 @@ Rules:
 
 - Keep the body under ~100 lines. If it grows past that, split detail into sibling files (`examples.md`, `reference.md`, etc.) and link to them from SKILL.md. The agent reads SKILL.md eagerly and the siblings only when it needs them. This is "progressive disclosure".
 - The `description` field is critical and capped at 1024 characters. It must include trigger phrases the agent will recognize in user prompts.
+- **Never put `: ` (colon followed by a space) inside any frontmatter value.** YAML parses it as a key/value separator inside a plain scalar, gray-matter throws, and the skill is silently dropped from the build. Use a period, semicolon, dash, or rephrase. Colons in URLs, code (`docker:latest`), or compound words without trailing space are fine.
 - `name` in frontmatter must match the folder name.
 - The H1 in the body is the human-facing title. The `name` in frontmatter is the slug used everywhere else.
 - Dates are ISO 8601 (`YYYY-MM-DD`).
