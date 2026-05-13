@@ -4,7 +4,7 @@
 
 A small, growing collection of agent skills distilled from posts on [saschb2b.com/blog](https://saschb2b.com/blog). Designed to be small, composable, and to work with any agent that supports the [skills.sh](https://skills.sh) installer (Claude Code, Cursor, Codex, Cline, Windsurf, OpenCode, and others).
 
-Each skill takes a single blog post and turns its argument into a checklist an agent can step through, end to end. Together they cover the kind of expert practice teams agree with on a calm day and skip on a busy one: the security audit nobody runs, the architecture everyone reinvents, the React pattern your LLM still writes the old way, the API codegen your LLM still wires the old way, the UX questions the generator skips past, the ticket discipline that drops on a busy Monday.
+Each skill takes a single blog post and turns its argument into a checklist an agent can step through, end to end. Together they cover the kind of expert practice teams agree with on a calm day and skip on a busy one: the security audit nobody runs, the architecture everyone reinvents, the React pattern your LLM still writes the old way, the API codegen your LLM still wires the old way, the colors your LLM still sprinkles as hex, the UX questions the generator skips past, the ticket discipline that drops on a busy Monday.
 
 ## Install
 
@@ -21,6 +21,7 @@ npx skills@latest add saschb2b/skills --skill audit-actions
 npx skills@latest add saschb2b/skills --skill scaffold-mcp
 npx skills@latest add saschb2b/skills --skill react-compiler
 npx skills@latest add saschb2b/skills --skill codegen-api
+npx skills@latest add saschb2b/skills --skill theme-colors
 npx skills@latest add saschb2b/skills --skill ask-ux
 npx skills@latest add saschb2b/skills --skill to-story
 ```
@@ -71,7 +72,17 @@ I built each one because the corresponding post wasn't enough. Writing down what
 
 **The fix:** [`/codegen-api`](./skills/engineering/codegen-api/SKILL.md). The agent picks the right tool for the API source and data-fetching library (`hey-api` for OpenAPI, `graphql-codegen` client preset for GraphQL with Apollo or urql or TanStack, `gql.tada` for small GraphQL schemas without a build step), wires the minimal config, and uses the generated primitives directly with the library's own hooks. Fragment masking handles component composition without per-query prop types or hook wrappers.
 
-### 5. The UX questions the generator skips past
+### 5. The colors your LLM still sprinkles as hex
+
+> "Blue describes what the color looks like right now. Primary describes what the color does. One is a snapshot, the other is a role."
+>
+> from [Why Developers Keep Asking for Primary Instead of Blue](https://saschb2b.com/blog/designer-meets-theme)
+
+**The problem.** LLM training corpora are dominated by tutorial code that hardcodes colors. Every output ships with hex codes inlined into component files, `rgba()` literals where `alpha()` belongs, and named CSS colors used as one-off values. Every literal is one more place that needs updating on a brand change, one more thing dark mode breaks, one more subtle visual inconsistency.
+
+**The fix:** [`/theme-colors`](./skills/engineering/theme-colors/SKILL.md). The agent uses theme roles by default (primary, secondary, error, surface, text), reaches for `alpha()` against a theme color instead of literal `rgba()`, and moves gradients into the `sx` callback so theme values can be interpolated. Audits existing code by grepping for color literals and proposes the role-based replacement for each.
+
+### 6. The UX questions the generator skips past
 
 > "Polish is no longer a moat. It is a default. What is not a default is the thinking underneath."
 >
@@ -81,7 +92,7 @@ I built each one because the corresponding post wasn't enough. Writing down what
 
 **The fix:** [`/ask-ux`](./skills/productivity/ask-ux/SKILL.md). The agent runs the UI-vs-UX diagnostic on a reported "UX problem", then walks the twelve questions in the order they bite. Forces the answers to exist before the first pixel moves.
 
-### 6. The ticket discipline you drop on busy Mondays
+### 7. The ticket discipline you drop on busy Mondays
 
 > "If a designer, a PM, or a new engineer reads the ticket cold, can they tell what we're changing and why it matters?"
 >
@@ -101,6 +112,7 @@ Code-adjacent work.
 - **[scaffold-mcp](./skills/engineering/scaffold-mcp/SKILL.md)**. Stand up a Model Context Protocol server in TypeScript using the five-layer architecture. Picks a bridge pattern based on what the target software offers.
 - **[react-compiler](./skills/engineering/react-compiler/SKILL.md)**. Write and review React as if the Compiler is enabled. Skip manual `useMemo`, `useCallback`, and `React.memo` by default. Audit existing code for stale memoization and the five silent-bail patterns. Sets the strict `eslint-plugin-react-hooks` rules.
 - **[codegen-api](./skills/engineering/codegen-api/SKILL.md)**. Set up typesafe API code generation in 2026. Decision matrix for OpenAPI (`hey-api`) and GraphQL (`graphql-codegen` client preset, or `gql.tada` for no build step). Generates options factories and typed documents instead of legacy hooks. Fragment masking for composition.
+- **[theme-colors](./skills/engineering/theme-colors/SKILL.md)**. Every color value comes from the theme. Replace hex codes, `rgba()` literals, and named colors with palette roles (primary, secondary, error, surface, text) and the `alpha()` helper. Counterweight to LLM training corpora that scatter hex codes through component files.
 
 ### Productivity
 

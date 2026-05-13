@@ -5,6 +5,7 @@
     "./skills/engineering/scaffold-mcp",
     "./skills/engineering/react-compiler",
     "./skills/engineering/codegen-api",
+    "./skills/engineering/theme-colors",
     "./skills/productivity/ask-ux",
     "./skills/productivity/to-story"
   ]
