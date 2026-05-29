@@ -24,6 +24,7 @@ npx skills@latest add saschb2b/skills --skill codegen-api
 npx skills@latest add saschb2b/skills --skill theme-colors
 npx skills@latest add saschb2b/skills --skill ask-ux
 npx skills@latest add saschb2b/skills --skill to-story
+npx skills@latest add saschb2b/skills --skill autopilot
 ```
 
 Browse the rendered docs at [saschb2b.com/skills](https://saschb2b.com/skills).
@@ -120,6 +121,7 @@ Process and discipline, not code-specific.
 
 - **[ask-ux](./skills/productivity/ask-ux/SKILL.md)**. Force UX questioning before any UI work. UI-vs-UX diagnostic, then twelve questions in the order they bite.
 - **[to-story](./skills/productivity/to-story/SKILL.md)**. Reshape a draft Jira or GitHub ticket as a real user story with INVEST-clean ACs. Splits oversized stories with SPIDR.
+- **[autopilot](./skills/productivity/autopilot/SKILL.md)**. Hand off the project and let the agent run on its own. It surveys, finds one high-value low-risk improvement, verifies it, commits it, and loops. Generate-then-rank judgment for picking the work (so a sensible small feature competes on equal footing, not a fixed checklist), in-bounds vs surface-first rails, and anti-churn checks so you review a clean stream of small wins instead of one giant diff.
 
 ## Authoring your own
 
