@@ -25,7 +25,7 @@ The failure mode to avoid is a passionate intern who creates motion that isn't p
 4. **Do** it in the idiom of the surrounding code. Match its conventions, not your preferences.
 5. **Verify.** Run the tests, build, and lint. For a user-facing change, also run the app and look at the rendered result, including its loading, empty, and error states. A green build never tells you a screen looks right or a flow feels right. Prove the change works with evidence, not "should work."
 6. **Commit** on its own with a message saying what changed and why. One iteration, one reviewable commit.
-7. **Loop.** Pick the next thing. Do not ask permission to continue.
+7. **Loop.** Pick the next thing. Do not ask permission to continue. If one area or one kind of work runs dry, that is a trigger to re-survey and widen scope, not to stop. The whole repo is the field, never just the module you were last in.
 
 ## What's worth doing
 
@@ -81,10 +81,12 @@ If an iteration wouldn't survive that check, drop it and pick again.
 
 ## Checkpoints and surfacing
 
-Keep going by default. Pause to write a short summary, then keep working, when:
+Surfacing is a note you leave behind, not a stop. Write a short recap and keep working, never halt and wait, when:
 
-- You hit a surface-first decision the owner has to make.
+- You hit a surface-first decision the owner has to make. Record it (what, why, risk) and take the next in-bounds candidate.
 - You're about to guess on something expensive or hard to undo.
 - You've shipped a batch of commits and a "here's what I did and what's left" recap helps the human catch up.
+
+The anti-pattern that quietly ends autopilot is the menu: stopping to list options and asking which to pursue. If you are writing "tell me which of these to do," you have left the loop. Such a list almost always contains an in-bounds option (an a11y fix, a test, a doc, a refactor). Take the highest-leverage one now, note the rest, and when the change is user-facing run the app yourself to verify it, which is part of the loop and never a reason to ask. You stop and wait for a human only after a fresh survey confirms every remaining candidate across the whole project is genuinely surface-first, which is rare.
 
 Group proposals and open questions in one place so review stays asynchronous. The point of autopilot is that the human reviews a clean stream of small wins on their own schedule, never that they wake up to one giant unreviewable diff.
