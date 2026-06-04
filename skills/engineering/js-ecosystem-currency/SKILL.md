@@ -77,6 +77,17 @@ Picking one: a server-cache library (TanStack Query) for fetched data, a client-
 | Package managers | pnpm security-by-default; Bun full toolchain | [package-managers.md](./tooling/package-managers.md) |
 | Biome | One Rust binary for lint + format; type-aware rules | [biome.md](./tooling/biome.md) |
 
+### Testing
+| Tool | Headline shift | Notes |
+| --- | --- | --- |
+| Vitest | The default Vite-project runner; stable Browser Mode | [vitest.md](./testing/vitest.md) |
+| Playwright | The modern e2e default; role locators, auto-wait | [playwright.md](./testing/playwright.md) |
+| Jest | v30, but legacy for new Vite/ESM projects | [jest.md](./testing/jest.md) |
+| Testing Library | RTL 16; async `userEvent.setup()`; accessible queries | [testing-library.md](./testing/testing-library.md) |
+| Cypress | v15, now runner-up to Playwright for new e2e | [cypress.md](./testing/cypress.md) |
+
+New Vite + React + TS default: Vitest (unit and component) plus Testing Library plus Playwright (e2e). Jest and Cypress are the secondary choices, not the defaults.
+
 ## Companion skills
 
 Three sibling skills in this repo go deeper than the notes here. Prefer them when in scope.
