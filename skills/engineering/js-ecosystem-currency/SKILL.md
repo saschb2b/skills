@@ -214,13 +214,16 @@ The catalogue is not exhaustive, and it dates. For any tool not listed, or when 
 4. Write the Start pattern. Flag the Stop pattern if the code or your default reaches for it.
 5. If the tool deserves a permanent entry, add one with [_template.md](./_template.md).
 
-## Companion skills
+## Companion skills (optional, never required)
 
-Three sibling skills in this repo go deeper than the notes here. Prefer them when in scope.
+This skill is self-contained. Every notes file carries the current version and the paradigm correction on its own, so installing `js-ecosystem-currency` alone gives the full guidance with no other skill present. There are no cross-skill file links anywhere in this skill, only by-name pointers.
 
-- **react-compiler**. The manual-memoization audit and the silent compiler-bail patterns.
-- **codegen-api**. Typesafe API codegen (options factories over hooks, fragment masking).
-- **theme-colors**. Color roles for Material UI and other themed systems.
+A few sibling skills in this repo go one level deeper on a single topic. They are optional power-ups, not dependencies: if a reader also has one installed it carries the deep workflow; if not, nothing breaks and the paradigm guidance here is still complete.
+
+- **react-compiler**. The manual-memoization audit workflow and the silent compiler-bail patterns.
+- **codegen-api**. Full API-codegen setup, fragment-masking examples, and the decision matrix.
+- **theme-colors**. Color-role usage for Material UI and other themed systems.
+- **claude-api**. Building Anthropic/Claude API apps in depth (prompt caching, model migration).
 
 ## Extending this skill
 

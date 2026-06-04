@@ -20,10 +20,11 @@ React 19 made Actions, the `use()` primitive, `ref` as a regular prop, and `<for
 ## Gotchas
 - React 19 removed string refs, legacy context, `propTypes`, and `ReactDOM.render`. Run the official codemods on upgrade.
 - The Compiler is opt-in per build tool (Babel, Vite, Metro, Rsbuild) and assumes the Rules of React. Lint with `eslint-plugin-react-hooks` v6+ at error before enabling.
+- Keep manual memoization only for referential identity passed to non-React consumers, genuinely expensive non-render work, or effect-dependency stability. The compiler handles everything else, so do not strip these three cases blindly.
 - `use()` follows render purity but, unlike a hook, may be called conditionally.
 
 ## Companion
-For the manual-memoization audit and the five silent compiler-bail patterns, use the dedicated **react-compiler** skill.
+Optional deeper dive: the **react-compiler** skill adds the full manual-memoization audit and the silent compiler-bail patterns. It is not required. The rule and the three keep-cases above stand on their own.
 
 ## Sources
 - https://react.dev/versions

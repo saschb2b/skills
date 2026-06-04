@@ -34,4 +34,5 @@ Copy this block when adding a tool. Keep it tight, one screen. Volatile version 
 - **No version numbers in `SKILL.md`.** The index routes; the notes file dates.
 - Lead with **The shift**, not the version. Paradigms outlive release numbers.
 - Cross-link a notes file to another only after the target file exists, so every commit stays link-valid.
+- **A notes file must stand on its own.** Put the actual paradigm correction (the Stop/Start table) in the file itself. Reference another skill (`react-compiler`, `codegen-api`, etc.) only by name as an optional deeper dive, never as a required step and never as a cross-skill file link. If the sibling skill is not installed, this file must still deliver the full correction.
 - After adding a file, register the row in the matching `SKILL.md` table. That is the only required edit outside this folder.
