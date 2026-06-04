@@ -56,6 +56,7 @@ Each notes file holds the current stable version, the LLM default bias, the para
 | shadcn/ui | `shadcn` CLI; React 19 + Tailwind v4; `data-slot`; OKLCH | [shadcn.md](./ui/shadcn.md) |
 | Mantine | Emotion gone since v7; v9 is React 19.2+ | [mantine.md](./ui/mantine.md) |
 | Chakra UI | v3 rewrite on Ark UI; namespaced compound API | [chakra.md](./ui/chakra.md) |
+| UnoCSS | Atomic engine; `presetWind4` tracks Tailwind v4 | [unocss.md](./ui/unocss.md) |
 
 ### Data and state
 | Tool | Headline shift | Notes |
@@ -64,6 +65,7 @@ Each notes file holds the current stable version, the LLM default bias, the para
 | Redux Toolkit | Redux is RTK now; `createSlice`; RTK Query built-in | [redux-toolkit.md](./data/redux-toolkit.md) |
 | Zustand | v5 `useShallow`; native `useSyncExternalStore` | [zustand.md](./data/zustand.md) |
 | Jotai | v2 vanilla store; async atoms hold promises | [jotai.md](./data/jotai.md) |
+| Pinia | Official Vue store (not Vuex); v3 setup stores | [pinia.md](./data/pinia.md) |
 
 Picking one: a server-cache library (TanStack Query) for fetched data, a client-state library (Zustand or Jotai) for local global state, and Redux Toolkit for genuinely complex shared client state. Keep server data out of the client-state libraries.
 
@@ -76,6 +78,7 @@ Picking one: a server-cache library (TanStack Query) for fetched data, a client-
 | ESLint | Flat config (`eslint.config.js`) is the only system | [eslint.md](./tooling/eslint.md) |
 | Package managers | pnpm security-by-default; Bun full toolchain | [package-managers.md](./tooling/package-managers.md) |
 | Biome | One Rust binary for lint + format; type-aware rules | [biome.md](./tooling/biome.md) |
+| Storybook | v10 ESM-only; testing via the Vitest addon | [storybook.md](./tooling/storybook.md) |
 
 ### Testing
 | Tool | Headline shift | Notes |
