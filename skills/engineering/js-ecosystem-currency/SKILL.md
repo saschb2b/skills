@@ -129,6 +129,15 @@ Self-hosted new-project default is Better Auth (the Auth.js team steers new work
 
 Two architectures: runtime dictionaries (i18next, next-intl) with types layered on, versus compiled message functions (Paraglide) that tree-shake.
 
+### Dates and time
+| Tool | Headline shift | Notes |
+| --- | --- | --- |
+| Temporal | Stage 4 / ES2026; immutable types replace `Date` | [temporal.md](./dates/temporal.md) |
+| date-fns | v4 first-class time zones via `@date-fns/tz` | [date-fns.md](./dates/date-fns.md) |
+| Day.js | ~2 KB immutable Moment drop-in; plugin-gated | [dayjs.md](./dates/dayjs.md) |
+
+Prefer native Temporal where supported (or via polyfill); date-fns or Day.js as the lightweight interim. Moment.js is legacy; do not start new projects on it.
+
 ## When a tool is not in the index
 
 The catalogue is not exhaustive, and it dates. For any tool not listed, or when a notes file looks stale, apply the same method by hand:
