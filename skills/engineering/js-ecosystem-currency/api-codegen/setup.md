@@ -34,7 +34,7 @@ import type { CodegenConfig } from "@graphql-codegen/cli";
 
 const config: CodegenConfig = {
   schema: "https://api.example.com/graphql",
-  documents: ["src/**/*.{ts,tsx}"],
+  documents: ["src/**/*.{ts,tsx}", "!src/gql/**/*"],
   ignoreNoDocuments: true,
   generates: {
     "./src/gql/": {
@@ -119,6 +119,16 @@ function FilmsPage() {
 | Card | `FilmCardFragment` | `title`, `releaseDate`, `director` | nothing |
 
 `FilmsPage` literally cannot read `film.title`; TypeScript enforces the boundary. Adding a field to `FilmCardFragment` updates only that component. In gql.tada the pattern is identical with `readFragment()` in place of `getFragmentData()`. Skip fragments for a single flat page that fetches and renders directly.
+
+## More client-preset options
+
+- **Exclude the generated dir from `documents`** (`"!src/gql/**/*"`), or codegen processes its own output and you hit circular dependencies. This is the most common client-preset setup bug.
+- **Import the tag from the generated dir**: `import { graphql } from "./gql"`. Not from `graphql-tag` or a client library.
+- **Persisted documents**: `presetConfig: { persistedDocuments: true }` emits a `persisted-documents.json` hash-to-document map for persisted or trusted queries; read a hash via `MyQuery["__meta__"]["hash"]`.
+- **Testing masked data**: `makeFragmentData(data, FilmCardFragment)` builds a typed masked object so tests can pass fragment props without a real query.
+- **Custom scalars**: `config: { scalars: { DateTime: "string" } }`; add `strictScalars: true` to fail the build on any unmapped scalar (default for unknowns is `unknown`).
+- **`@defer`**: gate rendering on `isFragmentReady()` until the deferred fragment resolves.
+- **Disable masking** entirely with `fragmentMasking: false` if a codebase does not want it.
 
 ## DX pitfalls
 

@@ -20,6 +20,7 @@ The client preset is the official recommended path. You write operations inline 
 - `documentMode: "string"` is for TanStack and custom fetch only. With Apollo or urql it widens results to `any`; those want the default AST mode.
 - Apollo's own docs caution against the client preset for Apollo apps. With Apollo, use `typescript-operations` + `TypedDocumentNode` and pass it into Apollo's `useQuery`. The client preset is the default for urql, TanStack, and graphql-request.
 - The fragment unmask function is named `useFragment()` by default but is not a React hook and ignores the rules of hooks. Set `fragmentMasking: { unmaskFunctionName: 'getFragmentData' }` so ESLint's rules-of-hooks does not flag it.
+- Exclude the generated dir from the `documents` glob (`'!src/gql/**/*'`), or codegen processes its own output and you hit circular dependencies. Import `graphql()` from the generated `./gql`, not from a client library. Persisted/trusted queries are a one-line `persistedDocuments: true`.
 - For a zero-build alternative, gql.tada infers the same `TypedDocumentNode` with no codegen step.
 
 ## Companion
