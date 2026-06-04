@@ -111,6 +111,15 @@ New Vite + React + TS default: Vitest (unit and component) plus Testing Library 
 
 New-project default: React Hook Form + Zod 4 via `@hookform/resolvers`, or TanStack Form + Zod 4 (direct via Standard Schema) for the type-safety-first, multi-framework path. Formik is unmaintained.
 
+### Auth
+| Tool | Headline shift | Notes |
+| --- | --- | --- |
+| Auth.js | NextAuth renamed; v5 beta and maintenance-only | [auth-js.md](./auth/auth-js.md) |
+| Better Auth | TS-native, DB-owned; the rising default for new apps | [better-auth.md](./auth/better-auth.md) |
+| Clerk | Managed; `clerkMiddleware()` and async `auth()` | [clerk.md](./auth/clerk.md) |
+
+Self-hosted new-project default is Better Auth (the Auth.js team steers new work there); Clerk for managed. Lucia is sunset; do not recommend it.
+
 ## When a tool is not in the index
 
 The catalogue is not exhaustive, and it dates. For any tool not listed, or when a notes file looks stale, apply the same method by hand:
