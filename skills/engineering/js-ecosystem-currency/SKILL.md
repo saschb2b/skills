@@ -186,6 +186,15 @@ Stripe (a PSP) when you own tax registration and want maximum control; a merchan
 
 Three complementary layers: errors and replay via Sentry, vendor-neutral traces and metrics via OpenTelemetry, product analytics via PostHog.
 
+### Headless CMS
+| Tool | Headline shift | Notes |
+| --- | --- | --- |
+| Payload | v3 runs inside a Next.js app; served from `/admin` | [payload.md](./cms/payload.md) |
+| Sanity | Config-as-code Studio v5; GROQ + TypeGen typed queries | [sanity.md](./cms/sanity.md) |
+| Strapi | v5 Document Service API; `documentId`; flattened responses | [strapi.md](./cms/strapi.md) |
+
+Payload for code-first TS inside Next.js; Sanity for structured content with GROQ and typed queries; Strapi for a self-hosted Node backend.
+
 ## When a tool is not in the index
 
 The catalogue is not exhaustive, and it dates. For any tool not listed, or when a notes file looks stale, apply the same method by hand:
