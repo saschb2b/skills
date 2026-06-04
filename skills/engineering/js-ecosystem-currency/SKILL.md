@@ -48,6 +48,15 @@ Each notes file holds the current stable version, the LLM default bias, the para
 | Astro | Content Layer API, Server Islands, Actions | [astro.md](./meta-frameworks/astro.md) |
 | TanStack Start | v1 RC full-stack on Router + Vite; `createServerFn` | [tanstack-start.md](./meta-frameworks/tanstack-start.md) |
 
+### UI and styling
+| Tool | Headline shift | Notes |
+| --- | --- | --- |
+| Material UI | v9 (no v2/v8); CSS-variables theming; Grid v2 `size` | [mui.md](./ui/mui.md) |
+| Tailwind CSS | v4 CSS-first `@theme`; no config file; Oxide engine | [tailwind.md](./ui/tailwind.md) |
+| shadcn/ui | `shadcn` CLI; React 19 + Tailwind v4; `data-slot`; OKLCH | [shadcn.md](./ui/shadcn.md) |
+| Mantine | Emotion gone since v7; v9 is React 19.2+ | [mantine.md](./ui/mantine.md) |
+| Chakra UI | v3 rewrite on Ark UI; namespaced compound API | [chakra.md](./ui/chakra.md) |
+
 ## Companion skills
 
 Three sibling skills in this repo go deeper than the notes here. Prefer them when in scope.
