@@ -26,6 +26,8 @@ When you add a new skill, touch four places. Forgetting any of them silently deg
 3. `skills/<bucket>/README.md`. Add a line in the bucket index.
 4. `.claude-plugin/plugin.json`. Add `./skills/<bucket>/<slug>` to the `skills` array.
 
+Then run `node scripts/check-skills.mjs`. It enforces every rule below (the `: ` and ` #` frontmatter traps, `name` matching the folder, the 1024-char description cap, plugin.json registration, and that every relative link inside the skill resolves) and exits non-zero on any failure. Run it before you commit.
+
 ## SKILL.md format
 
 ```markdown
