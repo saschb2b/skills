@@ -88,6 +88,16 @@ Picking one: a server-cache library (TanStack Query) for fetched data, a client-
 
 New Vite + React + TS default: Vitest (unit and component) plus Testing Library plus Playwright (e2e). Jest and Cypress are the secondary choices, not the defaults.
 
+## When a tool is not in the index
+
+The catalogue is not exhaustive, and it dates. For any tool not listed, or when a notes file looks stale, apply the same method by hand:
+
+1. Read the installed version from `package.json` and the lockfile.
+2. Open the tool's official release notes, changelog, or migration guide for that major.
+3. Identify the paradigm the current major moved to, and the pattern it replaced.
+4. Write the Start pattern. Flag the Stop pattern if the code or your default reaches for it.
+5. If the tool deserves a permanent entry, add one with [_template.md](./_template.md).
+
 ## Companion skills
 
 Three sibling skills in this repo go deeper than the notes here. Prefer them when in scope.
