@@ -120,6 +120,15 @@ New-project default: React Hook Form + Zod 4 via `@hookform/resolvers`, or TanSt
 
 Self-hosted new-project default is Better Auth (the Auth.js team steers new work there); Clerk for managed. Lucia is sunset; do not recommend it.
 
+### Internationalization
+| Tool | Headline shift | Notes |
+| --- | --- | --- |
+| i18next | TypeScript-first; module augmentation; Selector API | [i18next.md](./i18n/i18next.md) |
+| next-intl | App Router native; `AppConfig` typing; `setRequestLocale` | [next-intl.md](./i18n/next-intl.md) |
+| Paraglide JS | Compiler-based typed message functions; tree-shakable | [paraglide.md](./i18n/paraglide.md) |
+
+Two architectures: runtime dictionaries (i18next, next-intl) with types layered on, versus compiled message functions (Paraglide) that tree-shake.
+
 ## When a tool is not in the index
 
 The catalogue is not exhaustive, and it dates. For any tool not listed, or when a notes file looks stale, apply the same method by hand:
