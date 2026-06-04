@@ -141,6 +141,16 @@ Two architectures: runtime dictionaries (i18next, next-intl) with types layered 
 
 Prefer native Temporal where supported (or via polyfill); date-fns or Day.js as the lightweight interim. Moment.js is legacy; do not start new projects on it.
 
+### API codegen
+| Tool | Headline shift | Notes |
+| --- | --- | --- |
+| Hey API | REST SDK + TanStack options factories, not hooks | [hey-api.md](./api-codegen/hey-api.md) |
+| GraphQL Codegen | Client preset + `graphql()` document; fragment masking | [graphql-codegen.md](./api-codegen/graphql-codegen.md) |
+| Orval | Hooks-first but options-capable (`useQuery: false`) | [orval.md](./api-codegen/orval.md) |
+| openapi-fetch | Types-only + `createClient`; `$api.useQuery(...)` | [openapi-fetch.md](./api-codegen/openapi-fetch.md) |
+
+Modern codegens stopped emitting framework-specific named hooks (`useGetPetQuery`). They emit framework-agnostic options factories (REST) and typed documents (GraphQL) that you spread or pass into the data library's own hook (`useQuery({ ...getPetOptions(...) })`, `useQuery(MyDocument)`). For full setup, use the dedicated **codegen-api** skill.
+
 ## When a tool is not in the index
 
 The catalogue is not exhaustive, and it dates. For any tool not listed, or when a notes file looks stale, apply the same method by hand:
