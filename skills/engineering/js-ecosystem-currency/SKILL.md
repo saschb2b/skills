@@ -169,6 +169,14 @@ Apollo or urql for stateful UIs (Apollo recommends its own typed documents over 
 
 Modern transactional stack: React Email for templates, an API provider (Resend) to send, Nodemailer when you need raw SMTP.
 
+### Payments
+| Tool | Headline shift | Notes |
+| --- | --- | --- |
+| Stripe | PaymentIntents + Payment Element; Checkout Sessions | [stripe.md](./payments/stripe.md) |
+| Polar | Merchant-of-record; checkout + webhooks grant benefits | [polar.md](./payments/polar.md) |
+
+Stripe (a PSP) when you own tax registration and want maximum control; a merchant-of-record (Polar, Paddle, Stripe Managed Payments) to make worldwide tax someone else's problem.
+
 ## When a tool is not in the index
 
 The catalogue is not exhaustive, and it dates. For any tool not listed, or when a notes file looks stale, apply the same method by hand:
