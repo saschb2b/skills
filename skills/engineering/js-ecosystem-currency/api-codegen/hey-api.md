@@ -18,9 +18,10 @@ Hey API generates a framework-agnostic SDK (typed functions over a configurable 
 | Locking the codegen to one HTTP lib | Select the client (`@hey-api/client-fetch`, `-axios`, `-next`) separately |
 
 ## Gotchas
-- Still 0.x; minor bumps can carry breaking config changes. Pin the version.
-- The TanStack plugin requires a configured client plugin; SDK, client, and query layers are separate concerns.
-- Config is a `plugins: [...]` array; older single-purpose flags are legacy.
+- Still 0.x; minor bumps can carry breaking config changes. Pin the version (`-E`).
+- A client plugin (`@hey-api/client-fetch`/`-axios`/`-next`) is required; there is no default client since v0.51 (legacy clients removed in v0.87). Configure it at runtime via `client.setConfig(...)`, not in the codegen config.
+- Config is a `plugins: [...]` array; older top-level flags (`services`, `schemas`, `client`) are legacy. The SDK emits flat tree-shakeable functions, not a `DefaultService` class.
+- Runtime validation is wired through the SDK `validator` option backed by the `zod` plugin, not by importing schemas by hand.
 
 ## Companion
 Full setup and usage are inlined in [setup.md](./setup.md). The standalone **codegen-api** skill is an optional deeper dive on the same material. Server-cache notes in [../data/tanstack-query.md](../data/tanstack-query.md).

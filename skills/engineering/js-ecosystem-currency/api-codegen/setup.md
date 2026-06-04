@@ -11,20 +11,97 @@ import { defineConfig } from "@hey-api/openapi-ts";
 export default defineConfig({
   input: "./openapi.yaml",
   output: "src/client",
-  plugins: ["@hey-api/typescript", "@hey-api/sdk", "@tanstack/react-query"],
+  plugins: [
+    "@hey-api/client-fetch", // a client is REQUIRED since v0.51 (fetch/axios/next/...)
+    "@hey-api/typescript",
+    "@hey-api/sdk",
+    "@tanstack/react-query",
+    "zod",
+  ],
 });
 ```
 
-Add `"codegen:api": "openapi-ts"` to `package.json`, then use the options factory with TanStack's own hook:
+Pin an exact version (`npm i -D -E @hey-api/openapi-ts`); the package is pre-1.0. Add `"codegen:api": "openapi-ts"` to `package.json`. Configure the client at runtime on the generated instance, not in the codegen config:
+
+```ts
+import { client } from "./client/client.gen";
+client.setConfig({ baseUrl: "https://api.example.com", auth: () => token });
+```
+
+The TanStack plugin emits options factories, not hooks. Spread them into TanStack's own hooks:
 
 ```tsx
-const { data } = useQuery({
-  ...getPetByIdOptions({ path: { petId } }),
-  staleTime: 5000,
+// Query: suffix Options; the key comes off the same factory
+const { data } = useQuery({ ...getPetByIdOptions({ path: { petId } }), staleTime: 5000 });
+const { queryKey } = getPetByIdOptions({ path: { petId } });
+
+// Mutation: suffix Mutation
+const addPet = useMutation({ ...addPetMutation() });
+addPet.mutate({ body: { name: "Kitty" } });
+```
+
+Suffixes are `Options`, `QueryKey`, `InfiniteOptions`, `Mutation` (each has `.name`/`.case` overrides). Runtime validation is wired through the SDK plugin's `validator` option (`validator: true` / `'zod'` / `{ request: 'zod' }`), backed by the `zod` plugin, not by importing schemas by hand. The SDK emits tree-shakeable flat functions; the old `DefaultService` class output is gone.
+
+## Orval (REST, hooks-first but options-capable)
+
+```ts
+// orval.config.ts
+import { defineConfig } from "orval";
+
+export default defineConfig({
+  petstore: {
+    input: "./petstore.yaml",
+    output: {
+      mode: "tags-split",
+      target: "src/api/petstore.ts",
+      schemas: "src/api/model",
+      client: "react-query", // react-query | swr | vue-query | svelte-query | fetch | axios | zod | ...
+      httpClient: "fetch",   // 'fetch' is the v8 default; 'axios' to use Axios (query clients only)
+    },
+  },
 });
 ```
 
-Add the `zod` plugin to the array for runtime validation at the boundary.
+Orval generates one named hook per operation by default (`useShowPetById`). That is fine, but to use the options form configure `override.query` (suppress a hook with `useQuery: false`, then consume the generated `queryOptions`/`queryKey`):
+
+```ts
+output: {
+  client: "react-query",
+  override: {
+    query: { useQuery: false, useSuspenseQuery: true, useInfinite: true, useInfiniteQueryParam: "cursor", shouldSplitQueryKey: true },
+    mutator: { path: "./api/mutator/custom-instance.ts", name: "customInstance" },
+  },
+},
+```
+
+The flag is `useInfinite`, not `useInfiniteQuery`. Emit Zod with a separate output target set to `client: "zod"`. v8 notes: `httpClient` now defaults to `fetch`; mock config moved to a `generators` array (`mock: { generators: [{ type: "msw" }, { type: "faker" }] }`) and `mock: true` emits both MSW and Faker; non-GET query keys are namespaced by verb (`["POST", "/pets", body]`); Orval is ESM-only and needs Node 22.18+.
+
+## openapi-typescript + openapi-fetch + openapi-react-query (REST, no generated hooks)
+
+Generate types only, then infer everything at runtime. No per-operation hooks or service classes are generated.
+
+```sh
+# types only, no runtime emitted
+npx openapi-typescript ./schema.yaml -o ./src/api/v1.d.ts
+```
+
+```ts
+import createFetchClient from "openapi-fetch";
+import createClient from "openapi-react-query";
+import type { paths } from "./api/v1";
+
+const fetchClient = createFetchClient<paths>({ baseUrl: "https://api.example.com/v1/" });
+const $api = createClient(fetchClient); // wraps the fetch client, NOT <paths>
+
+// Direct fetch: returns { data, error }, never throws on 4xx/5xx
+const { data, error } = await fetchClient.GET("/pets/{petId}", { params: { path: { petId } } });
+
+// As a hook (query key is [method, path, params])
+const { data: pet } = $api.useQuery("get", "/pets/{petId}", { params: { path: { petId } } });
+$api.useMutation("patch", "/pets").mutate({ body: { name: "Kitty" } });
+```
+
+Gotchas: the `<paths>` generic goes on `createFetchClient`, not on openapi-react-query's `createClient`. Results are a `{ data, error }` discriminated union, so narrow on which is present instead of using try/catch. `openapi-react-query` needs `@tanstack/react-query` v5 as a peer. The three packages version independently (fetch and react-query are still 0.x).
 
 ## graphql-codegen client preset (Apollo / urql)
 
@@ -66,7 +143,30 @@ For TanStack Query plus a custom fetch wrapper, add `config.documentMode: "strin
 }
 ```
 
-No codegen script. Types update with TypeScript.
+No codegen script; types update with TypeScript. On TypeScript 5.5+ the plugin bundles the LSP (`@0no-co/graphqlsp`); on older TS, install `@0no-co/graphqlsp` and name it in the plugin slot instead. The plugin powers editor diagnostics only, so inference still works at `tsc` time without it.
+
+Create a schema-typed `graphql()` with `initGraphQLTada`, then read result and variable types:
+
+```ts
+import { initGraphQLTada } from "gql.tada";
+import type { introspection } from "./graphql-env.d.ts";
+export const graphql = initGraphQLTada<{ introspection: introspection }>();
+
+import { ResultOf, VariablesOf } from "gql.tada";
+const q = graphql(`query Pokemons($limit: Int!) { pokemons(limit: $limit) { id name } }`);
+type Result = ResultOf<typeof q>;
+```
+
+Fragments pass their dependencies as the second array argument, colocate via `FragmentOf<typeof X>`, and unwrap with `readFragment()` (there is no `unmaskFragments`):
+
+```ts
+const PokemonFragment = graphql(`fragment Pokemon on Pokemon { id name ...Types }`, [TypesFragment]);
+function Card(props: { data: FragmentOf<typeof PokemonFragment> }) {
+  const p = readFragment(PokemonFragment, props.data);
+}
+```
+
+CLI commands are hyphenated: `gql-tada generate-output`, `generate-schema`, `generate-persisted`, and `gql-tada turbo` for an ahead-of-time type cache (check it into the repo to speed up `tsc` on large schemas). Persisted queries use `graphql.persisted("ID", doc)` plus `gql-tada generate-persisted`.
 
 ## Fragment masking (component composition)
 

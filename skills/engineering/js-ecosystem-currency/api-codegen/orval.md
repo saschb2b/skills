@@ -20,6 +20,7 @@ Orval still defaults to generating named hooks, but it is now configurable: you 
 - Default behavior is unchanged (named hooks); the options shift is opt-in.
 - v8 carried breaking changes versus v7 (mock config moved to a `generators` array; query keys now include the HTTP verb for non-GET ops). Re-read config when upgrading.
 - For React Query v5, ensure the output targets v5 (suspense and infinite signatures differ from v4).
+- The query-block flag is `useInfinite` (not `useInfiniteQuery`); `mock: true` now emits both MSW and Faker; v8 is ESM-only (Node 22.18+).
 
 ## Companion
 Setup for the alternatives is inlined in [setup.md](./setup.md). The standalone **codegen-api** skill is an optional deeper dive on choosing between Orval, Hey API, and openapi-fetch.

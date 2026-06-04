@@ -20,6 +20,7 @@ Codegen produces only types; runtime safety comes from inference. `openapi-types
 - Three packages with independent semver; fetch and react-query are still 0.x, so pin and check changelogs.
 - `openapi-react-query` is a thin wrapper and needs `@tanstack/react-query` v5 as a peer.
 - For a richer generated SDK plus Zod, Hey API is the heavier-featured alternative; this stack is the no-generated-hooks path.
+- The `<paths>` generic goes on `createFetchClient`, not on openapi-react-query's `createClient` (which takes the built fetch client). Results are `{ data, error }` and never throw on 4xx/5xx; narrow on which is present rather than using try/catch.
 
 ## Companion
 Setup and the REST decision matrix are inlined in [setup.md](./setup.md). The standalone **codegen-api** skill is an optional deeper dive. Server-cache notes in [../data/tanstack-query.md](../data/tanstack-query.md).
