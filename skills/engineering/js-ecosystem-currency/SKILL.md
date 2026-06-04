@@ -38,6 +38,16 @@ Each notes file holds the current stable version, the LLM default bias, the para
 | Svelte | Runes (`$state`/`$derived`/`$effect`), snippets | [svelte.md](./frameworks/svelte.md) |
 | Solid | 1.x stable; 2.0 makes async first-class | [solid.md](./frameworks/solid.md) |
 
+### Meta-frameworks
+| Tool | Headline shift | Notes |
+| --- | --- | --- |
+| Next.js | App Router + RSC default; explicit `"use cache"`; Turbopack | [nextjs.md](./meta-frameworks/nextjs.md) |
+| Nuxt | `app/` srcDir default; Nitro 3 waits for Nuxt 5 | [nuxt.md](./meta-frameworks/nuxt.md) |
+| React Router | Remix v2 merged in; framework mode is the successor | [react-router.md](./meta-frameworks/react-router.md) |
+| SvelteKit | Runes; remote functions (experimental) | [sveltekit.md](./meta-frameworks/sveltekit.md) |
+| Astro | Content Layer API, Server Islands, Actions | [astro.md](./meta-frameworks/astro.md) |
+| TanStack Start | v1 RC full-stack on Router + Vite; `createServerFn` | [tanstack-start.md](./meta-frameworks/tanstack-start.md) |
+
 ## Companion skills
 
 Three sibling skills in this repo go deeper than the notes here. Prefer them when in scope.
