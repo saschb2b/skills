@@ -151,6 +151,15 @@ Prefer native Temporal where supported (or via polyfill); date-fns or Day.js as 
 
 Modern codegens stopped emitting framework-specific named hooks (`useGetPetQuery`). They emit framework-agnostic options factories (REST) and typed documents (GraphQL) that you spread or pass into the data library's own hook (`useQuery({ ...getPetOptions(...) })`, `useQuery(MyDocument)`). For full setup, use the dedicated **codegen-api** skill.
 
+### GraphQL clients
+| Tool | Headline shift | Notes |
+| --- | --- | --- |
+| Apollo Client | v4 splits React out (`@apollo/client/react`); RxJS | [apollo-client.md](./graphql/apollo-client.md) |
+| urql | v5 exchange-based; opt-in Graphcache; TypedDocumentNode | [urql.md](./graphql/urql.md) |
+| graphql-request | v7 minimal fetch client; TypedDocumentNode; Graffle rewrite | [graphql-request.md](./graphql/graphql-request.md) |
+
+Apollo or urql for stateful UIs (Apollo recommends its own typed documents over the codegen client preset); graphql-request for scripts and SSR. Relay remains the compiler-driven option for large apps.
+
 ## When a tool is not in the index
 
 The catalogue is not exhaustive, and it dates. For any tool not listed, or when a notes file looks stale, apply the same method by hand:
