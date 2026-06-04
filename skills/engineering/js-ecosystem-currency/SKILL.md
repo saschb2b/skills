@@ -160,6 +160,15 @@ Modern codegens stopped emitting framework-specific named hooks (`useGetPetQuery
 
 Apollo or urql for stateful UIs (Apollo recommends its own typed documents over the codegen client preset); graphql-request for scripts and SSR. Relay remains the compiler-driven option for large apps.
 
+### Email
+| Tool | Headline shift | Notes |
+| --- | --- | --- |
+| React Email | v6 unified `react-email` package; async `render()` | [react-email.md](./email/react-email.md) |
+| Resend | API-first; pass a React component; batch, idempotency | [resend.md](./email/resend.md) |
+| Nodemailer | v8 SMTP; `'NoAuth'` is now `'ENOAUTH'`; SESv2 | [nodemailer.md](./email/nodemailer.md) |
+
+Modern transactional stack: React Email for templates, an API provider (Resend) to send, Nodemailer when you need raw SMTP.
+
 ## When a tool is not in the index
 
 The catalogue is not exhaustive, and it dates. For any tool not listed, or when a notes file looks stale, apply the same method by hand:
