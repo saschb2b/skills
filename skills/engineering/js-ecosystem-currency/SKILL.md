@@ -57,6 +57,16 @@ Each notes file holds the current stable version, the LLM default bias, the para
 | Mantine | Emotion gone since v7; v9 is React 19.2+ | [mantine.md](./ui/mantine.md) |
 | Chakra UI | v3 rewrite on Ark UI; namespaced compound API | [chakra.md](./ui/chakra.md) |
 
+### Data and state
+| Tool | Headline shift | Notes |
+| --- | --- | --- |
+| TanStack Query | v5 single object arg; `useSuspenseQuery`; `gcTime` | [tanstack-query.md](./data/tanstack-query.md) |
+| Redux Toolkit | Redux is RTK now; `createSlice`; RTK Query built-in | [redux-toolkit.md](./data/redux-toolkit.md) |
+| Zustand | v5 `useShallow`; native `useSyncExternalStore` | [zustand.md](./data/zustand.md) |
+| Jotai | v2 vanilla store; async atoms hold promises | [jotai.md](./data/jotai.md) |
+
+Picking one: a server-cache library (TanStack Query) for fetched data, a client-state library (Zustand or Jotai) for local global state, and Redux Toolkit for genuinely complex shared client state. Keep server data out of the client-state libraries.
+
 ## Companion skills
 
 Three sibling skills in this repo go deeper than the notes here. Prefer them when in scope.

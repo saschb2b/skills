@@ -20,6 +20,9 @@ TanStack Start is a full-stack meta-framework on top of TanStack Router plus Vit
 - RSC support is slated as a non-breaking v1.x addition, not part of initial 1.0.
 - It is distinct from TanStack Router. Start is the SSR and full-stack layer; Router is the routing library underneath.
 
+## Companion
+Server-state notes in [../data/tanstack-query.md](../data/tanstack-query.md).
+
 ## Sources
 - https://tanstack.com/start/latest
 - https://github.com/TanStack/router/releases
