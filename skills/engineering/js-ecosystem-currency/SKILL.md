@@ -195,6 +195,15 @@ Three complementary layers: errors and replay via Sentry, vendor-neutral traces 
 
 Payload for code-first TS inside Next.js; Sanity for structured content with GROQ and typed queries; Strapi for a self-hosted Node backend.
 
+### AI SDKs
+| Tool | Headline shift | Notes |
+| --- | --- | --- |
+| Vercel AI SDK | v6 agents; `UIMessage` parts; `inputSchema`, `stopWhen` | [vercel-ai-sdk.md](./ai-sdk/vercel-ai-sdk.md) |
+| Anthropic SDK | Messages API; `messages.stream()`; cache without beta header | [anthropic-sdk.md](./ai-sdk/anthropic-sdk.md) |
+| OpenAI SDK | Responses API (`responses.create`) over chat completions | [openai-sdk.md](./ai-sdk/openai-sdk.md) |
+
+Vercel AI SDK for provider-agnostic app code (chat UIs, streaming, agents); the official provider SDKs for direct access. The dedicated **claude-api** skill covers building Anthropic apps in depth.
+
 ## When a tool is not in the index
 
 The catalogue is not exhaustive, and it dates. For any tool not listed, or when a notes file looks stale, apply the same method by hand:
