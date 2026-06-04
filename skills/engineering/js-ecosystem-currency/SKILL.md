@@ -88,6 +88,17 @@ Picking one: a server-cache library (TanStack Query) for fetched data, a client-
 
 New Vite + React + TS default: Vitest (unit and component) plus Testing Library plus Playwright (e2e). Jest and Cypress are the secondary choices, not the defaults.
 
+### Backend
+| Tool | Headline shift | Notes |
+| --- | --- | --- |
+| Express | v5 auto-forwards async rejections; new routing syntax | [express.md](./backend/express.md) |
+| Hono | Web-standard, runtime-agnostic; zero-codegen RPC | [hono.md](./backend/hono.md) |
+| Fastify | v5 needs Node 20+; deprecations removed | [fastify.md](./backend/fastify.md) |
+| Nitro | Deploy-anywhere; Nitro 3 + h3 v2 rewrite (beta) | [nitro.md](./backend/nitro.md) |
+| Drizzle ORM | 1.0 RC; RQB v2; validators as subpaths | [drizzle.md](./backend/drizzle.md) |
+| Prisma ORM | v7 drops the Rust engine; driver adapters required | [prisma.md](./backend/prisma.md) |
+| tRPC | v11 native TanStack Query options; RSC support | [trpc.md](./backend/trpc.md) |
+
 ## When a tool is not in the index
 
 The catalogue is not exhaustive, and it dates. For any tool not listed, or when a notes file looks stale, apply the same method by hand:
