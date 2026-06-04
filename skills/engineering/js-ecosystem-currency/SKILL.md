@@ -67,6 +67,16 @@ Each notes file holds the current stable version, the LLM default bias, the para
 
 Picking one: a server-cache library (TanStack Query) for fetched data, a client-state library (Zustand or Jotai) for local global state, and Redux Toolkit for genuinely complex shared client state. Keep server data out of the client-state libraries.
 
+### Tooling and language
+| Tool | Headline shift | Notes |
+| --- | --- | --- |
+| TypeScript | ESM-first strict configs; Go-based `tsgo` in preview | [typescript.md](./tooling/typescript.md) |
+| Vite | ESM-only; Rolldown unifies the bundler | [vite.md](./tooling/vite.md) |
+| Node.js | Native TS type stripping; `node:test`; `--watch` | [node.md](./tooling/node.md) |
+| ESLint | Flat config (`eslint.config.js`) is the only system | [eslint.md](./tooling/eslint.md) |
+| Package managers | pnpm security-by-default; Bun full toolchain | [package-managers.md](./tooling/package-managers.md) |
+| Biome | One Rust binary for lint + format; type-aware rules | [biome.md](./tooling/biome.md) |
+
 ## Companion skills
 
 Three sibling skills in this repo go deeper than the notes here. Prefer them when in scope.
