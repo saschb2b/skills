@@ -57,6 +57,7 @@ Each notes file holds the current stable version, the LLM default bias, the para
 | Mantine | Emotion gone since v7; v9 is React 19.2+ | [mantine.md](./ui/mantine.md) |
 | Chakra UI | v3 rewrite on Ark UI; namespaced compound API | [chakra.md](./ui/chakra.md) |
 | UnoCSS | Atomic engine; `presetWind4` tracks Tailwind v4 | [unocss.md](./ui/unocss.md) |
+| Motion | `framer-motion` is now `motion`; import `motion/react` | [motion.md](./ui/motion.md) |
 
 ### Data and state
 | Tool | Headline shift | Notes |
@@ -79,6 +80,8 @@ Picking one: a server-cache library (TanStack Query) for fetched data, a client-
 | Package managers | pnpm security-by-default; Bun full toolchain | [package-managers.md](./tooling/package-managers.md) |
 | Biome | One Rust binary for lint + format; type-aware rules | [biome.md](./tooling/biome.md) |
 | Storybook | v10 ESM-only; testing via the Vitest addon | [storybook.md](./tooling/storybook.md) |
+| Turborepo | v2 `tasks` key (not `pipeline`); Rust; `turbo watch` | [turborepo.md](./tooling/turborepo.md) |
+| Nx | v22 Project Crystal inferred targets; polyglot | [nx.md](./tooling/nx.md) |
 
 ### Testing
 | Tool | Headline shift | Notes |
