@@ -99,6 +99,15 @@ New Vite + React + TS default: Vitest (unit and component) plus Testing Library 
 | Prisma ORM | v7 drops the Rust engine; driver adapters required | [prisma.md](./backend/prisma.md) |
 | tRPC | v11 native TanStack Query options; RSC support | [trpc.md](./backend/trpc.md) |
 
+### Forms and validation
+| Tool | Headline shift | Notes |
+| --- | --- | --- |
+| Zod | v4 rewrite; top-level `z.email()`; unified `error` param | [zod.md](./forms/zod.md) |
+| React Hook Form | v7 spread `register`; validate via a resolver | [react-hook-form.md](./forms/react-hook-form.md) |
+| TanStack Form | v1 stable, headless; Standard Schema (no resolver) | [tanstack-form.md](./forms/tanstack-form.md) |
+
+New-project default: React Hook Form + Zod 4 via `@hookform/resolvers`, or TanStack Form + Zod 4 (direct via Standard Schema) for the type-safety-first, multi-framework path. Formik is unmaintained.
+
 ## When a tool is not in the index
 
 The catalogue is not exhaustive, and it dates. For any tool not listed, or when a notes file looks stale, apply the same method by hand:
