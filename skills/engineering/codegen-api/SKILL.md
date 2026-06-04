@@ -58,7 +58,7 @@ const config: CodegenConfig = {
     "./src/gql/": {
       preset: "client",
       config: { enumsAsTypes: true },
-      presetConfig: { fragmentMasking: true },
+      presetConfig: { fragmentMasking: { unmaskFunctionName: "getFragmentData" } },
     },
   },
 };

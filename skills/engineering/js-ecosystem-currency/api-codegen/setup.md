@@ -40,7 +40,7 @@ const config: CodegenConfig = {
     "./src/gql/": {
       preset: "client",
       config: { enumsAsTypes: true },
-      presetConfig: { fragmentMasking: true },
+      presetConfig: { fragmentMasking: { unmaskFunctionName: "getFragmentData" } },
     },
   },
 };
@@ -70,18 +70,20 @@ No codegen script. Types update with TypeScript.
 
 ## Fragment masking (component composition)
 
-Each component declares its own data via a fragment. The prop type is `FragmentType<typeof XFragment>`, which is opaque: a parent cannot read fields it did not request. Only the owner unwraps with `useFragment()`.
+Each component declares its own data via a fragment. The prop type is `FragmentType<typeof XFragment>`, which is opaque: a parent cannot read fields it did not request. Only the owner unwraps it.
+
+> The unwrap function is named `useFragment()` by default, but despite the `use` prefix it is NOT a React hook and does not follow the rules of hooks. Rename it to `getFragmentData()` via `unmaskFunctionName` (in the config above) so ESLint's rules-of-hooks does not raise false positives. The examples below use `getFragmentData()`.
 
 ```tsx
 // Leaf
-import { graphql, FragmentType, useFragment } from "../gql";
+import { graphql, FragmentType, getFragmentData } from "../gql";
 
 export const FilmCardFragment = graphql(`
   fragment FilmCard on Film { title releaseDate director }
 `);
 
 function FilmCard(props: { film: FragmentType<typeof FilmCardFragment> }) {
-  const film = useFragment(FilmCardFragment, props.film);
+  const film = getFragmentData(FilmCardFragment, props.film);
   return <article><h3>{film.title}</h3><p>{film.director}</p></article>;
 }
 ```
@@ -93,7 +95,7 @@ export const FilmListFragment = graphql(`
 `);
 
 function FilmList(props: { data: FragmentType<typeof FilmListFragment> }) {
-  const conn = useFragment(FilmListFragment, props.data);
+  const conn = getFragmentData(FilmListFragment, props.data);
   return <ul>{conn.films?.map((f) => <li key={f?.id}><FilmCard film={f} /></li>)}</ul>;
 }
 ```
@@ -116,7 +118,7 @@ function FilmsPage() {
 | List | `FilmListFragment` | `id`, `totalCount` | `...FilmCard` |
 | Card | `FilmCardFragment` | `title`, `releaseDate`, `director` | nothing |
 
-`FilmsPage` literally cannot read `film.title`; TypeScript enforces the boundary. Adding a field to `FilmCardFragment` updates only that component. In gql.tada the pattern is identical with `readFragment()` in place of `useFragment()`. Skip fragments for a single flat page that fetches and renders directly.
+`FilmsPage` literally cannot read `film.title`; TypeScript enforces the boundary. Adding a field to `FilmCardFragment` updates only that component. In gql.tada the pattern is identical with `readFragment()` in place of `getFragmentData()`. Skip fragments for a single flat page that fetches and renders directly.
 
 ## DX pitfalls
 

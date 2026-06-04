@@ -12,13 +12,14 @@ The client preset is the official recommended path. You write operations inline 
 | --- | --- |
 | `typescript-react-apollo` / `typescript-react-query` generated hooks | Client preset + `graphql()` document passed into your client's `useQuery` |
 | Scattered `.graphql` files + `*.generated.ts` | Inline `graphql(\`...\`)` with one `gql/` output dir |
-| Exposing full nested query types to every component | `fragmentMasking` with `useFragment` / `getFragmentData` |
+| Exposing full nested query types to every component | `fragmentMasking` with `getFragmentData` (the unmask function) |
 | AST documents when pairing with TanStack Query | `documentMode: "string"` (`TypedDocumentString`) plus a tiny fetch wrapper |
 | `gql` from your client lib for typing | The codegen-generated `graphql()` as the typing source |
 
 ## Gotchas
 - `documentMode: "string"` is for TanStack and custom fetch only. With Apollo or urql it widens results to `any`; those want the default AST mode.
 - Apollo's own docs caution against the client preset for Apollo apps. With Apollo, use `typescript-operations` + `TypedDocumentNode` and pass it into Apollo's `useQuery`. The client preset is the default for urql, TanStack, and graphql-request.
+- The fragment unmask function is named `useFragment()` by default but is not a React hook and ignores the rules of hooks. Set `fragmentMasking: { unmaskFunctionName: 'getFragmentData' }` so ESLint's rules-of-hooks does not flag it.
 - For a zero-build alternative, gql.tada infers the same `TypedDocumentNode` with no codegen step.
 
 ## Companion

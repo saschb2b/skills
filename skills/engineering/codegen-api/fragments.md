@@ -15,12 +15,14 @@ Every slightly different query produced its own near-duplicate types. Every quer
 
 ## The 2026 approach
 
-Each component declares the data it needs via a fragment. The prop type is `FragmentType<typeof XFragment>`, which is opaque: the parent cannot accidentally access fields it did not request. Only the owning component can unwrap with `useFragment()`.
+Each component declares the data it needs via a fragment. The prop type is `FragmentType<typeof XFragment>`, which is opaque: the parent cannot accidentally access fields it did not request. Only the owning component can unwrap it.
+
+> The unwrap function is named `useFragment()` by default, but despite the `use` prefix it is NOT a React hook and does not follow the rules of hooks. Set `presetConfig.fragmentMasking.unmaskFunctionName: "getFragmentData"` in `codegen.ts` to rename it and avoid ESLint rules-of-hooks false positives. The examples below use `getFragmentData()`.
 
 ### Leaf component
 
 ```tsx
-import { graphql, FragmentType, useFragment } from "../gql";
+import { graphql, FragmentType, getFragmentData } from "../gql";
 
 export const FilmCardFragment = graphql(`
   fragment FilmCard on Film {
@@ -31,7 +33,7 @@ export const FilmCardFragment = graphql(`
 `);
 
 function FilmCard(props: { film: FragmentType<typeof FilmCardFragment> }) {
-  const film = useFragment(FilmCardFragment, props.film);
+  const film = getFragmentData(FilmCardFragment, props.film);
   return (
     <div>
       <h3>{film.title}</h3>
@@ -56,7 +58,7 @@ export const FilmListFragment = graphql(`
 `);
 
 function FilmList(props: { data: FragmentType<typeof FilmListFragment> }) {
-  const connection = useFragment(FilmListFragment, props.data);
+  const connection = getFragmentData(FilmListFragment, props.data);
   return (
     <section>
       <h2>{connection.totalCount} films</h2>
@@ -112,7 +114,7 @@ A single page that fetches data and renders it directly, no child components inv
 
 ## In gql.tada
 
-Same pattern, different helper. Use `readFragment()` in place of `useFragment()`.
+Same pattern, different helper. Use `readFragment()` in place of `getFragmentData()`.
 
 ## Source
 
