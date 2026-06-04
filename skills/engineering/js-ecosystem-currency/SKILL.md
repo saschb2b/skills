@@ -177,6 +177,15 @@ Modern transactional stack: React Email for templates, an API provider (Resend) 
 
 Stripe (a PSP) when you own tax registration and want maximum control; a merchant-of-record (Polar, Paddle, Stripe Managed Payments) to make worldwide tax someone else's problem.
 
+### Observability
+| Tool | Headline shift | Notes |
+| --- | --- | --- |
+| Sentry | v10 functional integrations; Node SDK on OpenTelemetry | [sentry.md](./observability/sentry.md) |
+| OpenTelemetry JS | SDK 2.x; traces and metrics stable; `api` stays 1.x | [opentelemetry.md](./observability/opentelemetry.md) |
+| PostHog | `defaults` snapshot init; region hosts; one bundled SDK | [posthog.md](./observability/posthog.md) |
+
+Three complementary layers: errors and replay via Sentry, vendor-neutral traces and metrics via OpenTelemetry, product analytics via PostHog.
+
 ## When a tool is not in the index
 
 The catalogue is not exhaustive, and it dates. For any tool not listed, or when a notes file looks stale, apply the same method by hand:
