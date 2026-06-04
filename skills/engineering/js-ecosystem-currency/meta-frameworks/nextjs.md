@@ -23,7 +23,7 @@ The App Router is the only modern path and Server Components are the default. Tu
 - Parallel route slots now need an explicit `default.js` or the build fails.
 
 ## Companion
-React paradigm notes in [../frameworks/react.md](../frameworks/react.md). API codegen in the **codegen-api** skill.
+React paradigm notes in [../frameworks/react.md](../frameworks/react.md). API codegen setup in [../api-codegen/setup.md](../api-codegen/setup.md).
 
 ## Sources
 - https://nextjs.org/blog/next-16

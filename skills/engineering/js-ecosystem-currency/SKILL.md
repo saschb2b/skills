@@ -216,14 +216,18 @@ The catalogue is not exhaustive, and it dates. For any tool not listed, or when 
 
 ## Companion skills (optional, never required)
 
-This skill is self-contained. Every notes file carries the current version and the paradigm correction on its own, so installing `js-ecosystem-currency` alone gives the full guidance with no other skill present. There are no cross-skill file links anywhere in this skill, only by-name pointers.
+This skill is self-contained, including the deep teachable material. The version and paradigm correction live in each notes file; the longer artifacts are inlined as deep-dive files inside this skill, so installing `js-ecosystem-currency` alone gives 100% of the teaching with no other skill present:
 
-A few sibling skills in this repo go one level deeper on a single topic. They are optional power-ups, not dependencies: if a reader also has one installed it carries the deep workflow; if not, nothing breaks and the paradigm guidance here is still complete.
+- [api-codegen/setup.md](./api-codegen/setup.md). Codegen configs, the fragment-masking example, the gql.tada path, DX pitfalls.
+- [frameworks/react-rules.md](./frameworks/react-rules.md). The strict React Compiler lint config and the five silent-bail patterns.
+- [ui/theme-colors.md](./ui/theme-colors.md). The color-role vocabulary, `alpha()`, and the audit workflow.
 
-- **react-compiler**. The manual-memoization audit workflow and the silent compiler-bail patterns.
-- **codegen-api**. Full API-codegen setup, fragment-masking examples, and the decision matrix.
-- **theme-colors**. Color-role usage for Material UI and other themed systems.
-- **claude-api**. Building Anthropic/Claude API apps in depth (prompt caching, model migration).
+There are no cross-skill file links anywhere, only by-name pointers. The sibling skills below are optional standalone alternatives on those same topics (distilled from the same blog posts). You do not need any of them; they are the maintained source if an inlined copy drifts, and `claude-api` goes further than this skill's paradigm scope.
+
+- **react-compiler**. Standalone deep-dive on the React Compiler.
+- **codegen-api**. Standalone deep-dive on typesafe API codegen.
+- **theme-colors**. Standalone deep-dive on role-based color.
+- **claude-api**. Building Anthropic/Claude API apps end to end (beyond version-and-paradigm currency).
 
 ## Extending this skill
 

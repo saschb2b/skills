@@ -22,7 +22,7 @@ The client preset is the official recommended path. You write operations inline 
 - For a zero-build alternative, gql.tada infers the same `TypedDocumentNode` with no codegen step.
 
 ## Companion
-For full setup, fragment masking examples, and the gql.tada path, use the **codegen-api** skill.
+Full setup, the three-layer fragment-masking example, and the gql.tada path are inlined in [setup.md](./setup.md). The standalone **codegen-api** skill is an optional deeper dive on the same material.
 
 ## Sources
 - https://the-guild.dev/graphql/codegen/plugins/presets/preset-client

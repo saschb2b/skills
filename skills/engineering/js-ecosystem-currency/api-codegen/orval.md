@@ -22,7 +22,7 @@ Orval still defaults to generating named hooks, but it is now configurable: you 
 - For React Query v5, ensure the output targets v5 (suspense and infinite signatures differ from v4).
 
 ## Companion
-For choosing between Orval, Hey API, and openapi-fetch, use the **codegen-api** skill.
+Setup for the alternatives is inlined in [setup.md](./setup.md). The standalone **codegen-api** skill is an optional deeper dive on choosing between Orval, Hey API, and openapi-fetch.
 
 ## Sources
 - https://orval.dev/reference/configuration/output

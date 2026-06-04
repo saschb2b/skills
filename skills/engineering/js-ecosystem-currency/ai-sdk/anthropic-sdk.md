@@ -23,7 +23,7 @@ The Messages API (`client.messages.create` with a structured `messages` array an
 - For managed deployments use `@anthropic-ai/bedrock-sdk` or `@anthropic-ai/vertex-sdk`.
 
 ## Companion
-For building Claude API apps in depth (prompt caching, model migration), use the **claude-api** skill.
+The Messages API and the prompt-caching paradigm are covered in the table above. For building Anthropic apps end to end (caching strategy, model migration), the **claude-api** skill is an optional deeper dive that goes beyond version-and-paradigm currency.
 
 ## Sources
 - https://github.com/anthropics/anthropic-sdk-typescript

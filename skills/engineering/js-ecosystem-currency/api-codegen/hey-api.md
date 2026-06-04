@@ -23,7 +23,7 @@ Hey API generates a framework-agnostic SDK (typed functions over a configurable 
 - Config is a `plugins: [...]` array; older single-purpose flags are legacy.
 
 ## Companion
-For full setup and the decision matrix, use the **codegen-api** skill. Server-cache notes in [../data/tanstack-query.md](../data/tanstack-query.md).
+Full setup and usage are inlined in [setup.md](./setup.md). The standalone **codegen-api** skill is an optional deeper dive on the same material. Server-cache notes in [../data/tanstack-query.md](../data/tanstack-query.md).
 
 ## Sources
 - https://heyapi.dev/openapi-ts/plugins/tanstack-query

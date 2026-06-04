@@ -24,7 +24,7 @@ React 19 made Actions, the `use()` primitive, `ref` as a regular prop, and `<for
 - `use()` follows render purity but, unlike a hook, may be called conditionally.
 
 ## Companion
-Optional deeper dive: the **react-compiler** skill adds the full manual-memoization audit and the silent compiler-bail patterns. It is not required. The rule and the three keep-cases above stand on their own.
+The strict `eslint-plugin-react-hooks` config and the five silent compiler-bail patterns are inlined in [react-rules.md](./react-rules.md). The standalone **react-compiler** skill is an optional deeper dive on the same material; it is not required.
 
 ## Sources
 - https://react.dev/versions

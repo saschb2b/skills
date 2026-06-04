@@ -23,7 +23,7 @@ The major line jumped v5 to v6 to v7 to v9 (no v2, no v8) to share a major with 
 - Base UI is MUI's actively developed headless layer.
 
 ## Companion
-For palette roles and semantic color tokens, use the **theme-colors** skill. This file is versions and paradigms only.
+Color-role usage (the 10 roles, `alpha()`, the audit) is inlined in [theme-colors.md](./theme-colors.md). The standalone **theme-colors** skill is an optional deeper dive. This file is versions and paradigms only.
 
 ## Sources
 - https://mui.com/versions/

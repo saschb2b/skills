@@ -22,7 +22,7 @@ Codegen produces only types; runtime safety comes from inference. `openapi-types
 - For a richer generated SDK plus Zod, Hey API is the heavier-featured alternative; this stack is the no-generated-hooks path.
 
 ## Companion
-For the REST decision matrix, use the **codegen-api** skill. Server-cache notes in [../data/tanstack-query.md](../data/tanstack-query.md).
+Setup and the REST decision matrix are inlined in [setup.md](./setup.md). The standalone **codegen-api** skill is an optional deeper dive. Server-cache notes in [../data/tanstack-query.md](../data/tanstack-query.md).
 
 ## Sources
 - https://openapi-ts.dev/openapi-react-query/

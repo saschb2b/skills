@@ -23,7 +23,7 @@ v11's new TanStack Query integration stops wrapping `useQuery`/`useMutation` and
 - It complements RSC and server actions rather than replacing them.
 
 ## Companion
-Server-state notes in [../data/tanstack-query.md](../data/tanstack-query.md). REST and GraphQL codegen in the **codegen-api** skill.
+Server-state notes in [../data/tanstack-query.md](../data/tanstack-query.md). REST and GraphQL codegen setup in [../api-codegen/setup.md](../api-codegen/setup.md).
 
 ## Sources
 - https://trpc.io/blog/announcing-trpc-v11
