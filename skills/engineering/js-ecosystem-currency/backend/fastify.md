@@ -1,6 +1,6 @@
 # Fastify
 
-**Verified 2026-06-04.** Check the installed `fastify` version first; re-verify if newer than below.
+**Verified 2026-06-05.** Check the installed `fastify` version first; re-verify if newer than below.
 
 **Current stable**: 5.x (5.8). **LLM default bias**: Fastify v4, the long-lived stable major.
 
@@ -19,6 +19,8 @@ Fastify 5 is a maintenance-and-modernization major: it requires Node 20+, remove
 - Fastify 4 reached end of life June 30, 2025; v4 codebases are unsupported.
 - The breaking changes are mostly removals of long-deprecated APIs plus an AJV major bump, so migration is usually mechanical. Consult the v5 migration guide.
 - Mismatched v4-era plugins can fail to register against v5.
+- v5 requires a full JSON Schema (with explicit `type`) for `querystring`, `params`, `body`, and `response`; the `jsonShorthand` option was removed.
+- `listen()` takes an object now (`fastify.listen({ port: 3000 })`); the variadic `listen(port, host, cb)` form is gone, and `request.connection` is now `request.socket`.
 
 ## Sources
 - https://fastify.dev/docs/latest/Guides/Migration-Guide-V5/

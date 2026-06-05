@@ -1,6 +1,6 @@
 # Prisma ORM
 
-**Verified 2026-06-04.** Check the installed `prisma` and `@prisma/client` versions first; re-verify if newer than below.
+**Verified 2026-06-05.** Check the installed `prisma` and `@prisma/client` versions first; re-verify if newer than below.
 
 **Current stable**: 7.x (7.8); the 7.0 line opened Nov 2025. **LLM default bias**: Prisma 4/5/6 with the `prisma-client-js` generator, the Rust query engine, the client generated into `node_modules`, `url` in the datasource, and the `$use()` middleware API.
 
@@ -18,7 +18,8 @@ v7 removes the Rust query engine. The client is now a pure-TypeScript, ESM, Rust
 | `prisma.$use()` middleware | Client Extensions (`$extends`) |
 
 ## Gotchas
-- Driver adapters are required in v7, not preview. Forgetting one yields the "engine type 'client' requires either 'adapter' or 'accelerateUrl'" error.
+- Driver adapters are required in v7, not preview. Pass exactly one of `adapter` (direct connection) or `accelerateUrl` (Accelerate); forgetting both yields the "engine type 'client' requires either 'adapter' or 'accelerateUrl'" error.
+- Env vars are no longer auto-loaded. Add `import "dotenv/config"` in `prisma.config.ts`, whose helpers come from `prisma/config` (`defineConfig`, `env`). The `datasource` block keeps only `provider`; the URL lives in `datasource.url` in the config.
 - `prisma generate` and `prisma db seed` are explicit now (the `--skip-generate`/`--skip-seed` flags were removed).
 - Default connection-pool and timeout behavior differs from v6; review pool settings after upgrade.
 

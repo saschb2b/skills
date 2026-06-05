@@ -1,6 +1,6 @@
 # Hono
 
-**Verified 2026-06-04.** Check the installed `hono` version first; re-verify if newer than below.
+**Verified 2026-06-05.** Check the installed `hono` version first; re-verify if newer than below.
 
 **Current stable**: 4.x (4.12, May 2026). **LLM default bias**: early Hono v3 or pre-4 patterns, missing the v4 RPC maturity and the web-standard framing.
 
@@ -20,7 +20,7 @@ Hono is built directly on Web Standard primitives (the fetch-API `Request`/`Resp
 ## Gotchas
 - For RPC inference, chain routes and export the app type (`type AppType = typeof app`). Breaking the chain degrades inference.
 - Middleware is an onion model; `await next()` placement controls pre and post behavior.
-- The validator and OpenAPI helpers are separate packages from the core `hono`.
+- The validator and OpenAPI helpers are separate packages from the core `hono`. Read validated data with `c.req.valid('json' | 'form' | 'query')` after `zValidator`.
 
 ## Sources
 - https://hono.dev/docs

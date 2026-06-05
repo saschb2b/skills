@@ -1,6 +1,6 @@
 # Express
 
-**Verified 2026-06-04.** Check the installed `express` version first; re-verify if newer than below.
+**Verified 2026-06-05.** Check the installed `express` version first; re-verify if newer than below.
 
 **Current stable**: 5.1 (Mar 2025). **LLM default bias**: Express 4.x. It was the only stable major for roughly a decade, so corpora are saturated with v4 idioms.
 
@@ -12,13 +12,14 @@ Express 5 finally shipped after a long gestation, focused on stability and secur
 | --- | --- |
 | `try/catch` + `next(err)` in every async handler | `return`/`throw` in `async` handlers; rejections auto-forward |
 | Wildcard route `app.get('*', ...)` | Named splat `app.get('/*splat', ...)` |
-| Optional param `/:id?` | Brace syntax `/{:id}` |
+| Optional param `/user/:id?` | Brace syntax `/user{/:id}` (slash inside the braces) |
 | `res.send(status)` and `app.del(...)` | `res.sendStatus(status)` and `app.delete(...)` |
 | `req.param(name)` | Read `req.params` / `req.body` / `req.query` directly |
 | Assuming `express@latest` is v4 | `npm i express` now pulls v5; pin `express@4` for legacy |
 
 ## Gotchas
-- The `@expressjs/codemod` automates most of the upgrade, but the new path-matching syntax needs manual review.
+- Run `npx codemod@latest @expressjs/v5-migration-recipe` for the codemods, but the new path-matching syntax needs manual review.
+- An unmatched optional param is now omitted from `req.params` entirely (v4 set it to `undefined`).
 - Express 5 requires Node 18+.
 - Express 4 is still in maintenance into late 2026, so do not assume a recent codebase is v5. Check the version.
 

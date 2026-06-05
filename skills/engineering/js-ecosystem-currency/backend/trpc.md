@@ -1,6 +1,6 @@
 # tRPC
 
-**Verified 2026-06-04.** Check the installed `@trpc/server` version first; re-verify if newer than below.
+**Verified 2026-06-05.** Check the installed `@trpc/server` version first; re-verify if newer than below.
 
 **Current stable**: v11 (11.17); v11 GA'd Mar 2025. **LLM default bias**: tRPC v10 with `createTRPCReact()` exposing `trpc.foo.useQuery()`, `useContext()` for cache access, JSON-only payloads, and `httpBatchLink`.
 
@@ -21,6 +21,8 @@ v11's new TanStack Query integration stops wrapping `useQuery`/`useMutation` and
 - v11 is largely backward-compatible with v10; the classic `@trpc/react-query` integration still works but is frozen. New work goes to the TanStack-native integration.
 - tRPC is not an OpenAPI producer. For public, typed-external APIs the ecosystem points to oRPC or Hono RPC.
 - It complements RSC and server actions rather than replacing them.
+- `createTRPCContext<AppRouter>()` returns `{ TRPCProvider, useTRPC, useTRPCClient }`; configure transformers (e.g. superjson) per-link, not at client init.
+- Non-JSON inputs need a non-batching link (`splitLink` + `isNonJsonSerializable`); binary uses `octetInputParser` from `@trpc/server/http`, FormData uses `z.instanceof(FormData)`.
 
 ## Companion
 Server-state notes in [../data/tanstack-query.md](../data/tanstack-query.md). REST and GraphQL codegen setup in [../api-codegen/setup.md](../api-codegen/setup.md).

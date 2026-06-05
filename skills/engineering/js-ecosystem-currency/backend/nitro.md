@@ -1,6 +1,6 @@
 # Nitro
 
-**Verified 2026-06-04.** Check the installed `nitropack` (or `nitro`) version first; re-verify if newer than below.
+**Verified 2026-06-05.** Check the installed `nitropack` (or `nitro`) version first; re-verify if newer than below.
 
 **Current stable**: Nitro 2.x (`nitropack`); Nitro 3 is in beta. **LLM default bias**: Nitro 2 with h3 v1, the `nitropack` package name, and `eventHandler`/`createError` APIs.
 
@@ -20,6 +20,7 @@ Nitro is the deploy-anywhere server toolkit (the engine under Nuxt) that builds 
 - Nitro 3 and h3 v2 are still beta as of June 2026. Use Nitro 2 in production; Nitro 3 is gated on h3 v2 stabilization and the Nuxt 5 timeline.
 - On Node, h3 v2 runs web-standard handlers through a compatibility layer (`srvx`); verify behavior on your target runtime.
 - h3 v2 advertises a back-compat layer, but the renames (`defineHandler`, `HTTPError`) are the forward path.
+- In h3 v2 read the body via `event.req.json()`/`.text()`/`.formData()` and headers via `event.req.headers.get(name)`, not `readBody(event)`/`getHeader(...)`. A handler can be a plain function as well as `defineHandler`.
 
 ## Sources
 - https://nitro.build/blog/v3-beta
