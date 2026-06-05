@@ -26,6 +26,9 @@ Angular is signal-first and zoneless. Signals are the primary reactivity primiti
 - The zoneless provider is `provideZonelessChangeDetection()`; the old `provideExperimentalZonelessChangeDetection()` name is gone.
 - Resource imports differ: `resource` from `@angular/core`, `rxResource` from `@angular/core/rxjs-interop` (a `stream:` factory, not `loader:`), `httpResource` from `@angular/common/http`.
 
+## Companion
+Angular ecosystem entries in this skill: Material and CDK in [../ui/angular-material.md](../ui/angular-material.md), state in [../data/ngrx.md](../data/ngrx.md), the Vite meta-framework in [../meta-frameworks/analog.md](../meta-frameworks/analog.md), i18n in [../i18n/transloco.md](../i18n/transloco.md), and testing in [../testing/angular-testing.md](../testing/angular-testing.md). Lint with `angular-eslint` (see [../tooling/eslint.md](../tooling/eslint.md)).
+
 ## Sources
 - https://angular.dev/reference/releases
 - https://angular.dev/guide/signals

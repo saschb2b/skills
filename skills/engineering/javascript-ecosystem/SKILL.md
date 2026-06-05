@@ -67,6 +67,7 @@ Each notes file holds the current stable version, the LLM default bias, the para
 | Astro | Content Layer API, Server Islands, Actions | [astro.md](./meta-frameworks/astro.md) |
 | TanStack Start | v1 RC full-stack on Router + Vite; `createServerFn` | [tanstack-start.md](./meta-frameworks/tanstack-start.md) |
 | TanStack Router | v1 type-safe routing; typed search params, loaders | [tanstack-router.md](./meta-frameworks/tanstack-router.md) |
+| AnalogJS | The Vite-based fullstack Angular meta-framework | [analog.md](./meta-frameworks/analog.md) |
 
 ### UI and styling
 | Tool | Headline shift | Notes |
@@ -80,6 +81,7 @@ Each notes file holds the current stable version, the LLM default bias, the para
 | Motion | `framer-motion` is now `motion`; import `motion/react` | [motion.md](./ui/motion.md) |
 | Headless UI | Radix `radix-ui`, Base UI `@base-ui/react`, React Aria | [headless-ui.md](./ui/headless-ui.md) |
 | CSS-in-JS | styled-components in maintenance; build-time, RSC-safe CSS | [css-in-js.md](./ui/css-in-js.md) |
+| Angular Material | v22 standalone imports; M3 `mat.theme()`; CDK headless | [angular-material.md](./ui/angular-material.md) |
 
 ### Data and state
 | Tool | Headline shift | Notes |
@@ -89,6 +91,7 @@ Each notes file holds the current stable version, the LLM default bias, the para
 | Redux Toolkit | Redux is RTK now; `createSlice`; RTK Query built-in | [redux-toolkit.md](./data/redux-toolkit.md) |
 | Zustand | v5 `useShallow`; native `useSyncExternalStore` | [zustand.md](./data/zustand.md) |
 | Jotai | v2 vanilla store; async atoms hold promises | [jotai.md](./data/jotai.md) |
+| NgRx | Angular state; SignalStore (`@ngrx/signals`); functional Store | [ngrx.md](./data/ngrx.md) |
 | Pinia | Official Vue store (not Vuex); v3 setup stores | [pinia.md](./data/pinia.md) |
 
 Picking one: a server-cache library (TanStack Query) for fetched data, a client-state library (Zustand or Jotai) for local global state, and Redux Toolkit for genuinely complex shared client state. Keep server data out of the client-state libraries.
@@ -114,6 +117,7 @@ Picking one: a server-cache library (TanStack Query) for fetched data, a client-
 | Jest | v30, but legacy for new Vite/ESM projects | [jest.md](./testing/jest.md) |
 | Testing Library | RTL 16; async `userEvent.setup()`; accessible queries | [testing-library.md](./testing/testing-library.md) |
 | Cypress | v15, now runner-up to Playwright for new e2e | [cypress.md](./testing/cypress.md) |
+| Angular testing | Karma deprecated; Vitest default in v21; TestBed standalone | [angular-testing.md](./testing/angular-testing.md) |
 
 New Vite + React + TS default: Vitest (unit and component) plus Testing Library plus Playwright (e2e). Jest and Cypress are the secondary choices, not the defaults.
 
@@ -157,6 +161,7 @@ Self-hosted new-project default is Better Auth (the Auth.js team steers new work
 | i18next | TypeScript-first; module augmentation; Selector API | [i18next.md](./i18n/i18next.md) |
 | next-intl | App Router native; `AppConfig` typing; `setRequestLocale` | [next-intl.md](./i18n/next-intl.md) |
 | Paraglide JS | Compiler-based typed message functions; tree-shakable | [paraglide.md](./i18n/paraglide.md) |
+| Transloco | Angular runtime i18n; `@jsverse/transloco`; `provideTransloco` | [transloco.md](./i18n/transloco.md) |
 
 Two architectures: runtime dictionaries (i18next, next-intl) with types layered on, versus compiled message functions (Paraglide) that tree-shake.
 

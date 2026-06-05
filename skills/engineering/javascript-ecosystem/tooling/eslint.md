@@ -20,6 +20,7 @@ Flat config (`eslint.config.js`) became the default in v9 and is the only config
 - Plugins must export flat-config-compatible objects. Very old plugins without flat-config support will not load on v10.
 - Flat config does not search up the tree the way `eslintrc` cascaded; composition is explicit via the exported array.
 - See also **Biome** as a single-binary lint-plus-format alternative.
+- Angular projects lint with `angular-eslint` (flat config via `tseslint.config(...)` + `angular.configs.*`, plus a `**/*.html` block for template and a11y rules). TSLint and Codelyzer are dead. Add it with `ng add angular-eslint`.
 
 ## Sources
 - https://eslint.org/docs/latest/use/configure/configuration-files
