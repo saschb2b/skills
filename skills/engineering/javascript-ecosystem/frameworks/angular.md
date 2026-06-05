@@ -27,6 +27,8 @@ Angular is signal-first and zoneless. Signals are the primary reactivity primiti
 - Resource imports differ: `resource` from `@angular/core`, `rxResource` from `@angular/core/rxjs-interop` (a `stream:` factory, not `loader:`), `httpResource` from `@angular/common/http`.
 
 ## Companion
+**Official agent skills.** Angular publishes its own agent skills, `angular-developer` (code and architecture) and `angular-new-app` (CLI scaffold), at github.com/angular/skills, installable via the same installer: `npx skills add https://github.com/angular/skills`. For Angular work, prefer the framework's own skill as the authoritative, maintained source; this file is the cross-ecosystem summary that points to it.
+
 Angular ecosystem entries in this skill: Material and CDK in [../ui/angular-material.md](../ui/angular-material.md), state in [../data/ngrx.md](../data/ngrx.md), the Vite meta-framework in [../meta-frameworks/analog.md](../meta-frameworks/analog.md), i18n in [../i18n/transloco.md](../i18n/transloco.md), and testing in [../testing/angular-testing.md](../testing/angular-testing.md). Lint with `angular-eslint` (see [../tooling/eslint.md](../tooling/eslint.md)).
 
 ## Sources

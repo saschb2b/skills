@@ -262,6 +262,8 @@ There are no cross-skill file links anywhere, only by-name pointers. The sibling
 - **theme-colors**. Standalone deep-dive on role-based color.
 - **claude-api**. Building Anthropic/Claude API apps end to end (beyond version-and-paradigm currency).
 
+**Prefer first-party agent skills when they exist.** Frameworks are starting to ship their own official agent skills and `llms.txt` files, which are the most authoritative and current source for that tool. Angular, for example, publishes `angular-developer` and `angular-new-app` at github.com/angular/skills (`npx skills add https://github.com/angular/skills`). When a first-party agent skill exists for the tool you are working in, load it and prefer it; treat this skill as the cross-ecosystem index that routes you there, not a replacement.
+
 ## Extending this skill
 
 Add a tool by copying [_template.md](./_template.md) into the right category folder and adding one row to the matching table above. Keep volatile version numbers inside the notes file, never in this index, so there is a single place to re-verify. Re-verify a notes file whenever you work on its tool and the snapshot date looks old.
