@@ -22,7 +22,7 @@ npx skills@latest add saschb2b/skills --skill scaffold-mcp
 npx skills@latest add saschb2b/skills --skill react-compiler
 npx skills@latest add saschb2b/skills --skill codegen-api
 npx skills@latest add saschb2b/skills --skill theme-colors
-npx skills@latest add saschb2b/skills --skill js-ecosystem-currency
+npx skills@latest add saschb2b/skills --skill javascript-ecosystem
 npx skills@latest add saschb2b/skills --skill ask-ux
 npx skills@latest add saschb2b/skills --skill to-story
 npx skills@latest add saschb2b/skills --skill autopilot
@@ -112,7 +112,7 @@ I built each one because the corresponding post wasn't enough. Writing down what
 
 **The problem.** Training corpora are dominated not just by a few frameworks but by their older versions. The output defaults to manual memoization for a compiler-enabled React, NgModules for a signals-and-standalone Angular, `tailwind.config.js` for a CSS-first Tailwind v4, the `.eslintrc` schema ESLint dropped, the positional `useQuery` signature TanStack Query replaced. The framework name is current. The paradigm inside is a year or more stale.
 
-**The fix:** [`/js-ecosystem-currency`](./skills/engineering/js-ecosystem-currency/SKILL.md). A changelog index across the ecosystem (frameworks, meta-frameworks, UI libraries, state, tooling, testing, mobile, backend, forms, auth, i18n, dates, API codegen, GraphQL clients, email, payments, observability, CMS, AI SDKs). The agent checks the project's installed version first, then routes to a per-tool notes file with a Stop/Start table that maps the pattern it would reach for to the one the current version wants. The notes carry a verified date and tell the agent to re-confirm against official release notes when the snapshot looks old, so it ages gracefully instead of hardcoding a moment in time. It is standalone: every notes file is complete on its own, and it composes with the `react-compiler`, `codegen-api`, `theme-colors`, and `claude-api` skills as optional deeper dives if they are installed, but requires none of them.
+**The fix:** [`/javascript-ecosystem`](./skills/engineering/javascript-ecosystem/SKILL.md). A changelog index across the ecosystem (frameworks, meta-frameworks, UI libraries, state, tooling, testing, mobile, backend, forms, auth, i18n, dates, API codegen, GraphQL clients, email, payments, observability, CMS, AI SDKs). The agent checks the project's installed version first, then routes to a per-tool notes file with a Stop/Start table that maps the pattern it would reach for to the one the current version wants. The notes carry a verified date and tell the agent to re-confirm against official release notes when the snapshot looks old, so it ages gracefully instead of hardcoding a moment in time. It is standalone: every notes file is complete on its own, and it composes with the `react-compiler`, `codegen-api`, `theme-colors`, and `claude-api` skills as optional deeper dives if they are installed, but requires none of them.
 
 ## Reference
 
@@ -125,7 +125,7 @@ Code-adjacent work.
 - **[react-compiler](./skills/engineering/react-compiler/SKILL.md)**. Write and review React as if the Compiler is enabled. Skip manual `useMemo`, `useCallback`, and `React.memo` by default. Audit existing code for stale memoization and the five silent-bail patterns. Sets the strict `eslint-plugin-react-hooks` rules.
 - **[codegen-api](./skills/engineering/codegen-api/SKILL.md)**. Set up typesafe API code generation in 2026. Decision matrix for OpenAPI (`hey-api`) and GraphQL (`graphql-codegen` client preset, or `gql.tada` for no build step). Generates options factories and typed documents instead of legacy hooks. Fragment masking for composition.
 - **[theme-colors](./skills/engineering/theme-colors/SKILL.md)**. Every color value comes from the theme. Replace hex codes, `rgba()` literals, and named colors with palette roles (primary, secondary, error, surface, text) and the `alpha()` helper. Counterweight to LLM training corpora that scatter hex codes through component files.
-- **[js-ecosystem-currency](./skills/engineering/js-ecosystem-currency/SKILL.md)**. Default to the latest stable major versions and their current paradigms across the JS/TS ecosystem. A changelog index that routes to per-tool Stop/Start notes (React, Angular, Vue, Svelte, Solid, Next.js, Tailwind, MUI, TanStack Query, TypeScript, Vite, Node, ESLint, and more). Checks the project's installed version first, since the snapshot ages. Counterweight to training data frozen on older versions and their patterns.
+- **[javascript-ecosystem](./skills/engineering/javascript-ecosystem/SKILL.md)**. Default to the latest stable major versions and their current paradigms across the JS/TS ecosystem. A changelog index that routes to per-tool Stop/Start notes (React, Angular, Vue, Svelte, Solid, Next.js, Tailwind, MUI, TanStack Query, TypeScript, Vite, Node, ESLint, and more). Checks the project's installed version first, since the snapshot ages. Counterweight to training data frozen on older versions and their patterns.
 
 ### Productivity
 

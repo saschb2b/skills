@@ -1,11 +1,11 @@
 ---
-name: js-ecosystem-currency
+name: javascript-ecosystem
 description: Default to the latest stable major versions of JavaScript and TypeScript frameworks and their current paradigms, instead of the older versions and patterns that dominate LLM training data. A version-and-paradigm changelog index that routes to per-tool notes. Use when writing, reviewing, scaffolding, or upgrading any JS or TS project, when choosing dependency versions, when an agent emits an outdated pattern, or when working with React, Angular, Vue, Svelte, Solid, Next.js, Nuxt, React Router, Remix, SvelteKit, Astro, TanStack Start, Material UI, Tailwind, shadcn, Mantine, Chakra, TanStack Query, Redux, Zustand, Jotai, TypeScript, Vite, Node, ESLint, pnpm, Bun, or Biome. Check the project's installed version first; this snapshot ages.
 date: 2026-06-04
 source_post: llm-default-react-stack
 ---
 
-# JavaScript Ecosystem Currency
+# JavaScript Ecosystem
 
 LLMs default to the framework versions and patterns their training data over-represents, which skew years behind the current stable releases. This skill is a changelog index that pulls default output forward to the latest stable major and its paradigm.
 
@@ -225,7 +225,7 @@ The catalogue is not exhaustive, and it dates. For any tool not listed, or when 
 
 ## Companion skills (optional, never required)
 
-This skill is self-contained, including the deep teachable material. The version and paradigm correction live in each notes file; the longer artifacts are inlined as deep-dive files inside this skill, so installing `js-ecosystem-currency` alone gives 100% of the teaching with no other skill present:
+This skill is self-contained, including the deep teachable material. The version and paradigm correction live in each notes file; the longer artifacts are inlined as deep-dive files inside this skill, so installing `javascript-ecosystem` alone gives 100% of the teaching with no other skill present:
 
 - [api-codegen/setup.md](./api-codegen/setup.md). Codegen configs, the fragment-masking example, the gql.tada path, DX pitfalls.
 - [frameworks/react-rules.md](./frameworks/react-rules.md). The strict React Compiler lint config and the five silent-bail patterns.
