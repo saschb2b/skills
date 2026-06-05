@@ -12,7 +12,7 @@
 // Run: node scripts/check-skills.mjs
 
 import { readFileSync, readdirSync, existsSync } from "node:fs";
-import { join, dirname, relative } from "node:path";
+import { join, dirname, relative, basename, sep } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const repo = join(dirname(fileURLToPath(import.meta.url)), "..");
@@ -33,18 +33,19 @@ const skillFiles = walk(join(repo, "skills")).filter((f) => f.endsWith("SKILL.md
 
 for (const file of skillFiles) {
   const skillDir = dirname(file);
-  const slug = skillDir.split("/").pop();
-  const rel = relative(repo, skillDir);
+  const slug = basename(skillDir);
+  // Normalize to forward slashes so comparisons match plugin.json on Windows too.
+  const rel = relative(repo, skillDir).split(sep).join("/");
   const text = readFileSync(file, "utf8");
 
-  // Frontmatter must be the first block, fenced by --- lines.
-  const fm = text.match(/^---\n([\s\S]*?)\n---/);
+  // Frontmatter must be the first block, fenced by --- lines (tolerate CRLF).
+  const fm = text.match(/^---\r?\n([\s\S]*?)\r?\n---/);
   if (!fm) {
     errors.push(`${rel}: no frontmatter block`);
     continue;
   }
   const fields = {};
-  for (const line of fm[1].split("\n")) {
+  for (const line of fm[1].split(/\r?\n/)) {
     if (!line.trim() || /^\s/.test(line)) continue; // skip nested/indented YAML
     const idx = line.indexOf(": ");
     const key = (idx === -1 ? line.replace(/:$/, "") : line.slice(0, idx)).trim();
