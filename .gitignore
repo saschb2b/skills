@@ -1,0 +1,5 @@
+# Local skills.sh install artifacts. This repo publishes skills; it does not
+# consume them, so installed copies and the lock file should not be tracked.
+.agents/
+.claude/
+skills-lock.json
