@@ -55,7 +55,7 @@ function Field({ value }: Props) {
 ### Mutated counter captured inside `.map()` lambdas
 
 ```tsx
-// Caught by react-hooks/todo. Component is skipped.
+// Impure mutation during render; flagged by react-hooks/purity.
 let globalIndex = 0;
 return (
   <>
@@ -81,7 +81,7 @@ return (
 ### Dynamic `import()` inside an effect
 
 ```tsx
-// Also caught by react-hooks/todo.
+// The compiler bails here; the recommended-latest preset flags it.
 useEffect(() => {
   void import("heavy-lib").then(({ default: lib }) => {
     /* ... */
@@ -110,19 +110,19 @@ function ComplicatedLegacyThing() {
 }
 ```
 
-Use sparingly. Every `"use no memo"` is a performance cliff hidden in the codebase. Treat each one as a TODO with a comment explaining why the code is not yet compiler-safe. A grep over time is a useful health metric. `react-hooks/rule-suppression` flags every occurrence.
+Use sparingly. Every `"use no memo"` is a performance cliff hidden in the codebase. Treat each one as a TODO with a comment explaining why the code is not yet compiler-safe. Grep the directive over time as a health metric.
 
 ## Lint coverage map
 
-| Failure mode | Rule that catches it |
+| Failure mode | Rule that flags it |
 | --- | --- |
-| 1. Mutation during render | `react-hooks/unsupported-syntax` |
-| 2. Ref read during render | `react-hooks/unsupported-syntax` |
+| 1. Mutation during render | `react-hooks/immutability` / `react-hooks/purity` |
+| 2. Ref read during render | `react-hooks/refs` |
 | 3. Class components | Not lintable. Design choice. |
-| 4. Unsupported syntax | `react-hooks/unsupported-syntax`, `react-hooks/todo` |
-| 5. `"use no memo"` | `react-hooks/rule-suppression` |
+| 4. Unsupported syntax | `react-hooks/unsupported-syntax` |
+| 5. `"use no memo"` | Grep the directive; treat each as a TODO |
 
-Promote all of these to `error`. The full strict config is in [lint-setup.md](./lint-setup.md).
+Enable the `recommended-latest` preset and raise the ones you want to block CI to `error`. Full config in [lint-setup.md](./lint-setup.md).
 
 ## Source
 

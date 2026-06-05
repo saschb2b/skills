@@ -2,44 +2,49 @@
 
 Since late 2025, the compiler's lint rules live in `eslint-plugin-react-hooks` v6+. The standalone `eslint-plugin-react-compiler` was deprecated and merged in. If your project uses `eslint-config-next` v16+ or any modern framework preset that pulls in `eslint-plugin-react-hooks` v7, the plugin is already loaded transitively. No additional install.
 
-## Strict configuration
+## Configuration
 
-Drop into `eslint.config.mjs`:
+The compiler diagnostics ship inside `eslint-plugin-react-hooks`. react.dev recommends enabling the bundled preset rather than hand-listing rules:
+
+```sh
+npm install -D eslint-plugin-react-hooks@latest
+```
+
+```js
+// eslint.config.mjs
+import reactHooks from "eslint-plugin-react-hooks";
+
+export default [
+  reactHooks.configs["recommended-latest"],
+];
+```
+
+The preset bundles the classic rules plus the React Compiler diagnostics. To make a specific diagnostic block CI rather than warn, raise it to `error` explicitly:
 
 ```js
 {
-  rules: {
-    "react-hooks/unsupported-syntax": "error",
-    "react-hooks/exhaustive-deps": "error",
-    "react-hooks/incompatible-library": "error",
-    "react-hooks/todo": "error",
-    "react-hooks/syntax": "error",
-    "react-hooks/capitalized-calls": "error",
-    "react-hooks/rule-suppression": "error",
-    "react-hooks/no-deriving-state-in-effects": "error",
-    "react-hooks/void-use-memo": "error",
-    "react-hooks/automatic-effect-dependencies": "error",
-    "react-hooks/memoized-effect-dependencies": "error",
-    "react-hooks/hooks": "error",
-  },
+  plugins: { "react-hooks": reactHooks },
+  rules: { "react-hooks/unsupported-syntax": "error" },
 }
 ```
 
-The first three promote `recommended` rules from `warn` to `error`. The rest are compiler rules that ship off by default.
+## The rules that matter
 
-## What each rule catches
+The diagnostics live under the `react-hooks/` namespace. The ones react.dev lists:
 
 | Rule | What it catches |
 | --- | --- |
-| `unsupported-syntax` | Components silently bailed for syntax reasons. The single most important rule. |
-| `todo` | Broader compiler-internal lowering failures. Undocumented on react.dev, but the rule that surfaces the most. |
-| `rule-suppression` | Every `"use no memo"`. Use the output as a TODO list. |
-| `exhaustive-deps` | Classic dep-array correctness. Elevated because the compiler relies on it. |
-| `incompatible-library` | Hooks called from libraries that violate the Rules of React. |
-| `no-deriving-state-in-effects` | Derived state computed in effects, which the compiler cannot fold cleanly. |
-| `void-use-memo` | `useMemo` calls whose result is unused. |
-| `syntax`, `capitalized-calls`, `hooks` | Various Rules-of-React enforcement. |
-| `automatic-effect-dependencies`, `memoized-effect-dependencies` | Effect dependency cleanup the compiler can verify. |
+| `react-hooks/rules-of-hooks` | Hooks called conditionally or outside components. |
+| `react-hooks/exhaustive-deps` | Effect and callback dependency correctness. The compiler relies on it. |
+| `react-hooks/unsupported-syntax` | Components silently bailed out of compilation for syntax reasons. The load-bearing one. |
+| `react-hooks/immutability`, `react-hooks/purity` | Mutation or impure work during render. |
+| `react-hooks/set-state-in-render`, `react-hooks/set-state-in-effect` | State updates in the wrong phase. |
+| `react-hooks/refs` | Reading or writing a ref during render. |
+| `react-hooks/preserve-manual-memoization` | Keeps existing manual memoization correct instead of silently dropping it. |
+| `react-hooks/incompatible-library` | Hooks from libraries that violate the Rules of React. |
+| `react-hooks/static-components`, `react-hooks/component-hook-factories` | Components or hooks defined in ways the compiler cannot track. |
+
+Do not assume rule names beyond what the plugin docs list for your installed version; react.dev currently labels the page `rc`.
 
 ## Silent skips cascade
 
