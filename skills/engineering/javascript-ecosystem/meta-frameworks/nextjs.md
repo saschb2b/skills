@@ -25,6 +25,9 @@ The App Router is the only modern path and Server Components are the default. Tu
 ## Companion
 React paradigm notes in [../frameworks/react.md](../frameworks/react.md). API codegen setup in [../api-codegen/setup.md](../api-codegen/setup.md).
 
+## Agent skills
+Vercel publishes official Next.js agent skills: `npx skills add vercel-labs/next-skills` (`next-best-practices`, `next-cache-components`, `next-upgrade`), with docs at vercel.com/docs/agent-resources. Prefer them for Next.js work.
+
 ## Sources
 - https://nextjs.org/blog/next-16
 - https://nextjs.org/docs/app/guides/upgrading/version-16

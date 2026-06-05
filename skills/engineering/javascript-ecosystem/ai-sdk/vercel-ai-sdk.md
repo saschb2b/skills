@@ -26,6 +26,9 @@ v5 split messages into `UIMessage` (UI state, an ordered `parts` array) versus `
 ## Companion
 Direct provider access in [anthropic-sdk.md](./anthropic-sdk.md) and [openai-sdk.md](./openai-sdk.md).
 
+## Agent skills
+The AI SDK ships an official agent skill (`npx skills add vercel/ai`) and coding-agent docs (ai-sdk.dev/docs/getting-started/coding-agents). Prefer them.
+
 ## Sources
 - https://vercel.com/blog/ai-sdk-6
 - https://ai-sdk.dev/docs/migration-guides/migration-guide-5-0

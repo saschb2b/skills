@@ -262,7 +262,15 @@ There are no cross-skill file links anywhere, only by-name pointers. The sibling
 - **theme-colors**. Standalone deep-dive on role-based color.
 - **claude-api**. Building Anthropic/Claude API apps end to end (beyond version-and-paradigm currency).
 
-**Prefer first-party agent skills when they exist.** Frameworks are starting to ship their own official agent skills and `llms.txt` files, which are the most authoritative and current source for that tool. Angular, for example, publishes `angular-developer` and `angular-new-app` at github.com/angular/skills (`npx skills add https://github.com/angular/skills`). When a first-party agent skill exists for the tool you are working in, load it and prefer it; treat this skill as the cross-ecosystem index that routes you there, not a replacement.
+### Prefer first-party agent guidance
+
+When a tool ships its own official agent guidance, it is the most authoritative and current source. Load it and prefer it; treat this skill as the cross-ecosystem index that routes you there, not a replacement. Known first-party resources (verified 2026-06-05):
+
+- **Official agent skills** (`npx skills add <repo>`): Angular (`angular/skills`), Next.js (`vercel-labs/next-skills`), Prisma (`prisma/skills`), Vercel AI SDK (`vercel/ai`), Expo (`expo/skills`), Better Auth (`better-auth/skills`), Clerk (`clerk/skills`).
+- **Official MCP servers**: Svelte and SvelteKit, Nuxt, Astro (its Docs MCP replaced llms.txt), shadcn/ui, Prisma, Clerk, Better Auth.
+- **`llms.txt` / `llms-full.txt`** (fetch `<docs-site>/llms.txt` for the official docs as agent context): React, Vue, SolidJS, Vite, Bun, Zod, Drizzle, TanStack, React Native, and most of the above. Tailwind and TypeScript do not publish one.
+
+Each per-tool notes file links its first-party resource under an "Agent skills" heading where one exists.
 
 ## Extending this skill
 

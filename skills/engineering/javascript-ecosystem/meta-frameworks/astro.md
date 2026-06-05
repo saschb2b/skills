@@ -21,6 +21,9 @@ Astro 5 replaced legacy content collections with the Content Layer API (pluggabl
 - Astro 6 upgrades to Vite 7 and a new Zod major. Content schemas may need adjustment.
 - Astro 6 drops Node 18 and 20. Target Node 22+.
 
+## Agent skills
+Astro ships an official Docs MCP server (`withastro/docs-mcp`), which replaced its `llms.txt`. Prefer the MCP for agent context.
+
 ## Sources
 - https://astro.build/blog/astro-5/
 - https://github.com/withastro/astro/releases

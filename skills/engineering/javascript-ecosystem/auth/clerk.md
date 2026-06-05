@@ -22,6 +22,9 @@ Clerk is the leading managed and hosted identity provider, with prebuilt compone
 - Clerk is managed SaaS (data on Clerk, usage pricing, vendor lock-in), categorically different from self-hosting Auth.js or Better Auth.
 - App Router requires `clerkMiddleware()` present, or `auth()` throws.
 
+## Agent skills
+Clerk publishes official agent skills (`npx skills add clerk/skills`) and an MCP server (mcp.clerk.com/mcp, clerk.com/docs/guides/ai). Prefer them.
+
 ## Sources
 - https://clerk.com/docs/reference/nextjs/overview
 - https://clerk.com/docs/guides/development/upgrading/upgrade-guides/nextjs-v6

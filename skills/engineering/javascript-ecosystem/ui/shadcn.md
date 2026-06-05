@@ -24,6 +24,9 @@ The package and CLI were renamed `shadcn-ui` to `shadcn`. New inits target Tailw
 ## Companion
 Tailwind v4 paradigm notes in [tailwind.md](./tailwind.md). React 19 notes in [../frameworks/react.md](../frameworks/react.md).
 
+## Agent skills
+shadcn/ui ships an official MCP server (ui.shadcn.com/docs/mcp, `pnpm dlx shadcn@latest mcp init`) so agents browse and install registry components. Prefer it over guessing component code.
+
 ## Sources
 - https://ui.shadcn.com/docs/tailwind-v4
 - https://ui.shadcn.com/docs/changelog

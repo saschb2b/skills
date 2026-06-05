@@ -21,6 +21,9 @@ The New Architecture (Fabric renderer, TurboModules, JSI) is enabled by default 
 - Expo is a production-grade framework now, not just a prototyping sandbox; the bare workflow remains for constrained cases.
 - Expo SDK 56 bundles React Native 0.85.
 
+## Agent skills
+Expo publishes official agent skills (`npx skills add expo/skills`: building-native-ui, expo-api-routes, upgrading-expo, and more), documented at docs.expo.dev/skills. For Expo and React Native work, prefer the official skill.
+
 ## Sources
 - https://reactnative.dev/docs/getting-started
 - https://reactnative.dev/architecture/landing-page

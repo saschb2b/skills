@@ -27,6 +27,9 @@ React 19 made Actions, the `use()` primitive, `ref` as a regular prop, and `<for
 ## Companion
 The strict `eslint-plugin-react-hooks` config and the five silent compiler-bail patterns are inlined in [react-rules.md](./react-rules.md). The standalone **react-compiler** skill is an optional deeper dive on the same material; it is not required.
 
+## Agent skills
+React ships an official `llms.txt` (react.dev/llms.txt) for agent context. There is no first-party React skill; the popular `react-best-practices` skill is Vercel's (`npx skills add vercel-labs/agent-skills`), not from the React team.
+
 ## Sources
 - https://react.dev/versions
 - https://react.dev/blog/2024/12/05/react-19

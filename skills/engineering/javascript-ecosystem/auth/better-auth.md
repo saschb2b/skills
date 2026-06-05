@@ -23,6 +23,9 @@ Better Auth is the fastest-rising option in 2026: a TypeScript-native, framework
 - Client and server are separate entry points (`better-auth/client` or `better-auth/react` versus `better-auth`); wire `baseURL` correctly.
 - Lucia is deprecated and sunset (now an educational resource). Do not recommend it as an installable library; point here instead.
 
+## Agent skills
+Better Auth publishes official agent skills (`npx skills add better-auth/skills`) and an MCP plugin (better-auth.com/docs/plugins/mcp). Prefer them.
+
 ## Sources
 - https://www.better-auth.com/
 - https://github.com/better-auth/better-auth/releases

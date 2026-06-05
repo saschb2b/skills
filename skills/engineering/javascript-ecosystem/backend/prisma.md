@@ -23,6 +23,9 @@ v7 removes the Rust query engine. The client is now a pure-TypeScript, ESM, Rust
 - `prisma generate` and `prisma db seed` are explicit now (the `--skip-generate`/`--skip-seed` flags were removed).
 - Default connection-pool and timeout behavior differs from v6; review pool settings after upgrade.
 
+## Agent skills
+Prisma publishes official agent skills (`npx skills add prisma/skills`), AI prompts (prisma.io/docs/ai), and an MCP server. For Prisma work, prefer the official skill.
+
 ## Sources
 - https://www.prisma.io/blog/announcing-prisma-orm-7-0-0
 - https://www.prisma.io/docs/guides/upgrade-prisma-orm/v7

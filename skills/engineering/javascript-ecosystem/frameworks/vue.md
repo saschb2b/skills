@@ -24,6 +24,9 @@
 - The 3.6 reactivity rewrite is internal and mostly backward compatible. Retest performance-sensitive code.
 - `defineModel()` replaces the old `modelValue` prop plus `update:modelValue` emit pattern.
 
+## Agent skills
+Vue publishes official `llms.txt` and `llms-full.txt` (vuejs.org/llms.txt) for agent context. The community `vuejs-ai/skills` exists but is not yet official.
+
 ## Sources
 - https://vuejs.org/about/releases
 - https://blog.vuejs.org/

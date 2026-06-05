@@ -19,6 +19,9 @@ Nuxt 4 is a stability release that promotes the new `app/` source directory as t
 - The Nuxt 3 to 4 upgrade is low-friction if `compatibilityVersion: 4` was already enabled.
 - Do not promise h3 v2 status codes (`status`/`statusText`) in Nuxt 4; that is a Nuxt 5 / Nitro 3 change.
 
+## Agent skills
+Nuxt ships an official MCP server (nuxt.com/mcp) and the Nuxt Agent, plus `llms.txt`. Prefer the official MCP for agent context.
+
 ## Sources
 - https://nuxt.com/blog/v4
 - https://endoflife.date/nuxt
