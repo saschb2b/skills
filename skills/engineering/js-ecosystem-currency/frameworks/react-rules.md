@@ -4,29 +4,23 @@ Self-contained reference for enabling the React Compiler safely, so this skill t
 
 ## Strict lint config
 
-The compiler's lint rules live in `eslint-plugin-react-hooks` v6+ (the old `eslint-plugin-react-compiler` was merged in). `recommended` ships the important ones at `warn`, so CI that fails only on `error` skims past silent compiler bails. Promote them:
+The compiler's lint rules are merged into `eslint-plugin-react-hooks` (the v6 generation; react.dev currently labels the reference page `rc`). There is no separate `eslint-plugin-react-compiler` package anymore. react.dev recommends enabling the bundled preset rather than hand-listing rules:
+
+```sh
+npm install -D eslint-plugin-react-hooks@latest
+```
 
 ```js
 // eslint.config.mjs
-{
-  rules: {
-    "react-hooks/unsupported-syntax": "error",
-    "react-hooks/exhaustive-deps": "error",
-    "react-hooks/incompatible-library": "error",
-    "react-hooks/todo": "error",
-    "react-hooks/syntax": "error",
-    "react-hooks/capitalized-calls": "error",
-    "react-hooks/rule-suppression": "error",
-    "react-hooks/no-deriving-state-in-effects": "error",
-    "react-hooks/void-use-memo": "error",
-    "react-hooks/automatic-effect-dependencies": "error",
-    "react-hooks/memoized-effect-dependencies": "error",
-    "react-hooks/hooks": "error",
-  },
-}
+import reactHooks from "eslint-plugin-react-hooks";
+
+export default [
+  // bundles the classic rules plus the React Compiler diagnostics
+  reactHooks.configs["recommended-latest"],
+];
 ```
 
-`unsupported-syntax` is the single most important rule (catches silent bails); `todo` surfaces the most in practice; `rule-suppression` lists every `"use no memo"`.
+The diagnostics live under the `react-hooks/` namespace. The names react.dev actually lists include `react-hooks/rules-of-hooks`, `react-hooks/exhaustive-deps`, `react-hooks/unsupported-syntax`, `react-hooks/immutability`, `react-hooks/purity`, `react-hooks/refs`, `react-hooks/set-state-in-render`, `react-hooks/set-state-in-effect`, `react-hooks/preserve-manual-memoization`, `react-hooks/incompatible-library`, and `react-hooks/static-components`. Raise any you want CI to hard-block from `warn` to `error`. `react-hooks/unsupported-syntax` is the load-bearing one for catching silent compiler bails.
 
 ## Five patterns that drop a component out of compilation
 
@@ -39,13 +33,15 @@ The compiler's lint rules live in `eslint-plugin-react-hooks` v6+ (the old `esli
    - A dynamic `import()` inside an effect. Fix: hoist to a module-level cached promise.
 5. **The `"use no memo"` escape hatch.** Skips the function entirely. Each one is a performance cliff; treat it as a TODO and grep the count as a health metric.
 
-| Failure mode | Rule that catches it |
+| Failure mode | Rule that flags it |
 | --- | --- |
-| Mutation during render | `react-hooks/unsupported-syntax` |
-| Ref read during render | `react-hooks/unsupported-syntax` |
+| Mutation during render | `react-hooks/immutability` / `react-hooks/purity` |
+| Setting state during render | `react-hooks/set-state-in-render` |
+| Reading a ref during render | `react-hooks/refs` |
+| Syntax the compiler cannot compile | `react-hooks/unsupported-syntax` |
 | Class components | Not lintable (design choice) |
-| Unsupported syntax | `react-hooks/unsupported-syntax`, `react-hooks/todo` |
-| `"use no memo"` | `react-hooks/rule-suppression` |
+
+The `recommended-latest` preset enables all of these; do not rely on rule names beyond what the plugin docs list for your installed version.
 
 ## Cleanup is iterative
 

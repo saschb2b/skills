@@ -1,8 +1,8 @@
 # React
 
-**Verified 2026-06-04.** Check the installed `react` version first; re-verify if newer than below.
+**Verified 2026-06-05.** Check the installed `react` version first; re-verify if newer than below.
 
-**Current stable**: 19.2 (Oct 2025). React Compiler 1.0 shipped Oct 2025. **LLM default bias**: React 16.8 through 18. Class-component muscle memory, defensive `useMemo`/`useCallback`/`React.memo`, `useEffect` data fetching, `forwardRef`.
+**Current stable**: 19.2 (Oct 2025); 19.2 added stable `<Activity>` and `useEffectEvent`. React Compiler 1.0 shipped Oct 2025. **LLM default bias**: React 16.8 through 18. Class-component muscle memory, defensive `useMemo`/`useCallback`/`React.memo`, `useEffect` data fetching, `forwardRef`.
 
 ## The shift
 React 19 made Actions, the `use()` primitive, `ref` as a regular prop, and `<form action>` first-class. The React Compiler auto-memoizes at build time, so hand-written memoization is mostly noise. In framework setups, Server Components and Server Actions are the default mental model, not an experiment.
@@ -22,6 +22,7 @@ React 19 made Actions, the `use()` primitive, `ref` as a regular prop, and `<for
 - The Compiler is opt-in per build tool (Babel, Vite, Metro, Rsbuild) and assumes the Rules of React. Lint with `eslint-plugin-react-hooks` v6+ at error before enabling.
 - Keep manual memoization only for referential identity passed to non-React consumers, genuinely expensive non-render work, or effect-dependency stability. The compiler handles everything else, so do not strip these three cases blindly.
 - `use()` follows render purity but, unlike a hook, may be called conditionally.
+- The Actions hook is `useActionState` (returns `[state, action, isPending]`), not the Canary-era `useFormState`. `propTypes` and `defaultProps` are removed for function components; use TypeScript types and default parameters.
 
 ## Companion
 The strict `eslint-plugin-react-hooks` config and the five silent compiler-bail patterns are inlined in [react-rules.md](./react-rules.md). The standalone **react-compiler** skill is an optional deeper dive on the same material; it is not required.

@@ -1,6 +1,6 @@
 # Svelte
 
-**Verified 2026-06-04.** Check the installed `svelte` version first; re-verify if newer than below.
+**Verified 2026-06-05.** Check the installed `svelte` version first; re-verify if newer than below.
 
 **Current stable**: Svelte 5 (Svelte 6 upcoming). **LLM default bias**: Svelte 3 and 4. `let x` implicit reactivity, `$:` labels, `export let` props, `$store` everywhere, `createEventDispatcher` and `on:click`.
 
@@ -21,6 +21,8 @@ Svelte 5 replaced implicit reactivity with explicit runes (`$state`, `$derived`,
 - Runes are compiler keywords, not imports. They work in `.svelte` files and `.svelte.js`/`.svelte.ts` modules only.
 - Svelte 4 stores and `$:` still work for gradual migration. `svelte-migrate` automates most of it.
 - Async (`await` in markup) is still behind `experimental.async`. The flag is slated to be removed in Svelte 6.
+- The immutable variant is `$state.raw` (there is no `$state.frozen`); use `$state.snapshot(x)` for a plain non-proxy copy, `$derived.by(() => ...)` for multi-statement derivations, and `$effect.pre` to run before the DOM updates.
+- Event modifiers were removed. `on:click|preventDefault` is gone; call `event.preventDefault()` inside the handler.
 
 ## Sources
 - https://svelte.dev/docs/svelte/v5-migration-guide

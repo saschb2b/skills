@@ -1,6 +1,6 @@
 # Vue
 
-**Verified 2026-06-04.** Check the installed `vue` version first; re-verify if newer than below.
+**Verified 2026-06-05.** Check the installed `vue` version first; re-verify if newer than below.
 
 **Current stable**: 3.5 (3.6 with Vapor Mode in beta). **LLM default bias**: Vue 2 Options API, `Vue.component`, mixins, Vuex, plus Options-heavy early Vue 3.
 
@@ -16,9 +16,11 @@
 | `modelValue` + `update:modelValue` boilerplate | `defineModel()` (stable since 3.4) |
 | Vuex | Pinia, the official state default |
 | `Vue.component` global registration | Explicit imports and `createApp().use()` |
+| `withDefaults()` for prop defaults | Native destructure defaults (Reactive Props Destructure, stable 3.5) |
+| String `ref` + `this.$refs` | `useTemplateRef('name')` (3.5); `useId()` for SSR-safe ids |
 
 ## Gotchas
-- Vapor Mode is opt-in per component and not production-ready in 3.6 beta. Do not assume it.
+- Vapor Mode is opt-in via `<script setup vapor>` (or `createVaporApp` for a whole app) and not production-ready in the 3.6 alpha/beta. Do not assume it.
 - The 3.6 reactivity rewrite is internal and mostly backward compatible. Retest performance-sensitive code.
 - `defineModel()` replaces the old `modelValue` prop plus `update:modelValue` emit pattern.
 
