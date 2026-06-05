@@ -1,7 +1,7 @@
 ---
 name: javascript-ecosystem
 description: Default to the latest stable major versions of JavaScript and TypeScript frameworks and their current paradigms, instead of the older versions and patterns that dominate LLM training data. A version-and-paradigm changelog index that routes to per-tool notes. Use when writing, reviewing, scaffolding, or upgrading any JS or TS project, when choosing dependency versions, when an agent emits an outdated pattern, or when working with React, Angular, Vue, Svelte, Solid, Next.js, Nuxt, React Router, Remix, SvelteKit, Astro, TanStack Start, Material UI, Tailwind, shadcn, Mantine, Chakra, TanStack Query, Redux, Zustand, Jotai, TypeScript, Vite, Node, ESLint, pnpm, Bun, or Biome. Check the project's installed version first; this snapshot ages.
-date: 2026-06-04
+date: 2026-06-05
 source_post: llm-default-react-stack
 ---
 
@@ -16,6 +16,25 @@ LLMs default to the framework versions and patterns their training data over-rep
 ## Rule
 
 **Write for the version the project actually has, targeting the current paradigm, not the version your training data over-represents.** Version numbers move fast; the paradigm shifts move slowly. When unsure, trust the paradigm direction and verify the exact version against the source.
+
+## Snapshot and freshness
+
+This skill is a dated snapshot of a fast-moving ecosystem, and a snapshot is technical debt: it ages. Treat it as a cache of the official docs, not an oracle.
+
+- **Snapshot date: 2026-06-05** (the `date` in the frontmatter). Each notes file also carries its own `Verified` date.
+- **Staleness rule.** If today is more than roughly 6 months past the snapshot date, or past a notes file's `Verified` date, treat that file's version numbers and "current stable" claims as suspect. The paradigm sections (`The shift` and the Start column) age far slower than version numbers, so trust those longer and verify the numbers.
+- **Verify the one tool you are about to use.** When a version-specific claim matters for the task, confirm it against that tool's official release notes or migration guide first. If you have web access and find an entry stale, apply the current paradigm and, if you maintain this repo, refresh the notes file.
+
+### Is the installed skill itself outdated?
+
+Skills are distributed via skills.sh and copied into your project, so an installed copy is a pinned snapshot that does not update itself.
+
+1. **Detect.** Compare the snapshot date above to today. A gap of many months means the copy is likely behind newer releases, and several notes files probably are too.
+2. **Update.** Re-install the latest from the source, which overwrites the local copy:
+   ```sh
+   npx skills@latest add saschb2b/skills --skill javascript-ecosystem
+   ```
+3. **Confirm.** Check that the snapshot date moved forward (`skills-lock.json` records the new content hash). Maintainers: see [MAINTENANCE.md](./MAINTENANCE.md).
 
 ## How to use this skill
 

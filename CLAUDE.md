@@ -28,6 +28,8 @@ When you add a new skill, touch four places. Forgetting any of them silently deg
 
 Then run `node scripts/check-skills.mjs`. It enforces every rule below (the `: ` and ` #` frontmatter traps, `name` matching the folder, the 1024-char description cap, plugin.json registration, and that every relative link inside the skill resolves) and exits non-zero on any failure. Run it before you commit.
 
+The `javascript-ecosystem` skill is a dated snapshot of a fast-moving ecosystem, so it carries extra anti-staleness machinery: a snapshot `date`, a per-notes-file `**Verified YYYY-MM-DD**` stamp, a freshness section in its `SKILL.md`, and `skills/engineering/javascript-ecosystem/MAINTENANCE.md`. Run `node scripts/check-freshness.mjs` to list the oldest entries due for a re-verify against official docs.
+
 ## SKILL.md format
 
 ```markdown
