@@ -47,6 +47,7 @@ Each notes file holds the current stable version, the LLM default bias, the para
 | SvelteKit | Runes; remote functions (experimental) | [sveltekit.md](./meta-frameworks/sveltekit.md) |
 | Astro | Content Layer API, Server Islands, Actions | [astro.md](./meta-frameworks/astro.md) |
 | TanStack Start | v1 RC full-stack on Router + Vite; `createServerFn` | [tanstack-start.md](./meta-frameworks/tanstack-start.md) |
+| TanStack Router | v1 type-safe routing; typed search params, loaders | [tanstack-router.md](./meta-frameworks/tanstack-router.md) |
 
 ### UI and styling
 | Tool | Headline shift | Notes |
@@ -58,11 +59,14 @@ Each notes file holds the current stable version, the LLM default bias, the para
 | Chakra UI | v3 rewrite on Ark UI; namespaced compound API | [chakra.md](./ui/chakra.md) |
 | UnoCSS | Atomic engine; `presetWind4` tracks Tailwind v4 | [unocss.md](./ui/unocss.md) |
 | Motion | `framer-motion` is now `motion`; import `motion/react` | [motion.md](./ui/motion.md) |
+| Headless UI | Radix `radix-ui`, Base UI `@base-ui/react`, React Aria | [headless-ui.md](./ui/headless-ui.md) |
+| CSS-in-JS | styled-components in maintenance; build-time, RSC-safe CSS | [css-in-js.md](./ui/css-in-js.md) |
 
 ### Data and state
 | Tool | Headline shift | Notes |
 | --- | --- | --- |
 | TanStack Query | v5 single object arg; `useSuspenseQuery`; `gcTime` | [tanstack-query.md](./data/tanstack-query.md) |
+| SWR | v2 `isLoading`, `useSWRMutation`; minimal SWR cache | [swr.md](./data/swr.md) |
 | Redux Toolkit | Redux is RTK now; `createSlice`; RTK Query built-in | [redux-toolkit.md](./data/redux-toolkit.md) |
 | Zustand | v5 `useShallow`; native `useSyncExternalStore` | [zustand.md](./data/zustand.md) |
 | Jotai | v2 vanilla store; async atoms hold promises | [jotai.md](./data/jotai.md) |
@@ -93,6 +97,11 @@ Picking one: a server-cache library (TanStack Query) for fetched data, a client-
 | Cypress | v15, now runner-up to Playwright for new e2e | [cypress.md](./testing/cypress.md) |
 
 New Vite + React + TS default: Vitest (unit and component) plus Testing Library plus Playwright (e2e). Jest and Cypress are the secondary choices, not the defaults.
+
+### Mobile
+| Tool | Headline shift | Notes |
+| --- | --- | --- |
+| React Native | New Architecture default (0.76+); Expo and Expo Router | [react-native.md](./mobile/react-native.md) |
 
 ### Backend
 | Tool | Headline shift | Notes |
