@@ -57,6 +57,7 @@ Consult these based on the task at hand. Each carries its own `Verified` date.
 - **Math and utility globals (lerp, move_toward, clamp, remap, snapped), randomness and RandomNumberGenerator, Vector2/3 helpers, framerate-independent smoothing** - See [references/math.md](references/math.md)
 - **Navigation and pathfinding, AStarGrid2D, AStar2D, NavigationAgent2D/3D and navmesh baking, local avoidance, one-shot path queries** - See [references/navigation.md](references/navigation.md)
 - **TileMapLayer API, cell methods, coordinate conversion, terrains, custom data, migration from TileMap** - See [references/tilemaplayer.md](references/tilemaplayer.md)
+- **High-level multiplayer, @rpc, ENetMultiplayerPeer, authority and identity, MultiplayerSpawner and MultiplayerSynchronizer** - See [references/multiplayer.md](references/multiplayer.md)
 
 **Presentation**
 - **UI and Control nodes, anchors and offsets, containers, size flags, theming, GUI input, mouse_filter, focus** - See [references/ui.md](references/ui.md)
