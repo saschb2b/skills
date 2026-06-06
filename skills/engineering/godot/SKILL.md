@@ -58,6 +58,7 @@ Consult these based on the task at hand. Each carries its own `Verified` date.
 - **Navigation and pathfinding, AStarGrid2D, AStar2D, NavigationAgent2D/3D and navmesh baking, local avoidance, one-shot path queries** - See [references/navigation.md](references/navigation.md)
 - **TileMapLayer API, cell methods, coordinate conversion, terrains, custom data, migration from TileMap** - See [references/tilemaplayer.md](references/tilemaplayer.md)
 - **High-level multiplayer, @rpc, ENetMultiplayerPeer, authority and identity, MultiplayerSpawner and MultiplayerSynchronizer** - See [references/multiplayer.md](references/multiplayer.md)
+- **3D essentials, the 2D-to-3D node map, Node3D transforms, Camera3D, lighting and Environment, meshes and StandardMaterial3D, glTF import, CSG, GridMap** - See [references/3d.md](references/3d.md)
 
 **Presentation**
 - **UI and Control nodes, anchors and offsets, containers, size flags, theming, GUI input, mouse_filter, focus** - See [references/ui.md](references/ui.md)
