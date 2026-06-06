@@ -44,24 +44,31 @@ res://
 
 Consult these based on the task at hand. Each carries its own `Verified` date.
 
+**Language and project**
 - **GDScript syntax, annotations, signals, typed collections, lambdas, await, match, abstract classes, file structure convention** - See [references/gdscript.md](references/gdscript.md)
+- **Scene organization, autoloads, event bus, resource system, grid movement, turn-based patterns, fog of war** - See [references/architecture.md](references/architecture.md)
+- **SceneTree, changing scenes (change_scene_to_file), pausing and process_mode, timers, deferred calls and safe tree mutation, node lifecycle** - See [references/scene-tree.md](references/scene-tree.md)
+- **Text file formats (.tscn, .tres, project.godot), ext_resource/sub_resource, connections, UIDs and .uid sidecars, version control** - See [references/file-formats.md](references/file-formats.md)
+- **Common pitfalls, deprecated API, breaking changes, new features** - See [references/pitfalls.md](references/pitfalls.md)
+
+**Gameplay systems**
 - **Physics bodies (CharacterBody2D/3D), move_and_slide, collision layers/masks, Area2D, RigidBody2D, raycasts, groups, process callbacks** - See [references/physics.md](references/physics.md)
+- **Input Map and actions, polling vs events, get_vector and action strength, physical_keycode, mouse and gamepad, runtime remapping** - See [references/input.md](references/input.md)
 - **Math and utility globals (lerp, move_toward, clamp, remap, snapped), randomness and RandomNumberGenerator, Vector2/3 helpers, framerate-independent smoothing** - See [references/math.md](references/math.md)
 - **Navigation and pathfinding, AStarGrid2D, AStar2D, NavigationAgent2D/3D and navmesh baking, local avoidance, one-shot path queries** - See [references/navigation.md](references/navigation.md)
 - **TileMapLayer API, cell methods, coordinate conversion, terrains, custom data, migration from TileMap** - See [references/tilemaplayer.md](references/tilemaplayer.md)
-- **SceneTree, changing scenes (change_scene_to_file), pausing and process_mode, timers, deferred calls and safe tree mutation, node lifecycle** - See [references/scene-tree.md](references/scene-tree.md)
-- **Input Map and actions, polling vs events, get_vector and action strength, physical_keycode, mouse and gamepad, runtime remapping** - See [references/input.md](references/input.md)
+
+**Presentation**
 - **UI and Control nodes, anchors and offsets, containers, size flags, theming, GUI input, mouse_filter, focus** - See [references/ui.md](references/ui.md)
-- **Scene organization, autoloads, event bus, resource system, input handling, grid movement, turn-based patterns, AStar2D, fog of war** - See [references/architecture.md](references/architecture.md)
 - **Tweens (create_tween), easing, parallel and chained steps, AnimationPlayer, AnimationTree state machines, AnimatedSprite2D** - See [references/animation.md](references/animation.md)
-- **Saving and persistence, res:// vs user://, FileAccess, JSON, ConfigFile, DirAccess, save/load helpers, untrusted-data security** - See [references/persistence.md](references/persistence.md)
 - **Audio playback, AudioStreamPlayer 2D/3D, one-shot SFX pooling, buses and the AudioServer mixer, linear-vs-dB volume sliders** - See [references/audio.md](references/audio.md)
-- **Performance and optimization, profiling and monitors, object pooling, MultiMesh batching, off-screen culling, threading, server calls** - See [references/performance.md](references/performance.md)
 - **Shaders (gdshader), shader_type and processor functions, uniforms and hints, setting parameters from GDScript, 2D effects, when not to use a shader** - See [references/shaders.md](references/shaders.md)
-- **Editor and CLI workflow, running headless, importing, syntax-checking GDScript, standalone scripts, exporting builds, CI, verifying changes** - See [references/workflow.md](references/workflow.md)
-- **Text file formats (.tscn, .tres, project.godot), ext_resource/sub_resource, connections, UIDs and .uid sidecars, version control** - See [references/file-formats.md](references/file-formats.md)
+
+**Data, tooling, and shipping**
+- **Saving and persistence, res:// vs user://, FileAccess, JSON, ConfigFile, DirAccess, save/load helpers, untrusted-data security** - See [references/persistence.md](references/persistence.md)
+- **Performance and optimization, profiling and monitors, object pooling, MultiMesh batching, off-screen culling, threading, server calls** - See [references/performance.md](references/performance.md)
 - **Testing with GUT or GdUnit4, test structure and assertions, signals and scene runners, running headless in CI, what to test in a game** - See [references/testing.md](references/testing.md)
-- **Common pitfalls, deprecated API, breaking changes, new features** - See [references/pitfalls.md](references/pitfalls.md)
+- **Editor and CLI workflow, running headless, importing, syntax-checking GDScript, standalone scripts, exporting builds, CI, verifying changes** - See [references/workflow.md](references/workflow.md)
 
 ## Quick Patterns
 
