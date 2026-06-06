@@ -23,6 +23,7 @@ npx skills@latest add saschb2b/skills --skill react-compiler
 npx skills@latest add saschb2b/skills --skill codegen-api
 npx skills@latest add saschb2b/skills --skill theme-colors
 npx skills@latest add saschb2b/skills --skill javascript-ecosystem
+npx skills@latest add saschb2b/skills --skill godot
 npx skills@latest add saschb2b/skills --skill ask-ux
 npx skills@latest add saschb2b/skills --skill to-story
 npx skills@latest add saschb2b/skills --skill autopilot
@@ -126,6 +127,7 @@ Code-adjacent work.
 - **[codegen-api](./skills/engineering/codegen-api/SKILL.md)**. Set up typesafe API code generation in 2026. Decision matrix for OpenAPI (`hey-api`) and GraphQL (`graphql-codegen` client preset, or `gql.tada` for no build step). Generates options factories and typed documents instead of legacy hooks. Fragment masking for composition.
 - **[theme-colors](./skills/engineering/theme-colors/SKILL.md)**. Every color value comes from the theme. Replace hex codes, `rgba()` literals, and named colors with palette roles (primary, secondary, error, surface, text) and the `alpha()` helper. Counterweight to LLM training corpora that scatter hex codes through component files.
 - **[javascript-ecosystem](./skills/engineering/javascript-ecosystem/SKILL.md)**. Default to the latest stable major versions and their current paradigms across the JS/TS ecosystem. A changelog index that routes to per-tool Stop/Start notes (React, Angular, Vue, Svelte, Solid, Next.js, Tailwind, MUI, TanStack Query, TypeScript, Vite, Node, ESLint, and more). Checks the project's installed version first, since the snapshot ages. Counterweight to training data frozen on older versions and their patterns.
+- **[godot](./skills/engineering/godot/SKILL.md)**. Develop in the Godot game engine against the current stable (4.x). Typed GDScript, the TileMapLayer API, scene and node architecture, the resource system, signals, autoloads, input handling, the .tscn/.tres/project.godot text formats, and version-tagged pitfalls and breaking changes. A dated snapshot with per-reference verified dates that checks the project's Godot version first and tells the agent to re-confirm version-specific claims when the snapshot looks old.
 
 ### Productivity
 
