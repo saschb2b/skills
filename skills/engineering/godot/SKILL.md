@@ -49,6 +49,7 @@ Consult these based on the task at hand. Each carries its own `Verified` date.
 - **TileMapLayer API, cell methods, coordinate conversion, terrains, custom data, migration from TileMap** - See [references/tilemaplayer.md](references/tilemaplayer.md)
 - **UI and Control nodes, anchors and offsets, containers, size flags, theming, GUI input, mouse_filter, focus** - See [references/ui.md](references/ui.md)
 - **Scene organization, autoloads, event bus, resource system, input handling, grid movement, turn-based patterns, AStar2D, fog of war** - See [references/architecture.md](references/architecture.md)
+- **Tweens (create_tween), easing, parallel and chained steps, AnimationPlayer, AnimationTree state machines, AnimatedSprite2D** - See [references/animation.md](references/animation.md)
 - **Common pitfalls, deprecated API, breaking changes, new features** - See [references/pitfalls.md](references/pitfalls.md)
 
 ## Quick Patterns
