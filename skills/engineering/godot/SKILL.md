@@ -55,6 +55,7 @@ Consult these based on the task at hand. Each carries its own `Verified` date.
 - **Saving and persistence, res:// vs user://, FileAccess, JSON, ConfigFile, DirAccess, save/load helpers, untrusted-data security** - See [references/persistence.md](references/persistence.md)
 - **Audio playback, AudioStreamPlayer 2D/3D, one-shot SFX pooling, buses and the AudioServer mixer, linear-vs-dB volume sliders** - See [references/audio.md](references/audio.md)
 - **Editor and CLI workflow, running headless, importing, syntax-checking GDScript, standalone scripts, exporting builds, CI, verifying changes** - See [references/workflow.md](references/workflow.md)
+- **Text file formats (.tscn, .tres, project.godot), ext_resource/sub_resource, connections, UIDs and .uid sidecars, version control** - See [references/file-formats.md](references/file-formats.md)
 - **Common pitfalls, deprecated API, breaking changes, new features** - See [references/pitfalls.md](references/pitfalls.md)
 
 ## Quick Patterns
@@ -97,46 +98,8 @@ GameState.score += 100
 Events.enemy_died.emit(self, global_position)
 ```
 
-## Writing .tscn Files
+## Writing .tscn / .tres / project.godot as text
 
-When creating scenes as text, use this format:
+These are human-readable text formats you can author or patch directly. The essentials: scene headers use `format=3`, resource ids are strings (`"1_player"`), `load_steps` is deprecated and ignored, the root `[node]` has no `parent`, and direct children use `parent="."`. Commit `.tscn`, `.tres`, `.gd`, and the `.uid` sidecars; ignore the `.godot/` cache.
 
-```
-[gd_scene load_steps=2 format=3 uid="uid://xxxxx"]
-
-[ext_resource type="Script" path="res://scripts/player.gd" id="1"]
-
-[node name="Player" type="CharacterBody2D"]
-script = ExtResource("1")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-```
-
-Key rules for .tscn:
-- `load_steps` = total ext_resources + sub_resources + 1
-- Root node has no `parent` attribute
-- Direct children use `parent="."`
-- Deeper children use `parent="ParentName"` or `parent="Grand/Parent"`
-- Properties only listed when they differ from defaults
-
-## Writing project.godot
-
-```ini
-[autoload]
-GameState="*res://scripts/autoload/game_state.gd"
-
-[input]
-move_up={
-"deadzone": 0.5,
-"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":87,"key_label":0,"unicode":119,"location":0,"echo":false,"script":null)]
-}
-
-[display]
-window/size/viewport_width=480
-window/size/viewport_height=320
-window/stretch/mode="viewport"
-```
-
-For pixel art games, set stretch mode to "viewport" and configure a small viewport size.
+Full format details (ext_resource/sub_resource, connections, UIDs, project.godot sections) are in [references/file-formats.md](references/file-formats.md). When in doubt, let the editor write the file and copy its output rather than hand-authoring verbose blocks like input events.
