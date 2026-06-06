@@ -190,6 +190,8 @@ func advance_phase() -> void:
 
 ### AStar2D Pathfinding
 
+For a plain tile grid, prefer the built-in `AStarGrid2D` (no manual point/connection wiring); for navmesh-based continuous movement use `NavigationAgent2D`. Both are covered in [navigation.md](navigation.md). The manual `AStar2D` graph below suits arbitrary waypoint graphs with irregular connections.
+
 ```gdscript
 var astar := AStar2D.new()
 
