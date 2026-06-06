@@ -53,6 +53,7 @@ Consult these based on the task at hand. Each carries its own `Verified` date.
 - **Scene organization, autoloads, event bus, resource system, input handling, grid movement, turn-based patterns, AStar2D, fog of war** - See [references/architecture.md](references/architecture.md)
 - **Tweens (create_tween), easing, parallel and chained steps, AnimationPlayer, AnimationTree state machines, AnimatedSprite2D** - See [references/animation.md](references/animation.md)
 - **Saving and persistence, res:// vs user://, FileAccess, JSON, ConfigFile, DirAccess, save/load helpers, untrusted-data security** - See [references/persistence.md](references/persistence.md)
+- **Audio playback, AudioStreamPlayer 2D/3D, one-shot SFX pooling, buses and the AudioServer mixer, linear-vs-dB volume sliders** - See [references/audio.md](references/audio.md)
 - **Editor and CLI workflow, running headless, importing, syntax-checking GDScript, standalone scripts, exporting builds, CI, verifying changes** - See [references/workflow.md](references/workflow.md)
 - **Common pitfalls, deprecated API, breaking changes, new features** - See [references/pitfalls.md](references/pitfalls.md)
 
