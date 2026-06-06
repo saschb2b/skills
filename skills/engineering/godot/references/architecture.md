@@ -53,6 +53,8 @@ signal level_completed(level_id: int)
 
 ### Scene Switching
 
+For the common case, use the built-in `get_tree().change_scene_to_file(path)` / `change_scene_to_packed(packed)` (see [scene-tree.md](scene-tree.md)). Roll a custom manager like the one below only when you need transitions, additive scenes, or to keep state nodes alive across the swap.
+
 ```gdscript
 # scene_manager.gd (autoload)
 extends Node
