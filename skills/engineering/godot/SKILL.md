@@ -63,6 +63,7 @@ Consult these based on the task at hand. Each carries its own `Verified` date.
 - **Tweens (create_tween), easing, parallel and chained steps, AnimationPlayer, AnimationTree state machines, AnimatedSprite2D** - See [references/animation.md](references/animation.md)
 - **Audio playback, AudioStreamPlayer 2D/3D, one-shot SFX pooling, buses and the AudioServer mixer, linear-vs-dB volume sliders** - See [references/audio.md](references/audio.md)
 - **Shaders (gdshader), shader_type and processor functions, uniforms and hints, setting parameters from GDScript, 2D effects, when not to use a shader** - See [references/shaders.md](references/shaders.md)
+- **Particles and VFX, GPUParticles2D vs CPUParticles2D, ParticleProcessMaterial, one-shot self-freeing bursts, trails and local_coords** - See [references/particles.md](references/particles.md)
 
 **Data, tooling, and shipping**
 - **Saving and persistence, res:// vs user://, FileAccess, JSON, ConfigFile, DirAccess, save/load helpers, untrusted-data security** - See [references/persistence.md](references/persistence.md)
