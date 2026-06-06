@@ -1,10 +1,27 @@
+<div align="center">
+
 # Sascha's Skills
 
+**Expert practice, packaged as checklists your coding agent can actually run.**
+
 [![skills.sh](https://skills.sh/b/saschb2b/skills)](https://skills.sh/saschb2b/skills)
+[![Skills](https://img.shields.io/badge/skills-10-2ea44f)](#skill-reference)
+[![Docs](https://img.shields.io/badge/docs-saschb2b.com-0969da)](https://saschb2b.com/skills)
+[![License](https://img.shields.io/badge/license-MIT-0969da)](./LICENSE)
+
+</div>
 
 A small, growing collection of agent skills distilled from posts on [saschb2b.com/blog](https://saschb2b.com/blog). Designed to be small, composable, and to work with any agent that supports the [skills.sh](https://skills.sh) installer (Claude Code, Cursor, Codex, Cline, Windsurf, OpenCode, and others).
 
-Each skill takes a single blog post and turns its argument into a checklist an agent can step through, end to end. Together they cover the kind of expert practice teams agree with on a calm day and skip on a busy one: the security audit nobody runs, the architecture everyone reinvents, the React pattern your LLM still writes the old way, the API codegen your LLM still wires the old way, the colors your LLM still sprinkles as hex, the UX questions the generator skips past, the ticket discipline that drops on a busy Monday.
+Most skills take a single blog post and turn its argument into a checklist an agent can step through, end to end; a few (like `godot` and `javascript-ecosystem`) are living reference snapshots that re-verify as they age. Together they cover the kind of expert practice teams agree with on a calm day and skip on a busy one: the security audit nobody runs, the architecture everyone reinvents, the framework version your LLM is a year behind on, the React pattern and API codegen your LLM still wires the old way, the colors your LLM still sprinkles as hex, the UX questions the generator skips past, the ticket discipline that drops on a busy Monday.
+
+## Contents
+
+- [Install](#install)
+- [Skill reference](#skill-reference)
+- [Why these skills exist](#why-these-skills-exist)
+- [Authoring your own](#authoring-your-own)
+- [License](#license)
 
 ## Install
 
@@ -30,6 +47,32 @@ npx skills@latest add saschb2b/skills --skill autopilot
 ```
 
 Browse the rendered docs at [saschb2b.com/skills](https://saschb2b.com/skills).
+
+## Skill reference
+
+### Engineering
+
+Code-adjacent work.
+
+| Skill | What it does |
+| --- | --- |
+| **[audit-actions](./skills/engineering/audit-actions/SKILL.md)** | Audit `.github/workflows/` for the `pull_request_target` misuse that compromised TanStack, Nx, PostHog, and Trivy. Greps every workflow, walks a 10-point severity checklist, names findings, proposes the right fix. |
+| **[scaffold-mcp](./skills/engineering/scaffold-mcp/SKILL.md)** | Stand up a TypeScript Model Context Protocol server on the five-layer architecture, choosing the bridge pattern from what the target software offers. |
+| **[react-compiler](./skills/engineering/react-compiler/SKILL.md)** | Write and review React as if the Compiler is enabled. Skip manual `useMemo`, `useCallback`, and `React.memo`; audit existing code for stale memoization and the five silent-bail patterns. |
+| **[codegen-api](./skills/engineering/codegen-api/SKILL.md)** | Set up typesafe API code generation. Picks `hey-api` (OpenAPI) or `graphql-codegen` / `gql.tada` (GraphQL), then emits options factories and typed documents instead of legacy hooks. |
+| **[theme-colors](./skills/engineering/theme-colors/SKILL.md)** | Replace hex codes, `rgba()` literals, and named colors with theme roles (primary, surface, error, and friends) and the `alpha()` helper. Audits existing code for color literals. |
+| **[javascript-ecosystem](./skills/engineering/javascript-ecosystem/SKILL.md)** | Default to the current stable majors and their paradigms across the JS/TS ecosystem (React, Angular, Vue, Next.js, Tailwind, TanStack Query, Vite, and more). A changelog index that checks the installed version first. |
+| **[godot](./skills/engineering/godot/SKILL.md)** | Develop in Godot against the current stable (4.x): typed GDScript, physics, UI, scenes, the `.tscn`/`.tres` formats, editor tooling, and version-tagged pitfalls. A dated snapshot that re-verifies as it ages. |
+
+### Productivity
+
+Process and discipline, not code-specific.
+
+| Skill | What it does |
+| --- | --- |
+| **[ask-ux](./skills/productivity/ask-ux/SKILL.md)** | Force UX questioning before any UI work. The UI-vs-UX diagnostic, then twelve questions in the order they bite. |
+| **[to-story](./skills/productivity/to-story/SKILL.md)** | Reshape a draft Jira or GitHub ticket into a real user story with INVEST-clean acceptance criteria. Splits oversized stories with SPIDR. |
+| **[autopilot](./skills/productivity/autopilot/SKILL.md)** | Hand off the project and let the agent run on its own: survey, pick one high-value low-risk improvement, verify it, commit it, and loop. Generate-then-rank work selection with anti-churn rails. |
 
 ## Why these skills exist
 
@@ -115,27 +158,9 @@ I built each one because the corresponding post wasn't enough. Writing down what
 
 **The fix:** [`/javascript-ecosystem`](./skills/engineering/javascript-ecosystem/SKILL.md). A changelog index across the ecosystem (frameworks, meta-frameworks, UI libraries, state, tooling, testing, mobile, backend, forms, auth, i18n, dates, API codegen, GraphQL clients, email, payments, observability, CMS, AI SDKs). The agent checks the project's installed version first, then routes to a per-tool notes file with a Stop/Start table that maps the pattern it would reach for to the one the current version wants. The notes carry a verified date and tell the agent to re-confirm against official release notes when the snapshot looks old, so it ages gracefully instead of hardcoding a moment in time. It is standalone: every notes file is complete on its own, and it composes with the `react-compiler`, `codegen-api`, `theme-colors`, and `claude-api` skills as optional deeper dives if they are installed, but requires none of them.
 
-## Reference
+### And two that run the work, not just describe it
 
-### Engineering
-
-Code-adjacent work.
-
-- **[audit-actions](./skills/engineering/audit-actions/SKILL.md)**. Audit `.github/workflows/` for the `pull_request_target` misuse pattern that compromised TanStack, Nx, PostHog, and Trivy. Greps every workflow, walks a 10-point severity checklist, names findings, proposes the right fix.
-- **[scaffold-mcp](./skills/engineering/scaffold-mcp/SKILL.md)**. Stand up a Model Context Protocol server in TypeScript using the five-layer architecture. Picks a bridge pattern based on what the target software offers.
-- **[react-compiler](./skills/engineering/react-compiler/SKILL.md)**. Write and review React as if the Compiler is enabled. Skip manual `useMemo`, `useCallback`, and `React.memo` by default. Audit existing code for stale memoization and the five silent-bail patterns. Sets the strict `eslint-plugin-react-hooks` rules.
-- **[codegen-api](./skills/engineering/codegen-api/SKILL.md)**. Set up typesafe API code generation in 2026. Decision matrix for OpenAPI (`hey-api`) and GraphQL (`graphql-codegen` client preset, or `gql.tada` for no build step). Generates options factories and typed documents instead of legacy hooks. Fragment masking for composition.
-- **[theme-colors](./skills/engineering/theme-colors/SKILL.md)**. Every color value comes from the theme. Replace hex codes, `rgba()` literals, and named colors with palette roles (primary, secondary, error, surface, text) and the `alpha()` helper. Counterweight to LLM training corpora that scatter hex codes through component files.
-- **[javascript-ecosystem](./skills/engineering/javascript-ecosystem/SKILL.md)**. Default to the latest stable major versions and their current paradigms across the JS/TS ecosystem. A changelog index that routes to per-tool Stop/Start notes (React, Angular, Vue, Svelte, Solid, Next.js, Tailwind, MUI, TanStack Query, TypeScript, Vite, Node, ESLint, and more). Checks the project's installed version first, since the snapshot ages. Counterweight to training data frozen on older versions and their patterns.
-- **[godot](./skills/engineering/godot/SKILL.md)**. Develop in the Godot game engine against the current stable (4.x). Typed GDScript, the TileMapLayer API, scene and node architecture, the resource system, signals, autoloads, input handling, the .tscn/.tres/project.godot text formats, and version-tagged pitfalls and breaking changes. A dated snapshot with per-reference verified dates that checks the project's Godot version first and tells the agent to re-confirm version-specific claims when the snapshot looks old.
-
-### Productivity
-
-Process and discipline, not code-specific.
-
-- **[ask-ux](./skills/productivity/ask-ux/SKILL.md)**. Force UX questioning before any UI work. UI-vs-UX diagnostic, then twelve questions in the order they bite.
-- **[to-story](./skills/productivity/to-story/SKILL.md)**. Reshape a draft Jira or GitHub ticket as a real user story with INVEST-clean ACs. Splits oversized stories with SPIDR.
-- **[autopilot](./skills/productivity/autopilot/SKILL.md)**. Hand off the project and let the agent run on its own. It surveys, finds one high-value low-risk improvement, verifies it, commits it, and loops. Generate-then-rank judgment for picking the work (so a sensible small feature competes on equal footing, not a fixed checklist), in-bounds vs surface-first rails, and anti-churn checks so you review a clean stream of small wins instead of one giant diff.
+Not every skill traces back to a single post. [`/godot`](./skills/engineering/godot/SKILL.md) is a living, dated snapshot of the Godot engine: 22 reference files spanning GDScript, physics, UI, animation, navigation, shaders, and editor tooling, each carrying its own verified date so it re-confirms against the official docs as it ages. [`/autopilot`](./skills/productivity/autopilot/SKILL.md) hands the wheel to the agent: it surveys the repo, picks one high-value low-risk improvement, verifies it, commits it, and loops, with generate-then-rank judgment and anti-churn rails so you review a clean stream of small wins instead of one giant diff.
 
 ## Authoring your own
 
