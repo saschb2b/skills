@@ -46,6 +46,7 @@ Consult these based on the task at hand. Each carries its own `Verified` date.
 
 - **GDScript syntax, annotations, signals, typed collections, lambdas, await, match, abstract classes, file structure convention** - See [references/gdscript.md](references/gdscript.md)
 - **Physics bodies (CharacterBody2D/3D), move_and_slide, collision layers/masks, Area2D, RigidBody2D, raycasts, groups, process callbacks** - See [references/physics.md](references/physics.md)
+- **Math and utility globals (lerp, move_toward, clamp, remap, snapped), randomness and RandomNumberGenerator, Vector2/3 helpers, framerate-independent smoothing** - See [references/math.md](references/math.md)
 - **TileMapLayer API, cell methods, coordinate conversion, terrains, custom data, migration from TileMap** - See [references/tilemaplayer.md](references/tilemaplayer.md)
 - **SceneTree, changing scenes (change_scene_to_file), pausing and process_mode, timers, deferred calls and safe tree mutation, node lifecycle** - See [references/scene-tree.md](references/scene-tree.md)
 - **UI and Control nodes, anchors and offsets, containers, size flags, theming, GUI input, mouse_filter, focus** - See [references/ui.md](references/ui.md)
