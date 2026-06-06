@@ -171,4 +171,4 @@ Physics delta is constant; render delta varies with framerate. Never call `move_
 
 ## 3D differences
 
-`CharacterBody3D` works the same with `Vector3` velocity; `up_direction` defaults to `Vector3.UP`. Use `Input.get_vector` for planar XZ movement and apply gravity on `velocity.y`. RayCast3D and `PhysicsRayQueryParameters3D` mirror the 2D API. Jolt Physics is the default 3D engine for new projects since 4.4.
+`CharacterBody3D` works the same with `Vector3` velocity; `up_direction` defaults to `Vector3.UP`. Use `Input.get_vector` for planar XZ movement and apply gravity on `velocity.y`. RayCast3D and `PhysicsRayQueryParameters3D` mirror the 2D API. Jolt Physics became the default 3D engine for new 3D projects in 4.6 (it was added as a built-in option in 4.4); existing projects keep their configured engine.
