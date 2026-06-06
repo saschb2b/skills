@@ -45,6 +45,7 @@ res://
 Consult these based on the task at hand. Each carries its own `Verified` date.
 
 - **GDScript syntax, annotations, signals, typed collections, lambdas, await, match, abstract classes, file structure convention** - See [references/gdscript.md](references/gdscript.md)
+- **Physics bodies (CharacterBody2D/3D), move_and_slide, collision layers/masks, Area2D, RigidBody2D, raycasts, groups, process callbacks** - See [references/physics.md](references/physics.md)
 - **TileMapLayer API, cell methods, coordinate conversion, terrains, custom data, migration from TileMap** - See [references/tilemaplayer.md](references/tilemaplayer.md)
 - **Scene organization, autoloads, event bus, resource system, input handling, grid movement, turn-based patterns, AStar2D, fog of war** - See [references/architecture.md](references/architecture.md)
 - **Common pitfalls, deprecated API, breaking changes, new features** - See [references/pitfalls.md](references/pitfalls.md)
