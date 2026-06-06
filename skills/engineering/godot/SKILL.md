@@ -56,6 +56,7 @@ Consult these based on the task at hand. Each carries its own `Verified` date.
 - **Audio playback, AudioStreamPlayer 2D/3D, one-shot SFX pooling, buses and the AudioServer mixer, linear-vs-dB volume sliders** - See [references/audio.md](references/audio.md)
 - **Editor and CLI workflow, running headless, importing, syntax-checking GDScript, standalone scripts, exporting builds, CI, verifying changes** - See [references/workflow.md](references/workflow.md)
 - **Text file formats (.tscn, .tres, project.godot), ext_resource/sub_resource, connections, UIDs and .uid sidecars, version control** - See [references/file-formats.md](references/file-formats.md)
+- **Testing with GUT or GdUnit4, test structure and assertions, signals and scene runners, running headless in CI, what to test in a game** - See [references/testing.md](references/testing.md)
 - **Common pitfalls, deprecated API, breaking changes, new features** - See [references/pitfalls.md](references/pitfalls.md)
 
 ## Quick Patterns
