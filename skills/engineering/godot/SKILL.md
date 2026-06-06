@@ -50,6 +50,7 @@ Consult these based on the task at hand. Each carries its own `Verified` date.
 - **Navigation and pathfinding, AStarGrid2D, AStar2D, NavigationAgent2D/3D and navmesh baking, local avoidance, one-shot path queries** - See [references/navigation.md](references/navigation.md)
 - **TileMapLayer API, cell methods, coordinate conversion, terrains, custom data, migration from TileMap** - See [references/tilemaplayer.md](references/tilemaplayer.md)
 - **SceneTree, changing scenes (change_scene_to_file), pausing and process_mode, timers, deferred calls and safe tree mutation, node lifecycle** - See [references/scene-tree.md](references/scene-tree.md)
+- **Input Map and actions, polling vs events, get_vector and action strength, physical_keycode, mouse and gamepad, runtime remapping** - See [references/input.md](references/input.md)
 - **UI and Control nodes, anchors and offsets, containers, size flags, theming, GUI input, mouse_filter, focus** - See [references/ui.md](references/ui.md)
 - **Scene organization, autoloads, event bus, resource system, input handling, grid movement, turn-based patterns, AStar2D, fog of war** - See [references/architecture.md](references/architecture.md)
 - **Tweens (create_tween), easing, parallel and chained steps, AnimationPlayer, AnimationTree state machines, AnimatedSprite2D** - See [references/animation.md](references/animation.md)
