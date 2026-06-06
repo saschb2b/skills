@@ -54,6 +54,7 @@ Consult these based on the task at hand. Each carries its own `Verified` date.
 - **Tweens (create_tween), easing, parallel and chained steps, AnimationPlayer, AnimationTree state machines, AnimatedSprite2D** - See [references/animation.md](references/animation.md)
 - **Saving and persistence, res:// vs user://, FileAccess, JSON, ConfigFile, DirAccess, save/load helpers, untrusted-data security** - See [references/persistence.md](references/persistence.md)
 - **Audio playback, AudioStreamPlayer 2D/3D, one-shot SFX pooling, buses and the AudioServer mixer, linear-vs-dB volume sliders** - See [references/audio.md](references/audio.md)
+- **Performance and optimization, profiling and monitors, object pooling, MultiMesh batching, off-screen culling, threading, server calls** - See [references/performance.md](references/performance.md)
 - **Editor and CLI workflow, running headless, importing, syntax-checking GDScript, standalone scripts, exporting builds, CI, verifying changes** - See [references/workflow.md](references/workflow.md)
 - **Text file formats (.tscn, .tres, project.godot), ext_resource/sub_resource, connections, UIDs and .uid sidecars, version control** - See [references/file-formats.md](references/file-formats.md)
 - **Testing with GUT or GdUnit4, test structure and assertions, signals and scene runners, running headless in CI, what to test in a game** - See [references/testing.md](references/testing.md)
