@@ -89,9 +89,9 @@ var score: int:
 @export_group("Movement")     # collapsible group
 @export_subgroup("Jump")      # nested sub-section
 
-# Godot 4.5+
+# Newer 4.x exports (see editor-tooling.md)
 @export_storage var _cached: int  # saved but hidden in inspector
-@export_tool_button("Run") var btn  # clickable button
+@export_tool_button("Run") var run := _do  # 4.4+; needs @tool, var must be a Callable
 ```
 
 **CRITICAL: Never combine @onready with @export. @onready overrides exported values.**

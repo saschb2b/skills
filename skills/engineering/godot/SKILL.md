@@ -49,6 +49,7 @@ Consult these based on the task at hand. Each carries its own `Verified` date.
 - **Scene organization, autoloads, event bus, resource system, grid movement, turn-based patterns, fog of war** - See [references/architecture.md](references/architecture.md)
 - **SceneTree, changing scenes (change_scene_to_file), pausing and process_mode, timers, deferred calls and safe tree mutation, node lifecycle** - See [references/scene-tree.md](references/scene-tree.md)
 - **Text file formats (.tscn, .tres, project.godot), ext_resource/sub_resource, connections, UIDs and .uid sidecars, version control** - See [references/file-formats.md](references/file-formats.md)
+- **Editor tooling and exposing tunables in the editor, @export and grouping, data-driven custom Resources, @tool and @export_tool_button, EditorPlugin docks (add_dock), custom inspector widgets** - See [references/editor-tooling.md](references/editor-tooling.md)
 - **Common pitfalls, deprecated API, breaking changes, new features** - See [references/pitfalls.md](references/pitfalls.md)
 
 **Gameplay systems**
