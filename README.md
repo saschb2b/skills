@@ -5,7 +5,7 @@
 **Expert practice, packaged as checklists your coding agent can actually run.**
 
 [![skills.sh](https://skills.sh/b/saschb2b/skills)](https://skills.sh/saschb2b/skills)
-[![Skills](https://img.shields.io/badge/skills-10-2ea44f)](#skill-reference)
+[![Skills](https://img.shields.io/badge/skills-11-2ea44f)](#skill-reference)
 [![Docs](https://img.shields.io/badge/docs-saschb2b.com-0969da)](https://saschb2b.com/skills)
 [![License](https://img.shields.io/badge/license-MIT-0969da)](./LICENSE)
 
@@ -43,6 +43,7 @@ npx skills@latest add saschb2b/skills --skill javascript-ecosystem
 npx skills@latest add saschb2b/skills --skill godot
 npx skills@latest add saschb2b/skills --skill ask-ux
 npx skills@latest add saschb2b/skills --skill to-story
+npx skills@latest add saschb2b/skills --skill no-slop
 npx skills@latest add saschb2b/skills --skill autopilot
 ```
 
@@ -72,6 +73,7 @@ Process and discipline, not code-specific.
 | --- | --- |
 | **[ask-ux](./skills/productivity/ask-ux/SKILL.md)** | Force UX questioning before any UI work. The UI-vs-UX diagnostic, then twelve questions in the order they bite. |
 | **[to-story](./skills/productivity/to-story/SKILL.md)** | Reshape a draft Jira or GitHub ticket into a real user story with INVEST-clean acceptance criteria. Splits oversized stories with SPIDR. |
+| **[no-slop](./skills/productivity/no-slop/SKILL.md)** | Write and revise human-facing prose in a plain, professional register, stripping the tells that mark text as AI-generated. Five rules (punctuation, structure, vocabulary, stance, formatting), a tells table with fixes, before/after rewrites, and a guard against over-correcting into robotic prose. Catches list-itis and forced enumeration, not just em dashes and slop words. |
 | **[autopilot](./skills/productivity/autopilot/SKILL.md)** | Hand off the project and let the agent run on its own: survey, pick one high-value low-risk improvement, verify it, commit it, and loop. Generate-then-rank work selection with anti-churn rails. |
 
 ## Why these skills exist
