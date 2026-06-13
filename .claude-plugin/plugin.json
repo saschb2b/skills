@@ -10,6 +10,7 @@
     "./skills/engineering/godot",
     "./skills/productivity/ask-ux",
     "./skills/productivity/to-story",
-    "./skills/productivity/autopilot"
+    "./skills/productivity/autopilot",
+    "./skills/productivity/no-slop"
   ]
 }
