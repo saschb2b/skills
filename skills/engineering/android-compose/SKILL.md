@@ -56,7 +56,7 @@ Consult these based on the task. Each carries its own `Verified` date.
 - **ColorScheme and color roles, dynamic color (Material You), typography type scale, shapes, dark theme, edge-to-edge and window insets** - See [references/theming.md](references/theming.md)
 
 **Navigation and data**
-- **Type-safe Navigation Compose (@Serializable routes, composable<T>, toRoute), nested graphs, passing arguments, ViewModel scoping, and Navigation 3 (you own the back stack)** - See [references/navigation.md](references/navigation.md)
+- **Type-safe Navigation Compose (@Serializable routes, `composable<T>`, toRoute), nested graphs, passing arguments, ViewModel scoping, and Navigation 3 (you own the back stack)** - See [references/navigation.md](references/navigation.md)
 - **Data layer, Room with KSP, DataStore over SharedPreferences, Retrofit or Ktor with kotlinx.serialization, Coil 3 image loading, repositories, coroutines and Flow** - See [references/data.md](references/data.md)
 
 **Build, test, interop, pitfalls**
