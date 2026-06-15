@@ -97,7 +97,7 @@ class CounterViewModel : ViewModel() {
 @OptIn(ExperimentalMaterial3ExpressiveApi::class)
 @Composable
 fun AppTheme(content: @Composable () -> Unit) {
-    val scheme = if (isSystemInDarkTheme()) expressiveDarkColorScheme()
+    val scheme = if (isSystemInDarkTheme()) darkColorScheme()  // no expressive dark variant
                  else expressiveLightColorScheme()
     MaterialExpressiveTheme(colorScheme = scheme, motionScheme = MotionScheme.expressive(), content = content)
 }

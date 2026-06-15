@@ -9,7 +9,7 @@ Material 3 Expressive (announced Google I/O 2025) is the current Material design
 But the implementation is not stable yet. As of this snapshot:
 
 - There is **no separate `material3-expressive` artifact**. Everything ships inside the main `androidx.compose.material3:material3` library, promoted incrementally through the 1.5.0 alphas.
-- `MaterialExpressiveTheme`, `expressiveLightColorScheme()`, the new components, and `MotionScheme` are gated by `@OptIn(ExperimentalMaterial3ExpressiveApi::class)`.
+- `MaterialExpressiveTheme`, `expressiveLightColorScheme()`, the new components, and `MotionScheme` are gated by `@OptIn(ExperimentalMaterial3ExpressiveApi::class)`. There is an `expressiveLightColorScheme()` but no `expressiveDarkColorScheme()`; for dark mode use the baseline `darkColorScheme()` (or a custom dark `ColorScheme`).
 - The API surface shifts between alphas (components move in and out of experimental). Pin a specific alpha and read its release notes; do not assume an API is where it was last alpha.
 
 **Decision rule.** Default to Expressive theming and components for the design direction. When you need a stable, ship-without-opt-in surface, use baseline M3 from `material3` 1.4.0 (`MaterialTheme`, standard `Button`, `LinearProgressIndicator`, etc.) and layer Expressive in as it stabilizes.
@@ -28,7 +28,7 @@ fun AppTheme(
         dynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S ->
             if (dark) dynamicDarkColorScheme(LocalContext.current)
             else dynamicLightColorScheme(LocalContext.current)
-        dark -> expressiveDarkColorScheme()
+        dark -> darkColorScheme()              // no expressive dark variant ships; use baseline dark
         else -> expressiveLightColorScheme()
     }
     MaterialExpressiveTheme(
