@@ -60,7 +60,7 @@ Consult these based on the task. Each carries its own `Verified` date.
 - **Data layer, Room with KSP, DataStore over SharedPreferences, Retrofit or Ktor with kotlinx.serialization, Coil 3 image loading, repositories, coroutines and Flow** - See [references/data.md](references/data.md)
 
 **Build, test, interop, pitfalls**
-- **Gradle Kotlin DSL, the libs.versions.toml version catalog, the Compose compiler plugin, KSP, build variants, R8, AGP and Android Studio** - See [references/tooling.md](references/tooling.md)
+- **Gradle Kotlin DSL, the libs.versions.toml version catalog, the Compose compiler plugin, KSP, build variants, R8, AGP and Android Studio, building and verifying from the CLI with gradlew** - See [references/tooling.md](references/tooling.md)
 - **Compose UI testing, semantics and test tags, finders and assertions, Turbine for flows, screenshot testing, MockK and Robolectric** - See [references/testing.md](references/testing.md)
 - **Compose and View interop, AndroidView and ComposeView, ViewCompositionStrategy, incremental migration from XML** - See [references/interop.md](references/interop.md)
 - **Common pitfalls, deprecated API, version-tagged breaking changes and migrations (kapt to KSP, composeOptions to the compiler plugin, collectAsState, Accompanist, edge-to-edge enforcement)** - See [references/pitfalls.md](references/pitfalls.md)

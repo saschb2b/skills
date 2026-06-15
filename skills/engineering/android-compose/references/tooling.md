@@ -88,6 +88,21 @@ dependencies {
 
 Enable R8 (`isMinifyEnabled = true`, `isShrinkResources = true`) for release. Keep `proguard-rules.pro` minimal; most AndroidX/Compose rules ship with the libraries. Ship a Baseline Profile (see [performance.md](performance.md)). Configure signing through a keystore, never committed.
 
+## Building and verifying from the CLI
+
+Verify changes with the Gradle wrapper, not just the IDE. The Compose compiler runs as part of Kotlin compilation, so a successful compile already proves your composables and `@OptIn` usage are valid. Run the narrowest task that answers the question, fastest first.
+
+```sh
+./gradlew :app:compileDebugKotlin     # fastest: does the Kotlin (and Compose) compile?
+./gradlew :app:assembleDebug          # compile + build the debug APK
+./gradlew :app:testDebugUnitTest      # JVM unit tests (ViewModel, repository, Robolectric)
+./gradlew :app:lintDebug              # Android lint (a11y, deprecations, resource issues)
+./gradlew :app:connectedDebugAndroidTest  # instrumented + Compose UI tests (needs a device/emulator)
+./gradlew :app:installDebug           # install on a connected device/emulator
+```
+
+Use the variant-specific task (`compileDebugKotlin`, not `build`) to keep the loop fast. Add `--offline` when there is no network and dependencies are cached. `./gradlew tasks` lists module tasks; `./gradlew :app:dependencies` resolves the version-catalog graph (useful for diagnosing a BOM override). Treat a clean `compileDebugKotlin` plus relevant unit tests as the minimum bar before considering a Compose change done.
+
 ## Android Studio
 
 Use the current stable Android Studio ("Quail" series as of this snapshot) for the matching AGP. Compose tooling: live previews, interactive preview, Layout Inspector recomposition counts, the Compose preview screenshot test plugin. Keep the Kotlin/Compose-compiler/AGP versions mutually compatible; the AGP and Kotlin release notes list the supported matrix.
