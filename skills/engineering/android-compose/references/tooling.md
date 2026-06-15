@@ -32,7 +32,7 @@ hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
 
 ## The Compose compiler plugin (not composeOptions)
 
-Since Kotlin 2.0 the Compose compiler is versioned with Kotlin and applied as a Gradle plugin. **Do not** set `composeOptions { kotlinCompilerExtensionVersion = ... }` — that is obsolete and will mismatch.
+Since Kotlin 2.0 the Compose compiler is versioned with Kotlin and applied as a Gradle plugin. **Do not** set `composeOptions { kotlinCompilerExtensionVersion = ... }`. That is obsolete and will mismatch.
 
 ```kotlin
 // app/build.gradle.kts

@@ -56,14 +56,14 @@ Spatial specs animate position/size; effects specs animate color/alpha. Using th
 
 Reach for these for the Expressive look. All require the experimental opt-in and may shift between alphas; confirm the exact signature against the version you depend on.
 
-- **Button groups** (`ButtonGroup`) — a connected row of buttons that flex and animate on press; the canonical Expressive control cluster.
-- **Toggle buttons** (`ToggleButton`) — shape-shifting selectable buttons (round when off, squarer when on).
-- **Split button** (`SplitButton`) — a primary action plus an attached dropdown trigger.
-- **FAB menu** (`FloatingActionButtonMenu`) — a FAB that expands into a labeled menu of actions, replacing hand-rolled speed-dials.
-- **Floating toolbars** (`FloatingToolbar`, horizontal and vertical) — a floating, contained action bar that hovers over content.
-- **Loading indicators** (`LoadingIndicator`, `ContainedLoadingIndicator`) — the Expressive shape-morphing busy indicator.
-- **Wavy progress indicators** (`LinearWavyProgressIndicator`, `CircularWavyProgressIndicator`) — the signature wavy determinate/indeterminate progress.
-- **Shape morphing** — `MaterialShapes` predefined shapes plus `androidx.graphics.shapes` (`RoundedPolygon`, `Morph`) to animate between shapes. See "Shapes" below.
+- **Button groups** (`ButtonGroup`). A connected row of buttons that flex and animate on press; the canonical Expressive control cluster.
+- **Toggle buttons** (`ToggleButton`). Shape-shifting selectable buttons (round when off, squarer when on).
+- **Split button** (`SplitButton`). A primary action plus an attached dropdown trigger.
+- **FAB menu** (`FloatingActionButtonMenu`). A FAB that expands into a labeled menu of actions, replacing hand-rolled speed-dials.
+- **Floating toolbars** (`FloatingToolbar`, horizontal and vertical). A floating, contained action bar that hovers over content.
+- **Loading indicators** (`LoadingIndicator`, `ContainedLoadingIndicator`). The Expressive shape-morphing busy indicator.
+- **Wavy progress indicators** (`LinearWavyProgressIndicator`, `CircularWavyProgressIndicator`). The signature wavy determinate/indeterminate progress.
+- **Shape morphing**. `MaterialShapes` predefined shapes plus `androidx.graphics.shapes` (`RoundedPolygon`, `Morph`) to animate between shapes. See "Shapes" below.
 
 Buttons gain more shape and size options; many baseline components get expressive variants. When an Expressive variant exists, prefer it for new UI; otherwise use the baseline component.
 

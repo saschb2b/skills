@@ -6,9 +6,9 @@
 
 The recommended architecture is three layers, each depending only inward:
 
-- **UI layer** — Compose composables plus a `ViewModel` that holds and exposes screen state. Renders state, forwards events.
-- **Domain layer** (optional) — use-case classes that encapsulate reusable business logic and combine repositories. Add it only when logic is shared across ViewModels or a ViewModel gets fat.
-- **Data layer** — repositories that expose data and mediate between sources (network, database, DataStore). The single source of truth. See [data.md](data.md).
+- **UI layer**. Compose composables plus a `ViewModel` that holds and exposes screen state. Renders state, forwards events.
+- **Domain layer** (optional). Use-case classes that encapsulate reusable business logic and combine repositories. Add it only when logic is shared across ViewModels or a ViewModel gets fat.
+- **Data layer**. Repositories that expose data and mediate between sources (network, database, DataStore). The single source of truth. See [data.md](data.md).
 
 Dependencies point UI to domain to data. The data layer knows nothing about the UI.
 

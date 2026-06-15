@@ -4,10 +4,10 @@
 
 ## What to test where
 
-- **ViewModel / repository logic** — fast local JVM unit tests. No Compose, no device.
-- **Composable behavior** — Compose UI tests against the semantics tree (Robolectric for JVM speed, or instrumented on a device/emulator).
-- **Visual appearance** — screenshot tests.
-- **Flows** — Turbine.
+- **ViewModel / repository logic**. Fast local JVM unit tests. No Compose, no device.
+- **Composable behavior**. Compose UI tests against the semantics tree (Robolectric for JVM speed, or instrumented on a device/emulator).
+- **Visual appearance**. Screenshot tests.
+- **Flows**. Turbine.
 
 ## ViewModel and flow tests
 
@@ -56,7 +56,7 @@ Tests read the same semantics tree screen readers use, so writing testable Compo
 
 Catch visual regressions by rendering a composable to an image and diffing against a golden:
 
-- **Compose Preview Screenshot Testing** — the first-party Android Studio/AGP plugin that screenshots your `@Preview`s.
+- **Compose Preview Screenshot Testing**. The first-party Android Studio/AGP plugin that screenshots your `@Preview`s.
 - **Roborazzi** (Robolectric-based) or **Paparazzi** (no device) for JVM-fast golden tests.
 
 Render through your real theme so screenshots cover light/dark and the Material 3 / Expressive look.

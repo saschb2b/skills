@@ -4,8 +4,8 @@
 
 ## Two options
 
-- **Navigation Compose** (`androidx.navigation:navigation-compose`) — the established, controller-owned graph. Type-safe routes with `@Serializable` are stable. Default for most apps.
-- **Navigation 3 / Nav3** (`androidx.navigation3`) — the newer, Compose-first model where **you own the back stack as observable state**. Stable as of 1.1.x. Prefer it for adaptive layouts (list-detail, multi-pane) and when you want full control of the stack. New apps targeting rich adaptive UI should evaluate it.
+- **Navigation Compose** (`androidx.navigation:navigation-compose`). The established, controller-owned graph. Type-safe routes with `@Serializable` are stable. Default for most apps.
+- **Navigation 3 / Nav3** (`androidx.navigation3`). The newer, Compose-first model where **you own the back stack as observable state**. Stable as of 1.1.x. Prefer it for adaptive layouts (list-detail, multi-pane) and when you want full control of the stack. New apps targeting rich adaptive UI should evaluate it.
 
 Do not mix the two in one graph. Pick per app (or per self-contained feature).
 
