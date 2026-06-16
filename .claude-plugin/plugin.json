@@ -4,6 +4,7 @@
     "./skills/engineering/audit-actions",
     "./skills/engineering/scaffold-mcp",
     "./skills/engineering/react-compiler",
+    "./skills/engineering/react-stinky",
     "./skills/engineering/codegen-api",
     "./skills/engineering/theme-colors",
     "./skills/engineering/javascript-ecosystem",

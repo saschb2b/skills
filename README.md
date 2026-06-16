@@ -5,7 +5,7 @@
 **Expert practice, packaged as checklists your coding agent can actually run.**
 
 [![skills.sh](https://skills.sh/b/saschb2b/skills)](https://skills.sh/saschb2b/skills)
-[![Skills](https://img.shields.io/badge/skills-12-2ea44f)](#skill-reference)
+[![Skills](https://img.shields.io/badge/skills-13-2ea44f)](#skill-reference)
 [![Docs](https://img.shields.io/badge/docs-saschb2b.com-0969da)](https://saschb2b.com/skills)
 [![License](https://img.shields.io/badge/license-MIT-0969da)](./LICENSE)
 
@@ -13,7 +13,7 @@
 
 A small, growing collection of agent skills distilled from posts on [saschb2b.com/blog](https://saschb2b.com/blog). Designed to be small, composable, and to work with any agent that supports the [skills.sh](https://skills.sh) installer (Claude Code, Cursor, Codex, Cline, Windsurf, OpenCode, and others).
 
-Most skills take a single blog post and turn its argument into a checklist an agent can step through, end to end; a few (like `godot`, `android-compose`, and `javascript-ecosystem`) are living reference snapshots that re-verify as they age. Together they cover the kind of expert practice teams agree with on a calm day and skip on a busy one: the security audit nobody runs, the architecture everyone reinvents, the framework version your LLM is a year behind on, the React pattern and API codegen your LLM still wires the old way, the colors your LLM still sprinkles as hex, the UX questions the generator skips past, the ticket discipline that drops on a busy Monday.
+Most skills take a single blog post and turn its argument into a checklist an agent can step through, end to end; a few (like `godot`, `android-compose`, and `javascript-ecosystem`) are living reference snapshots that re-verify as they age. Together they cover the kind of expert practice teams agree with on a calm day and skip on a busy one: the security audit nobody runs, the architecture everyone reinvents, the framework version your LLM is a year behind on, the React pattern and API codegen your LLM still wires the old way, the colors your LLM still sprinkles as hex, the prop API your LLM grows by accretion, the UX questions the generator skips past, the ticket discipline that drops on a busy Monday.
 
 ## Contents
 
@@ -37,6 +37,7 @@ One at a time:
 npx skills@latest add saschb2b/skills --skill audit-actions
 npx skills@latest add saschb2b/skills --skill scaffold-mcp
 npx skills@latest add saschb2b/skills --skill react-compiler
+npx skills@latest add saschb2b/skills --skill react-stinky
 npx skills@latest add saschb2b/skills --skill codegen-api
 npx skills@latest add saschb2b/skills --skill theme-colors
 npx skills@latest add saschb2b/skills --skill javascript-ecosystem
@@ -61,6 +62,7 @@ Code-adjacent work.
 | **[audit-actions](./skills/engineering/audit-actions/SKILL.md)** | Audit `.github/workflows/` for the `pull_request_target` misuse that compromised TanStack, Nx, PostHog, and Trivy. Greps every workflow, walks a 10-point severity checklist, names findings, proposes the right fix. |
 | **[scaffold-mcp](./skills/engineering/scaffold-mcp/SKILL.md)** | Stand up a TypeScript Model Context Protocol server on the five-layer architecture, choosing the bridge pattern from what the target software offers. |
 | **[react-compiler](./skills/engineering/react-compiler/SKILL.md)** | Write and review React as if the Compiler is enabled. Skip manual `useMemo`, `useCallback`, and `React.memo`; audit existing code for stale memoization and the five silent-bail patterns. |
+| **[react-stinky](./skills/engineering/react-stinky/SKILL.md)** | Detect React and TypeScript maintainability smells across the whole component, hook, and module, not just its props. Eight pillars: API and prop design (18 sourced categories), state and data flow, effects and lifecycle, component structure and hooks, rendering correctness, accessibility in markup, TypeScript discipline, and a cross-file duplication pass. Rates each Rancid, Funky, or Whiff and proposes the fix with a source. A per-smell guard skips native HTML attributes, library conventions, and intentional patterns. Defers memoization to `react-compiler` and colors to `theme-colors`. Scopes to a codebase, folder, file, or snippet. |
 | **[codegen-api](./skills/engineering/codegen-api/SKILL.md)** | Set up typesafe API code generation. Picks `hey-api` (OpenAPI) or `graphql-codegen` / `gql.tada` (GraphQL), then emits options factories and typed documents instead of legacy hooks. |
 | **[theme-colors](./skills/engineering/theme-colors/SKILL.md)** | Replace hex codes, `rgba()` literals, and named colors with theme roles (primary, surface, error, and friends) and the `alpha()` helper. Audits existing code for color literals. |
 | **[javascript-ecosystem](./skills/engineering/javascript-ecosystem/SKILL.md)** | Default to the current stable majors and their paradigms across the JS/TS ecosystem (React, Angular, Vue, Next.js, Tailwind, TanStack Query, Vite, and more). A changelog index that checks the installed version first. |
@@ -161,6 +163,16 @@ I built each one because the corresponding post wasn't enough. Writing down what
 **The problem.** Training corpora are dominated not just by a few frameworks but by their older versions. The output defaults to manual memoization for a compiler-enabled React, NgModules for a signals-and-standalone Angular, `tailwind.config.js` for a CSS-first Tailwind v4, the `.eslintrc` schema ESLint dropped, the positional `useQuery` signature TanStack Query replaced. The framework name is current. The paradigm inside is a year or more stale.
 
 **The fix:** [`/javascript-ecosystem`](./skills/engineering/javascript-ecosystem/SKILL.md). A changelog index across the ecosystem (frameworks, meta-frameworks, UI libraries, state, tooling, testing, mobile, backend, forms, auth, i18n, dates, API codegen, GraphQL clients, email, payments, observability, CMS, AI SDKs). The agent checks the project's installed version first, then routes to a per-tool notes file with a Stop/Start table that maps the pattern it would reach for to the one the current version wants. The notes carry a verified date and tell the agent to re-confirm against official release notes when the snapshot looks old, so it ages gracefully instead of hardcoding a moment in time. It is standalone: every notes file is complete on its own, and it composes with the `react-compiler`, `codegen-api`, `theme-colors`, and `claude-api` skills as optional deeper dives if they are installed, but requires none of them.
+
+### 9. The prop API your LLM grows by accretion
+
+> "A prop named `data` could be anything. A prop named `selectedUserId` can only be one thing."
+>
+> from the `cant-maintain` React API-design challenge set
+
+**The problem.** An LLM grows a component's prop surface one request at a time. Each addition is locally reasonable: a `loading` boolean here, an `isError`/`isWarning`/`isSuccess` trio there, a `content` prop because `children` did not come to mind, a `backgroundColor: string` because the design needed one color. Nothing is wrong in isolation. The sum is an API that is hard to read, easy to misuse, and painful to change. The smell is never in the diff that introduced it.
+
+**The fix:** [`/react-stinky`](./skills/engineering/react-stinky/SKILL.md). The agent walks the code against seven maintainability pillars: the eighteen sourced API-design smells (naming, boolean and callback conventions, string-union variants over boolean flags, discriminated unions, controlled and uncontrolled state, children and slot composition, render props, generics, extending HTML, refs, styling, accessibility, server-component boundaries, defaults, JSDoc), then state and data flow, effects and lifecycle, component structure and hooks, rendering correctness, accessibility in markup, TypeScript discipline, and a cross-file duplication pass that catches a component re-implemented elsewhere or a type declared twice. It rates each Rancid, Funky, or Whiff and proposes the concrete fix with a source. A per-smell guard keeps it from nitpicking native HTML attributes, the conventions of whatever library the file already uses, and intentional patterns, so it reads like a careful reviewer rather than a noisy linter. It defers memoization to `react-compiler` and color literals to `theme-colors`.
 
 ### And two that run the work, not just describe it
 
