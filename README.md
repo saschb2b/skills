@@ -5,7 +5,7 @@
 **Expert practice, packaged as checklists your coding agent can actually run.**
 
 [![skills.sh](https://skills.sh/b/saschb2b/skills)](https://skills.sh/saschb2b/skills)
-[![Skills](https://img.shields.io/badge/skills-13-2ea44f)](#skill-reference)
+[![Skills](https://img.shields.io/badge/skills-14-2ea44f)](#skill-reference)
 [![Docs](https://img.shields.io/badge/docs-saschb2b.com-0969da)](https://saschb2b.com/skills)
 [![License](https://img.shields.io/badge/license-MIT-0969da)](./LICENSE)
 
@@ -43,6 +43,7 @@ npx skills@latest add saschb2b/skills --skill theme-colors
 npx skills@latest add saschb2b/skills --skill javascript-ecosystem
 npx skills@latest add saschb2b/skills --skill godot
 npx skills@latest add saschb2b/skills --skill android-compose
+npx skills@latest add saschb2b/skills --skill visual-consistency
 npx skills@latest add saschb2b/skills --skill ask-ux
 npx skills@latest add saschb2b/skills --skill to-story
 npx skills@latest add saschb2b/skills --skill no-slop
@@ -68,6 +69,7 @@ Code-adjacent work.
 | **[javascript-ecosystem](./skills/engineering/javascript-ecosystem/SKILL.md)** | Default to the current stable majors and their paradigms across the JS/TS ecosystem (React, Angular, Vue, Next.js, Tailwind, TanStack Query, Vite, and more). A changelog index that checks the installed version first. |
 | **[godot](./skills/engineering/godot/SKILL.md)** | Develop in Godot against the current stable (4.x): typed GDScript, physics, UI, scenes, the `.tscn`/`.tres` formats, editor tooling, and version-tagged pitfalls. A dated snapshot that re-verifies as it ages. |
 | **[android-compose](./skills/engineering/android-compose/SKILL.md)** | Build Android apps Compose-first with Material 3 Expressive as the design direction: strong-skipping-aware Compose, Expressive theming and components (honest about the experimental opt-in), UDF architecture, type-safe Navigation Compose and Navigation 3, the data layer, the Gradle Kotlin DSL build with the Compose compiler plugin and KSP, testing, performance, and version-tagged pitfalls. A dated snapshot that checks the project's versions first. |
+| **[visual-consistency](./skills/engineering/visual-consistency/SKILL.md)** | Detect and fix visual and layout consistency defects in rendered UI: uneven card heights in a grid, sibling cards whose internal sections and trailing icons do not line up, off-scale spacing, plus alignment, repeated-element sizing, type scale, table and numeric alignment, overflow, layout shift, and touch and focus sizing. Each smell gets an objective detection signal, a concrete CSS fix (subgrid, equal-height grids, spacing tokens, tabular-nums), a severity, and a Safe-or-Judgment autonomy tag. Pairs with `autopilot` (Safe maps to in-bounds work, Judgment to surface-first). Defers color to `theme-colors` and component code smells to `react-stinky`. |
 
 ### Productivity
 

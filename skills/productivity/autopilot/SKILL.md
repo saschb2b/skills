@@ -41,6 +41,7 @@ After that, don't run a checklist. Worthwhile work is open-ended (a fix, a test,
 - Where is the widest gap between what the project clearly wants to be and what it is today?
 - What will most surprise or slow down the next person to touch this code?
 - If there's a user interface, where does it make a user stop, hesitate, or guess?
+- If there's a user interface, where is it visually ragged or inconsistent: cards of unequal height in a grid, sibling cards or list rows whose sections and trailing icons do not line up, spacing that is arbitrary rather than on a scale? If the `visual-consistency` skill is installed, it catalogs these with detection signals, fixes, and a Safe-or-Judgment tag per smell.
 - Under bad input, heavy load, or a hostile user, where does this break, leak, or crawl?
 - What is quietly rotting: deprecations, outdated or vulnerable dependencies, warnings everyone has learned to ignore?
 - While you're already in this area, what small addition or fix obviously belongs?
@@ -57,7 +58,7 @@ Do these freely (additive, reversible, local):
 - Add tests, fix bugs (with a test that proves the fix), tighten error handling and input validation.
 - Improve docs, comments, READMEs, and dev tooling.
 - Refactor in ways that preserve behavior. If the code isn't covered, add a characterization test first so the refactor is safe.
-- Objective UI fixes: accessibility (labels, focus order, contrast, alt text), visibly broken layout, and consistency with the project's existing design and theme.
+- Objective UI fixes: accessibility (labels, focus order, contrast, alt text), visibly broken layout, and consistency with the project's existing design and theme. Visual and layout consistency defects (uneven card heights, misaligned card internals and trailing icons, off-scale spacing) are in bounds when the fix snaps to the design's existing scale and tokens. The `visual-consistency` skill catalogs them and tags each Safe (do it here) or Judgment (the next list, surface first).
 - Ship small enhancements clearly aligned with the existing direction.
 
 Surface first, then move on. Do NOT do these silently:
