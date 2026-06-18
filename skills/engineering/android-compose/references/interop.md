@@ -1,3 +1,10 @@
+---
+type: Reference
+title: "Compose and View Interop"
+description: "Embed Compose in an existing View hierarchy with a `ComposeView`."
+tags: [android, jetpack-compose, kotlin]
+timestamp: 2026-06-15T00:00:00Z
+---
 # Compose and View Interop
 
 **Verified 2026-06-15.** The interop APIs are stable. Use interop to migrate incrementally or to embed a widget Compose doesn't have yet.

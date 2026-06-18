@@ -1,3 +1,10 @@
+---
+type: Reference
+title: "App Architecture"
+description: "The recommended architecture is three layers, each depending only inward:"
+tags: [android, jetpack-compose, kotlin]
+timestamp: 2026-06-15T00:00:00Z
+---
 # App Architecture
 
 **Verified 2026-06-15** against the official Android architecture guidance, Lifecycle 2.10.0, Hilt 2.56. The layering and UDF principles are stable; the artifact versions move.

@@ -1,3 +1,10 @@
+---
+type: Reference
+title: "Build and Tooling"
+description: "Use `build.gradle.kts` (Kotlin DSL) and a single `gradle/libs.versions.toml` version catalog as the source of truth for versions."
+tags: [android, jetpack-compose, kotlin]
+timestamp: 2026-06-15T00:00:00Z
+---
 # Build and Tooling
 
 **Verified 2026-06-15** against AGP 9.2.x, Kotlin 2.4.0, Android Studio "Quail" (2026.1.x), Android 16 / API 36, Compose BOM 2026.06.00. These version numbers are volatile; confirm against the project and the release notes.

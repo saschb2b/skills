@@ -109,7 +109,7 @@ Do not wrap these in custom `useFilmCard` or `useGetPet` hooks. The generated pr
 
 ## Step 4: Component composition via fragment masking
 
-If the component tree has more than one layer, do not generate per-query prop types and do not build hook wrappers per component. Use fragment masking: each component declares its own data via a fragment, parents cannot see fields they did not request. Full three-layer example, ownership table, and the gql.tada equivalent (`readFragment`) in [fragments.md](./fragments.md).
+If the component tree has more than one layer, do not generate per-query prop types and do not build hook wrappers per component. Use fragment masking: each component declares its own data via a fragment, parents cannot see fields they did not request. Full three-layer example, ownership table, and the gql.tada equivalent (`readFragment`) in [fragments.md](./references/fragments.md).
 
 For a single page that fetches data and renders it directly with no child components, the inferred `useQuery` type is fine. Do not add fragments to a flat component.
 
@@ -125,8 +125,8 @@ Useful where the data cannot be trusted (third-party APIs, user uploads).
 
 ## Step 6: Fix the editor traps
 
-Codegen watch mode breaks ESLint's TypeScript cache. The popular VS Code GraphQL extension does not autocomplete inside `graphql()`. Fixes in [dx-pitfalls.md](./dx-pitfalls.md).
+Codegen watch mode breaks ESLint's TypeScript cache. The popular VS Code GraphQL extension does not autocomplete inside `graphql()`. Fixes in [dx-pitfalls.md](./references/dx-pitfalls.md).
 
 ## Source
 
-Based on [Typesafe API Code Generation for React in 2026](https://saschb2b.com/blog/typesafe-api-codegen-2026). Deeper detail in [fragments.md](./fragments.md) and [dx-pitfalls.md](./dx-pitfalls.md).
+Based on [Typesafe API Code Generation for React in 2026](https://saschb2b.com/blog/typesafe-api-codegen-2026). Deeper detail in [fragments.md](./references/fragments.md) and [dx-pitfalls.md](./references/dx-pitfalls.md).

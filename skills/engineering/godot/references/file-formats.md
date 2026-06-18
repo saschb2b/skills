@@ -1,3 +1,10 @@
+---
+type: Reference
+title: "Text File Formats Reference (.tscn / .tres / project.godot)"
+description: "Godot's scene (`.tscn`) and resource (`.tres`) files are human-readable INI-like text, which is why they belong in version control over the binary `.scn`/`.res`."
+tags: [godot, gamedev, gdscript]
+timestamp: 2026-06-06T00:00:00Z
+---
 # Text File Formats Reference (.tscn / .tres / project.godot)
 
 **Verified 2026-06-06** against Godot 4.x. Godot 4 scenes/resources use `format=3`, string resource ids (`"1_7bt6s"`) with `uid="uid://.."`, and **`load_steps` is deprecated and ignored** (the 3.x "count the resources" rule no longer applies). Godot 4.4+ writes `.gd.uid` sidecars for scripts. Re-verify if a newer minor changes the format.

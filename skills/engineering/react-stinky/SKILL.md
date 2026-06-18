@@ -6,13 +6,13 @@ date: 2026-06-16
 
 # React Stinky
 
-A holistic code-smell detector for React and TypeScript. It finds the patterns that make a component, a hook, or a module hard to read, reason about, and change, explains the cost of each, and proposes a concrete fix. Coverage spans prop and API design, state and data flow, effects and lifecycle, component structure, rendering correctness, accessibility, and TypeScript discipline. The full catalog with detection signals, fixes, exceptions, and sources is in [catalog.md](./catalog.md); read it before running a scan.
+A holistic code-smell detector for React and TypeScript. It finds the patterns that make a component, a hook, or a module hard to read, reason about, and change, explains the cost of each, and proposes a concrete fix. Coverage spans prop and API design, state and data flow, effects and lifecycle, component structure, rendering correctness, accessibility, and TypeScript discipline. The full catalog with detection signals, fixes, exceptions, and sources is in [catalog.md](./references/catalog.md); read it before running a scan.
 
 It defers two neighboring concerns to sibling skills so it does not duplicate them: memoization (`useMemo`, `useCallback`, `React.memo`) to `react-compiler`, and color literals to `theme-colors`. If those are not installed, note the finding in one line and move on. Everything else about day-to-day React maintainability is in scope.
 
 ## What it sniffs for
 
-Seven pillars. The categories under each, with detection signals and sources, are in [catalog.md](./catalog.md).
+Seven pillars. The categories under each, with detection signals and sources, are in [catalog.md](./references/catalog.md).
 
 1. **Component API and props** (the backbone, 18 categories). Component and prop naming, boolean and callback conventions, string-union variants over boolean flags, discriminated unions, controlled and uncontrolled state, children and slot composition, render props, generics, extending HTML, refs, styling APIs, accessibility props, server-component boundaries, JSDoc.
 2. **State and data flow.** Derivable values held in `useState`, props copied into state, two sources of truth for one fact, prop drilling through layers that ignore the prop.
@@ -21,7 +21,7 @@ Seven pillars. The categories under each, with detection signals and sources, ar
 5. **Rendering correctness.** Array index as `key` on a list that reorders or edits, direct mutation of state or props, nested ternaries in JSX, copy-pasted JSX blocks that want one parameterized helper.
 6. **Accessibility in markup.** `onClick` on a non-interactive element with no `role`, `tabIndex`, or keyboard handler; div soup where semantic elements belong; form controls with no associated label.
 7. **TypeScript discipline.** `any` and `as any` and `@ts-ignore`, lying `as` casts and non-null `!`, loose internal types (`object`, `Function`, stringly-typed enums).
-8. **Cross-file duplication** (folder and repo scope only). A component re-implemented inline where a reusable one exists, the same hook or utility copied across files, a type declared in two places. Method in [duplication-pass.md](./duplication-pass.md).
+8. **Cross-file duplication** (folder and repo scope only). A component re-implemented inline where a reusable one exists, the same hook or utility copied across files, a type declared in two places. Method in [duplication-pass.md](./references/duplication-pass.md).
 
 ## Scope modes
 
@@ -34,7 +34,7 @@ Match the scope to the request, then run the workflow below over it.
 | File scan | specific files named | Read each fully. Check every component, hook, prop interface, and exported function. |
 | Fragment sniff | a pasted function or component, or one named symbol | Check only that surface. State what you assumed about anything off-screen. |
 
-Folder and repo-sweep scope additionally run a cross-file duplication pass ([duplication-pass.md](./duplication-pass.md)) to catch DRY smells a single-file scan cannot: a component re-implemented inline elsewhere, the same hook or type copy-pasted across files. Single-file and fragment scope cannot see this, so say cross-file duplication was not checked rather than implying the code is unique.
+Folder and repo-sweep scope additionally run a cross-file duplication pass ([duplication-pass.md](./references/duplication-pass.md)) to catch DRY smells a single-file scan cannot: a component re-implemented inline elsewhere, the same hook or type copy-pasted across files. Single-file and fragment scope cannot see this, so say cross-file duplication was not checked rather than implying the code is unique.
 
 ## Workflow per target
 
@@ -43,7 +43,7 @@ Folder and repo-sweep scope additionally run a cross-file duplication pass ([dup
 3. Run the matching "Don't flag" line before reporting. If it applies, suppress the finding.
 4. Rate the smell (see ratings below).
 5. Emit a finding with location, the cost, and a before to after fix.
-6. In folder or repo scope, run the cross-file duplication pass (Pillar 8, [duplication-pass.md](./duplication-pass.md)) after the per-file pass and fold its findings in.
+6. In folder or repo scope, run the cross-file duplication pass (Pillar 8, [duplication-pass.md](./references/duplication-pass.md)) after the per-file pass and fold its findings in.
 7. End with a summary count. If nothing survives the guard, say it smells fresh.
 
 ## Stink ratings
@@ -93,4 +93,4 @@ When the scope is clean, say so plainly: "Smells fresh. No maintainability smell
 
 ## Source
 
-The 18 component-API categories (Pillar 1) are distilled from the `cant-maintain` React API-design challenge set, each traced to its React, TypeScript, MDN, Next.js, or MUI source. The six holistic pillars extend the same maintainability lens to state, effects, structure, rendering, accessibility, and types, each sourced to the canonical React docs, MDN, or TypeScript handbook in [catalog.md](./catalog.md).
+The 18 component-API categories (Pillar 1) are distilled from the `cant-maintain` React API-design challenge set, each traced to its React, TypeScript, MDN, Next.js, or MUI source. The six holistic pillars extend the same maintainability lens to state, effects, structure, rendering, accessibility, and types, each sourced to the canonical React docs, MDN, or TypeScript handbook in [catalog.md](./references/catalog.md).

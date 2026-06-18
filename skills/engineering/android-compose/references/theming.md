@@ -1,3 +1,10 @@
+---
+type: Reference
+title: "Theming, Color, Type, Edge-to-Edge"
+description: "Material 3 color is a set of *roles*, not hex codes."
+tags: [android, jetpack-compose, kotlin]
+timestamp: 2026-06-15T00:00:00Z
+---
 # Theming, Color, Type, Edge-to-Edge
 
 **Verified 2026-06-15** against Compose BOM 2026.06.00 (`material3` 1.4.0 baseline), Android 16 / API 36. Re-verify edge-to-edge enforcement and dynamic-color APIs against the platform docs.

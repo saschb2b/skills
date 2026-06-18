@@ -1,3 +1,10 @@
+---
+type: Reference
+title: "Editor Tooling & Exposing Tunables Reference"
+description: "The clean Godot answer to \"let me adjust custom things in the editor instead of hunting for constants in code\" is **data-driven design**: never hardcode a tunable as a code constant when you can…"
+tags: [godot, gamedev, gdscript]
+timestamp: 2026-06-06T00:00:00Z
+---
 # Editor Tooling & Exposing Tunables Reference
 
 **Verified 2026-06-06** against Godot 4.x. In 4.6 the dock API changed: `EditorPlugin.add_control_to_dock()` and `add_control_to_bottom_panel()` are **deprecated** in favor of `add_dock(EditorDock)`. `@export_tool_button` arrived in 4.4. Re-verify if a newer minor changes them.

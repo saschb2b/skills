@@ -1,3 +1,10 @@
+---
+type: Reference
+title: "Math, Vectors & Randomness Reference"
+description: "lerp(a, b, t) # linear interpolate, t in 0..1 (lerpf for typed floats)"
+tags: [godot, gamedev, gdscript]
+timestamp: 2026-06-06T00:00:00Z
+---
 # Math, Vectors & Randomness Reference
 
 **Verified 2026-06-06** against Godot 4.x. Godot 4 renamed several globals: `rand_range` is now `randf_range`/`randi_range`, `deg2rad`/`rad2deg` are `deg_to_rad`/`rad_to_deg`, and `stepify` is `snapped`. Re-verify if a newer minor changes them.

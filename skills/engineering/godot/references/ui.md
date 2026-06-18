@@ -1,3 +1,10 @@
+---
+type: Reference
+title: "UI / Control Reference"
+description: "UI lives under `Control` nodes, not `Node2D`."
+tags: [godot, gamedev, gdscript]
+timestamp: 2026-06-06T00:00:00Z
+---
 # UI / Control Reference
 
 **Verified 2026-06-06** against Godot 4.x. Godot 4 dropped the `rect_` prefix: it is `position`/`size`/`custom_minimum_size` (not `rect_position`/`rect_size`/`rect_min_size`) and anchor `offset_left/top/right/bottom` (not `margin_*`). Re-verify if a newer minor changes them.

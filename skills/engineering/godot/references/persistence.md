@@ -1,3 +1,10 @@
+---
+type: Reference
+title: "Saving & Persistence Reference"
+description: "Always write saves and config to `user://`."
+tags: [godot, gamedev, gdscript]
+timestamp: 2026-06-06T00:00:00Z
+---
 # Saving & Persistence Reference
 
 **Verified 2026-06-06** against Godot 4.x. Godot 4 replaced the 3.x `File` with the static `FileAccess`, `Directory` with `DirAccess`, and `to_json`/`parse_json` with the `JSON` class. Re-verify if a newer minor changes them.

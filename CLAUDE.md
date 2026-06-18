@@ -26,7 +26,7 @@ When you add a new skill, touch four places. Forgetting any of them silently deg
 3. `skills/<bucket>/README.md`. Add a line in the bucket index.
 4. `.claude-plugin/plugin.json`. Add `./skills/<bucket>/<slug>` to the `skills` array.
 
-Then run `node scripts/check-skills.mjs`. It enforces every rule below (the `: ` and ` #` frontmatter traps, `name` matching the folder, the 1024-char description cap, plugin.json registration, and that every relative link inside the skill resolves) and exits non-zero on any failure. Run it before you commit.
+Then run `node scripts/check-skills.mjs`. It enforces every rule below (the `: ` and ` #` frontmatter traps, `name` matching the folder, the 1024-char description cap, plugin.json registration, that every relative link inside the skill resolves, and that any `references/` directory is a conformant OKF bundle) and exits non-zero on any failure. Run it before you commit.
 
 The `javascript-ecosystem` skill is a dated snapshot of a fast-moving ecosystem, so it carries extra anti-staleness machinery: a snapshot `date`, a per-notes-file `**Verified YYYY-MM-DD**` stamp, a freshness section in its `SKILL.md`, and `skills/engineering/javascript-ecosystem/MAINTENANCE.md`. Run `node scripts/check-freshness.mjs` to list the oldest entries due for a re-verify against official docs.
 
@@ -49,7 +49,7 @@ source_post: <blog-slug>
 
 Rules:
 
-- Keep the body under ~100 lines. If it grows past that, split detail into sibling files (`examples.md`, `reference.md`, etc.) and link to them from SKILL.md. The agent reads SKILL.md eagerly and the siblings only when it needs them. This is "progressive disclosure".
+- Keep the body under ~100 lines. If it grows past that, move the detail into a `references/` subdirectory and link to it from SKILL.md. The agent reads SKILL.md eagerly and the reference files only when it needs them. This is "progressive disclosure". That `references/` directory is a vendored OKF bundle (see "Vendored knowledge as OKF bundles" below), so it ships in the same install and adds no dependency.
 - The `description` field is critical and capped at 1024 characters. It must include trigger phrases the agent will recognize in user prompts.
 - **Never put `: ` (colon followed by a space) inside any frontmatter value.** YAML parses it as a key/value separator inside a plain scalar, gray-matter throws, and the skill is silently dropped from the build. Use a period, semicolon, dash, or rephrase. Colons in URLs, code (`docker:latest`), or compound words without trailing space are fine.
 - **Never put ` #` (a space followed by `#`) inside any frontmatter value.** YAML treats `#` as a comment marker when preceded by whitespace; the rest of the line is silently dropped from the parsed value. If you must mention hex codes in a description, do it in the body of SKILL.md instead.
@@ -57,6 +57,29 @@ Rules:
 - The H1 in the body is the human-facing title. The `name` in frontmatter is the slug used everywhere else.
 - Dates are ISO 8601 (`YYYY-MM-DD`).
 - `source_post` is a blog slug under `saschb2b.com/blog/<slug>` when the skill was distilled from a post. Optional.
+
+## Vendored knowledge as OKF bundles
+
+When a skill carries substantial reference knowledge (detection catalogs, per-area notes, before/after guidance), that knowledge lives in `<skill>/references/` as a conformant [Open Knowledge Format](https://github.com/GoogleCloudPlatform/knowledge-catalog) bundle. SKILL.md stays the thin procedure and links into it.
+
+Why a bundle, not loose files. A bundle is just markdown with frontmatter, so it ships inside the skill with no extra install and no dependency. Formatting the knowledge as OKF makes it navigable (progressive disclosure via `index.md`), portable (any agent or viewer reads it, no SDK), and citable, and it lets the knowledge be promoted to a standalone bundle later without a rewrite. Use it when the reference material is big enough to bloat SKILL.md or is reused; a small skill keeps its knowledge inline.
+
+Rules for a `references/` bundle:
+
+- Every concept file carries YAML frontmatter with a non-empty `type` (the one hard OKF requirement). Recommended: `title`, a one-sentence `description`, `tags`, and an ISO 8601 `timestamp`. The `: ` and ` #` frontmatter traps apply here too, so quote any value that needs them.
+- A root `references/index.md` declares `okf_version: "0.1"` and lists each concept with its description. It is the only `index.md` in the bundle allowed frontmatter.
+- Reserved filenames `index.md` and `log.md` are never concept files.
+- Cross-link with relative or bundle-absolute (`/foo.md`) paths, and name the relationship in the prose, not the link.
+
+Validate one bundle directly with the vendored checker:
+
+```sh
+node skills/engineering/okf/okf-validate.mjs skills/<bucket>/<slug>/references
+```
+
+`check-skills.mjs` runs this for every skill that has a `references/` directory and fails on a non-conformant bundle, so the rule is enforced on every commit.
+
+`javascript-ecosystem` follows this layout too: its ~90 per-tool notes live under `references/<category>/`. On top of the OKF bundle it carries the dated-snapshot machinery (a per-note `**Verified YYYY-MM-DD**` stamp, `scripts/check-freshness.mjs`, and `MAINTENANCE.md`), because a fast-moving ecosystem snapshot needs explicit re-verification.
 
 ## Style
 

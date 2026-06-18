@@ -6,7 +6,7 @@ date: 2026-06-17
 
 # Visual Consistency
 
-A detector and fixer for the visual and layout consistency defects that show up in rendered UI: the systematic raggedness an AI generator emits and a senior notices at a glance. It finds where repeated elements that should line up do not, where spacing is arbitrary instead of systematic, and where variable-length content breaks a clean layout, explains the cost of each, and proposes a concrete CSS fix with a source. The full catalog with detection signals, fixes, exceptions, severity, and sources is in [catalog.md](./catalog.md); copy-pasteable recipes for the flagship cases are in [recipes.md](./recipes.md). Read the catalog before a scan.
+A detector and fixer for the visual and layout consistency defects that show up in rendered UI: the systematic raggedness an AI generator emits and a senior notices at a glance. It finds where repeated elements that should line up do not, where spacing is arbitrary instead of systematic, and where variable-length content breaks a clean layout, explains the cost of each, and proposes a concrete CSS fix with a source. The full catalog with detection signals, fixes, exceptions, severity, and sources is in [catalog.md](./references/catalog.md); copy-pasteable recipes for the flagship cases are in [recipes.md](./references/recipes.md). Read the catalog before a scan.
 
 It defers two neighboring concerns to sibling skills so it does not duplicate them: color literals and contrast to `theme-colors`, and component, hook, and TypeScript code smells to `react-stinky`. The accessibility line splits the same way: this skill owns the visual and sizing side (target size, focus-ring consistency, reflow, text spacing the user can override), `react-stinky` owns the semantic-markup side (roles, labels, keyboard handlers). Whether a screen should exist at all is `ask-ux`, upstream of everything here. If a sibling is not installed, note the finding in one line and move on.
 
@@ -14,14 +14,14 @@ It defers two neighboring concerns to sibling skills so it does not duplicate th
 
 These are the defects that prompted the skill. Each has a clean, modern fix; the rest of the catalog generalizes them.
 
-1. **Uneven card heights in a grid.** Cards in a row render at different heights because text length differs, so the grid looks busy. Grid and flex already stretch a row to its tallest card; the work is making the card a flex or grid column so its own footer pins to the bottom. See [recipes.md](./recipes.md#equal-height-card-grids).
-2. **Sibling cards whose sections do not line up.** Same template, but each card's title, body, and footer start at a different Y, so nothing scans across the row. The modern answer is CSS **subgrid**: declare the row tracks once on the grid and let each card inherit them, so the tallest title sets the title row for every card. See [recipes.md](./recipes.md#subgrid-aligns-card-internals).
-3. **Trailing icons at ragged X positions.** A list of links with an open-in-new-tab icon places the icon at a different X on every row because link text varies. Pin it with a two-column grid (`1fr auto`), or `margin-inline-start: auto` in a flex row, and add `min-width: 0` so long text truncates instead of shoving the icon. See [recipes.md](./recipes.md#align-trailing-icons-and-values).
-4. **Arbitrary, inconsistent spacing.** Spacing falls back to off-scale magic numbers (`13px`, `7px`, `22px`), or mixes `margin` and `gap`, or pads similar containers differently. Snap every value to a spacing scale (4 and 8 point) referenced as a token, and prefer one `gap` on the parent over per-element margins. See [recipes.md](./recipes.md#spacing-scale-and-rhythm).
+1. **Uneven card heights in a grid.** Cards in a row render at different heights because text length differs, so the grid looks busy. Grid and flex already stretch a row to its tallest card; the work is making the card a flex or grid column so its own footer pins to the bottom. See [recipes.md](./references/recipes.md#equal-height-card-grids).
+2. **Sibling cards whose sections do not line up.** Same template, but each card's title, body, and footer start at a different Y, so nothing scans across the row. The modern answer is CSS **subgrid**: declare the row tracks once on the grid and let each card inherit them, so the tallest title sets the title row for every card. See [recipes.md](./references/recipes.md#subgrid-aligns-card-internals).
+3. **Trailing icons at ragged X positions.** A list of links with an open-in-new-tab icon places the icon at a different X on every row because link text varies. Pin it with a two-column grid (`1fr auto`), or `margin-inline-start: auto` in a flex row, and add `min-width: 0` so long text truncates instead of shoving the icon. See [recipes.md](./references/recipes.md#align-trailing-icons-and-values).
+4. **Arbitrary, inconsistent spacing.** Spacing falls back to off-scale magic numbers (`13px`, `7px`, `22px`), or mixes `margin` and `gap`, or pads similar containers differently. Snap every value to a spacing scale (4 and 8 point) referenced as a token, and prefer one `gap` on the parent over per-element margins. See [recipes.md](./references/recipes.md#spacing-scale-and-rhythm).
 
 ## What it checks
 
-Ten families, detailed with per-smell detection signals and sources in [catalog.md](./catalog.md):
+Ten families, detailed with per-smell detection signals and sources in [catalog.md](./references/catalog.md):
 
 - **Card grids and repeated items.** Equal height, internal-section alignment (subgrid), ragged trailing icons and values.
 - **Spacing and rhythm.** Off-scale values, raw literals where a token exists, outer padding smaller than inner, spacing not reflecting grouping.
@@ -109,4 +109,4 @@ When the scope is clean, say so plainly: "Looks clean. No visual consistency def
 
 ## Source
 
-The flagship fixes and the catalog are grounded in MDN, web.dev, and caniuse for CSS behavior and browser support (subgrid, `line-clamp`, container queries, `aspect-ratio`, `tabular-nums`), the major design systems for scales and tokens (Material 3, Shopify Polaris, IBM Carbon, Atlassian), Refactoring UI and Anthony Hobday's visual rules for the consistency principles, and WCAG 2.2 for the objective accessibility floors (target size, reflow, focus). Per-smell sources are in [catalog.md](./catalog.md).
+The flagship fixes and the catalog are grounded in MDN, web.dev, and caniuse for CSS behavior and browser support (subgrid, `line-clamp`, container queries, `aspect-ratio`, `tabular-nums`), the major design systems for scales and tokens (Material 3, Shopify Polaris, IBM Carbon, Atlassian), Refactoring UI and Anthony Hobday's visual rules for the consistency principles, and WCAG 2.2 for the objective accessibility floors (target size, reflow, focus). Per-smell sources are in [catalog.md](./references/catalog.md).

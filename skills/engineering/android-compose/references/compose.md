@@ -1,3 +1,10 @@
+---
+type: Reference
+title: "Compose Fundamentals"
+description: "A composable is a function annotated `@Composable` that describes UI as a function of state."
+tags: [android, jetpack-compose, kotlin]
+timestamp: 2026-06-15T00:00:00Z
+---
 # Compose Fundamentals
 
 **Verified 2026-06-15** against Compose BOM 2026.06.00 (core Compose 1.11.x), Kotlin 2.4.0. Check the project's BOM and Kotlin version first.

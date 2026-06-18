@@ -26,7 +26,7 @@ The `date` field in `SKILL.md` frontmatter is the snapshot date (last full revie
 6. After a full pass, bump the snapshot date: the `date` in `SKILL.md` frontmatter and the "Snapshot date" line in the freshness section.
 
 ## Adding a tool
-Copy [_template.md](./_template.md) into the right category folder, fill the `Stop / Start` table, and add one row to the matching `SKILL.md` index table. The template documents the conventions (notably: teachable artifacts live inside this skill, and cross-skill references are optional).
+Copy [_template.md](./_template.md) into the right `references/<category>/` folder, fill the `Stop / Start` table, and add one row to the matching `SKILL.md` index table. The notes under `references/` are a conformant OKF bundle, so keep the template's frontmatter (a non-empty `type`); `node scripts/check-skills.mjs` validates it. The template documents the conventions (notably: teachable artifacts live inside this skill, and cross-skill references are optional).
 
 ## Efficient bulk refresh
 A category re-verify is cheap with parallel research: one agent per tool, each reading the official docs and returning the current config plus the "what LLMs get wrong" deltas, then fold the results into the notes files. Prioritize the categories whose freshness dates are oldest.

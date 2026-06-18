@@ -1,3 +1,10 @@
+---
+type: Reference
+title: "Shaders Reference (gdshader)"
+description: "Godot's shading language (`.gdshader`) is GLSL-like."
+tags: [godot, gamedev, gdscript]
+timestamp: 2026-06-06T00:00:00Z
+---
 # Shaders Reference (gdshader)
 
 **Verified 2026-06-06** against Godot 4.x. Godot 4 renamed shader essentials: `hint_color` is now `source_color`, the `SCREEN_TEXTURE` built-in is gone (declare `uniform sampler2D screen_texture : hint_screen_texture`), and `set_shader_param` is now `set_shader_parameter`. Re-verify built-ins if a newer minor changes them.

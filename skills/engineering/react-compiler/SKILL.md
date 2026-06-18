@@ -56,14 +56,14 @@ Anything outside these three cases gets deleted.
 
 1. **Confirm compiler is enabled.** Check `next.config` (`experimental.reactCompiler`), `vite.config` or `babel.config` (`babel-plugin-react-compiler`), or framework defaults for Expo and TanStack Start. If not enabled, propose enabling first. Do not strip memoization on a compiler-off codebase.
 2. **Confirm `eslint-plugin-react-hooks` is at v6+.** The compiler rules merged in from the deprecated `eslint-plugin-react-compiler` in late 2025.
-3. **Promote lint rules to `error`.** `recommended` ships most at `warn`, which means CI does not fail on silent compiler skips. See [lint-setup.md](./lint-setup.md) for the strict configuration.
+3. **Promote lint rules to `error`.** `recommended` ships most at `warn`, which means CI does not fail on silent compiler skips. See [lint-setup.md](./references/lint-setup.md) for the strict configuration.
 4. **Sweep manual memoization.** Delete `useMemo`, `useCallback`, `React.memo` that do not match one of the three exceptions.
 5. **Run lint. Fix silent skips iteratively.** Silent skips cascade: fixing an upstream skip can reveal a second issue downstream. First run gives the count. Subsequent runs give the truth.
 6. **Track `"use no memo"` directives.** Each is a performance cliff with a TODO behind it. Grep the count over time as a health metric.
 
 ## When the compiler silently bails
 
-Five patterns drop the surrounding function out of compilation. The lint rules above catch them when configured strictly. Full list, code examples, and fixes in [exceptions.md](./exceptions.md).
+Five patterns drop the surrounding function out of compilation. The lint rules above catch them when configured strictly. Full list, code examples, and fixes in [exceptions.md](./references/exceptions.md).
 
 ## Output format for an audit
 
@@ -78,4 +78,4 @@ silent bails detected:
 
 ## Source
 
-Based on [The React Compiler at Eighteen Months](https://saschb2b.com/blog/react-compiler-year-in-review). Sibling detail in [exceptions.md](./exceptions.md) and [lint-setup.md](./lint-setup.md).
+Based on [The React Compiler at Eighteen Months](https://saschb2b.com/blog/react-compiler-year-in-review). Sibling detail in [exceptions.md](./references/exceptions.md) and [lint-setup.md](./references/lint-setup.md).

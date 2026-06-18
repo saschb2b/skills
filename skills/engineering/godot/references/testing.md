@@ -1,3 +1,10 @@
+---
+type: Reference
+title: "Testing Reference"
+description: "Godot ships no built-in unit-test runner."
+tags: [godot, gamedev, gdscript]
+timestamp: 2026-06-06T00:00:00Z
+---
 # Testing Reference
 
 **Verified 2026-06-06** against Godot 4.x with GUT 9.x and GdUnit4. These are third-party addons with their own release cadence; treat the API below as orientation and confirm against the addon's own docs for the installed version. Re-verify when you bump the addon.

@@ -1,3 +1,10 @@
+---
+type: Reference
+title: "Animation & Tween Reference"
+description: "Create with `create_tween()` on any node."
+tags: [godot, gamedev, gdscript]
+timestamp: 2026-06-06T00:00:00Z
+---
 # Animation & Tween Reference
 
 **Verified 2026-06-06** against Godot 4.x. Godot 4 replaced the 3.x `Tween` *node* with code-created tweens from `create_tween()`; `Tween.new()` is invalid. Re-verify signatures if a newer minor changes them.

@@ -1,3 +1,10 @@
+---
+type: Reference
+title: "Performance & Optimization Reference"
+description: "Do not guess. Use the editor's **Profiler** and **Monitors** panels (Debugger bottom dock) while the game runs, then attack the real hot spot."
+tags: [godot, gamedev, gdscript]
+timestamp: 2026-06-06T00:00:00Z
+---
 # Performance & Optimization Reference
 
 **Verified 2026-06-06** against Godot 4.x. The patterns here (measure first, pool, batch, cull, avoid per-frame allocations) are durable; the API names follow the current stable. Re-verify monitor constants if a newer minor changes them.

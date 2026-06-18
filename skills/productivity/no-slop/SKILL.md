@@ -15,7 +15,7 @@ Most "AI slop" is not wrong, it is over-written. Too warm, too balanced, too eag
 ## How to apply
 
 - **Writing new prose** (README, docs, email, post, commit or PR message, release note): hold the register while drafting, then read once against the five rules below.
-- **Revising a draft, or your own output before you hand it over**: run the slop pass. Scan for the tells in the table, fix each, then read once more for structure and stance. See [prose.md](./prose.md) for before/after rewrites.
+- **Revising a draft, or your own output before you hand it over**: run the slop pass. Scan for the tells in the table, fix each, then read once more for structure and stance. See [prose.md](./references/prose.md) for before/after rewrites.
 - **Writing inside code** (a comment, commit message, PR description, test name, error or log string): apply the same register, then check the matching sibling file listed under Beyond prose below.
 - **Match the surrounding text.** A codebase, a thread, or a doc has an established voice. These rules sharpen prose. They do not override a house style the user already follows.
 
@@ -58,10 +58,10 @@ Most "AI slop" is not wrong, it is over-written. Too warm, too balanced, too eag
 
 The register and the tells apply wherever you write, not only in essays and docs. Each surface carries its own slop, with the tells and rewrites in a sibling file:
 
-- **Formatting** (headings, bold, lists, emoji, badges, smart quotes). See [formatting.md](./formatting.md).
-- **Code comments** that narrate the diff or restate the code. See [code-comments.md](./code-comments.md).
-- **Commit messages and PR descriptions** that restate the diff instead of the reason for it. See [commits-and-prs.md](./commits-and-prs.md).
-- **Strings in code** (test names, error and log messages). See [code-strings.md](./code-strings.md).
+- **Formatting** (headings, bold, lists, emoji, badges, smart quotes). See [formatting.md](./references/formatting.md).
+- **Code comments** that narrate the diff or restate the code. See [code-comments.md](./references/code-comments.md).
+- **Commit messages and PR descriptions** that restate the diff instead of the reason for it. See [commits-and-prs.md](./references/commits-and-prs.md).
+- **Strings in code** (test names, error and log messages). See [code-strings.md](./references/code-strings.md).
 
 One rule carries across all of them. Match the surrounding work: a file's comment density, a repo's commit history, a doc's heading style. These rules sharpen the writing, they do not override a house style.
 

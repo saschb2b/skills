@@ -1,3 +1,10 @@
+---
+type: Reference
+title: "Testing"
+description: "Inject a test dispatcher and assert on emitted state."
+tags: [android, jetpack-compose, kotlin]
+timestamp: 2026-06-15T00:00:00Z
+---
 # Testing
 
 **Verified 2026-06-15** against the Compose UI test APIs, Turbine, MockK, Robolectric. The APIs are stable; confirm versions in the project.

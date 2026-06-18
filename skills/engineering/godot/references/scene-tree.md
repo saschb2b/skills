@@ -1,3 +1,10 @@
+---
+type: Reference
+title: "SceneTree, Lifecycle & Pausing Reference"
+description: "For the per-node callback order (`_init` / `_enter_tree` / `_ready` bottom-up / `_process`), see [architecture.md](architecture.md)."
+tags: [godot, gamedev, gdscript]
+timestamp: 2026-06-06T00:00:00Z
+---
 # SceneTree, Lifecycle & Pausing Reference
 
 **Verified 2026-06-06** against Godot 4.x. Godot 4 renamed `change_scene` to `change_scene_to_file` and added `change_scene_to_packed`. Re-verify if a newer minor changes them.

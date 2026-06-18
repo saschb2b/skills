@@ -1,3 +1,10 @@
+---
+type: Reference
+title: "Navigation & Pathfinding Reference"
+description: "For the hand-built `AStar2D` graph pattern, see [architecture.md](architecture.md)."
+tags: [godot, gamedev, gdscript]
+timestamp: 2026-06-06T00:00:00Z
+---
 # Navigation & Pathfinding Reference
 
 **Verified 2026-06-06** against Godot 4.x. Godot 4 reworked navigation around `NavigationServer2D`/`3D`, `NavigationAgent2D`/`3D`, and baked navmesh regions, and added `AStarGrid2D` for grid pathfinding. Re-verify signatures if a newer minor changes them.

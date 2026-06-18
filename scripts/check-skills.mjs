@@ -14,6 +14,7 @@
 import { readFileSync, readdirSync, existsSync } from "node:fs";
 import { join, dirname, relative, basename, sep } from "node:path";
 import { fileURLToPath } from "node:url";
+import { execFileSync } from "node:child_process";
 
 const repo = join(dirname(fileURLToPath(import.meta.url)), "..");
 const errors = [];
@@ -28,6 +29,7 @@ const walk = (dir) =>
 const plugin = JSON.parse(readFileSync(join(repo, ".claude-plugin/plugin.json"), "utf8"));
 const registered = new Set(plugin.skills.map((s) => s.replace(/^\.\//, "")));
 const rootReadme = readFileSync(join(repo, "README.md"), "utf8");
+const okfValidate = join(repo, "skills/engineering/okf/okf-validate.mjs");
 
 const skillFiles = walk(join(repo, "skills")).filter((f) => f.endsWith("SKILL.md"));
 
@@ -70,6 +72,16 @@ for (const file of skillFiles) {
     for (const m of body.matchAll(/\]\((\.[^)]+)\)/g)) {
       const target = join(dirname(md), m[1].split("#")[0]);
       if (!existsSync(target)) errors.push(`${relative(repo, md)}: broken link -> ${m[1]}`);
+    }
+  }
+
+  // Vendored knowledge must be a conformant OKF bundle.
+  const refDir = join(skillDir, "references");
+  if (existsSync(refDir)) {
+    try {
+      execFileSync("node", [okfValidate, refDir], { encoding: "utf8" });
+    } catch {
+      errors.push(`${rel}/references: not a conformant OKF bundle (run: node skills/engineering/okf/okf-validate.mjs ${rel}/references)`);
     }
   }
 }

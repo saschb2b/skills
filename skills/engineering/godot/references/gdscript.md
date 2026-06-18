@@ -1,3 +1,10 @@
+---
+type: Reference
+title: "GDScript Reference"
+description: "var health: int = 100"
+tags: [godot, gamedev, gdscript]
+timestamp: 2026-06-06T00:00:00Z
+---
 # GDScript Reference
 
 **Verified 2026-06-06** against Godot 4.x. Check the project's Godot version first; re-verify version-specific syntax if newer.

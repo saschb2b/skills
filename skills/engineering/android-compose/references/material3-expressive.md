@@ -1,3 +1,10 @@
+---
+type: Reference
+title: "Material 3 Expressive"
+description: "Material 3 Expressive (announced Google I/O 2025) is the current Material design direction: bigger and bolder shapes, more emotive color, springier motion, and a richer component set."
+tags: [android, jetpack-compose, kotlin]
+timestamp: 2026-06-15T00:00:00Z
+---
 # Material 3 Expressive
 
 **Verified 2026-06-15.** Status facts are version-tagged and volatile. Stable `androidx.compose.material3:material3` is **1.4.0** (baseline M3, no Expressive). The Expressive components and `MaterialExpressiveTheme` live in the **1.5.0-alpha** line behind `@ExperimentalMaterial3ExpressiveApi`. Re-check the release notes before assuming 1.5.0 has gone stable.

@@ -1,3 +1,10 @@
+---
+type: Reference
+title: "Input Reference"
+description: "For input *propagation order* (`_input` / `_gui_input` / `_unhandled_input`) and the event-vs-polling decision, see [architecture.md](architecture.md)."
+tags: [godot, gamedev, gdscript]
+timestamp: 2026-06-06T00:00:00Z
+---
 # Input Reference
 
 **Verified 2026-06-06** against Godot 4.x. The Input/InputMap API and `physical_keycode`-over-`keycode` guidance are stable across 4.x. Re-verify enum names if a newer minor changes them.

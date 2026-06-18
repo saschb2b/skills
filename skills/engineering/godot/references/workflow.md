@@ -1,3 +1,10 @@
+---
+type: Reference
+title: "Editor & CLI Workflow Reference"
+description: "The Godot executable is also the toolchain: it imports, syntax-checks, runs, and exports a project from the command line."
+tags: [godot, gamedev, gdscript]
+timestamp: 2026-06-06T00:00:00Z
+---
 # Editor & CLI Workflow Reference
 
 **Verified 2026-06-06** against Godot 4.x. Godot 4 runs headless via `--headless` (the 3.x `--no-window` flag and separate server binary are gone). Re-verify flags if a newer minor changes them.

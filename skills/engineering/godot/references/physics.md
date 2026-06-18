@@ -1,3 +1,10 @@
+---
+type: Reference
+title: "Physics & Movement Reference"
+description: "`AnimatableBody2D` is a `StaticBody2D` that reports motion to the physics engine (moving platforms)."
+tags: [godot, gamedev, gdscript]
+timestamp: 2026-06-06T00:00:00Z
+---
 # Physics & Movement Reference
 
 **Verified 2026-06-06** against Godot 4.x. Godot 4 renamed the kinematic body to `CharacterBody2D`/`3D`, made `move_and_slide()` argument-less, and renamed RayCast `cast_to` to `target_position`. Re-verify signatures if a newer minor changes them.

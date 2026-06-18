@@ -1,3 +1,10 @@
+---
+type: Reference
+title: "Performance"
+description: "Compose recomposes composables that read changed state."
+tags: [android, jetpack-compose, kotlin]
+timestamp: 2026-06-15T00:00:00Z
+---
 # Performance
 
 **Verified 2026-06-15** against Compose BOM 2026.06.00, Kotlin 2.4.0 (Strong Skipping default-on). The principles are durable; profiling tool names move.

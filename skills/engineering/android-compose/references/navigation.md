@@ -1,3 +1,10 @@
+---
+type: Reference
+title: "Navigation"
+description: "Do not mix the two in one graph."
+tags: [android, jetpack-compose, kotlin]
+timestamp: 2026-06-15T00:00:00Z
+---
 # Navigation
 
 **Verified 2026-06-15** against Navigation Compose 2.9.8 (type-safe routes stable since 2.8.0) and Navigation 3 (`androidx.navigation3`) 1.1.2 stable. Confirm the versions in the project.

@@ -1,3 +1,10 @@
+---
+type: Reference
+title: "Particles & VFX Reference"
+description: "Both share the same conceptual properties."
+tags: [godot, gamedev, gdscript]
+timestamp: 2026-06-06T00:00:00Z
+---
 # Particles & VFX Reference
 
 **Verified 2026-06-06** against Godot 4.x. Godot 4 renamed the particle process material to `ParticleProcessMaterial` (3.x `ParticlesMaterial`) and added the `finished` signal for one-shot emitters. Re-verify if a newer minor changes them.

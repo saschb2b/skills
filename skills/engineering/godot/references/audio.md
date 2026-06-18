@@ -1,3 +1,10 @@
+---
+type: Reference
+title: "Audio Reference"
+description: "@onready var music: AudioStreamPlayer = $Music"
+tags: [godot, gamedev, gdscript]
+timestamp: 2026-06-06T00:00:00Z
+---
 # Audio Reference
 
 **Verified 2026-06-06** against Godot 4.x. Godot 4 renamed the volume conversion globals to `linear_to_db`/`db_to_linear` (the 3.x `linear2db`/`db2linear` are gone). Re-verify if a newer minor changes them.

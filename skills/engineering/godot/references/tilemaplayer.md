@@ -1,3 +1,10 @@
+---
+type: Reference
+title: "TileMapLayer Reference (Godot 4.3+)"
+description: "`TileMap` is deprecated since Godot 4.3."
+tags: [godot, gamedev, gdscript]
+timestamp: 2026-06-06T00:00:00Z
+---
 # TileMapLayer Reference (Godot 4.3+)
 
 **Verified 2026-06-06** against Godot 4.x. The TileMapLayer API has been stable since 4.3; re-verify method signatures if a newer minor changes them.

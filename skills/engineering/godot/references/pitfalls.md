@@ -1,3 +1,10 @@
+---
+type: Reference
+title: "Godot Pitfalls & Breaking Changes"
+description: "@export @onready var speed: float = 100.0"
+tags: [godot, gamedev, gdscript]
+timestamp: 2026-06-06T00:00:00Z
+---
 # Godot Pitfalls & Breaking Changes
 
 **Verified 2026-06-06** against Godot 4.x (the breaking-change and new-feature notes below are version-tagged). Re-verify the version-specific sections when a new Godot minor ships.

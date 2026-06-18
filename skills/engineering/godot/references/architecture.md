@@ -1,3 +1,10 @@
+---
+type: Reference
+title: "Godot Architecture Patterns"
+description: "func _ready() -> void:"
+tags: [godot, gamedev, gdscript]
+timestamp: 2026-06-06T00:00:00Z
+---
 # Godot Architecture Patterns
 
 **Verified 2026-06-06** against Godot 4.x. These patterns are paradigm-level and age slowly; the API names within them follow the current stable.
