@@ -5,7 +5,7 @@
 **Expert practice, packaged as checklists your coding agent can actually run.**
 
 [![skills.sh](https://skills.sh/b/saschb2b/skills)](https://skills.sh/saschb2b/skills)
-[![Skills](https://img.shields.io/badge/skills-14-2ea44f)](#skill-reference)
+[![Skills](https://img.shields.io/badge/skills-15-2ea44f)](#skill-reference)
 [![Docs](https://img.shields.io/badge/docs-saschb2b.com-0969da)](https://saschb2b.com/skills)
 [![License](https://img.shields.io/badge/license-MIT-0969da)](./LICENSE)
 
@@ -13,7 +13,7 @@
 
 A small, growing collection of agent skills distilled from posts on [saschb2b.com/blog](https://saschb2b.com/blog). Designed to be small, composable, and to work with any agent that supports the [skills.sh](https://skills.sh) installer (Claude Code, Cursor, Codex, Cline, Windsurf, OpenCode, and others).
 
-Most skills take a single blog post and turn its argument into a checklist an agent can step through, end to end; a few (like `godot`, `android-compose`, and `javascript-ecosystem`) are living reference snapshots that re-verify as they age. Together they cover the kind of expert practice teams agree with on a calm day and skip on a busy one: the security audit nobody runs, the architecture everyone reinvents, the framework version your LLM is a year behind on, the React pattern and API codegen your LLM still wires the old way, the colors your LLM still sprinkles as hex, the prop API your LLM grows by accretion, the UX questions the generator skips past, the ticket discipline that drops on a busy Monday.
+Most skills take a single blog post and turn its argument into a checklist an agent can step through, end to end; a few (like `godot`, `android-compose`, and `javascript-ecosystem`) are living reference snapshots that re-verify as they age. Together they cover the kind of expert practice teams agree with on a calm day and skip on a busy one: the security audit nobody runs, the architecture everyone reinvents, the framework version your LLM is a year behind on, the React pattern and API codegen your LLM still wires the old way, the colors your LLM still sprinkles as hex, the prop API your LLM grows by accretion, the UX questions the generator skips past, the ticket discipline that drops on a busy Monday, the agent knowledge that stays locked in one vendor's catalog instead of traveling as portable files.
 
 ## Contents
 
@@ -44,6 +44,7 @@ npx skills@latest add saschb2b/skills --skill javascript-ecosystem
 npx skills@latest add saschb2b/skills --skill godot
 npx skills@latest add saschb2b/skills --skill android-compose
 npx skills@latest add saschb2b/skills --skill visual-consistency
+npx skills@latest add saschb2b/skills --skill okf
 npx skills@latest add saschb2b/skills --skill ask-ux
 npx skills@latest add saschb2b/skills --skill to-story
 npx skills@latest add saschb2b/skills --skill no-slop
@@ -70,6 +71,7 @@ Code-adjacent work.
 | **[godot](./skills/engineering/godot/SKILL.md)** | Develop in Godot against the current stable (4.x): typed GDScript, physics, UI, scenes, the `.tscn`/`.tres` formats, editor tooling, and version-tagged pitfalls. A dated snapshot that re-verifies as it ages. |
 | **[android-compose](./skills/engineering/android-compose/SKILL.md)** | Build Android apps Compose-first with Material 3 Expressive as the design direction: strong-skipping-aware Compose, Expressive theming and components (honest about the experimental opt-in), UDF architecture, type-safe Navigation Compose and Navigation 3, the data layer, the Gradle Kotlin DSL build with the Compose compiler plugin and KSP, testing, performance, and version-tagged pitfalls. A dated snapshot that checks the project's versions first. |
 | **[visual-consistency](./skills/engineering/visual-consistency/SKILL.md)** | Detect and fix visual and layout consistency defects in rendered UI: uneven card heights in a grid, sibling cards whose internal sections and trailing icons do not line up, off-scale spacing, plus alignment, repeated-element sizing, type scale, table and numeric alignment, overflow, layout shift, and touch and focus sizing. Each smell gets an objective detection signal, a concrete CSS fix (subgrid, equal-height grids, spacing tokens, tabular-nums), a severity, and a Safe-or-Judgment autonomy tag. Pairs with `autopilot` (Safe maps to in-bounds work, Judgment to surface-first). Defers color to `theme-colors` and component code smells to `react-stinky`. |
+| **[okf](./skills/engineering/okf/SKILL.md)** | Author, validate, and maintain knowledge for AI agents as conformant Open Knowledge Format (OKF) bundles, Google's vendor-neutral spec (v0.1) of markdown files with YAML frontmatter for portable agent context. A command surface (`init`, `add`, `enrich`, `link`, `index`, `log`, `validate`, `export`, `consume`) plus an implicit mode that conforms knowledge to OKF whenever you document a table, dataset, metric, runbook, playbook, or join path for an agent, export a catalog, or edit an existing bundle. Ships a zero-dependency conformance checker (`okf-validate.mjs`), the full normative spec, per-command playbooks, and worked templates (BigQuery table, metric, runbook). The one hard rule is a non-empty `type` field per concept; everything else is structure consumers tolerate the absence of. |
 
 ### Productivity
 
@@ -175,6 +177,16 @@ I built each one because the corresponding post wasn't enough. Writing down what
 **The problem.** An LLM grows a component's prop surface one request at a time. Each addition is locally reasonable: a `loading` boolean here, an `isError`/`isWarning`/`isSuccess` trio there, a `content` prop because `children` did not come to mind, a `backgroundColor: string` because the design needed one color. Nothing is wrong in isolation. The sum is an API that is hard to read, easy to misuse, and painful to change. The smell is never in the diff that introduced it.
 
 **The fix:** [`/react-stinky`](./skills/engineering/react-stinky/SKILL.md). The agent walks the code against seven maintainability pillars: the eighteen sourced API-design smells (naming, boolean and callback conventions, string-union variants over boolean flags, discriminated unions, controlled and uncontrolled state, children and slot composition, render props, generics, extending HTML, refs, styling, accessibility, server-component boundaries, defaults, JSDoc), then state and data flow, effects and lifecycle, component structure and hooks, rendering correctness, accessibility in markup, TypeScript discipline, and a cross-file duplication pass that catches a component re-implemented elsewhere or a type declared twice. It rates each Rancid, Funky, or Whiff and proposes the concrete fix with a source. A per-smell guard keeps it from nitpicking native HTML attributes, the conventions of whatever library the file already uses, and intentional patterns, so it reads like a careful reviewer rather than a noisy linter. It defers memoization to `react-compiler` and color literals to `theme-colors`.
+
+### 10. The agent knowledge locked in one vendor's catalog
+
+> "LLMs don't get bored, don't forget to update a cross-reference, and can touch 15 files in one pass. The bookkeeping that causes humans to abandon personal wikis is exactly what LLMs are good at."
+>
+> Andrej Karpathy, quoted in [Google Cloud's OKF announcement](https://cloud.google.com/blog/products/data-analytics/how-the-open-knowledge-format-can-improve-data-sharing/)
+
+**The problem.** The context an agent needs to answer "how do I compute weekly active users from our event stream?" is scattered across metadata catalogs with proprietary APIs, wikis, docstrings, and the heads of senior engineers. Every agent builder re-solves the context-assembly problem from scratch, and the knowledge stays locked inside whichever system produced it. Each vendor ships its own catalog, SDK, and knowledge-graph schema, so nothing travels.
+
+**The fix:** [`/okf`](./skills/engineering/okf/SKILL.md). The agent treats knowledge for other agents as Google's Open Knowledge Format: a bundle of plain markdown files with YAML frontmatter, versioned next to the code it describes, with no SDK and no lock-in. The skill is both explicit and ambient. On command it runs a verb surface (`init`, `add`, `enrich`, `link`, `index`, `log`, `validate`, `export`, `consume`); implicitly it conforms any knowledge you author or transform for an agent (a table, a metric, a runbook, a join path, a deprecation notice) to the spec, so it ships as a conformant bundle instead of ad-hoc prose, and it keeps an existing bundle conformant as it changes. A zero-dependency checker enforces the one hard rule, a non-empty `type` per concept, and warns on the soft guidance a permissive consumer is meant to tolerate.
 
 ### And two that run the work, not just describe it
 
