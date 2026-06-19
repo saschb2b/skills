@@ -3,11 +3,11 @@ type: Reference
 title: "Animation & Tween Reference"
 description: "Create with `create_tween()` on any node."
 tags: [godot, gamedev, gdscript]
-timestamp: 2026-06-06T00:00:00Z
+timestamp: 2026-06-19T00:00:00Z
 ---
 # Animation & Tween Reference
 
-**Verified 2026-06-06** against Godot 4.x. Godot 4 replaced the 3.x `Tween` *node* with code-created tweens from `create_tween()`; `Tween.new()` is invalid. Re-verify signatures if a newer minor changes them.
+**Verified 2026-06-19** against Godot 4.7. Godot 4 replaced the 3.x `Tween` *node* with code-created tweens from `create_tween()`; `Tween.new()` is invalid. Re-verify signatures if a newer minor changes them.
 
 ## Tween vs AnimationPlayer vs AnimationTree
 
@@ -54,8 +54,10 @@ create_tween().set_loops(3).tween_property(...)   # no arg = infinite
 ```gdscript
 t.tween_interval(0.25)                                     # pause in the sequence
 t.tween_method(_set_shader_value, 0.0, 1.0, 1.0)          # call a setter with lerped values
+t.tween_await(continue_button.pressed)                     # 4.7: hold the sequence until a signal fires
 await t.finished                                          # coroutine waits for completion
 ```
+`tween_await(signal)` (Godot 4.7) appends an `AwaitTweener` step that pauses the sequence until `signal` emits (or its connection becomes invalid), so a tween can wait on a button press, an animation, or any custom signal mid-chain without splitting into multiple coroutines.
 
 ### Lifecycle gotchas
 - A tween auto-starts the same frame and frees itself when done. Keep a reference only if you call `kill()`, `pause()`, or `stop()`.

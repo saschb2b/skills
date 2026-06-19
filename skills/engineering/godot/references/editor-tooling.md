@@ -3,11 +3,11 @@ type: Reference
 title: "Editor Tooling & Exposing Tunables Reference"
 description: "The clean Godot answer to \"let me adjust custom things in the editor instead of hunting for constants in code\" is **data-driven design**: never hardcode a tunable as a code constant when you can…"
 tags: [godot, gamedev, gdscript]
-timestamp: 2026-06-06T00:00:00Z
+timestamp: 2026-06-19T00:00:00Z
 ---
 # Editor Tooling & Exposing Tunables Reference
 
-**Verified 2026-06-06** against Godot 4.x. In 4.6 the dock API changed: `EditorPlugin.add_control_to_dock()` and `add_control_to_bottom_panel()` are **deprecated** in favor of `add_dock(EditorDock)`. `@export_tool_button` arrived in 4.4. Re-verify if a newer minor changes them.
+**Verified 2026-06-19** against Godot 4.7. In 4.6 the dock API changed: `EditorPlugin.add_control_to_dock()` and `add_control_to_bottom_panel()` are **deprecated** in favor of `add_dock(EditorDock)`. `@export_tool_button` arrived in 4.4. Re-verify if a newer minor changes them.
 
 The clean Godot answer to "let me adjust custom things in the editor instead of hunting for constants in code" is **data-driven design**: never hardcode a tunable as a code constant when you can expose it as an `@export` or store it in a `Resource` the inspector edits. Reach for the lightest tool that works, and only build custom editor UI when the inspector genuinely cannot express what you need.
 
@@ -117,6 +117,13 @@ To replace the default editor for a specific property (a custom curve, a tile pi
 add_inspector_plugin(my_inspector_plugin)   # in _enter_tree; remove_inspector_plugin in _exit_tree
 ```
 `EditorInspectorPlugin` implements `_can_handle(object)` and `_parse_property(...)`, calling `add_property_editor(name, editor)` to inject an `EditorProperty` subclass. The `EditorProperty` builds its control in `_init()`, syncs from data in `_update_property()`, and writes back with `emit_changed(get_edited_property(), value)`.
+
+## Editor quality-of-life (Godot 4.7)
+
+- **Inspector copy/paste:** right-click a category or group of properties to copy and paste their values as a block, handy for cloning tuned setups across nodes/resources.
+- **GDExtensions in Project Settings:** loaded `.gdextension` files now have a dedicated section in Project Settings, so you can see what native extensions a project pulls in.
+- **Asset Store** replaces the Asset Library for browsing and installing addons/plugins (ratings, preview zoom, background-threaded downloads). Enable an installed plugin under Project Settings > Plugins as before.
+- **MeshLibrary editor** gives GridMap tiles a dedicated editor like the TileSet editor (see [3d.md](3d.md)).
 
 ## Pitfalls
 

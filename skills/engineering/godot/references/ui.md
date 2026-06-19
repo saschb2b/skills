@@ -3,11 +3,11 @@ type: Reference
 title: "UI / Control Reference"
 description: "UI lives under `Control` nodes, not `Node2D`."
 tags: [godot, gamedev, gdscript]
-timestamp: 2026-06-06T00:00:00Z
+timestamp: 2026-06-19T00:00:00Z
 ---
 # UI / Control Reference
 
-**Verified 2026-06-06** against Godot 4.x. Godot 4 dropped the `rect_` prefix: it is `position`/`size`/`custom_minimum_size` (not `rect_position`/`rect_size`/`rect_min_size`) and anchor `offset_left/top/right/bottom` (not `margin_*`). Re-verify if a newer minor changes them.
+**Verified 2026-06-19** against Godot 4.7. Godot 4 dropped the `rect_` prefix: it is `position`/`size`/`custom_minimum_size` (not `rect_position`/`rect_size`/`rect_min_size`) and anchor `offset_left/top/right/bottom` (not `margin_*`). 4.7 added `Control.offset_transform_*` (animate inside a container), `GradientTexture2D.FILL_CONIC`, and font-relative RichTextLabel images (and renamed the `add_image` percent params). Re-verify if a newer minor changes them.
 
 ## Control vs Node2D
 
@@ -61,6 +61,16 @@ size_flags_stretch_ratio = 2.0                      # take 2x share vs siblings
 ```
 `SIZE_FILL` (occupy the slot), `SIZE_EXPAND` (claim extra space), `SIZE_EXPAND_FILL` (both), `SIZE_SHRINK_CENTER`/`SHRINK_END` (stay minimum, align).
 
+### Animating inside a container: offset_transform (Godot 4.7)
+
+A `Container` overwrites a child's `position`/`scale`/`rotation` every layout pass, so a hover-pop or shake tween on a buttoned-up menu item normally fights the layout. 4.7 adds a separate visual transform that the container ignores:
+```gdscript
+button.offset_transform_enabled = true
+var t := create_tween()
+t.tween_property(button, "offset_transform_scale", Vector2(1.15, 1.15), 0.1)
+```
+Full set: `offset_transform_enabled` (bool), `offset_transform_position` / `offset_transform_position_ratio`, `offset_transform_rotation` (float), `offset_transform_scale`, `offset_transform_pivot` / `offset_transform_pivot_ratio`, and `offset_transform_visual_only`. Use it for juice (scale/rotate/nudge) on a control whose slot is managed by a container.
+
 ## Common nodes and signals
 
 ```gdscript
@@ -73,6 +83,7 @@ $OptionButton.item_selected.connect(func(idx: int) -> void: ...)
 $Label.text = "Score: %d" % score
 $RichTextLabel.bbcode_enabled = true
 $RichTextLabel.text = "[b]Boss[/b] [color=red]warning[/color]"
+$RichTextLabel.text = "press [img height=1em]res://key.png[/img]"  # 4.7: size inline images to font (1em)
 $LineEdit.text_submitted.connect(_on_submit)      # Enter pressed
 $TextEdit                                          # multiline editor
 
@@ -126,9 +137,16 @@ $PauseMenu.process_mode = Node.PROCESS_MODE_WHEN_PAUSED
 ```
 For dialogs, `AcceptDialog`/`ConfirmationDialog`/`Window` provide `popup_centered()` and a `confirmed` signal.
 
+## 4.7 extras
+
+- `GradientTexture2D.fill = GradientTexture2D.FILL_CONIC` gives a conic (CSS-style sweep) gradient, alongside `FILL_LINEAR`/`FILL_RADIAL`/`FILL_SQUARE`. Useful as a `TextureRect` texture or `ProgressBar` fill.
+- `PopupMenu` can show an optional search bar for long menus.
+- A `TextureRect` can tile an `AtlasTexture` region as a repeating pattern.
+
 ## Pitfalls
 
 - Building UI under `Node2D` instead of `Control`/`CanvasLayer`. UI belongs in the Control tree.
-- Setting `position`/`offsets` on a child of a `Container`. The container overwrites them; change `custom_minimum_size` and size flags instead.
+- Setting `position`/`offsets` on a child of a `Container`. The container overwrites them; for animation use `offset_transform_*` (4.7), otherwise change `custom_minimum_size` and size flags.
 - Decorative panels eating clicks: set their `mouse_filter` to `IGNORE`.
 - Reaching for Godot 3 names (`rect_size`, `margin_top`, `rect_min_size`). They no longer exist.
+- **4.7 break:** `RichTextLabel.add_image()`/`update_image()` renamed the `width_in_percent`/`height_in_percent` bool args to `width_unit`/`height_unit` (now a `RichTextLabel.ImageUnit` enum), and `width`/`height` are `float`. The constant `UPDATE_WIDTH_IN_PERCENT` is now `UPDATE_WIDTH_UNIT`.

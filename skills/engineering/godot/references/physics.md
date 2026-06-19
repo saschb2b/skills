@@ -3,11 +3,11 @@ type: Reference
 title: "Physics & Movement Reference"
 description: "`AnimatableBody2D` is a `StaticBody2D` that reports motion to the physics engine (moving platforms)."
 tags: [godot, gamedev, gdscript]
-timestamp: 2026-06-06T00:00:00Z
+timestamp: 2026-06-19T00:00:00Z
 ---
 # Physics & Movement Reference
 
-**Verified 2026-06-06** against Godot 4.x. Godot 4 renamed the kinematic body to `CharacterBody2D`/`3D`, made `move_and_slide()` argument-less, and renamed RayCast `cast_to` to `target_position`. Re-verify signatures if a newer minor changes them.
+**Verified 2026-06-19** against Godot 4.7. Godot 4 renamed the kinematic body to `CharacterBody2D`/`3D`, made `move_and_slide()` argument-less, and renamed RayCast `cast_to` to `target_position`. Re-verify signatures if a newer minor changes them.
 
 ## Choosing a body type
 
@@ -100,6 +100,14 @@ A detects B only if A's mask shares a bit with B's layer. Name the bits in Proje
 set_collision_layer_value(2, true)   # occupy layer 2
 set_collision_mask_value(3, true)    # also scan layer 3
 var scans_world := get_collision_mask_value(1)
+```
+
+### One-way collision (any direction, Godot 4.7)
+
+On a `CollisionShape2D` or `CollisionPolygon2D`, enable `one_way_collision` (bool, default `false`) to let bodies pass through from one side (jump-through platforms); `one_way_collision_margin` (float, default `1.0`) controls the depth tolerance. Before 4.7 the passable side was locked to the shape's local "up"; 4.7 adds `one_way_collision_direction` (a `Vector2`, default `Vector2(0, 1)`) so it can point anywhere relative to the shape, local to its rotation.
+```gdscript
+$CollisionShape2D.one_way_collision = true
+$CollisionShape2D.one_way_collision_direction = Vector2(1, 0)   # blocks from the left only
 ```
 
 ## Area2D (detection, not collision)
