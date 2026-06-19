@@ -1,0 +1,33 @@
+# Validates the repo on every push to main and every pull request.
+# Deterministic checks only (no model, no secrets): skill conventions and the
+# invocation eval cases (valid YAML, schema, coverage). The full `pnpm eval`
+# routing run is an agent text run and is not part of CI.
+#
+# Uses `pull_request` (not `pull_request_target`) and a read-only token, so a
+# fork PR never gets secrets or write access. Per the audit-actions skill you
+# may also pin each action to a full commit SHA for defense in depth.
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - name: Skill conventions
+        run: pnpm check
+      - name: Eval cases (valid YAML, schema, coverage)
+        run: pnpm eval:validate
