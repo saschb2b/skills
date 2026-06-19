@@ -1,0 +1,11 @@
+owner: javascript-ecosystem
+
+should_fire:
+  - "what's the current recommended way to set up Tailwind v4?"
+  - is NgModules still right or should we go standalone in Angular now
+  - set up TanStack Query the modern way for this project
+  - which ESLint config format should a new project use today
+
+should_not_fire:
+  - what's the capital of France
+  - write a haiku about autumn

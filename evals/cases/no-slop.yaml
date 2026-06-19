@@ -1,0 +1,14 @@
+owner: no-slop
+
+should_fire:
+  - rewrite this paragraph so it doesn't read as AI-generated
+  - edit this blog intro to sound human and drop the em dashes
+  - clean up the slop in this README section
+
+route_to_sibling:
+  - prompt: rewrite this ticket as a proper user story
+    expect: to-story
+
+should_not_fire:
+  - refactor this function for readability
+  - what is the time complexity of quicksort

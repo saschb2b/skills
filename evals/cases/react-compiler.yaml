@@ -1,0 +1,17 @@
+owner: react-compiler
+
+should_fire:
+  - should I wrap this value in useMemo?
+  - we turned on the React Compiler, remove the manual memoization
+  - audit this file for unnecessary useCallback and React.memo
+  - is this useMemo actually doing anything now that the compiler is on
+
+route_to_sibling:
+  - prompt: this component has way too many boolean props
+    expect: react-stinky
+  - prompt: the product cards in this grid are different heights
+    expect: visual-consistency
+
+should_not_fire:
+  - write a bash script to rename these files
+  - what version of Next.js should we be on

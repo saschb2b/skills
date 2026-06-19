@@ -3,3 +3,10 @@
 .agents/
 .claude/
 skills-lock.json
+
+# Dependencies (dev-only tooling; skills themselves ship dependency-free).
+node_modules/
+
+# Eval run outputs (model- and time-dependent) and local secrets.
+evals/results/
+.env

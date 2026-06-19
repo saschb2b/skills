@@ -1,0 +1,14 @@
+owner: scaffold-mcp
+
+should_fire:
+  - help me build an MCP server for our internal CLI
+  - scaffold a Model Context Protocol server in TypeScript
+  - I want to expose our REST API to Claude as an MCP tool, where do I start
+
+route_to_sibling:
+  - prompt: generate a typesafe client from our OpenAPI spec
+    expect: codegen-api
+
+should_not_fire:
+  - center this div vertically
+  - rewrite this ticket as a user story

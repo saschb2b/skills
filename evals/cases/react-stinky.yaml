@@ -1,0 +1,19 @@
+owner: react-stinky
+
+should_fire:
+  - review this React component for code smells
+  - smell-check the hooks in this folder
+  - this component does fetching, state, and rendering all at once, clean it up
+  - it has isError, isWarning, and isSuccess booleans, is that a smell?
+
+route_to_sibling:
+  - prompt: should I keep these useMemo calls or drop them?
+    expect: react-compiler
+  - prompt: the colors are hardcoded as hex everywhere
+    expect: theme-colors
+  - prompt: the buttons in this toolbar are all slightly different heights
+    expect: visual-consistency
+
+should_not_fire:
+  - deploy the staging branch
+  - rewrite this blog intro so it sounds less like AI

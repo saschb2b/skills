@@ -1,0 +1,11 @@
+owner: okf
+
+should_fire:
+  - "start an OKF bundle for our analytics knowledge"
+  - document this BigQuery table so an agent can read it
+  - export our data catalog to a portable agent-readable format
+  - make this runbook conformant with the Open Knowledge Format spec
+
+should_not_fire:
+  - turn this braindump into a user story
+  - rewrite this README so it doesn't sound AI-generated

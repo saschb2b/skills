@@ -1,0 +1,19 @@
+owner: theme-colors
+
+should_fire:
+  - 'this component is full of "#1E293B" and rgba() literals, clean it up'
+  - make the primary button use our brand color instead of a hardcoded blue
+  - set up the palette for our new MUI theme
+  - we need dark mode, the colors are all inline hex right now
+
+route_to_sibling:
+  - prompt: the cards in this grid are all different heights
+    expect: visual-consistency
+  - prompt: review this component's prop API for smells
+    expect: react-stinky
+  - prompt: should this settings screen exist at all?
+    expect: ask-ux
+
+should_not_fire:
+  - write a SQL migration to add a created_at column
+  - the spacing between these sections feels random

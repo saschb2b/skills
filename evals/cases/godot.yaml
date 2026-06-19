@@ -1,0 +1,10 @@
+owner: godot
+
+should_fire:
+  - how do I set up a CharacterBody2D for player movement in Godot
+  - write typed GDScript for a simple state machine
+  - my .tscn scene tree is a mess, how should I structure it
+
+should_not_fire:
+  - review my React component for smells
+  - set up TanStack Query

@@ -1,0 +1,14 @@
+owner: codegen-api
+
+should_fire:
+  - set up typesafe API code generation from our OpenAPI schema
+  - generate typed GraphQL documents for our queries
+  - we keep hand-writing fetch wrappers, can we generate a typed client instead
+
+route_to_sibling:
+  - prompt: build an MCP server that wraps this REST API
+    expect: scaffold-mcp
+
+should_not_fire:
+  - fix the flexbox alignment on this card
+  - what is the capital of Australia

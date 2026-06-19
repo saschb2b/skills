@@ -1,0 +1,10 @@
+owner: audit-actions
+
+should_fire:
+  - check my GitHub Actions workflows for security problems
+  - "is our pull_request_target usage safe?"
+  - audit .github/workflows for supply-chain risk before the next release
+
+should_not_fire:
+  - write a unit test for the date parser
+  - what's a good name for this variable

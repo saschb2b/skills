@@ -19,16 +19,26 @@ Buckets in use:
 
 ## Adding a skill
 
-When you add a new skill, touch four places. Forgetting any of them silently degrades the install experience.
+When you add a new skill, touch five places. Forgetting any of them silently degrades the install experience or leaves the skill untested for invocation.
 
 1. `skills/<bucket>/<slug>/SKILL.md`. The skill itself.
 2. `README.md`. Add a line under the matching Reference section. Link the slug to its SKILL.md.
 3. `skills/<bucket>/README.md`. Add a line in the bucket index.
 4. `.claude-plugin/plugin.json`. Add `./skills/<bucket>/<slug>` to the `skills` array.
+5. `evals/cases/<slug>.yaml`. Invocation eval cases: a few `should_fire` prompts, a couple `should_not_fire`, and `route_to_sibling` cases for any skill it overlaps with. See [evals/README.md](evals/README.md).
 
-Then run `node scripts/check-skills.mjs`. It enforces every rule below (the `: ` and ` #` frontmatter traps, `name` matching the folder, the 1024-char description cap, plugin.json registration, that every relative link inside the skill resolves, and that any `references/` directory is a conformant OKF bundle) and exits non-zero on any failure. Run it before you commit.
+Then run `pnpm check` (which runs `node scripts/check-skills.mjs`) and `pnpm eval:validate`. The first enforces every skill rule below (the `: ` and ` #` frontmatter traps, `name` matching the folder, the 1024-char description cap, plugin.json registration, that every relative link inside the skill resolves, and that any `references/` directory is a conformant OKF bundle). The second checks the invocation cases are valid YAML, match the schema, and cover every skill. Both exit non-zero on any failure. Run them before you commit.
 
 The `javascript-ecosystem` skill is a dated snapshot of a fast-moving ecosystem, so it carries extra anti-staleness machinery: a snapshot `date`, a per-notes-file `**Verified YYYY-MM-DD**` stamp, a freshness section in its `SKILL.md`, and `skills/engineering/javascript-ecosystem/MAINTENANCE.md`. Run `node scripts/check-freshness.mjs` to list the oldest entries due for a re-verify against official docs.
+
+## Skill-invocation evals
+
+The `description` is the only field the agent reads when deciding to auto-invoke a skill, so a reword can silently stop the agent reaching for it, or make it grab a sibling instead. The harness in `evals/` is the regression test. Run it on your own whenever you touch a skill:
+
+- After adding a skill or editing any `description`, run `pnpm eval:validate`. It is fast, needs no model and no key, and fails on a broken case file or a skill with no cases.
+- When a `description` changed, also run the full invocation eval to confirm the model still routes correctly. It needs no API key, because the classification is an agent text run. `pnpm eval` validates and writes `evals/results/manifest.json`; classify the prompts with a subagent (blind, against a stripped `{id, prompt}` view so the answers do not leak) writing `evals/results/answers.json`; then `pnpm eval:score` prints recall, specificity, disambiguation, and a findings list. Steps are in [evals/README.md](evals/README.md).
+
+A 100% table means the descriptions separate cleanly under a focused router, not that auto-invocation is guaranteed mid-conversation. Treat the disambiguation column (does the intended sibling win on an overlapping prompt) as the signal that two descriptions have clean boundaries.
 
 ## SKILL.md format
 

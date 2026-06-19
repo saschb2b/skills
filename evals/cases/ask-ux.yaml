@@ -1,0 +1,17 @@
+owner: ask-ux
+
+should_fire:
+  - redesign this checkout screen
+  - this form is confusing for users, help me rethink it
+  - should we add a confirmation step before this action?
+  - make this dashboard nicer, users keep getting lost
+
+route_to_sibling:
+  - prompt: the cards on this page are uneven heights
+    expect: visual-consistency
+  - prompt: the buttons use hardcoded hex colors
+    expect: theme-colors
+
+should_not_fire:
+  - write the migration script for the orders table
+  - remove the unnecessary useCallback in this hook

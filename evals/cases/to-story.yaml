@@ -1,0 +1,14 @@
+owner: to-story
+
+should_fire:
+  - turn this braindump into a proper user story with acceptance criteria
+  - rewrite this Jira ticket so a new engineer understands it
+  - this story is too big, help me split it
+
+route_to_sibling:
+  - prompt: rewrite this paragraph so it doesn't read as AI-generated
+    expect: no-slop
+
+should_not_fire:
+  - implement the login endpoint
+  - review this component for code smells

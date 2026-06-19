@@ -1,0 +1,21 @@
+owner: visual-consistency
+
+should_fire:
+  - the cards in this grid are all different heights, make them line up
+  - the external-link icons in this list sit at a different spot on every row
+  - the spacing in this layout feels random, make it consistent
+  - make this card grid cleaner and easier to scan
+
+route_to_sibling:
+  - prompt: the colors are hardcoded as hex instead of theme tokens
+    expect: theme-colors
+  - prompt: this list re-renders too often
+    expect: react-compiler
+  - prompt: should this settings screen even exist?
+    expect: ask-ux
+  - prompt: the prop API of this card component is a mess
+    expect: react-stinky
+
+should_not_fire:
+  - write a regex to validate email addresses
+  - turn this braindump into a user story

@@ -1,0 +1,11 @@
+owner: autopilot
+
+should_fire:
+  - work on your own for a while and keep improving this repo
+  - go autonomous, don't wait for me
+  - find something worth doing in here and just do it
+
+should_not_fire:
+  - fix the null pointer on line 42 of parser.ts
+  - add a test for the formatDate function
+  - review this one component for smells

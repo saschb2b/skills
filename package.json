@@ -1,0 +1,17 @@
+{
+  "name": "saschb2b-skills",
+  "private": true,
+  "packageManager": "pnpm@10.28.2",
+  "description": "Agent skills bundle with convention checks and skill-invocation evals.",
+  "scripts": {
+    "check": "node scripts/check-skills.mjs",
+    "freshness": "node scripts/check-freshness.mjs",
+    "eval": "node evals/run.mjs",
+    "eval:validate": "node evals/validate.mjs",
+    "eval:build": "node evals/run.mjs --build",
+    "eval:score": "node evals/run.mjs --score"
+  },
+  "devDependencies": {
+    "yaml": "^2.9.0"
+  }
+}

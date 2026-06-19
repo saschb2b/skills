@@ -1,0 +1,10 @@
+owner: android-compose
+
+should_fire:
+  - build a Jetpack Compose screen with Material 3
+  - set up type-safe Navigation Compose for this app
+  - how do I hoist state properly in this composable
+
+should_not_fire:
+  - fix the CSS grid on this landing page
+  - write a SQL query to join these tables

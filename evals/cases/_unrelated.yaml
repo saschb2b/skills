@@ -1,0 +1,12 @@
+# Prompts outside every skill's domain. The correct routing is to fire
+# nothing at all. Scores the whole set's abstention (precision against
+# spurious invocation), independent of any one skill.
+owner: none
+
+fire_nothing:
+  - what's the capital of France
+  - write a SQL query to count orders per customer
+  - explain how a hash map works
+  - convert this timestamp to a human-readable date
+  - what's the time complexity of merge sort
+  - write a git command to squash the last three commits
