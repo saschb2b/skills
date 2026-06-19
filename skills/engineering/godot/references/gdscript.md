@@ -3,11 +3,11 @@ type: Reference
 title: "GDScript Reference"
 description: "var health: int = 100"
 tags: [godot, gamedev, gdscript]
-timestamp: 2026-06-06T00:00:00Z
+timestamp: 2026-06-19T00:00:00Z
 ---
 # GDScript Reference
 
-**Verified 2026-06-06** against Godot 4.x. Check the project's Godot version first; re-verify version-specific syntax if newer.
+**Verified 2026-06-19** against Godot 4.7. Check the project's Godot version first; re-verify version-specific syntax if newer. 4.7 ships no new GDScript syntax but changes two behaviors (packed-array element writes skip the property setter; typed-return overrides now require an explicit `return`) covered under "Godot 4.7 behavior changes" below.
 
 ## Variable Declarations
 
@@ -202,6 +202,25 @@ extends CharacterBody2D
 func get_attack_damage() -> int:
     return 0
 ```
+
+## Godot 4.7 behavior changes
+
+Two silent-but-breaking changes, no new syntax:
+
+```gdscript
+# 1. Writing one element of a packed-array property no longer calls its setter.
+var path: PackedVector2Array:
+    set(value): path = value; _rebuild()
+
+path[0] = Vector2.ZERO     # 4.7: setter does NOT fire, _rebuild() skipped
+var p := path; p[0] = Vector2.ZERO; path = p   # reassign the whole array to trigger it
+
+# 2. An override inherits the parent's typed return, so a missing return now errors.
+func score() -> int:
+    return 0
+# override must end in `return <int>`; 4.6 silently returned null, 4.7 is a parse error
+```
+Also: `Object.is_class()` now takes a `StringName` (auto-converts from `String` literals). See [pitfalls.md](pitfalls.md) for the full 4.7 break list.
 
 ## Class Structure and Inheritance
 

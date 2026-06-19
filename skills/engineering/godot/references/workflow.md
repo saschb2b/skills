@@ -3,21 +3,21 @@ type: Reference
 title: "Editor & CLI Workflow Reference"
 description: "The Godot executable is also the toolchain: it imports, syntax-checks, runs, and exports a project from the command line."
 tags: [godot, gamedev, gdscript]
-timestamp: 2026-06-06T00:00:00Z
+timestamp: 2026-06-19T00:00:00Z
 ---
 # Editor & CLI Workflow Reference
 
-**Verified 2026-06-06** against Godot 4.x. Godot 4 runs headless via `--headless` (the 3.x `--no-window` flag and separate server binary are gone). Re-verify flags if a newer minor changes them.
+**Verified 2026-06-19** against Godot 4.7. Godot 4 runs headless via `--headless` (the 3.x `--no-window` flag and separate server binary are gone). Re-verify flags if a newer minor changes them.
 
 The Godot executable is also the toolchain: it imports, syntax-checks, runs, and exports a project from the command line. Useful both in CI and when an agent operates a project without the editor open.
 
 ## Identify the project and version
 
 ```sh
-godot --version                       # e.g. 4.6.stable.official
+godot --version                       # e.g. 4.7.stable.official
 godot --path /path/to/project         # run the project's main scene
 ```
-The project must contain a `project.godot`. Its `config/features` line (e.g. `PackedStringArray("4.6", "GL Compatibility")`) records the Godot version the project targets. Read it before assuming an API.
+The project must contain a `project.godot`. Its `config/features` line (e.g. `PackedStringArray("4.7", "GL Compatibility")`) records the Godot version the project targets. Read it before assuming an API.
 
 ## Run and edit
 
@@ -60,7 +60,7 @@ godot --headless --path . -s tools/report.gd
 
 ## Export builds
 
-Export presets live in `export_presets.cfg` (created in the editor under Project > Export). The export templates for the Godot version must be installed. `--headless` is required on machines without a GPU (CI).
+Export presets live in `export_presets.cfg` (created in the editor under Project > Export). The export templates for the Godot version must be installed; Godot 4.7 lets you download templates for individual platforms/architectures instead of the full set. `--headless` is required on machines without a GPU (CI).
 ```sh
 godot --headless --export-release "Windows Desktop" build/game.exe
 godot --headless --export-debug   "Linux/X11"      build/game.x86_64

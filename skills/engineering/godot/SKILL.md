@@ -1,7 +1,7 @@
 ---
 name: godot
-description: Godot game engine development skill, a dated snapshot tracking the current stable Godot (4.x). Covers GDScript static typing and syntax, scene and node architecture, the resource system, signals, autoloads, the SceneTree and lifecycle, physics and movement, collision and raycasts, input, math and vectors, navigation and pathfinding, TileMapLayer, UI and Control nodes, animation and tweens, audio, shaders, particles, saving and persistence, performance, testing, multiplayer, the editor and CLI workflow, the .tscn/.tres/project.godot text formats, and version-specific pitfalls and breaking changes. Use when working on any Godot project, whether writing GDScript, creating or editing scenes and resources, configuring project.godot, building game systems, or debugging Godot-specific issues. Triggers on any Godot game development task. Check the project's Godot version first; this snapshot ages, so verify version-specific claims against the official docs when the snapshot date looks old.
-date: 2026-06-06
+description: Godot game engine development skill, a dated snapshot tracking the current stable Godot (4.x, currently 4.7). Covers GDScript static typing and syntax, scene and node architecture, the resource system, signals, autoloads, the SceneTree and lifecycle, physics and movement, collision and raycasts, input, math and vectors, navigation and pathfinding, TileMapLayer, UI and Control nodes, animation and tweens, audio, shaders, particles, saving and persistence, performance, testing, multiplayer, the editor and CLI workflow, the .tscn/.tres/project.godot text formats, and version-specific pitfalls and breaking changes. Use when working on any Godot project, whether writing GDScript, creating or editing scenes and resources, configuring project.godot, building game systems, or debugging Godot-specific issues. Triggers on any Godot game development task. Check the project's Godot version first; this snapshot ages, so verify version-specific claims against the official docs when the snapshot date looks old.
+date: 2026-06-19
 ---
 
 # Godot Development
@@ -10,8 +10,8 @@ This skill tracks the current stable Godot, captured as a dated snapshot. The pa
 
 ## Snapshot and freshness
 
-- **Snapshot date: 2026-06-06** (the `date` in the frontmatter). The snapshot currently targets the **Godot 4.x** line. Each reference file also carries its own `Verified` date.
-- **Check the project's Godot version first.** Read `project.godot` for `config/features` (e.g. `PackedStringArray("4.6", ...)`) and the editor version. The installed major.minor decides which pitfalls and APIs apply. Never assume it from memory.
+- **Snapshot date: 2026-06-19** (the `date` in the frontmatter). The snapshot currently targets the **Godot 4.x** line, with **4.7** as the current stable. Each reference file also carries its own `Verified` date.
+- **Check the project's Godot version first.** Read `project.godot` for `config/features` (e.g. `PackedStringArray("4.7", ...)`) and the editor version. The installed major.minor decides which pitfalls and APIs apply. Never assume it from memory.
 - **Staleness rule.** If today is well past a reference file's `Verified` date, or a new Godot minor has shipped, treat that file's version-specific claims (breaking changes, "new in" features, default-changed behavior) as suspect and confirm against the official release notes. The core paradigm sections age far slower than the version notes.
 - **Updating.** When a claim matters for the task, confirm it against the official Godot docs or the release notes for that version, then refresh the reference file and bump its `Verified` line. Maintainers: see [MAINTENANCE.md](MAINTENANCE.md).
 

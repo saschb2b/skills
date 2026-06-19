@@ -3,11 +3,11 @@ type: Reference
 title: "Shaders Reference (gdshader)"
 description: "Godot's shading language (`.gdshader`) is GLSL-like."
 tags: [godot, gamedev, gdscript]
-timestamp: 2026-06-06T00:00:00Z
+timestamp: 2026-06-19T00:00:00Z
 ---
 # Shaders Reference (gdshader)
 
-**Verified 2026-06-06** against Godot 4.x. Godot 4 renamed shader essentials: `hint_color` is now `source_color`, the `SCREEN_TEXTURE` built-in is gone (declare `uniform sampler2D screen_texture : hint_screen_texture`), and `set_shader_param` is now `set_shader_parameter`. Re-verify built-ins if a newer minor changes them.
+**Verified 2026-06-19** against Godot 4.7. Godot 4 renamed shader essentials: `hint_color` is now `source_color`, the `SCREEN_TEXTURE` built-in is gone (declare `uniform sampler2D screen_texture : hint_screen_texture`), and `set_shader_param` is now `set_shader_parameter`. The 4.7 editor adds inline previews of text-based shader operations as you edit. Re-verify built-ins if a newer minor changes them.
 
 Godot's shading language (`.gdshader`) is GLSL-like. Attach a shader to a node through a `ShaderMaterial`. Most 2D effects are `canvas_item` shaders.
 
@@ -84,6 +84,17 @@ void fragment() {
 - Standard 2D lights/shadows: use `Light2D` + `LightOccluder2D`, not a custom light shader.
 
 Reach for a shader when the effect is per-pixel and dynamic (dissolves, outlines, distortion, palette swaps, screen post-processing).
+
+## Drawing onto a texture from code (DrawableTexture2D, Godot 4.7)
+
+For brush/stamp effects (fog-of-war reveal, decals, paint-on textures) without a shader or a `SubViewport`, `DrawableTexture2D` (a `Texture2D`) lets you blit one texture onto another from code. It is a blit/copy API, not a `draw_line`/`draw_rect` canvas.
+```gdscript
+var canvas := DrawableTexture2D.new()
+canvas.setup(256, 256, DrawableTexture2D.DRAWABLE_FORMAT_RGBA8)   # also _RGBA8_SRGB / _RGBAH / _RGBAF
+canvas.blit_rect(Rect2i(0, 0, 32, 32), brush_texture)            # stamp brush at top-left
+$Sprite2D.texture = canvas
+```
+`setup(width, height, format, color := Color(1,1,1,1), use_mipmaps := false)` allocates the texture; `blit_rect(rect, source, modulate := Color(1,1,1,1), mipmap := 0, material := null)` copies a source texture into a region.
 
 ## Pitfalls
 
