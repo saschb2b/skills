@@ -1,6 +1,7 @@
 ---
 name: ask-ux
 description: Force UX questioning before any UI work, refactor, or redesign. Use when the user asks to design, redesign, restyle, polish, "fix", or "make nicer" a screen, component, page, or flow. Also use when the user describes a problem in UI terms ("the button is hard to find", "this form is confusing", "this page is ugly") and is about to reach for a visual fix, since most UI-shaped complaints have UX-shaped causes.
+tags: [ux, design, product]
 date: 2026-05-12
 source_post: questions-before-pixels
 ---

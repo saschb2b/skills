@@ -1,6 +1,7 @@
 ---
 name: game-design
 description: Analyze, design, critique, and rework video game mechanics and systems, grounded in a cross-game pattern catalog and established design frameworks (MDA, core loops, flow, player motivation, game feel, economies, balance). Decompose a game by its iconic mechanic, core dialectic, macro loop, design tensions, ludonarrative resonance, and the patterns it shares with other games. Use when discussing game design ideas, concepts, reworks, or issues; when designing or balancing a mechanic, progression, economy, loop, or reward system; when asking whether a mechanic is fun, too grindy, or has a dominant strategy; or whenever the agent is self-authoring game mechanics and design decisions while building a game. Offers commands to dissect, pitch, spec a mechanic, design a loop, rework a system, find patterns, and compare games. Pairs with godot for implementation; this skill is the design thinking, not the engine code.
+tags: [game, design]
 date: 2026-06-21
 source_post: game-mechanics
 ---

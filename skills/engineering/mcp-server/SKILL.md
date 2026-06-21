@@ -1,6 +1,7 @@
 ---
 name: mcp-server
 description: Build, extend, and maintain a Model Context Protocol (MCP) server across its whole lifecycle against the current spec and official SDKs. Covers the architecture, choosing a transport (stdio vs Streamable HTTP), writing tool definitions agents actually use, adding tools without breaking existing agents, versioning and deprecation, the security threat model (tool poisoning, token passthrough, prompt injection, OAuth), testing with the MCP Inspector, and publishing to the registry. Use when building an MCP server, exposing a CLI, API, or app to AI agents (Claude Code, Cursor, Cline, Windsurf), adding or reviewing MCP tools, fixing an agent that calls the wrong tool or loads too many, securing or authorizing an MCP server, migrating transports, or shipping and versioning one. Also for any new agent-tool integration where the target has a scripting API, CLI, or HTTP surface.
+tags: [ai-agents, mcp, backend]
 date: 2026-06-21
 source_post: how-to-build-mcp-server
 ---
