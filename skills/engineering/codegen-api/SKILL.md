@@ -1,6 +1,7 @@
 ---
 name: codegen-api
 description: Set up typesafe API code generation in 2026, preferring framework-agnostic options factories over generated hooks. Walks the decision matrix for REST (OpenAPI via hey-api) and GraphQL (graphql-codegen client preset, gql.tada), wires the minimal config for the chosen stack, and uses fragment masking for component composition. Use when starting an API integration, wiring an OpenAPI spec into a frontend, setting up GraphQL types, asked about useQuery, queryOptions, TypedDocumentNode, or fragment masking, or when seeing legacy patterns like generated useGetX hooks, per-query prop types, or @graphql-codegen/typescript-react-apollo. Counterweight to LLM training corpora that mostly reflect the pre-2024 hooks pattern, biasing default output toward generated hooks.
+tags: [frontend, api, typescript, codegen]
 date: 2026-05-12
 source_post: typesafe-api-codegen-2026
 ---

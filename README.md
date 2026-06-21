@@ -49,40 +49,60 @@ npx skills@latest add saschb2b/skills --skill ask-ux
 npx skills@latest add saschb2b/skills --skill to-story
 npx skills@latest add saschb2b/skills --skill no-slop
 npx skills@latest add saschb2b/skills --skill autopilot
+npx skills@latest add saschb2b/skills --skill game-design
 ```
 
 Browse the rendered docs at [saschb2b.com/skills](https://saschb2b.com/skills).
 
 ## Skill reference
 
-### Engineering
+Skills install by slug, and the agent auto-invokes one by reading its `description`, so the on-disk split (`skills/engineering` for code-adjacent practice, `skills/productivity` for process and discipline) does not affect discovery. This listing groups by **domain**, which is how you actually browse; each `SKILL.md` also carries a `tags:` facet for finer slicing.
 
-Code-adjacent work.
+### Frontend, UI & UX
+
+| Skill | What it does |
+| --- | --- |
+| **[react-compiler](./skills/engineering/react-compiler/SKILL.md)** | Write and review React as if the Compiler is enabled. Skip manual `useMemo`, `useCallback`, and `React.memo`; audit existing code for stale memoization and the five silent-bail patterns. |
+| **[react-stinky](./skills/engineering/react-stinky/SKILL.md)** | Detect React and TypeScript maintainability smells across the whole component, hook, and module, not just its props. Eight pillars: API and prop design (18 sourced categories), state and data flow, effects and lifecycle, component structure and hooks, rendering correctness, accessibility in markup, TypeScript discipline, and a cross-file duplication pass. Rates each Rancid, Funky, or Whiff and proposes the fix with a source. A per-smell guard skips native HTML attributes, library conventions, and intentional patterns. Defers memoization to `react-compiler` and colors to `theme-colors`. Scopes to a codebase, folder, file, or snippet. |
+| **[codegen-api](./skills/engineering/codegen-api/SKILL.md)** | Set up typesafe API code generation. Picks `hey-api` (OpenAPI) or `graphql-codegen` / `gql.tada` (GraphQL), then emits options factories and typed documents instead of legacy hooks. |
+| **[javascript-ecosystem](./skills/engineering/javascript-ecosystem/SKILL.md)** | Default to the current stable majors and their paradigms across the JS/TS ecosystem (React, Angular, Vue, Next.js, Tailwind, TanStack Query, Vite, and more). A changelog index that checks the installed version first. |
+| **[theme-colors](./skills/engineering/theme-colors/SKILL.md)** | Replace hex codes, `rgba()` literals, and named colors with theme roles (primary, surface, error, and friends) and the `alpha()` helper. Audits existing code for color literals. |
+| **[visual-consistency](./skills/engineering/visual-consistency/SKILL.md)** | Detect and fix visual and layout consistency defects in rendered UI: uneven card heights in a grid, sibling cards whose internal sections and trailing icons do not line up, off-scale spacing, plus alignment, repeated-element sizing, type scale, table and numeric alignment, overflow, layout shift, and touch and focus sizing. Each smell gets an objective detection signal, a concrete CSS fix (subgrid, equal-height grids, spacing tokens, tabular-nums), a severity, and a Safe-or-Judgment autonomy tag. Pairs with `autopilot` (Safe maps to in-bounds work, Judgment to surface-first). Defers color to `theme-colors` and component code smells to `react-stinky`. |
+| **[ask-ux](./skills/productivity/ask-ux/SKILL.md)** | Force UX questioning before any UI work. The UI-vs-UX diagnostic, then twelve questions in the order they bite. |
+
+### Game
+
+| Skill | What it does |
+| --- | --- |
+| **[godot](./skills/engineering/godot/SKILL.md)** | Develop in Godot against the current stable (4.x): typed GDScript, physics, UI, scenes, the `.tscn`/`.tres` formats, editor tooling, and version-tagged pitfalls. A dated snapshot that re-verifies as it ages. |
+| **[game-design](./skills/productivity/game-design/SKILL.md)** | Analyze, design, critique, and rework video game mechanics and systems. Decompose a game by its iconic mechanic, core dialectic, macro loop, design tensions, ludonarrative resonance, and shared patterns, then design from the experience down. Carries a cross-game pattern catalog (two dozen patterns distilled from 15 dissected games), the transferable design moves with their caveats, the durable frameworks (MDA, core loops, the flow corridor, motivation, depth vs complexity, game feel), the economy and balance theory, and a critique smell catalog, as a vendored OKF bundle. Commands to dissect, pitch, spec a mechanic, design a loop, rework a system, find patterns, and compare. Pairs with `godot` (this is the design thinking, that is the engine code). |
+
+### AI & agent infrastructure
+
+| Skill | What it does |
+| --- | --- |
+| **[mcp-server](./skills/engineering/mcp-server/SKILL.md)** | Build, extend, and maintain a Model Context Protocol server across its whole lifecycle against the current spec (`2025-11-25`). Scaffolds the five-layer architecture and picks a transport (stdio vs Streamable HTTP) and a bridge pattern, then carries the post-init weight: writing tool definitions agents read correctly, extending without breaking existing agents, versioning and deprecation, the security threat model (tool poisoning, token passthrough, prompt injection, OAuth 2.1), testing with the MCP Inspector, and publishing to the registry. Deep knowledge ships as a vendored OKF bundle (protocol, tool design, security, maintenance, testing, publishing). |
+| **[okf](./skills/engineering/okf/SKILL.md)** | Author, validate, and maintain knowledge for AI agents as conformant Open Knowledge Format (OKF) bundles, Google's vendor-neutral spec (v0.1) of markdown files with YAML frontmatter for portable agent context. A command surface (`init`, `add`, `enrich`, `link`, `index`, `log`, `validate`, `export`, `consume`) plus an implicit mode that conforms knowledge to OKF whenever you document a table, dataset, metric, runbook, playbook, or join path for an agent, export a catalog, or edit an existing bundle. Ships a zero-dependency conformance checker (`okf-validate.mjs`), the full normative spec, per-command playbooks, and worked templates (BigQuery table, metric, runbook). The one hard rule is a non-empty `type` field per concept; everything else is structure consumers tolerate the absence of. |
+
+### Writing & workflow
+
+| Skill | What it does |
+| --- | --- |
+| **[no-slop](./skills/productivity/no-slop/SKILL.md)** | Write and revise human-facing prose in a plain, professional register, stripping the tells that mark text as AI-generated. Five rules (punctuation, structure, vocabulary, stance, formatting), a tells table with fixes, before/after rewrites, and a guard against over-correcting into robotic prose. Catches list-itis and forced enumeration, not just em dashes and slop words. |
+| **[to-story](./skills/productivity/to-story/SKILL.md)** | Reshape a draft Jira or GitHub ticket into a real user story with INVEST-clean acceptance criteria. Splits oversized stories with SPIDR. |
+| **[autopilot](./skills/productivity/autopilot/SKILL.md)** | Hand off the project and let the agent run on its own: survey, pick one high-value low-risk improvement, verify it, commit it, and loop. Generate-then-rank work selection with anti-churn rails. |
+
+### Mobile
+
+| Skill | What it does |
+| --- | --- |
+| **[android-compose](./skills/engineering/android-compose/SKILL.md)** | Build Android apps Compose-first with Material 3 Expressive as the design direction: strong-skipping-aware Compose, Expressive theming and components (honest about the experimental opt-in), UDF architecture, type-safe Navigation Compose and Navigation 3, the data layer, the Gradle Kotlin DSL build with the Compose compiler plugin and KSP, testing, performance, and version-tagged pitfalls. A dated snapshot that checks the project's versions first. |
+
+### Security & supply chain
 
 | Skill | What it does |
 | --- | --- |
 | **[audit-actions](./skills/engineering/audit-actions/SKILL.md)** | Audit `.github/workflows/` for the `pull_request_target` misuse that compromised TanStack, Nx, PostHog, and Trivy. Greps every workflow, walks a 10-point severity checklist, names findings, proposes the right fix. |
-| **[mcp-server](./skills/engineering/mcp-server/SKILL.md)** | Build, extend, and maintain a Model Context Protocol server across its whole lifecycle against the current spec (`2025-11-25`). Scaffolds the five-layer architecture and picks a transport (stdio vs Streamable HTTP) and a bridge pattern, then carries the post-init weight: writing tool definitions agents read correctly, extending without breaking existing agents, versioning and deprecation, the security threat model (tool poisoning, token passthrough, prompt injection, OAuth 2.1), testing with the MCP Inspector, and publishing to the registry. Deep knowledge ships as a vendored OKF bundle (protocol, tool design, security, maintenance, testing, publishing). |
-| **[react-compiler](./skills/engineering/react-compiler/SKILL.md)** | Write and review React as if the Compiler is enabled. Skip manual `useMemo`, `useCallback`, and `React.memo`; audit existing code for stale memoization and the five silent-bail patterns. |
-| **[react-stinky](./skills/engineering/react-stinky/SKILL.md)** | Detect React and TypeScript maintainability smells across the whole component, hook, and module, not just its props. Eight pillars: API and prop design (18 sourced categories), state and data flow, effects and lifecycle, component structure and hooks, rendering correctness, accessibility in markup, TypeScript discipline, and a cross-file duplication pass. Rates each Rancid, Funky, or Whiff and proposes the fix with a source. A per-smell guard skips native HTML attributes, library conventions, and intentional patterns. Defers memoization to `react-compiler` and colors to `theme-colors`. Scopes to a codebase, folder, file, or snippet. |
-| **[codegen-api](./skills/engineering/codegen-api/SKILL.md)** | Set up typesafe API code generation. Picks `hey-api` (OpenAPI) or `graphql-codegen` / `gql.tada` (GraphQL), then emits options factories and typed documents instead of legacy hooks. |
-| **[theme-colors](./skills/engineering/theme-colors/SKILL.md)** | Replace hex codes, `rgba()` literals, and named colors with theme roles (primary, surface, error, and friends) and the `alpha()` helper. Audits existing code for color literals. |
-| **[javascript-ecosystem](./skills/engineering/javascript-ecosystem/SKILL.md)** | Default to the current stable majors and their paradigms across the JS/TS ecosystem (React, Angular, Vue, Next.js, Tailwind, TanStack Query, Vite, and more). A changelog index that checks the installed version first. |
-| **[godot](./skills/engineering/godot/SKILL.md)** | Develop in Godot against the current stable (4.x): typed GDScript, physics, UI, scenes, the `.tscn`/`.tres` formats, editor tooling, and version-tagged pitfalls. A dated snapshot that re-verifies as it ages. |
-| **[android-compose](./skills/engineering/android-compose/SKILL.md)** | Build Android apps Compose-first with Material 3 Expressive as the design direction: strong-skipping-aware Compose, Expressive theming and components (honest about the experimental opt-in), UDF architecture, type-safe Navigation Compose and Navigation 3, the data layer, the Gradle Kotlin DSL build with the Compose compiler plugin and KSP, testing, performance, and version-tagged pitfalls. A dated snapshot that checks the project's versions first. |
-| **[visual-consistency](./skills/engineering/visual-consistency/SKILL.md)** | Detect and fix visual and layout consistency defects in rendered UI: uneven card heights in a grid, sibling cards whose internal sections and trailing icons do not line up, off-scale spacing, plus alignment, repeated-element sizing, type scale, table and numeric alignment, overflow, layout shift, and touch and focus sizing. Each smell gets an objective detection signal, a concrete CSS fix (subgrid, equal-height grids, spacing tokens, tabular-nums), a severity, and a Safe-or-Judgment autonomy tag. Pairs with `autopilot` (Safe maps to in-bounds work, Judgment to surface-first). Defers color to `theme-colors` and component code smells to `react-stinky`. |
-| **[okf](./skills/engineering/okf/SKILL.md)** | Author, validate, and maintain knowledge for AI agents as conformant Open Knowledge Format (OKF) bundles, Google's vendor-neutral spec (v0.1) of markdown files with YAML frontmatter for portable agent context. A command surface (`init`, `add`, `enrich`, `link`, `index`, `log`, `validate`, `export`, `consume`) plus an implicit mode that conforms knowledge to OKF whenever you document a table, dataset, metric, runbook, playbook, or join path for an agent, export a catalog, or edit an existing bundle. Ships a zero-dependency conformance checker (`okf-validate.mjs`), the full normative spec, per-command playbooks, and worked templates (BigQuery table, metric, runbook). The one hard rule is a non-empty `type` field per concept; everything else is structure consumers tolerate the absence of. |
-
-### Productivity
-
-Process and discipline, not code-specific.
-
-| Skill | What it does |
-| --- | --- |
-| **[ask-ux](./skills/productivity/ask-ux/SKILL.md)** | Force UX questioning before any UI work. The UI-vs-UX diagnostic, then twelve questions in the order they bite. |
-| **[to-story](./skills/productivity/to-story/SKILL.md)** | Reshape a draft Jira or GitHub ticket into a real user story with INVEST-clean acceptance criteria. Splits oversized stories with SPIDR. |
-| **[no-slop](./skills/productivity/no-slop/SKILL.md)** | Write and revise human-facing prose in a plain, professional register, stripping the tells that mark text as AI-generated. Five rules (punctuation, structure, vocabulary, stance, formatting), a tells table with fixes, before/after rewrites, and a guard against over-correcting into robotic prose. Catches list-itis and forced enumeration, not just em dashes and slop words. |
-| **[autopilot](./skills/productivity/autopilot/SKILL.md)** | Hand off the project and let the agent run on its own: survey, pick one high-value low-risk improvement, verify it, commit it, and loop. Generate-then-rank work selection with anti-churn rails. |
 
 ## Why these skills exist
 

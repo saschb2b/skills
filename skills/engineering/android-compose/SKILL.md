@@ -1,6 +1,7 @@
 ---
 name: android-compose
 description: Modern Android development with Jetpack Compose as the default UI toolkit and Material 3 Expressive as the default design direction, a dated snapshot. Covers Compose fundamentals (composables, modifiers, state hoisting, side effects, lazy lists, strong skipping, recomposition), Material 3 and Expressive theming and components (MaterialExpressiveTheme, MotionScheme, button groups, split buttons, FAB menu, floating toolbars, wavy progress indicators, shape morphing, dynamic color), architecture (ViewModel, StateFlow, collectAsStateWithLifecycle, Hilt), type-safe Navigation Compose and Navigation 3, data (Room, DataStore, Retrofit, Ktor, Coil), the Gradle Kotlin DSL build with version catalogs and KSP, testing, performance, and View interop. Use when building Android UI in Compose, theming with Material 3 or Expressive, wiring architecture or navigation, configuring the build, or debugging Compose issues. Check the project's versions first; re-verify version facts against the official Android and AndroidX docs.
+tags: [mobile, android, kotlin, ui]
 date: 2026-06-15
 ---
 

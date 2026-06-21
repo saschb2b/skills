@@ -1,6 +1,7 @@
 ---
 name: visual-consistency
 description: Detect and fix visual and layout consistency defects in rendered UI, the systematic raggedness AI generators emit and seniors notice at a glance. Covers uneven card heights in a grid, sibling cards whose internal sections (title, body, footer) do not line up, trailing icons such as open-in-new-tab at ragged X positions, and arbitrary off-scale spacing, plus alignment, repeated elements (buttons, radius, shadow, icons), type scale, tables and numeric alignment, borders, overflow, layout shift, touch targets, and focus rings. Each smell carries an objective detection signal, a concrete CSS fix (subgrid, equal-height grids, spacing tokens, tabular-nums), an exception guard, a severity, and whether an agent may fix it freely or must surface a design call first. Use when reviewing or building any UI, when a card grid or list looks busy or ragged, when spacing feels arbitrary, or when asked to tidy or align a layout so it scans cleanly. Defers color to theme-colors and component code smells to react-stinky.
+tags: [frontend, ui, css, review]
 date: 2026-06-17
 ---
 

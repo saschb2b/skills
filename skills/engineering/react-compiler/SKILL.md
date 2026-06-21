@@ -1,6 +1,7 @@
 ---
 name: react-compiler
 description: Write and review React code as if the React Compiler is enabled. Skip manual useMemo, useCallback, and React.memo by default, and audit existing code for stale manual memoization. Use when writing or refactoring any React component in a React 19+ codebase, when reviewing a React PR, when setting up the eslint-plugin-react-hooks configuration, or when seeing memoization patterns in code an LLM produced. Counterweight to pre-compiler React in LLM training corpora, which biases default output toward manual memoization unless prompted otherwise.
+tags: [frontend, react, review]
 date: 2026-05-12
 source_post: react-compiler-year-in-review
 ---

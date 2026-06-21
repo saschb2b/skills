@@ -1,6 +1,7 @@
 ---
 name: autopilot
 description: Work autonomously on a project without waiting for direction. On command, survey the codebase, pick one high-value low-risk improvement, do it, verify it, commit it, then pick the next, looping like a self-directed intern. Use when the user hands off open-endedly ("work on your own", "keep improving this", "find something worth doing", "don't wait for me", "go autonomous", "run for a while", "be a passionate intern", "do whatever you think is valuable") or invokes /autopilot, and you have to choose the work yourself rather than wait for instructions or feedback.
+tags: [workflow, autonomy, meta]
 date: 2026-06-05
 ---
 

@@ -1,6 +1,7 @@
 ---
 name: godot
 description: Godot game engine development skill, a dated snapshot tracking the current stable Godot (4.x, currently 4.7). Covers GDScript static typing and syntax, scene and node architecture, the resource system, signals, autoloads, the SceneTree and lifecycle, physics and movement, collision and raycasts, input, math and vectors, navigation and pathfinding, TileMapLayer, UI and Control nodes, animation and tweens, audio, shaders, particles, saving and persistence, performance, testing, multiplayer, the editor and CLI workflow, the .tscn/.tres/project.godot text formats, and version-specific pitfalls and breaking changes. Use when working on any Godot project, whether writing GDScript, creating or editing scenes and resources, configuring project.godot, building game systems, or debugging Godot-specific issues. Triggers on any Godot game development task. Check the project's Godot version first; this snapshot ages, so verify version-specific claims against the official docs when the snapshot date looks old.
+tags: [game, godot, gdscript]
 date: 2026-06-19
 ---
 

@@ -1,6 +1,7 @@
 ---
 name: theme-colors
 description: Audit and refactor UI code so every color value comes from the theme. Replace hex codes, rgba(), hsl(), oklch() literals, and named CSS colors with theme palette tokens (primary, secondary, error, warning, info, success, background, text) and the alpha() helper for transparency. Use when writing or reviewing any UI component, when starting a new MUI or design-system theme, when a designer hands off colors as hex annotations, when seeing color literals scattered across component files, or when an LLM produced styling with hardcoded hex values. Counterweight to LLM training corpora dominated by tutorial code that inlines hex codes and rgba literals instead of role-based theme tokens.
+tags: [frontend, ui, css, refactor]
 date: 2026-05-13
 source_post: designer-meets-theme
 ---

@@ -1,6 +1,7 @@
 ---
 name: react-stinky
 description: Detect React and TypeScript maintainability smells across the whole component, hook, and module, not just its props, then explain the cost of each and propose a concrete fix with a source link. Covers prop and API design (naming, boolean and callback conventions, variants over flags, controlled state, generics, refs, styling, accessibility props, server-component boundaries, JSDoc), plus state and data flow, effects and lifecycle, component structure and hooks, rendering correctness, accessibility in markup, TypeScript discipline, and a cross-file duplication pass. Defers memoization to the react-compiler skill and color literals to theme-colors. Use when reviewing or writing a React component, hook, or module, auditing a codebase for maintainability, or when asked to sniff, smell-check, lint, or clean up a whole codebase, a folder, a file, a function, or a pasted snippet. Respects native HTML attribute names, established library conventions, and intentional patterns instead of nitpicking them.
+tags: [frontend, react, typescript, review]
 date: 2026-06-16
 ---
 

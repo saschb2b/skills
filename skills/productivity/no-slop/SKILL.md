@@ -1,6 +1,7 @@
 ---
 name: no-slop
 description: Write and revise human-facing prose in a plain, precise, professional register, stripping the tells that mark text as AI-generated. Use when writing or editing a README, blog post, doc, PR or commit message, email, release note, changelog, or any copy a person will read. Also use when the user asks to make text sound less like AI, remove AI slop, cut the marketing voice, reduce over-structuring or list-itis, tighten, de-fluff, or professionalize a draft, or when reviewing prose you just generated before handing it over. Extends to writing inside code. Code comments, commit messages, PR descriptions, test names, error and log messages, and markdown formatting like headings, bold, emoji, and badges.
+tags: [writing, editing]
 date: 2026-06-14
 ---
 

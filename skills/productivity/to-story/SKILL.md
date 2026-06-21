@@ -1,6 +1,7 @@
 ---
 name: to-story
 description: Reshape a draft ticket, Jira issue, or GitHub issue from an engineer's braindump into a real user story with INVEST-clean acceptance criteria, and split stories that are too large using SPIDR. Use when the user wants to write, refine, review, sharpen, or split a ticket / story / issue, or when they share a draft that reads like a note-to-self (commit hashes, file paths, "see Slack thread", no user in sight).
+tags: [writing, planning, agile]
 date: 2026-05-12
 source_post: stories-not-braindumps
 ---

@@ -17,12 +17,14 @@ Buckets in use:
 - `engineering/` for code-adjacent practice (audits, scaffolds, refactors)
 - `productivity/` for process and discipline (planning, writing, design)
 
+The two folders are the on-disk split (operates on a codebase vs operates on a process). They do not affect discovery: the agent auto-invokes a skill by reading its `description`, and skills install by slug. So the folder is just a maintenance home. The root `README.md` browse view groups skills by **domain** instead (Frontend/UI/UX, Game, AI & agents, Writing & workflow, Mobile, Security), which is how a human actually looks for one, and each `SKILL.md` carries a `tags:` facet (see the format below) for finer slicing. At ~16 skills this shallow tree is deliberate. Do not add domain folders until a cluster reaches roughly five skills sharing a tag; grow a folder from an earned tag cluster, not a guess.
+
 ## Adding a skill
 
 When you add a new skill, touch five places. Forgetting any of them silently degrades the install experience or leaves the skill untested for invocation.
 
 1. `skills/<bucket>/<slug>/SKILL.md`. The skill itself.
-2. `README.md`. Add a line under the matching Reference section. Link the slug to its SKILL.md.
+2. `README.md`. Add a line under the matching **domain group** in the Skill reference section (the listing groups by domain, not by bucket). Link the slug to its SKILL.md.
 3. `skills/<bucket>/README.md`. Add a line in the bucket index.
 4. `.claude-plugin/plugin.json`. Add `./skills/<bucket>/<slug>` to the `skills` array.
 5. `evals/cases/<slug>.yaml`. Invocation eval cases: a few `should_fire` prompts, a couple `should_not_fire`, and `route_to_sibling` cases for any skill it overlaps with. See [evals/README.md](evals/README.md).
@@ -46,6 +48,7 @@ A 100% table means the descriptions separate cleanly under a focused router, not
 ---
 name: <slug>
 description: <one or two sentences. Lead with what the skill does, then explicit "Use when ..." triggers. This is the only field the agent reads when deciding to load the skill.>
+tags: [<domain>, <task-type>]
 date: 2026-05-12
 source_post: <blog-slug>
 ---
@@ -67,6 +70,7 @@ Rules:
 - The H1 in the body is the human-facing title. The `name` in frontmatter is the slug used everywhere else.
 - Dates are ISO 8601 (`YYYY-MM-DD`).
 - `source_post` is a blog slug under `saschb2b.com/blog/<slug>` when the skill was distilled from a post. Optional.
+- `tags` is an optional inline list of lowercase-hyphen facets, domain first then task-type (`tags: [frontend, react, review]`). It is advisory metadata for browsing and for deciding when a cluster has earned its own folder, not something the agent reads to route. Use the inline flow form `[a, b, c]` (a block list of `- item` lines also parses, since the frontmatter checker skips indented lines); the `: ` and ` #` traps still apply, so keep tag values plain.
 
 ## Vendored knowledge as OKF bundles
 

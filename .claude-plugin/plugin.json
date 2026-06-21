@@ -15,6 +15,7 @@
     "./skills/productivity/ask-ux",
     "./skills/productivity/to-story",
     "./skills/productivity/autopilot",
-    "./skills/productivity/no-slop"
+    "./skills/productivity/no-slop",
+    "./skills/productivity/game-design"
   ]
 }

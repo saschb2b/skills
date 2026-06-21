@@ -1,6 +1,7 @@
 ---
 name: okf
 description: Author, validate, and maintain knowledge for AI agents as conformant Open Knowledge Format (OKF) bundles, Google's vendor-neutral spec (v0.1) of markdown files with YAML frontmatter for portable agent context. Provides commands init, add, enrich, link, index, log, validate, export, and consume over a bundle. Use when the user types /okf or asks to start an OKF bundle, document a BigQuery table, dataset, view, metric, runbook, playbook, API, or join path so an agent can read it, make internal knowledge agent-readable or portable, export a data catalog, metadata, or webpages and external URLs to OKF, or follow the OKF spec. Also apply implicitly whenever you write, transform, or export knowledge an agent will later read (table and metric docs, runbooks, deprecation notices, schemas, docstrings), so it ships as a conformant bundle with a type field per concept instead of ad-hoc prose, and whenever you edit an existing OKF bundle, keeping it conformant by refreshing timestamps, log.md, index.md, and cross-links.
+tags: [ai-agents, knowledge, documentation]
 date: 2026-06-18
 ---
 
