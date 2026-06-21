@@ -7,6 +7,10 @@ should_fire:
   - what broke when I upgraded my project to Godot 4.7
   - how do I use the new VirtualJoystick node for touch controls
 
+route_to_sibling:
+  - prompt: should my roguelite's meta-progression unlock power or just variety
+    expect: game-design
+
 should_not_fire:
   - review my React component for smells
   - set up TanStack Query

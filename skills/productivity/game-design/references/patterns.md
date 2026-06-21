@@ -1,0 +1,82 @@
+---
+type: Reference
+title: "Cross-Game Pattern Catalog"
+description: "Nineteen recurring video game design patterns by category, each with its lemma, the problem it solves, the games that exemplify it, and its key pitfall."
+tags: [game-design, patterns, catalog, roguelite, economy]
+timestamp: 2026-06-21T00:00:00Z
+---
+
+# Cross-Game Pattern Catalog
+
+Two dozen recurring design patterns distilled from 15 dissected games, grouped by the area they touch. Each is a move that showed up in two or more games independently, which is what earns it a place here (the source knowledge base curates 19 of these as full concept pages; the rest are tagged across multiple games and on the same bar). The point of a pattern is contrast: the same design problem solved with different math. Use these to recognize what a game is doing, to pull a known solution for a problem, and to see the trade-offs before you commit. The reading lens for analyzing a game is in [method.md](method.md); the transferable principles behind several of these are in [principles.md](principles.md).
+
+## Loadout and inventory
+
+| Pattern | Lemma | Solves | Exemplars | Key pitfall |
+| --- | --- | --- | --- | --- |
+| **loadout-as-budget** | Power lives inside a fixed budget (points, cells, slots, hand size); more of one means less of another. | Power creep; gives builds visible identity. | Sparklite, Warframe, Slay the Spire, Moonlighter 2, Path of Exile, Hollow Knight, Pokemon RSE, Balatro (the broadest pattern in the set) | A budget too generous stops biting; a budget that never expands feels punishing. |
+| **grid-inventory** | Items sit on an explicit 2D grid; where you place them, not just how many, sets their value. | Flat lists are the most boring loadout; adds spatial opportunity cost and adjacency synergy. | Mega Man Battle Network NaviCust (the origin), Sparklite, Moonlighter 2 | A grid too large stops constraining (about 4x4 is enough); hard failure on rule violations feels punishing. |
+| **opportunity-cost-loadout** | Equipping power for X means not equipping power for Y; the forecast is forced, with no "take all". | Additive loadouts drown the player and flatten every build into the same kitchen sink. | Sparklite, Moonlighter 2, Hollow Knight, Nier Automata (even the HUD is in the budget) | One option strictly dominates; a reverse-engineerable optimum kills the choice. |
+| **subtractive-deckbuilding** | A deck that is too big is worse; carving a tight loop beats stacking cards. Skipping is a power move. | Inverts the additive collect-everything instinct; makes draft-and-skip a real decision. | Slay the Spire (literal card removal), Mega Man Battle Network (code coherence), Balatro (mutation and thinning) | If skipping is never the correct play you have smuggled additive logic back in; steep onboarding. |
+| **card-draft-with-skip** | A reward draft offers pick-one-of-N or skip, and skipping has real value because a thin kit is stronger than a bloated one. | A draft where you always take something turns acquisition into autopilot; making "nothing" a first-class option turns it into "is any of these worth my slot". | Slay the Spire (post-fight pick 1 of 3 or skip), Hades (boon draft between chambers, skip by taking the worst or choosing the door) | If skipping is never correct you have shipped a take-everything draft; the skip must sometimes be the right play. Adjacent to subtractive-deckbuilding. |
+| **fusion-economy** | Multiple low-tier items consolidate into one higher-tier item; fewer pieces, concentrated value. | Loot drowns the inventory without deleting loot; the release valve for grid clog. | Sparklite (tier promotion), Moonlighter 2 (synergy consumption) | Fusing always strictly better than not fusing turns it into spam; converging tiers make it a wash. |
+
+A worked variants table, the load-bearing artifact of the loadout-as-budget pattern, shows why the contrast is the point:
+
+| Game | Budget shape | What you pack | The constraint | Trade-off cost |
+| --- | --- | --- | --- | --- |
+| Sparklite | Spatial, a 3x3 to 5x5 grid | Patches with Tetris footprints | Cells on the board | A 4-cell damage patch costs 4 cells of HP or map or energy |
+| Warframe | Numeric, 60 mod points plus polarities | Mods costing N points | Points plus polarity match | A non-matching slot costs +25%, a matching slot -50% |
+| Slay the Spire | Combinatorial, 3 energy and a thin deck | Cards costing energy | Energy per turn plus draw consistency | A bigger deck dilutes draws; energy does not carry over |
+| Hollow Knight | Pure numeric, an 11-notch charm budget | Charms costing 1 to 5 notches | Total notches | A 5-notch charm eats half the early budget |
+| Nier Automata | Numeric storage that includes the HUD | Combat chips and the HP bar and minimap | Total storage | Showing the minimap costs storage you cannot spend on Auto-Heal |
+
+The same problem, preventing power creep while keeping progression interesting, solved spatially, numerically, or combinatorially. Spatial budgets feel puzzly, numeric budgets feel algebraic, combinatorial budgets feel probabilistic. Pick the math that fits your tone.
+
+## Maps and encounters
+
+| Pattern | Lemma | Solves | Exemplars | Key pitfall |
+| --- | --- | --- | --- | --- |
+| **branching-dag-map** | A directed graph of node types from start to end; the player picks a path through a partially visible map and commits to a sequence of risks. | Turns "encounters happen to you" into "my chosen run shape", a large perceived-agency gain for little authoring cost. | Slay the Spire (full act visible), Moonlighter 2, Hades (one chamber ahead), Cult of the Lamb | All paths equivalent, or one node type dominates; a map too readable or too noisy. |
+| **bonus-with-drawback** | Game-defining items pair real upside with real cost, so players must commit rather than collect. | Uncosted upgrades make every strong run the same kitchen-sink autopilot. | Slay the Spire boss relics, Path of Exile keystones, Hollow Knight, Hades, Balatro, BotW heart-vs-stamina | A drawback so harsh nobody takes it, or so cosmetic it does not bite; use hard "ban a whole system" costs sparingly. |
+| **handcrafted-pcg-hybrid** | Hand-author the units (rooms, tiles, encounters) and procedurally generate the layout. The modern roguelite default. | Avoids procedural mush without paying the full hand-authored content tax. | Sparklite, Warframe, Slay the Spire, Moonlighter 2, Cult of the Lamb | Too few units (variety shallow); procedural connections that produce dead-end runs; the player cannot see the procedural layer. |
+| **tile-shuffled-world** | Author rooms and tiles by hand, let a procedural layer decide which connect and where. The spatial flavor of the hybrid above. | A fresh-feeling map each descent while individual moments stay hand-tuned. | Sparklite, Warframe | Variety is shallow (fresh-feeling, not fresh); visible tile seams; needs roughly 30+ rooms per biome or it is memorization with extra steps. |
+| **enemy-intent-telegraph** | The enemy shows what it is about to do before the player commits, so combat becomes a complete-information puzzle and randomness moves off the enemy onto the player's own kit. | Hidden-intent combat is either pure reaction or pure memorization. | Slay the Spire (the canonical icons), Mega Man Battle Network, Xenoblade (Vision shows the future hit), Hollow Knight, Dark Souls wind-ups | A telegraph that lies or omits is worse than none; honesty is non-negotiable. Incompatible with screen-clearing combat (the Path of Exile 1 counter-example). |
+
+## Run shape and meta
+
+| Pattern | Lemma | Solves | Exemplars | Key pitfall |
+| --- | --- | --- | --- | --- |
+| **bounded-roguelite** | A roguelite that ends: a defined arc, a final boss, credits, roughly 20 to 40 hours, not infinite escalation. | Infinite roguelites have no completion payoff and fight against narrative and adventure design. | Sparklite, Moonlighter 2, Hades (credits plus an opt-in Pact), Cult of the Lamb | Post-credits replay can drop to zero; a bounded scope reads as small next to infinite competitors. |
+| **meta-as-variety-not-power** | Meta-progression unlocks more options, not more strength; run one and run one hundred share a baseline. | Permanent power-ups cause difficulty drift, erode run integrity, and widen the new-player gap. | Slay the Spire and Balatro (strictest), Hades (a deliberate power ramp, the exception), Moonlighter 2 (relaxed) | Variety without distinct identity feels hollow; mixing variety and power inconsistently confuses what a run is about. |
+| **nested-progression-graph** | Long-running games stack multiple orthogonal progression axes; each new system layers in rather than replacing the last. | Linear XP is a thin treadmill; live games need productive work past the level cap. | Path of Exile (five axes), Warframe (nine-plus axes over a decade), Xenoblade, Hollow Knight | A new axis that is not orthogonal competes with an old one and forces deprecation; surface-area bloat; veteran walls. |
+| **late-introduced-mechanics** | Major systems unlock 5, 15, 30, even 60 hours in; engagement past hour 30 comes from learning a new system, not just more content. | Front-loading every system wastes the back half of a long curve. | Xenoblade (canonical), Warframe, Path of Exile (Ascendancy, Atlas), Nier Automata; BotW is the front-loaded anti-pattern | The review window never sees the hour-25 system; a system introduced at hour H needs about H more hours of content after it; returning players need a tutorial log. |
+| **cumulative-modifier-staircase** | Difficulty is a staircase of stacking single-constraint modifiers the player climbs deliberately, one new lesson per rung, not an Easy-to-Hard slider. | A slider is picked once and respects no learning curve; a staircase is digestible, self-paced, and gives durable post-completion replay. | Slay the Spire (20 Ascension levels), Balatro (Stakes plus the Ante chip ladder); widely copied as Hades Heat, Risk of Rain 2 Eclipse, Monster Train Covenants | A rung that is not its own distinct, learnable lesson is just a bigger number; spiking several constraints in one rung breaks the one-lesson-per-level contract. |
+| **dual-life-loop** | One character lives two distinct, serial, interdependent mini-games that feed each other, and neither half stands alone. | Bolting a side activity onto a core loop makes it ignorable; making a second loop evaluate the same items differently makes both load-bearing. | Moonlighter 2 (dungeon by day, shop by night; loot is the only supply, gold the only funding), Cult of the Lamb (crusade for resources, run the cult with the spoils; a 15-minute hub day paced against a 15-minute crusade) | If the two loops do not feed each other one becomes a chore; pacing the two halves to comparable lengths is the real tuning problem. |
+
+## Crafting and economy
+
+| Pattern | Lemma | Solves | Exemplars | Key pitfall |
+| --- | --- | --- | --- | --- |
+| **currency-as-crafting** | Drop abstract gold; every currency is a consumable that performs an operation on an item, and trade is denominated in those consumables. | Structural inflation; inflation control becomes a property of the currency system itself, not a bolt-on. | Path of Exile (the full implementation, with Diablo as the foil) | Currency drift (the most-traded currency loses its crafting role); onboarding cost ("where is my gold?"); needs good trade UX. |
+| **aspirational-crafting** | A perfect item must be reachable but rarely reached; determinism is a bug to nerf, because the chase is the game. | Deterministic crafting means everyone has the same near-perfect item in three months and the chase and trade economy collapse. | Path of Exile (the Harvest ship-then-nerf cycle), Warframe Rivens | The ship-then-nerf cycle alienates players who learned the nerfed system; pushes mid-tier players to trading; needs a working trade economy. |
+| **random-perfect-roll-economy** | An item's identity is several independently rolled stats; the rare all-great joint roll becomes a traded market commodity. | A flat "best item" has nothing to chase past acquisition; decouples item type from item instance. | Path of Exile rares, Warframe Rivens (Disposition floats magnitude by usage) | A power gap between rolled and unrolled; trade dependency; re-roll cost is brittle to tune; needs a second loop to absorb the chaff. |
+
+## Studio philosophy
+
+| Pattern | Lemma | Solves | Exemplars | Key pitfall |
+| --- | --- | --- | --- | --- |
+| **vision-driven-iteration** | Balance is driven by a stated design philosophy, not by player metrics; builds that are strong but outside the thesis get nerfed. | Metrics-chasing slowly erodes what made a game distinctive. | Path of Exile / GGG (vision) versus Slay the Spire / Mega Crit (metrics), the explicit contrast | The thesis must be public and consistent or the nerfs feel arbitrary; a vision can be wrong; it alienates players who liked what got cut. |
+| **iterative-yearly-refinement** | A series freezes its core (the combat or central verb) and iterates only the meta-systems entry to entry, synthesizing the best of prior games. | Sequels that rebuild the core throw away what worked; freezing the core keeps identity while new meta keeps it fresh. | Mega Man Battle Network (a five-year cycle, frozen combat core, meta iterated to a BN6 synthesis), Xenoblade (XC3 synthesizes XC1, XC2, and XCX), Hades (H2 keeps the run loop and boon draft, adds Magick, Arcana, two paths) | Freezing the core too hard reads as "the same game again"; iterating the meta without a synthesizing thesis produces feature sprawl. |
+
+## Fiction and feel
+
+One pattern, and one lens.
+
+| Pattern | Lemma | Solves | Exemplars | Key pitfall |
+| --- | --- | --- | --- | --- |
+| **flavor-as-meta-narrative** | Flavor (item names, weapon stories, discovered photo and journal layers) carries a narrative or thematic layer the player assembles, distinct from the delivered script. | Story told only in cutscenes is inert between them; flavor woven through items and collectibles makes narrative something the player discovers through play, often cheaply. | Nier Automata (four-paragraph weapon stories that foreshadow plot reveals), Breath of the Wild (Champion Memories, Korok seeds, the Compendium as player-discovered layers), Pokemon (a move read two ways, battle role and contest category); loosely Balatro (150 Joker names produce vibe without narrative) | At its loosest it is just texture, not narrative; it works only when the player actually assembles the layer, so it needs a reason to collect. |
+
+| Lens | Lemma | The diagnostic |
+| --- | --- | --- |
+| **ludonarrative-resonance** | Mechanics affirm the fiction when pressing a button feels like an act the character would take. Resonance is in the verbs. | Describe the loop without the fiction; does it still read as a story about this character? Grade Affirms, Orthogonal, or Dissonant. This is diagnostic, not prescriptive: honestly-orthogonal games work because they do not force it. The full method treatment is in [method.md](method.md). |

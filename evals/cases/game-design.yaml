@@ -1,0 +1,23 @@
+owner: game-design
+
+should_fire:
+  - is this mechanic fun, or is there a dominant strategy
+  - help me design the core loop for my roguelite
+  - rework our crafting system, it feels grindy and pointless
+  - what is the core dialectic of this game idea
+  - how should meta-progression work so runs stay interesting instead of just easier
+  - critique my deckbuilder's reward draft
+  - I'm building a game and need to decide how the loadout budget should work
+  - compare how Hades and Slay the Spire handle meta-progression
+  - design an enemy telegraph so combat feels fair instead of random
+  - our in-game economy is inflating, players have way too much gold
+
+route_to_sibling:
+  - prompt: write typed GDScript for an enemy state machine in Godot
+    expect: godot
+  - prompt: this settings form is confusing for users, help me rethink the flow
+    expect: ask-ux
+
+should_not_fire:
+  - set up TanStack Query for this API
+  - rewrite this ticket as a user story

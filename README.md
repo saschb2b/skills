@@ -49,6 +49,7 @@ npx skills@latest add saschb2b/skills --skill ask-ux
 npx skills@latest add saschb2b/skills --skill to-story
 npx skills@latest add saschb2b/skills --skill no-slop
 npx skills@latest add saschb2b/skills --skill autopilot
+npx skills@latest add saschb2b/skills --skill game-design
 ```
 
 Browse the rendered docs at [saschb2b.com/skills](https://saschb2b.com/skills).
@@ -83,6 +84,7 @@ Process and discipline, not code-specific.
 | **[to-story](./skills/productivity/to-story/SKILL.md)** | Reshape a draft Jira or GitHub ticket into a real user story with INVEST-clean acceptance criteria. Splits oversized stories with SPIDR. |
 | **[no-slop](./skills/productivity/no-slop/SKILL.md)** | Write and revise human-facing prose in a plain, professional register, stripping the tells that mark text as AI-generated. Five rules (punctuation, structure, vocabulary, stance, formatting), a tells table with fixes, before/after rewrites, and a guard against over-correcting into robotic prose. Catches list-itis and forced enumeration, not just em dashes and slop words. |
 | **[autopilot](./skills/productivity/autopilot/SKILL.md)** | Hand off the project and let the agent run on its own: survey, pick one high-value low-risk improvement, verify it, commit it, and loop. Generate-then-rank work selection with anti-churn rails. |
+| **[game-design](./skills/productivity/game-design/SKILL.md)** | Analyze, design, critique, and rework video game mechanics and systems. Decompose a game by its iconic mechanic, core dialectic, macro loop, design tensions, ludonarrative resonance, and shared patterns, then design from the experience down. Carries a cross-game pattern catalog (two dozen patterns distilled from 15 dissected games), the transferable design moves with their caveats, the durable frameworks (MDA, core loops, the flow corridor, motivation, depth vs complexity, game feel), the economy and balance theory, and a critique smell catalog, as a vendored OKF bundle. Commands to dissect, pitch, spec a mechanic, design a loop, rework a system, find patterns, and compare. Pairs with `godot` (this is the design thinking, that is the engine code). |
 
 ## Why these skills exist
 
