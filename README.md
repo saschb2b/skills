@@ -35,7 +35,7 @@ One at a time:
 
 ```bash
 npx skills@latest add saschb2b/skills --skill audit-actions
-npx skills@latest add saschb2b/skills --skill scaffold-mcp
+npx skills@latest add saschb2b/skills --skill mcp-server
 npx skills@latest add saschb2b/skills --skill react-compiler
 npx skills@latest add saschb2b/skills --skill react-stinky
 npx skills@latest add saschb2b/skills --skill codegen-api
@@ -62,7 +62,7 @@ Code-adjacent work.
 | Skill | What it does |
 | --- | --- |
 | **[audit-actions](./skills/engineering/audit-actions/SKILL.md)** | Audit `.github/workflows/` for the `pull_request_target` misuse that compromised TanStack, Nx, PostHog, and Trivy. Greps every workflow, walks a 10-point severity checklist, names findings, proposes the right fix. |
-| **[scaffold-mcp](./skills/engineering/scaffold-mcp/SKILL.md)** | Stand up a TypeScript Model Context Protocol server on the five-layer architecture, choosing the bridge pattern from what the target software offers. |
+| **[mcp-server](./skills/engineering/mcp-server/SKILL.md)** | Build, extend, and maintain a Model Context Protocol server across its whole lifecycle against the current spec (`2025-11-25`). Scaffolds the five-layer architecture and picks a transport (stdio vs Streamable HTTP) and a bridge pattern, then carries the post-init weight: writing tool definitions agents read correctly, extending without breaking existing agents, versioning and deprecation, the security threat model (tool poisoning, token passthrough, prompt injection, OAuth 2.1), testing with the MCP Inspector, and publishing to the registry. Deep knowledge ships as a vendored OKF bundle (protocol, tool design, security, maintenance, testing, publishing). |
 | **[react-compiler](./skills/engineering/react-compiler/SKILL.md)** | Write and review React as if the Compiler is enabled. Skip manual `useMemo`, `useCallback`, and `React.memo`; audit existing code for stale memoization and the five silent-bail patterns. |
 | **[react-stinky](./skills/engineering/react-stinky/SKILL.md)** | Detect React and TypeScript maintainability smells across the whole component, hook, and module, not just its props. Eight pillars: API and prop design (18 sourced categories), state and data flow, effects and lifecycle, component structure and hooks, rendering correctness, accessibility in markup, TypeScript discipline, and a cross-file duplication pass. Rates each Rancid, Funky, or Whiff and proposes the fix with a source. A per-smell guard skips native HTML attributes, library conventions, and intentional patterns. Defers memoization to `react-compiler` and colors to `theme-colors`. Scopes to a codebase, folder, file, or snippet. |
 | **[codegen-api](./skills/engineering/codegen-api/SKILL.md)** | Set up typesafe API code generation. Picks `hey-api` (OpenAPI) or `graphql-codegen` / `gql.tada` (GraphQL), then emits options factories and typed documents instead of legacy hooks. |
@@ -98,15 +98,15 @@ I built each one because the corresponding post wasn't enough. Writing down what
 
 **The fix:** [`/audit-actions`](./skills/engineering/audit-actions/SKILL.md). The agent greps every workflow, walks the ten-point checklist per match, names findings by severity, and proposes the right fix (switch the trigger, two-workflow pattern, drop the PR-head checkout, scope the cache, pin actions by SHA). Run it on every repo once. Run it again after every supply chain headline.
 
-### 2. The architecture you reinvent every time
+### 2. The MCP server is the easy 10%, the maintenance is the rest
 
 > "The protocol is simple. The architecture is reusable. The hard part is always the bridge."
 >
 > from [How to Build an MCP Server](https://saschb2b.com/blog/how-to-build-mcp-server)
 
-**The problem.** Every MCP server has the same five layers: transport, tool definitions, router, bridge, security. The pattern is identical from one target to the next. The bridge, the layer that actually talks to the underlying tool, is 80% of the work. New authors spend a day rediscovering the skeleton before they touch the part that matters.
+**The problem.** Scaffolding an MCP server is a day's work. Everything that decides whether it is any good comes after: tool definitions the agent reads correctly, extending the surface without breaking agents that already depend on it, the security threat model (tool poisoning, token passthrough, prompt injection through tool results), the stdio-to-remote operational cliff, and versioning. That knowledge is scattered across a fast-moving spec, and most servers ship the skeleton and stop.
 
-**The fix:** [`/scaffold-mcp`](./skills/engineering/scaffold-mcp/SKILL.md). The agent stamps out the five layers, walks the bridge decision matrix (scripting API, REST, CLI, socket, SDK), enforces the security non-negotiables (`execFile` over `exec`, path validation, process isolation), and stops the author from over-defining tools before one works end to end.
+**The fix:** [`/mcp-server`](./skills/engineering/mcp-server/SKILL.md). The agent stamps out the five layers, picks a transport (stdio vs Streamable HTTP) and bridge pattern, and writes one tool end to end, then carries the post-init weight against the current `2025-11-25` spec: Anthropic's effective-tool rules, the add-a-tool touch points, name-versioning so changes don't break consumers, the security non-negotiables (`execFile` over `exec`, audience-bound tokens, untrusted tool results), testing with the MCP Inspector, and publishing to the registry. The depth ships as a vendored OKF bundle the agent reads on demand.
 
 ### 3. The React pattern your LLM still writes the old way
 

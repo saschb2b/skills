@@ -2,7 +2,7 @@
   "name": "saschb2b-skills",
   "skills": [
     "./skills/engineering/audit-actions",
-    "./skills/engineering/scaffold-mcp",
+    "./skills/engineering/mcp-server",
     "./skills/engineering/react-compiler",
     "./skills/engineering/react-stinky",
     "./skills/engineering/codegen-api",

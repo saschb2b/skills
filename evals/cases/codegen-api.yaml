@@ -7,7 +7,7 @@ should_fire:
 
 route_to_sibling:
   - prompt: build an MCP server that wraps this REST API
-    expect: scaffold-mcp
+    expect: mcp-server
 
 should_not_fire:
   - fix the flexbox alignment on this card
