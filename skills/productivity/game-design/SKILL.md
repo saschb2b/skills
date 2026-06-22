@@ -8,7 +8,7 @@ source_post: game-mechanics
 
 # Game Design
 
-A designer's reference, written from play. Use it to think about what to design and why it works, not how to implement it in an engine (that is `godot`). It carries a cross-game pattern catalog distilled from 15 dissected games, plus the durable design frameworks, and a stance: opinionated but anti-dogmatic. Both work, for different games. Pick a stance, and be ready to argue with this one.
+A designer's reference, written from play. Use it to think about what to design and why it works, not how to implement it in an engine (that is `godot`). It carries a cross-game pattern catalog distilled from 16 dissected games, plus the durable design frameworks, and a stance: opinionated but anti-dogmatic. Both work, for different games. Pick a stance, and be ready to argue with this one.
 
 This fires whenever game design is on the table: a new concept, a mechanic that feels off, a rework, a balance question, "is this fun / too grindy / a dominant strategy", or the agent making its own design calls while building a game. The depth lives in the OKF bundle in [references/](./references/index.md); this file is the procedure.
 
@@ -49,6 +49,7 @@ The load-bearing framework is MDA: **Mechanics give rise to Dynamics, which prod
 The most transferable moves from the catalog ([principles.md](./references/principles.md) has the full set with caveats):
 
 - **Pick one dialectic and restate it fractally.** Every screen should be the same trade-off in a new costume. New players learn the game once and apply it everywhere.
+- **Build on one verb, then deepen it.** Make every enemy, level, and item pose a question about one core verb, and let upgrades extend it rather than add parallel ones. One polished ability beats five mediocre ones, though the verb-is-everything bet lives or dies on enemy and level authoring.
 - **Meta-progression unlocks variety, not power.** The next run should be more interesting, not easier. (Power-ramp metas like Hades are the deliberate exception, for games that want you to eventually win.)
 - **Costed power forces commitment.** Run-defining loot with a real drawback gives each run a direction; uncosted upgrades flatten every run into the same kitchen sink.
 - **Loadout as budget.** Power lives inside a fixed budget (slots, points, cells, hand size); more of one means less of another. A small slot count over a large pool produces identity.
@@ -85,4 +86,4 @@ Opinionated, grounded in play, anti-dogmatic. Resonance is diagnostic, not presc
 
 ## Source
 
-Distilled from Sascha Becker's [game-mechanics](https://github.com/saschb2b/game-mechanics) knowledge base (15 games dissected, 19 cross-game concept pages), grounded in the standard design literature cited throughout the bundle (MDA, Koster, Cook, Schell, Swink, Adams and Dormans, Schreiber, Sirlin).
+Distilled from Sascha Becker's [game-mechanics](https://github.com/saschb2b/game-mechanics) knowledge base (16 games dissected, 19 cross-game concept pages), grounded in the standard design literature cited throughout the bundle (MDA, Koster, Cook, Schell, Swink, Adams and Dormans, Schreiber, Sirlin).
