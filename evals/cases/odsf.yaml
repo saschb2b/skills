@@ -1,0 +1,19 @@
+owner: odsf
+
+should_fire:
+  - package our design system as a bundle an agent can build from
+  - document our color and spacing tokens so an agent builds UI that matches the system
+  - create an ODSF bundle for our component library
+  - turn our design.md tokens into a bundle with runnable CSS and example HTML
+
+route_to_sibling:
+  - prompt: document our BigQuery tables and runbooks as an agent-readable bundle
+    expect: okf
+  - prompt: replace the hardcoded hex codes in this component with theme roles
+    expect: theme-colors
+  - prompt: the cards in this grid are all different heights, make them line up
+    expect: visual-consistency
+
+should_not_fire:
+  - write a SQL migration for the orders table
+  - turn this braindump into a user story

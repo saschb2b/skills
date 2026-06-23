@@ -6,6 +6,10 @@ should_fire:
   - export our data catalog to a portable agent-readable format
   - make this runbook conformant with the Open Knowledge Format spec
 
+route_to_sibling:
+  - prompt: package our design system as a bundle for an agent to build UI from
+    expect: odsf
+
 should_not_fire:
   - turn this braindump into a user story
   - rewrite this README so it doesn't sound AI-generated

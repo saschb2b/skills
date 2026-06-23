@@ -5,7 +5,7 @@
 **Expert practice, packaged as checklists your coding agent can actually run.**
 
 [![skills.sh](https://skills.sh/b/saschb2b/skills)](https://skills.sh/saschb2b/skills)
-[![Skills](https://img.shields.io/badge/skills-15-2ea44f)](#skill-reference)
+[![Skills](https://img.shields.io/badge/skills-17-2ea44f)](#skill-reference)
 [![Docs](https://img.shields.io/badge/docs-saschb2b.com-0969da)](https://saschb2b.com/skills)
 [![License](https://img.shields.io/badge/license-MIT-0969da)](./LICENSE)
 
@@ -13,7 +13,7 @@
 
 A small, growing collection of agent skills distilled from posts on [saschb2b.com/blog](https://saschb2b.com/blog). Designed to be small, composable, and to work with any agent that supports the [skills.sh](https://skills.sh) installer (Claude Code, Cursor, Codex, Cline, Windsurf, OpenCode, and others).
 
-Most skills take a single blog post and turn its argument into a checklist an agent can step through, end to end; a few (like `godot`, `android-compose`, and `javascript-ecosystem`) are living reference snapshots that re-verify as they age. Together they cover the kind of expert practice teams agree with on a calm day and skip on a busy one: the security audit nobody runs, the architecture everyone reinvents, the framework version your LLM is a year behind on, the React pattern and API codegen your LLM still wires the old way, the colors your LLM still sprinkles as hex, the prop API your LLM grows by accretion, the UX questions the generator skips past, the ticket discipline that drops on a busy Monday, the agent knowledge that stays locked in one vendor's catalog instead of traveling as portable files.
+Most skills take a single blog post and turn its argument into a checklist an agent can step through, end to end; a few (like `godot`, `android-compose`, and `javascript-ecosystem`) are living reference snapshots that re-verify as they age. Together they cover the kind of expert practice teams agree with on a calm day and skip on a busy one: the security audit nobody runs, the architecture everyone reinvents, the framework version your LLM is a year behind on, the React pattern and API codegen your LLM still wires the old way, the colors your LLM still sprinkles as hex, the prop API your LLM grows by accretion, the UX questions the generator skips past, the ticket discipline that drops on a busy Monday, the agent knowledge that stays locked in one vendor's catalog instead of traveling as portable files, the design system your agent ignores because it ships as a component library or a docs site rather than loadable context.
 
 ## Contents
 
@@ -45,6 +45,7 @@ npx skills@latest add saschb2b/skills --skill godot
 npx skills@latest add saschb2b/skills --skill android-compose
 npx skills@latest add saschb2b/skills --skill visual-consistency
 npx skills@latest add saschb2b/skills --skill okf
+npx skills@latest add saschb2b/skills --skill odsf
 npx skills@latest add saschb2b/skills --skill ask-ux
 npx skills@latest add saschb2b/skills --skill to-story
 npx skills@latest add saschb2b/skills --skill no-slop
@@ -83,6 +84,7 @@ Skills install by slug, and the agent auto-invokes one by reading its `descripti
 | --- | --- |
 | **[mcp-server](./skills/engineering/mcp-server/SKILL.md)** | Build, extend, and maintain a Model Context Protocol server across its whole lifecycle against the current spec (`2025-11-25`). Scaffolds the five-layer architecture and picks a transport (stdio vs Streamable HTTP) and a bridge pattern, then carries the post-init weight: writing tool definitions agents read correctly, extending without breaking existing agents, versioning and deprecation, the security threat model (tool poisoning, token passthrough, prompt injection, OAuth 2.1), testing with the MCP Inspector, and publishing to the registry. Deep knowledge ships as a vendored OKF bundle (protocol, tool design, security, maintenance, testing, publishing). |
 | **[okf](./skills/engineering/okf/SKILL.md)** | Author, validate, and maintain knowledge for AI agents as conformant Open Knowledge Format (OKF) bundles, Google's vendor-neutral spec (v0.1) of markdown files with YAML frontmatter for portable agent context. A command surface (`init`, `add`, `enrich`, `link`, `index`, `log`, `validate`, `export`, `consume`) plus an implicit mode that conforms knowledge to OKF whenever you document a table, dataset, metric, runbook, playbook, or join path for an agent, export a catalog, or edit an existing bundle. Ships a zero-dependency conformance checker (`okf-validate.mjs`), the full normative spec, per-command playbooks, and worked templates (BigQuery table, metric, runbook). The one hard rule is a non-empty `type` field per concept; everything else is structure consumers tolerate the absence of. |
+| **[odsf](./skills/engineering/odsf/SKILL.md)** | Author, validate, and maintain a design system for AI agents as a conformant Open Design System Format (ODSF) bundle, a profile (v0.1) of OKF that adds machine-readable design tokens, runnable HTML/CSS example assets, and design-oriented concept types (Color, Typography, Component, Pattern, Behavior, Guideline). A command surface (`init`, `add`, `token`, `asset`, `enrich`, `link`, `index`, `log`, `validate`, `export`, `consume`) plus an implicit mode that conforms design knowledge whenever you document a token scale, a component, or a do/don't rule an agent will build from. Tokens live once and appear twice, as agent-readable frontmatter and as a runnable `tokens.css` projection, so describing the system and using it never diverge, and each concept can ship a self-rendering example an agent copies instead of paraphrases. Ships a zero-dependency conformance checker (`odsf-validate.mjs`). The hard rules are a non-empty `type` per concept and an `odsf_version` on the root index; everything else is structure consumers tolerate the absence of. |
 
 ### Writing & workflow
 
@@ -207,6 +209,16 @@ I built each one because the corresponding post wasn't enough. Writing down what
 **The problem.** The context an agent needs to answer "how do I compute weekly active users from our event stream?" is scattered across metadata catalogs with proprietary APIs, wikis, docstrings, and the heads of senior engineers. Every agent builder re-solves the context-assembly problem from scratch, and the knowledge stays locked inside whichever system produced it. Each vendor ships its own catalog, SDK, and knowledge-graph schema, so nothing travels.
 
 **The fix:** [`/okf`](./skills/engineering/okf/SKILL.md). The agent treats knowledge for other agents as Google's Open Knowledge Format: a bundle of plain markdown files with YAML frontmatter, versioned next to the code it describes, with no SDK and no lock-in. The skill is both explicit and ambient. On command it runs a verb surface (`init`, `add`, `enrich`, `link`, `index`, `log`, `validate`, `export`, `consume`); implicitly it conforms any knowledge you author or transform for an agent (a table, a metric, a runbook, a join path, a deprecation notice) to the spec, so it ships as a conformant bundle instead of ad-hoc prose, and it keeps an existing bundle conformant as it changes. A zero-dependency checker enforces the one hard rule, a non-empty `type` per concept, and warns on the soft guidance a permissive consumer is meant to tolerate.
+
+### 11. The design system your agent ignores because it can't read it
+
+> "Coding agents are good at writing UI and bad at writing *your* UI."
+>
+> from [Open Design System Format](https://github.com/saschb2b/Open-Design-System-Format)
+
+**The problem.** An agent will happily build a settings page: it picks a blue, rounds the corners, adds a shadow, and ships something that looks like a design system, just not *yours*. Your color roles, spacing rhythm, button states, and "never carry meaning with color alone" rule are context it never had. A component library is code it has to reverse-engineer; a docs site is written for human eyes. Neither is the shape an agent can load on the spot and adhere to.
+
+**The fix:** [`/odsf`](./skills/engineering/odsf/SKILL.md). The Open Design System Format packages a design system as a bundle of typed markdown plus runnable HTML/CSS, a strict profile of OKF's container with three additions: machine-readable design tokens that live once and appear twice (agent-readable frontmatter and a projected `tokens.css`, so describing the system and using it never diverge), a self-rendering example beside each concept (the agent copies a correct artifact rather than paraphrasing prose), and first-class `Component` / `Pattern` / `Behavior` / `Guideline` concepts linked into a graph an agent walks from a task to the exact rule it needs. The skill runs a verb surface (`init`, `add`, `token`, `asset`, `enrich`, `link`, `index`, `log`, `validate`, `export`, `consume`) and applies implicitly whenever you author design-system knowledge an agent will build from. A zero-dependency checker enforces the two hard rules (a `type` per concept, an `odsf_version` on the root) and warns on the soft guidance a permissive consumer tolerates.
 
 ### And two that run the work, not just describe it
 
