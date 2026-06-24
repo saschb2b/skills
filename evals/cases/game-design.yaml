@@ -11,11 +11,21 @@ should_fire:
   - compare how Hades and Slay the Spire handle meta-progression
   - design an enemy telegraph so combat feels fair instead of random
   - our in-game economy is inflating, players have way too much gold
+  - how should I lay out my game's pause menu and settings screen
+  - design an onboarding tutorial that teaches the player without walls of text
+  - should my game's HUD be diegetic or just a normal overlay
+  - our dialogue choices feel like they don't matter, how do I fix the illusion of choice
+  - what accessibility options should my game ship, like assist modes and captions
+  - how do I guide the player toward the objective without a quest marker
+  - design the death and results screens for my roguelite
+  - how should I show button prompts so they match the player's controller and remapped keys
 
 route_to_sibling:
   - prompt: write typed GDScript for an enemy state machine in Godot
     expect: godot
   - prompt: this settings form is confusing for users, help me rethink the flow
+    expect: ask-ux
+  - prompt: redesign the checkout flow on our web app, it has a high drop-off
     expect: ask-ux
 
 should_not_fire:

@@ -1,6 +1,6 @@
 ---
 name: game-design
-description: Analyze, design, critique, and rework video game mechanics and systems, grounded in a cross-game pattern catalog and established design frameworks (MDA, core loops, flow, player motivation, game feel, economies, balance). Decompose a game by its iconic mechanic, core dialectic, macro loop, design tensions, ludonarrative resonance, and the patterns it shares with other games. Use when discussing game design ideas, concepts, reworks, or issues; when designing or balancing a mechanic, progression, economy, loop, or reward system; when asking whether a mechanic is fun, too grindy, or has a dominant strategy; or whenever the agent is self-authoring game mechanics and design decisions while building a game. Offers commands to dissect, pitch, spec a mechanic, design a loop, rework a system, find patterns, and compare games. Pairs with godot for implementation; this skill is the design thinking, not the engine code.
+description: Analyze, design, critique, and rework video game mechanics, systems, and interface, grounded in a cross-game pattern catalog and established design frameworks (MDA, core loops, flow, motivation, game feel, economies, balance). Decompose a game by its iconic mechanic, core dialectic, macro loop, tensions, resonance, and patterns. Use when discussing game design ideas, concepts, reworks, or issues; when designing or balancing a mechanic, progression, economy, loop, or reward system; when asking whether a mechanic is fun, too grindy, or has a dominant strategy; when designing or reviewing a game's menus, HUD, screens, onboarding, tutorials, hints, dialogue UI, guidance, feedback, input prompts, or accessibility; or whenever the agent is self-authoring mechanics, systems, or UI while building one. Offers commands to dissect, pitch, spec a mechanic, design a loop, rework a system, find patterns, compare, design the interface, and teach. Pairs with godot; this skill is the design thinking, not the engine code.
 tags: [game, design]
 date: 2026-06-21
 source_post: game-mechanics
@@ -8,9 +8,9 @@ source_post: game-mechanics
 
 # Game Design
 
-A designer's reference, written from play. Use it to think about what to design and why it works, not how to implement it in an engine (that is `godot`). It carries a cross-game pattern catalog distilled from 16 dissected games, plus the durable design frameworks, and a stance: opinionated but anti-dogmatic. Both work, for different games. Pick a stance, and be ready to argue with this one.
+A designer's reference, written from play. Use it to think about what to design and why it works, not how to implement it in an engine (that is `godot`). It carries a cross-game pattern catalog distilled from 16 dissected games, the durable design frameworks, an interface and UX layer (menus, screens, teaching, dialogue, feedback, accessibility), and a stance: opinionated but anti-dogmatic. Both work, for different games. Pick a stance, and be ready to argue with this one.
 
-This fires whenever game design is on the table: a new concept, a mechanic that feels off, a rework, a balance question, "is this fun / too grindy / a dominant strategy", or the agent making its own design calls while building a game. The depth lives in the OKF bundle in [references/](./references/index.md); this file is the procedure.
+This fires whenever game design is on the table: a new concept, a mechanic that feels off, a rework, a balance question, a menu or HUD or tutorial or dialogue screen that needs designing, "is this fun / too grindy / a dominant strategy", or the agent making its own design and interface calls while building a game. The depth lives in the OKF bundle in [references/](./references/index.md); this file is the procedure.
 
 ## The lens: how to read any game or mechanic
 
@@ -39,6 +39,8 @@ Invoke as `/game-design <command> [target]`.
 | `critique` | Adversarial design review against the catalog and the frameworks. Name the pitfalls, dominant strategies, and ethics smells. |
 | `patterns` | Surface the patterns relevant to a design problem and contrast how different games solve it. |
 | `compare` | Contrast two games or mechanics on a chosen axis, variants-table style. |
+| `interface` | Design or review a screen, menu, HUD, dialogue, or feedback surface against the UX foundations, the diegesis matrix, and the readability floor. |
+| `teach` | Design how the game onboards and teaches a mechanic: the first-session ramp, teaching through level design, the introduce-develop-twist-test shape, and the hint stance. |
 
 ## Design from the experience down, not the feature up
 
@@ -60,6 +62,10 @@ The most transferable moves from the catalog ([principles.md](./references/princ
 
 A core loop is `act → feedback → reward → repeat`, nested by timescale: moment-to-moment, session, progression, meta. The output of an inner loop is the fuel of the outer one. Two tests: the bare moment-to-moment loop must be fun stripped of all progression, and every loop must feed a larger one or it dead-ends. Keep difficulty in the flow corridor, where challenge tracks rising skill: the flow channel, Koster's "fun is learning", the sawtooth difficulty curve, and "fair challenge" all describe the same band. Detail in [frameworks.md](./references/frameworks.md).
 
+## The interface layer
+
+A mechanic the player cannot perceive, parse, or operate is broken, so the interface is part of the design, not paint over it. Sort most interface problems with two questions (the theory is in [interface.md](./references/interface.md)): is it a usability fault ("I didn't know I could", "I clicked the wrong thing") or an engageability one ("it got boring")? The fixes do not transfer. And where should a piece of information live on the diegesis matrix, diegetic, non-diegetic, spatial, or meta? From there the surfaces split out, each with its own page in the bundle below: menus, screens, and the HUD; onboarding and how the game teaches; dialogue and choice UI; in-world guidance and feedback; input prompts and button glyphs; and the accessibility floor. The throughlines are respect the player's time, telegraph honestly, never carry information on color or sound alone, and never let polish hide the state.
+
 ## Critique smells
 
 When a design feels off, look for these (detection signals and fixes in [critique.md](./references/critique.md)):
@@ -77,6 +83,8 @@ Opinionated, grounded in play, anti-dogmatic. Resonance is diagnostic, not presc
 
 ## Reference bundle
 
+The design core:
+
 - [method.md](./references/method.md) — the dissection lens, the concept-page anatomy, the resonance diagnostic.
 - [patterns.md](./references/patterns.md) — the cross-game pattern catalog (19 patterns, by category, with exemplars and pitfalls).
 - [principles.md](./references/principles.md) — the load-bearing design moves worth stealing, with their caveats.
@@ -84,6 +92,16 @@ Opinionated, grounded in play, anti-dogmatic. Resonance is diagnostic, not presc
 - [systems.md](./references/systems.md) — economies, feedback loops, balance, randomness, reward schedules, and the ethics line.
 - [critique.md](./references/critique.md) — the design-review smell catalog and the rework procedure.
 
+The interface layer:
+
+- [interface.md](./references/interface.md) — usability vs engageability, the diegesis matrix, game usability heuristics, the cognition that constrains UI, the readability floor.
+- [menus-and-screens.md](./references/menus-and-screens.md) — menu information architecture, HUD philosophies, the lifecycle screens, respecting the player's time.
+- [onboarding.md](./references/onboarding.md) — teaching through level design, the introduce-develop-twist-test shape, and hint systems on the guidance-vs-discovery axis.
+- [dialogue.md](./references/dialogue.md) — caption practice, branching vs hub structures, the paraphrase problem, skill-check dialogue, choice telegraphing, tools, and barks.
+- [guidance-and-feedback.md](./references/guidance-and-feedback.md) — wayfinding and signposting, signifier vs feedforward vs feedback, juice and its counterweight, error prevention, the waypoint debate.
+- [input-prompts.md](./references/input-prompts.md) — placing the key hint, device-aware glyph swapping, rebinding-aware prompts, glyph assets, encoding tap vs hold, and the console and accessibility rules.
+- [accessibility.md](./references/accessibility.md) — the guidelines, the impairment categories and their features, assist modes, the text and caption numbers, and the case.
+
 ## Source
 
-Distilled from Sascha Becker's [game-mechanics](https://github.com/saschb2b/game-mechanics) knowledge base (16 games dissected, 19 cross-game concept pages), grounded in the standard design literature cited throughout the bundle (MDA, Koster, Cook, Schell, Swink, Adams and Dormans, Schreiber, Sirlin).
+Distilled from Sascha Becker's [game-mechanics](https://github.com/saschb2b/game-mechanics) knowledge base (16 games dissected, 19 cross-game concept pages), grounded in the standard design literature cited throughout the bundle (MDA, Koster, Cook, Schell, Swink, Adams and Dormans, Schreiber, Sirlin), with the interface layer grounded in the game UX and accessibility literature (Hodent, Norman, the Fagerholt and Lorentzon diegesis matrix, Desurvire's playability heuristics, Hamilton, and the Game Accessibility and Xbox Accessibility Guidelines).
