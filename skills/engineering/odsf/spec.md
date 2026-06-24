@@ -13,7 +13,7 @@ A bundle is a **conformant ODSF bundle** when both hold:
 1. It is a **conformant OKF bundle.** Every non-reserved `.md` file opens with a parseable YAML frontmatter block carrying a non-empty `type` field, and reserved files (`index.md`, `log.md`) follow their OKF structure.
 2. The **bundle-root `index.md` declares `odsf_version`** in its frontmatter (a `<major>.<minor>` string, e.g. `"0.1"`).
 
-That is the whole hard requirement: be a valid OKF bundle, and say you are an ODSF one. Everything else (the token model, the asset conventions, the type vocabulary, the body sections) is **recommended** structure a producer SHOULD follow and a consumer SHOULD exploit but MUST tolerate the absence of.
+That is the whole hard requirement: be a valid OKF bundle, and say you are an ODSF one. Note the asymmetry, `odsf_version` is the only added hard rule, while `okf_version` stays OKF's own *optional* declaration, so a missing `okf_version` is a warning, never a conformance failure. Everything else (the token model, the asset conventions, the type vocabulary, the body sections) is **recommended** structure a producer SHOULD follow and a consumer SHOULD exploit but MUST tolerate the absence of. A direct consequence: **any conformant OKF bundle is one `odsf_version` line away from satisfying rule 1**, since rule 1 *is* OKF conformance, so adopting ODSF over an existing OKF bundle is a single edit plus optional enrichment, not a rebuild.
 
 The consumer contract is OKF's, extended. A consumer **MUST NOT** reject a bundle because of:
 
@@ -112,7 +112,11 @@ typography.body.fontSize  →  --typography-body-fontSize
 
 `styles/tokens.css` SHOULD define these under `:root` so any example HTML (and any code the agent writes) consumes the identical values. This two-projection model is the core of ODSF's "more": design.md stopped at frontmatter tokens; ODSF also ships the runnable CSS, so the gap between *describing* the system and *using* it disappears.
 
-**Variants and states.** A component's interactive states are expressed as **separate token entries** (design.md's convention), suffixed by state: `button-primary`, `button-primary-hover`, `button-primary-active`, `button-primary-disabled`. This keeps each state machine-readable and lets the CSS projection and example HTML stay one-to-one with the tokens.
+**What projects, and what a reference becomes.** Only **foundation** tokens project to `tokens.css`, each as its **resolved literal value** (`--colors-primary: #3b5bdb`). A **component** token entry (`button-primary.backgroundColor: "{colors.primary}"`) does **not** get a `--button-primary-backgroundColor` custom property; it is realized as a rule in `styles/components.css` that consumes the foundation property with `var(--…)` (`.btn--primary { background: var(--colors-primary); }`). So a `{group.name}` reference never appears verbatim in CSS: in `tokens.css` it is already the literal value, and in `components.css` it is `var(--…)`. Emitting the literal `{…}` string into CSS is always wrong.
+
+**The projection is forward-only.** The segment-join (`a.b.c → --a-b-c`) is a one-way emit, not a guaranteed-reversible mapping, because a hyphenated token name (`colors.on-primary → --colors-on-primary`) is indistinguishable from a nested split (`colors.on.primary`). Keep names from colliding with a group/name split, and treat the CSS as a projection of the frontmatter (the source of truth), not a round-trip origin. Composite sub-property keys project verbatim (`typography.body.fontSize → --typography-body-fontSize`); pick one casing convention for token and sub-property names and hold it, since custom properties are case-sensitive.
+
+**Variants and states.** A component's interactive states are expressed as **separate token entries** (design.md's convention), suffixed by state: `button-primary`, `button-primary-hover`, `button-primary-active`, `button-primary-disabled`. This keeps each state machine-readable and lets `components.css` and the example HTML stay one-to-one with the tokens. A state that introduces **no new token value** (a hover that only adds an underline, a focus ring already covered by a behavior) needs **no token entry**; show it in the component's `# Variants & States` table and in `components.css`/the example asset instead. Add a token entry only when the state changes a value.
 
 ## 5. Concept type vocabulary
 
@@ -137,11 +141,19 @@ The asset is what makes an ODSF bundle *transferable* rather than merely *descri
 | `<concept>.dont.html` | The matching counter-example, the mistake the guideline forbids. |
 | `<concept>.css` | Styles specific to this concept, when not in a shared stylesheet. |
 
-A concept declares its assets in the `examples` frontmatter list and SHOULD link them from an `# Examples` body section so both an index and a reader find them.
+A concept declares its assets in the `examples` frontmatter list and SHOULD link them from an `# Examples` body section so both an index and a reader find them. A counter-example (`*.dont.html`) is also declared under `examples`; the body distinguishes it from the correct one.
 
-**Self-rendering examples.** An `*.example.html` file SHOULD be a **complete, standalone HTML document** that renders correctly when opened directly in a browser, with **no build step**. It SHOULD pull the system's tokens by linking the bundle stylesheet rather than hard-coding values. An asset links its stylesheets with **relative** paths (`../styles/tokens.css`), not the bundle-absolute form recommended for concept cross-links (§8): a relative path resolves both over `file://` and when served, so the example renders on a double-click. Because the example links `tokens.css`, it stays truthful automatically: change a token, and every example re-renders. Keep examples **minimal**: the markup for the one thing the concept teaches, not a page of chrome around it.
+**The shared stylesheet.** `styles/components.css` is the asset that carries the actual CSS rules the example HTML renders with, the realization of every component's `tokens` entries (§4): each rule consumes the foundation custom properties from `tokens.css` with `var(--…)`, never a hard-coded value, so a token change re-renders every example. It is where a component's `{group.name}` tokens become real CSS. A `<concept>.css` file is for styles specific to one concept that do not belong in the shared sheet.
+
+**Class-naming contract.** The example assets are the consumer's copy source (§11), so they SHOULD share one class-naming convention, or a multi-component bundle becomes incoherent to copy from. ODSF's default, shown throughout and used by the reference bundles, is BEM: a block (`.btn`), a modifier (`.btn--primary`), an element (`.btn__label`). A producer MAY choose another convention but SHOULD apply it uniformly across every example and document it in the `Design System` overview.
+
+**Self-rendering examples.** An `*.example.html` file SHOULD be a **complete, standalone HTML document** that renders correctly when opened directly in a browser, with **no build step**. It SHOULD pull the system's tokens by linking the bundle stylesheets (`tokens.css` for the values, `components.css` for the class rules) rather than hard-coding values. An asset links its stylesheets with **relative** paths (`../styles/tokens.css`), not the bundle-absolute form recommended for concept cross-links (§8): a relative path resolves both over `file://` and when served, so the example renders on a double-click. Because the example links the stylesheets, it stays truthful automatically: change a token, and every example re-renders. Keep examples **minimal**: the markup for the one thing the concept teaches, not a page of chrome around it.
+
+**Dynamic and transient states.** An asset carries no JavaScript, so a state with no static look (loading, async, an open menu) is **snapshotted**: render it frozen with the right ARIA (`aria-busy="true"` for loading, `aria-expanded` for a disclosure) and a static indicator, or show it as a `*.dont.html` / `*.do.html` pair. Document the state in the component's `# Variants & States` table either way.
 
 **Do / Don't pairs.** A `Guideline` or `Component` MAY ship a `*.do.html` / `*.dont.html` pair so the agent sees both the intended result and the specific failure to avoid. The concept's body explains *why* the don't is wrong; the asset shows *what* it looks like.
+
+**Keep the table and the asset in sync.** Every row in a component's `# Variants & States` table SHOULD have a matching element in its example asset, and every variant in the example SHOULD be documented in the table. The validator checks that a declared asset exists, not that it covers every variant, so this one is on the producer.
 
 ## 7. Body conventions
 
@@ -192,18 +204,21 @@ How an agent SHOULD use a bundle when handed a design task:
 1. **Orient.** Read the bundle-root `index.md` and the `Design System` overview concept for the system's principles and the lay of the land.
 2. **Pull foundations.** Load the foundation tokens relevant to the task, or simply link/inline `styles/tokens.css`, the runnable projection of all of them.
 3. **Descend by need.** Follow `index.md` listings and cross-links to the `Component`, `Pattern`, and `Behavior` concepts the task requires; don't read the whole bundle.
-4. **Copy from the assets.** Reproduce structure, class names, and attributes from the relevant `*.example.html`, restyled by the same `tokens.css`, not from a prose paraphrase.
-5. **Respect the rules.** Honor the `Guideline` and `Accessibility` concepts in scope, and the `*.dont.html` counter-examples, so the output avoids the system's known failure modes.
-6. **Stay forgiving.** Tolerate everything optional (missing tokens, absent assets, unknown types, broken links). Never refuse a bundle over them.
+4. **Copy from the assets.** Reproduce structure, class names, and attributes from the relevant `*.example.html`. The example *uses* the classes; `styles/components.css` *defines* them (and `tokens.css` defines the values they consume), so read `components.css` for the class contract and any layout primitives (`.stack`, `.row`) and state rules (`:focus-visible`) the example references but does not itself define.
+5. **When a concept you need is absent, degrade, don't stall.** A partial bundle is the normal case. If the **Pattern** you need is missing, compose it from the **Components** it would contain (stack them with the bundle's layout primitives). If a **Component** is missing, reach for the nearest typed sibling (a password field is the text input with `type="password"`) or build a primitive from foundation tokens. If a **token** is missing, keep the literal `{ref}` or pick the closest defined value. Note what you improvised.
+6. **Respect the rules.** Honor the `Guideline` and `Accessibility` concepts in scope, and the `*.dont.html` counter-examples, so the output avoids the system's known failure modes.
+7. **Stay forgiving.** Tolerate everything optional (missing tokens, absent assets, unknown types, broken links). Never refuse a bundle over them.
 
-An agent that also edits the bundle becomes a producer: it refreshes the concept `timestamp`, appends a `log.md` entry, regenerates the affected `index.md`, keeps `tokens.css` in sync with the frontmatter, and re-validates.
+**Emitting into a host app.** Copying tokens into real product code is not the same as linking them from a bundle example. Prefer linking or `@import`-ing `tokens.css`, or inline only the `:root` subset you use, or translate to the app's own token system. A bundle stylesheet may carry `@import` and global rules (a `body {}`) you do not want to paste verbatim into a host app; take the custom properties, leave the page chrome.
+
+An agent that also edits the bundle becomes a producer: it follows the ripple checklist (a token or variant change touches the foundation, `tokens.css`, the component's tokens, `components.css`, the example, the `# Variants & States` table, every changed concept's `timestamp`, `log.md`, and the indexes only if a concept was added/renamed/removed), then re-validates. The producer commands spell this out (see the `edit` command).
 
 ## 12. Non-goals
 
 ODSF deliberately does not:
 
 - **Define a closed taxonomy.** `type` and token categories are open by design (OKF's principle). The vocabulary in §5 is conventional, not exhaustive.
-- **Replace a design-token standard.** ODSF *carries* tokens and can export to the [W3C DTCG format](https://www.designtokens.org/) or Tailwind; it does not redefine them. The frontmatter shape is deliberately design.md-compatible.
+- **Replace a design-token standard.** ODSF *carries* tokens and stays *compatible* with the [W3C DTCG format](https://www.designtokens.org/) and Tailwind (the frontmatter shape is deliberately design.md-compatible, so values map cleanly both ways); it does not redefine them. That compatibility is a shape claim, not a turnkey exporter, there is no built-in DTCG/Tailwind import or export command, so a conversion is a producer task you script per project, and the forward-only projection (§4) means a CSS-to-token round-trip is best-effort, not lossless.
 - **Be a component framework or runtime.** Example assets are vanilla HTML/CSS that teach structure and styling, not a React/Vue/Web-Components library. A bundle describes a system; it does not ship one.
 - **Prescribe tooling or a platform.** A bundle is just files. No SDK, account, or service is required to read, write, or serve one.
 - **Validate visual correctness.** The spec checks structure (is it a conformant bundle), not taste (is the design good). Contrast and reference checks are advisory lints, not gates.

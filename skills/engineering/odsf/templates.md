@@ -96,6 +96,7 @@ timestamp: <YYYY-MM-DDThh:mm:ssZ>
 tokens:
   colors:
     primary: "#3b5bdb"
+    primary-hover: "#3149c0"
     on-primary: "#ffffff"
     surface: "#ffffff"
     text: "#1a1b1e"
@@ -105,6 +106,7 @@ tokens:
 | Token | Value | Role |
 |-------|-------|------|
 | `colors.primary` | `#3b5bdb` | Primary action color. |
+| `colors.primary-hover` | `#3149c0` | Primary on hover. |
 | `colors.on-primary` | `#ffffff` | Text/icon on a primary fill. |
 
 # Roles
@@ -123,7 +125,7 @@ tokens:
 
 ## Component concept
 
-`components/<name>.md`, with a `components/<name>.example.html` beside it. Reference foundation tokens with `{group.name}` rather than restating values; express states as separate entries.
+`components/<name>.md`, with a `components/<name>.example.html` beside it. Reference foundation tokens with `{group.name}` rather than restating values; express states as separate entries. Every `{group.name}` here must resolve to a token defined in some foundation in the same bundle (`radius.md` below assumes a `Shape` foundation that defines it), or `odsf-validate` warns. A component's tokens do not project to `tokens.css`; they are realized as CSS rules in `styles/components.css` that consume the foundation custom properties with `var(--…)` (see the components.css template below).
 
 ```markdown
 ---
@@ -140,7 +142,7 @@ tokens:
   button-primary:
     backgroundColor: "{colors.primary}"
     textColor: "{colors.on-primary}"
-    radius: "{radius.md}"
+    radius: "{radius.md}"        # requires a Shape foundation defining radius.md
   button-primary-hover:
     backgroundColor: "{colors.primary-hover}"
 ---
@@ -314,11 +316,36 @@ timestamp: <YYYY-MM-DDThh:mm:ssZ>
 ```css
 :root {
   --colors-primary: #3b5bdb;
+  --colors-primary-hover: #3149c0;
   --colors-on-primary: #ffffff;
   --spacing-md: 16px;
   --radius-md: 8px;
 }
 ```
+
+Only foundation tokens project here, as their resolved literal values. Component tokens stay as `{group.name}` entries in their concept and become rules in `components.css` below.
+
+## Asset: components.css (the shared component styles)
+
+`styles/components.css`. The CSS rules the example assets actually render with. It is where a component's `{group.name}` token entries are realized: each rule consumes the foundation custom properties from `tokens.css` with `var(--…)`, never a hard-coded value, so a token change re-renders every example. Use one consistent class-naming convention across every example asset (BEM is the default the templates show: `.block`, `.block--modifier`, `.block__element`); the example HTML is the consumer's copy source, so the vocabulary must stay coherent across components.
+
+```css
+/* Button: .btn base + one modifier class per variant, states via pseudo-classes. */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border: 0;
+  border-radius: var(--radius-md);
+  font: inherit;
+  cursor: pointer;
+}
+.btn--primary { background: var(--colors-primary); color: var(--colors-on-primary); }
+.btn--primary:hover { background: var(--colors-primary-hover); }
+.btn--primary:disabled { opacity: 0.5; cursor: not-allowed; }
+```
+
+A variant that the design adds (a `danger` button) is a new `.btn--danger` rule here, a `button-danger` token entry on the component, and a `--colors-danger` line in `tokens.css`. A transient state with no static look (loading) is snapshotted: show it with `aria-busy="true"` and a frozen indicator, or as a `*.dont.html` counter-example, since the asset carries no JavaScript.
 
 ---
 
