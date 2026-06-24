@@ -19,6 +19,8 @@ should_fire:
   - how do I guide the player toward the objective without a quest marker
   - design the death and results screens for my roguelite
   - how should I show button prompts so they match the player's controller and remapped keys
+  - what kind of screen transition should I use moving room to room in my roguelike
+  - should the music crossfade, duck, or cut when the player opens the pause menu
 
 route_to_sibling:
   - prompt: write typed GDScript for an enemy state machine in Godot

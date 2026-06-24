@@ -19,6 +19,7 @@ The interface layer (how the player perceives and operates the game):
 
 - [Game Interface and UX Foundations](interface.md) - The hub: usability versus engageability, the diegesis matrix, game usability heuristics, the cognition that constrains UI, and the readability floor.
 - [Menus, Screens, and the HUD](menus-and-screens.md) - Menu information architecture, HUD philosophies from maximal to diegetic, the lifecycle screens from title to game-over, and respecting the player's time.
+- [Transitions: Screen, Scene, and Audio](transitions.md) - What a transition is for, the visual vocabulary, the frequency-as-budget rule, a per-case playbook (menu, pause, door, death, room-to-room), and the audio craft of moving between them.
 - [Onboarding, Tutorials, and Hints](onboarding.md) - The first-session problem, teaching through level design, the introduce-develop-twist-test structure, and hint systems on the guidance-versus-discovery axis.
 - [Dialogue and Narrative UI](dialogue.md) - Text-box and caption presentation, branching versus hub structures, the dialogue wheel and the paraphrase problem, skill-check dialogue, choice telegraphing, tools, and barks.
 - [Guidance and Feedback](guidance-and-feedback.md) - Wayfinding and signposting, affordances and feedforward, juice for the interface and its counterweight, error prevention, and the waypoint debate.
