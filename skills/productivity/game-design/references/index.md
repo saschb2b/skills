@@ -14,6 +14,7 @@ The design core:
 - [Design Frameworks](frameworks.md) - MDA, core loops and skill atoms, the flow corridor, player motivation, depth versus complexity, and game feel, with sources.
 - [Systems, Economies, and Balance](systems.md) - Internal economies, feedback loops, balancing methods, randomness, reward schedules, and the ethics line, with sources.
 - [Critique and Rework Playbook](critique.md) - The design-review smell catalog with detection signals and fixes, plus the procedure for reworking a flat or broken mechanic.
+- [Inventory and Items](inventory.md) - Storage models, the inventory puzzle, equipment and itemization, enhancement, consumables and the hoarder trap, weight, loadouts, and the quality-of-life and ethics lines.
 
 The interface layer (how the player perceives and operates the game):
 

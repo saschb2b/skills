@@ -1,0 +1,48 @@
+---
+type: Reference
+title: "Inventory and Items"
+description: "Where loot, equipment, consumables, loadouts, and upgrades meet the player. Storage models, the inventory puzzle, itemization, enhancement, weight, the hoarder trap, and the quality-of-life and ethics lines."
+tags: [game-design, inventory, loot, items, loadout]
+timestamp: 2026-06-24T00:00:00Z
+---
+
+# Inventory and Items
+
+Inventory is where loot, equipment, consumables, loadouts, and upgrades all become one problem. The skill already carries the loadout and inventory *patterns* in [patterns.md](patterns.md) (loadout-as-budget, grid-inventory, opportunity-cost-loadout, fusion-economy); this is the topic-level treatment that ties them together and adds the parts the source corpus of 16 games does not cover (weight, stash, itemization at scale, the hoarder trap). One question governs all of it: **is the inventory a decision or a chore?** A carried thing earns its slot or it is clutter.
+
+## The storage model is the first decision
+
+Pick the model from the experience you want, not from realism:
+
+| Model | What it is | Optimizes for | Failure mode | Exemplars |
+| --- | --- | --- | --- | --- |
+| **Unlimited / auto** | No cap, auto-pickup | Flow, never stopping to manage | No decision; clutter and hoarding | Progressive-gear RPGs |
+| **Fixed slots** | One item per cell | Legibility, simplicity | Bland when roomy | Minecraft, WoW hotbar |
+| **Spatial grid** | Items occupy shapes | A packing puzzle, visible opportunity cost | UI-heavy; busywork if pointless | Diablo, Resident Evil 4, Tarkov, Deus Ex |
+| **Weight / encumbrance** | A total mass you carry | Forced drops, a progression axis | The binary slow-walk cliff | Skyrim, Baldur's Gate 3 |
+
+The load-bearing rule comes from Josh Ge's [Cogmind write-up](https://www.gridsagegames.com/blog/2014/12/inventory-management/): a limit only creates a decision when its **opportunity cost is visible and immediate.** Cogmind makes inventory slots compete with active utility slots, so expanding your bag costs you a sensor *right now*. A limit that is a hidden stat, or one you can defer to a stash, is tedium, not a choice, the [opportunity-cost-loadout](patterns.md) pattern applied to capacity itself. Match the model to item scope: the tighter and more swappable the items, the better a grid reads; the more the character is a bag of holding of progressive upgrades, the better a plain list.
+
+## Friction: when the inventory is the game, and when it is a chore
+
+The inventory puzzle (Resident Evil 4's attache case, Save Room, Backpack Hero, Backpack Battles) turns a dull system into a series of interesting choices by literalizing space. Friction is **fun when it is spatial and tangible** (combine herbs, rotate to fit one more, place a relic to trigger an adjacency bonus) and a **chore when it is a realism-justified menu number** you fiddle with. The cautionary tale: RE4's remake added [auto-sort and many felt it removed the joy](https://www.thegamer.com/resident-evil-4-remake-attache-case-auto-sort/), the self-imposed organizing under threat was the point. So the rule on conveniences: **every quality-of-life feature you add deletes a decision; add it only where the decision was not worth making.** The opposite failure is capacity creep (WoW grew from ~96 to ~196 slots over years), which turns the bag into a junk drawer nobody reads.
+
+## The contents
+
+**Equipment and the paper-doll.** Slots (head, chest, weapon, rings) are a budget, and slot *count* is the lever: more slots mean more stat surface and more churn. Two-handed versus dual-wield is a slot opportunity cost. Separate look from power with transmog so a cosmetic identity survives a gear swap. Set bonuses (wear N pieces) are a hook with a famous trap: Diablo 3's slot-tied sets made the full set *mandatory* and ate the slots other items wanted, so [Diablo 4 moved sets to socketable charms](https://www.icy-veins.com/d4/news/diablo-4-devs-explain-how-sets-will-avoid-diablo-3s-biggest-mistake/) that add to a build instead of replacing it. The principle: a bonus should change how a build plays, not just inflate a number (the treadmill smell in [critique.md](critique.md)).
+
+**Loot and itemization.** Rarity color (white to green to blue to purple to orange, from Diablo in 1996 by way of EverQuest and WoW) is a fast-read triage filter, the player decides keep-or-sell without inspecting stats, which is exactly why it must never be the *only* channel (see [accessibility.md](accessibility.md)). Under the hood, a drop is a weighted roll over rarity bands, then rolls for type, affixes, and variance. Two failure modes recur: the loot treadmill (bigger numbers, no new capability) and power creep (new loot devalues old). Diablo 3's "Loot 2.0 / smart loot" (2014) is the canonical fix, drops biased toward the finder's class so each is plausibly useful, fewer but better; Borderlands takes the opposite bet, procedural guns by the million so the thrill of the roll *is* the content. Pair this with the [random-perfect-roll-economy](patterns.md) and [currency-as-crafting](patterns.md) patterns.
+
+**Upgrades and enhancement.** Sockets and gems (Path of Exile links), reforging, enchanting, and the "+N" ladder. The ladder often imports a gambling feel: a failed upgrade can consume materials or even destroy the item (MapleStory Star Force, Lost Ark honing), sometimes tempered by a pity system that guarantees the next attempt after enough fails. Treat destroy-on-fail, and any sold protection against it, as monetized randomness and hold it to the ethics line in [systems.md](systems.md). The humane release valve for clog is the [fusion-economy](patterns.md) pattern, consolidate low items into one higher one.
+
+**Consumables and the hoarder trap.** The most common consumable failure is that players never use them: a scarce, powerful one-shot feels too precious to "waste", so the megalixir is saved for a final boss the player never reaches ([Bycer's hoarder trap](https://www.gamedeveloper.com/design/avoiding-the-hoarder-trap-in-game-design)). That is loss aversion and the endowment effect, not strategy, and it punishes the weaker players the item was meant to help. Four fixes: make consumables plentiful and cheap; put them on a cooldown instead of consuming them (Diablo 3's potion); make them self-replenish (Dark Souls' Estus refills at every bonfire, which also cured Demon's Souls' grind-the-healing-grass attrition); or spread the effect across many items so no single one feels precious. This is push-forward design, also in [principles.md](principles.md).
+
+**Weight and the cost that gives an item identity.** Encumbrance is a soft cap that forces drops and can double as a progression axis. Its classic failure is the binary cliff (Skyrim's 300-weight slow-walk with no warning, the first thing players mod out); prefer a *gradual* penalty. The deeper move is a real drawback as identity: a costed or cursed item (NetHack's curse welds the weapon to your hand, hidden until equipped) earns its existence and a risk to weigh, the [bonus-with-drawback](patterns.md) pattern at item scale.
+
+## Loadouts: committed or swappable
+
+Two stances, and you must pick one. A **committed** loadout is an identity: Outer Worlds 2 bans respec because ["you have to pick a lane"](https://www.rpgsite.net/interview/17785-outer-worlds-2-director-interview-respec-rpg-choice-consequences), and Hollow Knight's charms and Mina's trinkets bite because the slots are scarce and chosen. A **swappable** loadout is a tactical layer: Destiny 2's saved loadouts swap mid-activity, Nier's three Set Type slots, Mina re-equipping trinkets at a save point for a region or a boss. Respec-anywhere makes a build a costume; permanence makes it a character. A clever middle path is **opt-in budget-overflow**, let the player exceed the budget at a known, ongoing cost (Hollow Knight's overcharm doubles damage taken; NaviCust runs a rule-breaking program "bugged" with combat debuffs) so the wall says "yes, at a price" instead of "no". That move is now a pattern in [patterns.md](patterns.md).
+
+## Quality of life, storage, and the ethics line
+
+At scale, readability is the bottleneck: Path of Exile drops roughly a thousand items a map and ships a [loot-filter language](https://www.pathofexile.com/item-filter/about) because the floor is otherwise unreadable. Provide auto-sort, stacking, tabs, mark-as-junk, and comparison tooltips, but remember the conveniences rule above. Storage (stash, bank, the Pokemon PC box) relieves pressure but also enables hoarding and lets players defer decisions forever, which is why Cogmind deliberately destroys off-map caches. Watch two ethics lines from [systems.md](systems.md): selling stash tabs (Path of Exile's core monetization) and selling protection against destroy-on-upgrade both quietly turn an inventory limit into a wallet test. The inventory *screen* itself, its layout, controller navigation, and tooltips, is interface work, covered in [menus-and-screens.md](menus-and-screens.md).

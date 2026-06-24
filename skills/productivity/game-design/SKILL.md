@@ -1,6 +1,6 @@
 ---
 name: game-design
-description: Analyze, design, critique, and rework video game mechanics, systems, and interface, grounded in a cross-game pattern catalog and established design frameworks (MDA, core loops, flow, motivation, game feel, economies, balance). Decompose a game by its iconic mechanic, core dialectic, macro loop, tensions, resonance, and patterns. Use when discussing game design ideas, concepts, reworks, or issues; when designing or balancing a mechanic, progression, economy, loop, or reward system; when asking whether a mechanic is fun, too grindy, or has a dominant strategy; when designing or reviewing a game's menus, HUD, screens, transitions, onboarding, hints, dialogue UI, guidance, feedback, input prompts, or accessibility; or whenever the agent is self-authoring mechanics, systems, or UI while building one. Offers commands to dissect, pitch, spec a mechanic, design a loop, rework a system, find patterns, compare, design the interface, and teach. Pairs with godot; this skill is the design thinking, not the engine code.
+description: Analyze, design, critique, and rework video game mechanics, systems, and interface, grounded in a cross-game pattern catalog and established design frameworks (MDA, core loops, flow, motivation, game feel, economy, balance). Decompose a game by its iconic mechanic, core dialectic, macro loop, tensions, resonance, and patterns. Use when discussing game design ideas, concepts, reworks, or issues; when designing or balancing a mechanic, progression, economy, loadout, inventory, loot, or reward system; when asking whether a mechanic is fun, too grindy, or has a dominant strategy; when designing or reviewing a game's menus, HUD, screens, transitions, onboarding, hints, dialogue UI, guidance, feedback, input prompts, or accessibility; or when self-authoring mechanics, systems, or UI while building one. Offers commands to dissect, pitch, spec a mechanic, design a loop, rework a system, find patterns, compare, design the interface, and teach. Pairs with godot; this skill is the design thinking, not the engine code.
 tags: [game, design]
 date: 2026-06-21
 source_post: game-mechanics
@@ -57,6 +57,7 @@ The most transferable moves from the catalog ([principles.md](./references/princ
 - **Loadout as budget.** Power lives inside a fixed budget (slots, points, cells, hand size); more of one means less of another. A small slot count over a large pool produces identity.
 - **Telegraph honestly.** Show what is coming so combat is a decision, not a coin flip, and never let a telegraph lie. A lying telegraph is worse than none.
 - **Subtract.** A tighter, smaller kit usually beats a bigger one. Make skipping a real option and removing as rewarding as adding.
+- **Inventory is a decision or a chore.** Treat equipment, loot, consumables, loadouts, and upgrades as one problem: a carried thing earns its slot or it is clutter. A capacity limit only creates a choice when its cost is visible and immediate, and a consumable players hoard is punishing them. The full treatment (storage models, the inventory puzzle, itemization, enhancement, weight, the hoarder trap) is in [inventory.md](./references/inventory.md).
 
 ## The loop stack and the flow corridor
 
@@ -91,6 +92,7 @@ The design core:
 - [frameworks.md](./references/frameworks.md) — MDA, core loops and skill atoms, flow, player motivation, depth vs complexity, game feel.
 - [systems.md](./references/systems.md) — economies, feedback loops, balance, randomness, reward schedules, and the ethics line.
 - [critique.md](./references/critique.md) — the design-review smell catalog and the rework procedure.
+- [inventory.md](./references/inventory.md) — storage models, the inventory puzzle, equipment and itemization, enhancement, consumables, weight, loadouts, and the QoL and ethics lines.
 
 The interface layer:
 
