@@ -16,7 +16,7 @@ This fires whenever game design is on the table: a new concept, a mechanic that 
 
 This is the first stop on any design-touching change or discussion, not a reference of last resort, and not only when someone says the word "design". Before you commit to a balance number, an enemy or difficulty scaling curve, a drop rate, a shop price, an economy value, an inventory rule, a menu flow, or a progression gate, run it through the lens and the patterns here instead of improvising from training data. This holds mid-implementation: when you are editing GDScript or a scene and the change encodes a design decision, the engine work and this design work run together, so load this and reason from it before you answer. If you catch yourself about to give a design answer from general knowledge, stop and open the relevant reference file first. That habit is the whole point of the skill, and it is what keeps it influential across a long coding session rather than firing once and fading.
 
-To make this automatic in a real game project (so it is consulted on every design-touching change without anyone asking), wire it on the project side: a path-scoped `CLAUDE.md` rule, a `paths:`-activated rule, or a `UserPromptSubmit` hook that nudges consulting this skill on design keywords. The mechanics, with copy-paste snippets, are in [INTEGRATION.md](./INTEGRATION.md).
+To make this automatic in a real game project (so it is consulted on every design-touching change without anyone asking), wire it on the project side: a path-scoped `CLAUDE.md` rule, a `paths:`-activated rule, or a `UserPromptSubmit` hook that nudges consulting this skill on design keywords. Run `/game-design wire` to scaffold these into the current project; the mechanics and copy-paste snippets are in [INTEGRATION.md](./INTEGRATION.md).
 
 ## The lens: how to read any game or mechanic
 
@@ -47,6 +47,7 @@ Invoke as `/game-design <command> [target]`.
 | `compare` | Contrast two games or mechanics on a chosen axis, variants-table style. |
 | `interface` | Design or review a screen, menu, HUD, dialogue, or feedback surface against the UX foundations, the diegesis matrix, and the readability floor. |
 | `teach` | Design how the game onboards and teaches a mechanic: the first-session ramp, teaching through level design, the introduce-develop-twist-test shape, and the hint stance. |
+| `wire` | Set up project-side auto-triggering in the current game project so this skill is consulted on every design-touching change. Scaffolds a CLAUDE.md rule, a `paths:`-scoped rule, and a `UserPromptSubmit` hook, following [INTEGRATION.md](./INTEGRATION.md). |
 
 ## Design from the experience down, not the feature up
 

@@ -4,6 +4,18 @@ The skill's `description` makes Claude *consider* loading this skill, but that d
 
 So for a project (a Godot game, say) where you want this consulted on *every* design-touching change, wire the project side. The levers, weakest to strongest. Start at the top; add the next one only if the skill still gets skipped.
 
+## Running `/game-design wire`
+
+`/game-design wire` automates the steps below for the current project. The agent should:
+
+1. **Confirm the skill is installed** in the project (step 1). If not, run the install command.
+2. **Add the CLAUDE.md rule** (step 2). If the project already has a design-knowledge or "consult the skill" section, *augment that section* with a one-line "consult first, even mid-code" rule instead of adding a duplicate.
+3. **Add the path-scoped rule** (step 3), using the engine's file globs: `**/*.gd`, `**/*.tscn`, `**/*.tres` for Godot; adapt for Unity (`**/*.cs`), Unreal, web, etc.
+4. **Install the hook** (step 4): create `.claude/hooks/nudge-game-design.mjs` and merge the `UserPromptSubmit` entry into `.claude/settings.json` *without clobbering* existing hooks, permissions, or other settings. Tune the keyword regex to the game's vocabulary.
+5. **Report** every file created or changed, and remind the user to review and commit them. Do not commit on the user's behalf unless asked.
+
+Pick the subset that fits: a small solo project may want only the CLAUDE.md rule plus the hook. The reference contents for each step follow.
+
 ## 1. Install the skill in the project
 
 From your game project root:
