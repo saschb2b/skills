@@ -26,8 +26,34 @@ should_fire:
   - my players hoard consumables and never use them, how do I fix that
   - how should equipment slots and set bonuses work without making one build mandatory
 
+# Design asks embedded in a live Godot coding session, the case the skill keeps missing.
+# Run with --samples 5 to read these as a trigger rate, not a binary.
+in_context:
+  - |-
+    (Mid-session in a Godot project. Just edited EnemySpawner.gd and ran the godot MCP to validate.)
+    User: compiles fine. but by wave 5 the enemies are bullet sponges and it stops being fun. what should the actual scaling curve be?
+  - |-
+    (Working in a Godot project, ShopMenu.tscn open, just wired up the buy button.)
+    User: the shop UI works now. what should it actually sell, and at what prices, so it doesn't wreck the economy?
+  - |-
+    (In a Godot project tuning combat values in Weapon.gd.)
+    User: I set the sword to 12 damage and the bow to 7. does that feel right or am I just guessing numbers?
+  - |-
+    (Building the inventory system in a Godot project, Inventory.gd open.)
+    User: should I cap this by slots, by weight, or a grid? trying to decide before I write the container code.
+  - |-
+    (Mid-session in a Godot project, just scaffolded the MainMenu.tscn nodes.)
+    User: the menu nodes are in. how should the flow from the main menu into a loaded save actually feel?
+  - |-
+    (Pairing on a Godot project between coding tasks.)
+    User: before I write more, can we brainstorm the core loop? I want to be sure the dodge-and-loot idea holds up.
+
 route_to_sibling:
   - prompt: write typed GDScript for an enemy state machine in Godot
+    expect: godot
+  - prompt: fix the null reference error in EnemySpawner.gd when the object pool is empty
+    expect: godot
+  - prompt: my CharacterBody2D isn't colliding with the TileMap, what is wrong with the physics layers
     expect: godot
   - prompt: this settings form is confusing for users, help me rethink the flow
     expect: ask-ux

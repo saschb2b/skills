@@ -12,7 +12,7 @@ export const repo = join(here, "..");
 export const casesDir = join(here, "cases");
 export const resultsDir = join(here, "results");
 
-export const BUCKETS = ["should_fire", "route_to_sibling", "should_not_fire", "fire_nothing"];
+export const BUCKETS = ["should_fire", "in_context", "route_to_sibling", "should_not_fire", "fire_nothing"];
 
 const walk = (dir) =>
   readdirSync(dir, { withFileTypes: true }).flatMap((e) => {
@@ -81,7 +81,7 @@ export function validate(skills, loaded) {
       if (owner !== slug) errors.push(`${file}: owner '${owner}' does not match filename '${slug}'`);
     }
 
-    for (const b of ["should_fire", "should_not_fire", "fire_nothing"]) {
+    for (const b of ["should_fire", "in_context", "should_not_fire", "fire_nothing"]) {
       if (doc[b] == null) continue;
       if (!Array.isArray(doc[b])) { errors.push(`${file}: '${b}' must be a list`); continue; }
       doc[b].forEach((v, i) => { if (typeof v !== "string" || !v.trim()) errors.push(`${file}: ${b}[${i}] must be a non-empty string`); });
@@ -118,6 +118,7 @@ export function buildTasks(loaded, samples) {
       for (let s = 0; s < samples; s++) tasks.push({ id: `${file}#${bucket}#${idx}#s${s}`, file, owner, bucket, prompt, expect: expect ?? null });
     };
     (doc.should_fire || []).forEach((p, i) => add("should_fire", i, p));
+    (doc.in_context || []).forEach((p, i) => add("in_context", i, p));
     (doc.route_to_sibling || []).forEach((r, i) => add("route_to_sibling", i, r.prompt, r.expect));
     (doc.should_not_fire || []).forEach((p, i) => add("should_not_fire", i, p));
     (doc.fire_nothing || []).forEach((p, i) => add("fire_nothing", i, p));
@@ -133,6 +134,7 @@ export function systemPrompt(skills) {
     "You route a single user request to at most one skill.",
     "Each skill below packages a procedure an agent applies when it genuinely fits the request.",
     "",
+    "The request may be a single message or a short transcript from an in-progress coding session.",
     "Given the request, decide which one skill should auto-activate, exactly as you would mid-task.",
     "Reply with ONLY the exact skill name. If no skill clearly fits, reply with exactly NONE.",
     "Do not explain, and do not force a skill onto an unrelated request.",

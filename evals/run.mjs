@@ -119,11 +119,13 @@ function score() {
     const c = byId.get(t.id);
     if (c === undefined) { unanswered++; continue; }
     if (c === "__UNPARSED__") unparsed++;
-    const acc = perSkill.get(t.owner) || { rN: 0, rD: 0, sN: 0, sD: 0, dN: 0, dD: 0 };
+    const acc = perSkill.get(t.owner) || { rN: 0, rD: 0, sN: 0, sD: 0, dN: 0, dD: 0, iN: 0, iD: 0 };
     const owner = (t.owner || "").toLowerCase();
     const expect = (t.expect || "").toLowerCase();
     if (t.bucket === "should_fire") {
       acc.rD++; if (c === owner) acc.rN++; else findings.push(`[recall]   ${t.owner} missed "${t.prompt}" -> ${label(c)}`);
+    } else if (t.bucket === "in_context") {
+      acc.iD++; if (c === owner) acc.iN++; else findings.push(`[in-ctx]   ${t.owner} missed in coding context: "${String(t.prompt).replace(/\s+/g, " ").trim().slice(0, 64)}..." -> ${label(c)}`);
     } else if (t.bucket === "route_to_sibling") {
       acc.dD++; if (c === expect) acc.dN++; else findings.push(`[route]    want ${t.expect} for "${t.prompt}" -> ${label(c)}`);
     } else if (t.bucket === "should_not_fire") {
@@ -138,32 +140,34 @@ function score() {
   const pad = (s, n) => String(s).padEnd(n);
   const lpad = (s, n) => String(s).padStart(n);
   console.log(`\nmodel run: ${manifest.tasks.length} tasks, ${manifest.samples} sample(s)`);
-  console.log(`\n${pad("skill", 22)}${lpad("recall", 14)}${lpad("specificity", 14)}${lpad("disambig", 12)}`);
-  console.log("-".repeat(62));
+  console.log(`\n${pad("skill", 22)}${lpad("recall", 14)}${lpad("specificity", 14)}${lpad("disambig", 12)}${lpad("in-context", 13)}`);
+  console.log("-".repeat(75));
   const rows = [...perSkill.entries()].filter(([o]) => o && o !== "none").sort((a, b) => a[0].localeCompare(b[0]));
-  let R = { n: 0, d: 0 }, S = { n: 0, d: 0 }, D = { n: 0, d: 0 };
+  let R = { n: 0, d: 0 }, S = { n: 0, d: 0 }, D = { n: 0, d: 0 }, I = { n: 0, d: 0 };
   for (const [owner, a] of rows) {
-    R.n += a.rN; R.d += a.rD; S.n += a.sN; S.d += a.sD; D.n += a.dN; D.d += a.dD;
+    R.n += a.rN; R.d += a.rD; S.n += a.sN; S.d += a.sD; D.n += a.dN; D.d += a.dD; I.n += a.iN; I.d += a.iD;
     console.log(
       pad(owner, 22) +
       lpad(a.rD ? `${pct(a.rN, a.rD)} (${a.rN}/${a.rD})` : "--", 14) +
       lpad(a.sD ? `${pct(a.sN, a.sD)} (${a.sN}/${a.sD})` : "--", 14) +
-      lpad(a.dD ? `${pct(a.dN, a.dD)} (${a.dN}/${a.dD})` : "--", 12)
+      lpad(a.dD ? `${pct(a.dN, a.dD)} (${a.dN}/${a.dD})` : "--", 12) +
+      lpad(a.iD ? `${pct(a.iN, a.iD)} (${a.iN}/${a.iD})` : "--", 13)
     );
   }
-  console.log("-".repeat(62));
-  console.log(pad("OVERALL", 22) + lpad(pct(R.n, R.d), 14) + lpad(pct(S.n, S.d), 14) + lpad(pct(D.n, D.d), 12));
+  console.log("-".repeat(75));
+  console.log(pad("OVERALL", 22) + lpad(pct(R.n, R.d), 14) + lpad(pct(S.n, S.d), 14) + lpad(pct(D.n, D.d), 12) + lpad(pct(I.n, I.d), 13));
   if (nothingD) console.log(`abstention on unrelated prompts: ${pct(nothingN, nothingD)} (${nothingN}/${nothingD})`);
   if (unanswered) console.log(`unanswered tasks (no entry in answers.json): ${unanswered}`);
   if (unparsed) console.log(`unparsable answers: ${unparsed}`);
 
   console.log(`\nrecall = fires the owner when it should; specificity = stays quiet when it should not;`);
-  console.log(`disambig = the intended sibling wins on an overlapping prompt.`);
+  console.log(`disambig = the intended sibling wins on an overlapping prompt;`);
+  console.log(`in-context = fires when the design ask is embedded in a mid-coding conversation (run --samples 5 for a rate).`);
   if (findings.length) { console.log(`\nfindings (${findings.length}):`); for (const f of findings.sort()) console.log(`  ${f}`); }
   else console.log(`\nNo findings. Every answered prompt routed as expected.`);
 
   const stamp = new Date().toISOString().replace(/[:.]/g, "-");
-  writeFileSync(join(resultsDir, `score-${stamp}.json`), JSON.stringify({ at: stamp, overall: { R, S, D, abstention: { n: nothingN, d: nothingD } }, perSkill: Object.fromEntries(perSkill) }, null, 2));
+  writeFileSync(join(resultsDir, `score-${stamp}.json`), JSON.stringify({ at: stamp, overall: { R, S, D, I, abstention: { n: nothingN, d: nothingD } }, perSkill: Object.fromEntries(perSkill) }, null, 2));
 }
 
 // ---------------------------------------------------------------- agent instructions
