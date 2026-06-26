@@ -55,6 +55,7 @@ stochastic), `--only <skill>` (one skill's cases).
 - **recall.** The owning skill fires when it should (`should_fire`).
 - **specificity.** The owning skill stays quiet when it should not (`should_not_fire`); another skill firing is still fine.
 - **disambiguation.** On an overlapping prompt, the intended sibling wins, not the owner (`route_to_sibling`). This is the one that matters most here: "review my React component" legitimately matches `react-stinky`, `react-compiler`, `theme-colors`, and `visual-consistency`, and when several compete the model often fires none and waits for you to name one.
+- **in-context.** The owning skill still fires when the request is buried in a realistic mid-task conversation, not a clean isolated prompt (`in_context`, a list of short transcripts). This is the closest the harness gets to the real failure mode: a skill that does not fire once the model is committed to a coding task. Sample several times (`--samples 5`) and read the column as a trigger rate, not a binary.
 - **abstention.** Unrelated prompts fire nothing (`_unrelated.yaml`).
 
 ## Case file format
@@ -68,6 +69,11 @@ owner: theme-colors
 should_fire:                # recall: owner should fire
   - make this button use our brand blue
   - 'wrap a prompt in single quotes if it contains "#hex", a colon, or quotes'
+
+in_context:                 # in-context: owner fires even mid-task; a block scalar holds a transcript
+  - |-
+    (mid-session, editing files in the project)
+    User: a request that embeds the owner's trigger inside a coding conversation
 
 route_to_sibling:           # disambiguation: the sibling wins, not the owner
   - prompt: the cards in this grid are different heights
@@ -88,8 +94,11 @@ filename that does not match its owner, a bad shape, or a skill with no case fil
   mid-conversation auto-invocation, where the model has already committed to a
   task. A 100% here means the descriptions separate cleanly, not that
   auto-invocation is guaranteed in practice. The "I had to name the skill"
-  moment lives in that gap; the disambiguation column is the most transferable
-  signal.
+  moment lives in that gap; the disambiguation and in-context columns are the
+  most transferable signals. The `in_context` bucket narrows the gap by burying
+  the trigger in a transcript, but the faithful guarantee is project-side: a
+  path-scoped `CLAUDE.md` rule or a `UserPromptSubmit` hook in the consuming
+  project (a skill that needs this ships an `INTEGRATION.md` with the snippets).
 - **Stochastic.** Sample several times (`--samples`) and read numbers as a rate
   and a relative signal between description variants.
 - **Test your real model.** Routing differs across models; run the text run on
