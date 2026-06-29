@@ -5,7 +5,7 @@
 **Expert practice, packaged as checklists your coding agent can actually run.**
 
 [![skills.sh](https://skills.sh/b/saschb2b/skills)](https://skills.sh/saschb2b/skills)
-[![Skills](https://img.shields.io/badge/skills-17-2ea44f)](#skill-reference)
+[![Skills](https://img.shields.io/badge/skills-18-2ea44f)](#skill-reference)
 [![Docs](https://img.shields.io/badge/docs-saschb2b.com-0969da)](https://saschb2b.com/skills)
 [![License](https://img.shields.io/badge/license-MIT-0969da)](./LICENSE)
 
@@ -51,6 +51,7 @@ npx skills@latest add saschb2b/skills --skill to-story
 npx skills@latest add saschb2b/skills --skill no-slop
 npx skills@latest add saschb2b/skills --skill autopilot
 npx skills@latest add saschb2b/skills --skill game-design
+npx skills@latest add saschb2b/skills --skill trust-card
 ```
 
 Browse the rendered docs at [saschb2b.com/skills](https://saschb2b.com/skills).
@@ -105,6 +106,7 @@ Skills install by slug, and the agent auto-invokes one by reading its `descripti
 | Skill | What it does |
 | --- | --- |
 | **[audit-actions](./skills/engineering/audit-actions/SKILL.md)** | Audit `.github/workflows/` for the `pull_request_target` misuse that compromised TanStack, Nx, PostHog, and Trivy. Greps every workflow, walks a 10-point severity checklist, names findings, proposes the right fix. |
+| **[trust-card](./skills/engineering/trust-card/SKILL.md)** | Generate, sign, attest, and verify a holistic trust card for an agent skill or OKF bundle. Binds content, artifact, and capability provenance into one OKF concept and renders a graded trust gradient (integrity, authorship, capability, vouching, freshness) instead of a binary verified badge, so the consumer grades evidence against its own policy. Honest about the limit: crypto proves origin and integrity, never behavior. |
 
 ## Why these skills exist
 
