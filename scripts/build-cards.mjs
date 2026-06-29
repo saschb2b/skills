@@ -1,12 +1,11 @@
 #!/usr/bin/env node
 // Build the trust-card render feed: cards.json (the aggregate) plus a CARD.svg
-// per skill, laid out like a Magic: The Gathering card (5:7, black border, a
-// color-identity frame, title bar with a cost pip, art window, type line with a
-// rarity symbol, a parchment text box holding the six trust bars and the
-// description as flavor text, and a bottom line with identity + short digest).
-// Domain sets the frame color; trust score sets rarity. Optional hero.* art
-// fills the art window instead of the digest-seeded identicon. Deterministic,
-// so files commit and CI-diff cleanly. Regenerate after a skill or card change:
+// per skill. The SVG follows the structural grid and spacing of a 5:7 trading
+// card (title bar, dominant art window, type line, a two-panel text box for
+// rules + flavor, a credit row, and a power/toughness-style box), but in our
+// own visual identity, not anyone's frame artwork. Domain sets the frame color;
+// trust score sets rarity; optional hero.* art fills the art window. Everything
+// is deterministic, so files commit and CI-diff cleanly. Regenerate with:
 //   pnpm cards            write cards.json + every CARD.svg
 //   pnpm cards:check      the same, then fail if any card is stale (CI)
 import { execFileSync } from "node:child_process";
@@ -15,14 +14,11 @@ import { readdirSync, existsSync, readFileSync, writeFileSync } from "node:fs";
 const CARD = "skills/engineering/trust-card/scripts/card.py";
 const buckets = ["engineering", "productivity"];
 
-// PICO-8 palette for the digest identicon accents (fixed, documented hex).
 const ACCENTS = ["#ff77a8", "#29adff", "#00e436", "#ffa300", "#ffec27", "#008751", "#ff004d", "#83769c", "#ffccaa"];
 const GRADE = { STRONG: "#2e8b57", MEDIUM: "#d9a300", WEAK: "#c8702a", UNVERIFIED: "#8a8378", ABSENT: "#8a8378" };
 const RANK = { STRONG: 3, MEDIUM: 2, WEAK: 1, UNVERIFIED: 0, ABSENT: 0 };
 const INITIAL = { integrity: "I", authorship: "A", capability: "C", content_provenance: "P", vouching: "V", freshness: "F" };
 
-// Domain -> MTG-style color identity. Frame palettes are approximations of the
-// W/U/B/R/G, artifact, and white frames.
 const DOMAIN = {
   "react-compiler": "frontend", "react-stinky": "frontend", "codegen-api": "frontend",
   "javascript-ecosystem": "frontend", "theme-colors": "frontend", "visual-consistency": "frontend", "ask-ux": "frontend",
@@ -33,12 +29,12 @@ const DOMAIN = {
   "audit-actions": "security", "trust-card": "security",
 };
 const FRAME = {
-  frontend: { label: "Frontend / UI", lite: "#bcd6ec", base: "#2f6fae", dark: "#1c4d82" },
-  game: { label: "Game", lite: "#e6b6a3", base: "#b5402f", dark: "#7e2a20" },
-  ai: { label: "AI & Agents", lite: "#dde2e8", base: "#8c98a6", dark: "#5d6773" },
-  writing: { label: "Writing", lite: "#efe6c6", base: "#c9b878", dark: "#9c8c52" },
-  mobile: { label: "Mobile", lite: "#b3d6ba", base: "#2f8a55", dark: "#1d5e39" },
-  security: { label: "Security", lite: "#9b98a4", base: "#45444e", dark: "#2a2930" },
+  frontend: { label: "Frontend / UI", lite: "#cfe2f2", base: "#2f6fae", dark: "#163d68" },
+  game: { label: "Game", lite: "#eec3b3", base: "#b5402f", dark: "#6a2118" },
+  ai: { label: "AI & Agents", lite: "#e4e8ee", base: "#8c98a6", dark: "#4c545f" },
+  writing: { label: "Writing", lite: "#f3ecd2", base: "#c9b878", dark: "#857349" },
+  mobile: { label: "Mobile", lite: "#bdddc3", base: "#2f8a55", dark: "#184b2e" },
+  security: { label: "Security", lite: "#a6a3af", base: "#45444e", dark: "#222127" },
 };
 
 const HERO_FILES = ["hero.png", "hero.jpg", "hero.jpeg", "hero.webp", "hero.gif", "hero.svg"];
@@ -48,12 +44,8 @@ const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<
 const digestBytes = (d) => ((String(d).split(":").pop() || "").padEnd(64, "0").slice(0, 64).match(/../g) || []).map((h) => parseInt(h, 16));
 
 function trustScore(grades) {
-  return Object.values(grades || {}).reduce((s, g) => s + (RANK[g] || 0), 0); // 0..18
+  return Object.values(grades || {}).reduce((s, g) => s + (RANK[g] || 0), 0);
 }
-// Reachable maximum for THIS artifact: drop n/a layers (UNVERIFIED) and respect
-// per-layer ceilings (capability tops at MEDIUM for a skill, freshness and
-// content provenance never grade STRONG). A skill maxes at 13, a bundle at 16,
-// so the score reads as verification completeness, not a flat-18 grade.
 function reachableMax(grades, capModel) {
   let m = 0;
   for (const [layer, grade] of Object.entries(grades || {})) {
@@ -63,9 +55,6 @@ function reachableMax(grades, capModel) {
   }
   return m;
 }
-
-// Rarity tracks the verification ceremony, not a quality grade: generated ->
-// declared -> signed -> attested.
 function rarity(grades) {
   const g = grades || {};
   const signed = (RANK[g.authorship] || 0) >= 2;
@@ -91,7 +80,7 @@ function wrap(text, max, maxLines) {
 
 // A mirrored identicon seeded by the bundle digest, so the art is provenance.
 function identicon(x, y, w, h, bytes, accent) {
-  const cols = 9, rows = 6, half = Math.ceil(cols / 2), cw = w / cols, ch = h / rows;
+  const cols = 9, rows = 7, half = Math.ceil(cols / 2), cw = w / cols, ch = h / rows;
   let bit = 0;
   const stream = bytes.slice(1);
   const next = () => { const b = (stream[Math.floor(bit / 8) % stream.length] >> (bit % 8)) & 1; bit++; return b; };
@@ -99,75 +88,75 @@ function identicon(x, y, w, h, bytes, accent) {
   for (let r = 0; r < rows; r++) for (let c = 0; c < half; c++) {
     if (!next()) continue;
     for (const cc of new Set([c, cols - 1 - c]))
-      cells.push(`<rect x="${(x + cc * cw).toFixed(2)}" y="${(y + r * ch).toFixed(2)}" width="${(cw + 0.6).toFixed(2)}" height="${(ch + 0.6).toFixed(2)}" fill="${accent}"/>`);
+      cells.push(`<rect x="${(x + cc * cw).toFixed(1)}" y="${(y + r * ch).toFixed(1)}" width="${(cw + 0.8).toFixed(1)}" height="${(ch + 0.8).toFixed(1)}" fill="${accent}"/>`);
   }
   return cells.join("");
 }
 
+// Zone grid lifted from a real 5:7 card (672x936): title bar, art window, type
+// line, two-panel text box, credit row, P/T box. Filled with our own visuals.
 function renderSvg(e, heroDataUri) {
-  const W = 360, H = 504;
+  const W = 672, H = 936;
   const f = FRAME[DOMAIN[e.skill] || "ai"];
   const bytes = digestBytes(e.target_digest);
   const accent = ACCENTS[bytes[0] % ACCENTS.length];
-  const score = trustScore(e.grades);
-  const reach = reachableMax(e.grades, (e.capability || {}).model);
-  const rar = rarity(e.grades);
+  const score = trustScore(e.grades), reach = reachableMax(e.grades, (e.capability || {}).model), rar = rarity(e.grades);
   const name = String(e.skill).toUpperCase();
-  const nameFont = Math.max(11, Math.min(18, Math.floor(296 / (name.length * 0.56))));
-  const tier = String(e.risk_tier || "").split("-").pop().toUpperCase();
+  const nameFont = Math.max(20, Math.min(34, Math.floor(470 / (name.length * 0.56))));
   const ink = "#1b1812", parch = "#f1e8cf", pborder = "#b9a96e", track = "#ddd0ad";
 
-  const art = { x: 24, y: 56, w: 312, h: 186 };
+  const art = { x: 51.5, y: 106.5, w: 570, h: 416 };
   const screen = heroDataUri
     ? `<image x="${art.x}" y="${art.y}" width="${art.w}" height="${art.h}" href="${heroDataUri}" preserveAspectRatio="xMidYMid slice" clip-path="url(#scr)"/>`
-    : `<g clip-path="url(#scr)"><rect x="${art.x}" y="${art.y}" width="${art.w}" height="${art.h}" fill="url(#art)"/>${identicon(art.x + 30, art.y + 20, art.w - 60, art.h - 40, bytes, accent)}</g>`;
+    : `<g clip-path="url(#scr)"><rect x="${art.x}" y="${art.y}" width="${art.w}" height="${art.h}" fill="url(#art)"/>${identicon(art.x + 60, art.y + 44, art.w - 120, art.h - 88, bytes, accent)}</g>`;
 
   const layers = e.layers || Object.keys(e.grades || {});
-  const bx = 30, n = layers.length, gap = 8, bw = (300 - gap * (n - 1)) / n, by = 318;
-  const pips = layers.map((L, i) => {
-    const x = bx + i * (bw + gap), g = e.grades?.[L] || "ABSENT";
-    return `<rect x="${x.toFixed(2)}" y="${by}" width="${bw.toFixed(2)}" height="13" rx="2.5" fill="${track}" stroke="${pborder}" stroke-width="0.6"/>`
-      + `<rect x="${x.toFixed(2)}" y="${by}" width="${(bw * RANK[g] / 3).toFixed(2)}" height="13" rx="2.5" fill="${GRADE[g]}"/>`
-      + `<text x="${(x + bw / 2).toFixed(2)}" y="${by + 26}" font-size="8" fill="${ink}" text-anchor="middle" font-family="ui-monospace,monospace">${INITIAL[L] || "?"}</text>`;
+  const rx0 = 73, rw = 516, gap = 14, bw = (rw - gap * (layers.length - 1)) / layers.length, by = 636;
+  const bars = layers.map((L, i) => {
+    const x = rx0 + i * (bw + gap), g = e.grades?.[L] || "ABSENT";
+    return `<rect x="${x.toFixed(1)}" y="${by}" width="${bw.toFixed(1)}" height="26" rx="4" fill="${track}" stroke="${pborder}" stroke-width="1"/>`
+      + `<rect x="${x.toFixed(1)}" y="${by}" width="${(bw * RANK[g] / 3).toFixed(1)}" height="26" rx="4" fill="${GRADE[g]}"/>`
+      + `<text x="${(x + bw / 2).toFixed(1)}" y="${by + 50}" font-size="16" fill="${ink}" text-anchor="middle" font-family="ui-monospace,monospace">${INITIAL[L] || "?"}</text>`;
   }).join("");
 
   const cap = e.capability || {};
   const capLine = cap.model === "epistemic"
     ? `Knowledge - executes nothing, injects ${cap.injects_concepts ?? "?"} concepts`
     : `Executable - ${cap.source === "declared" ? "declared manifest" : "inferred"} capability`;
-  const flavor = wrap(e.description, 50, 3)
-    .map((ln, i) => `<text x="30" y="${392 + i * 15}" font-size="9.5" font-style="italic" fill="#4a4534" font-family="Georgia,serif">${esc(ln)}</text>`).join("");
+  const flavor = wrap(e.description, 52, 4)
+    .map((ln, i) => `<text x="73" y="${736 + i * 24}" font-size="20" font-style="italic" fill="#4a4534" font-family="Georgia,serif">${esc(ln)}</text>`).join("");
   const shortDigest = (String(e.target_digest).split(":").pop() || "").slice(0, 12);
 
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" font-family="Georgia,'Times New Roman',serif">
 <defs>
-<linearGradient id="frame" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${f.lite}"/><stop offset="0.14" stop-color="${f.base}"/><stop offset="1" stop-color="${f.dark}"/></linearGradient>
+<linearGradient id="frame" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${f.lite}"/><stop offset="0.12" stop-color="${f.base}"/><stop offset="1" stop-color="${f.dark}"/></linearGradient>
+<linearGradient id="plate" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${f.lite}"/><stop offset="1" stop-color="${f.base}"/></linearGradient>
 <linearGradient id="art" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#10131d"/><stop offset="1" stop-color="#05060a"/></linearGradient>
-<clipPath id="scr"><rect x="${art.x}" y="${art.y}" width="${art.w}" height="${art.h}" rx="3"/></clipPath>
+<clipPath id="scr"><rect x="${art.x}" y="${art.y}" width="${art.w}" height="${art.h}" rx="4"/></clipPath>
 </defs>
-<rect x="0" y="0" width="${W}" height="${H}" rx="18" fill="#0c0b0e"/>
-<rect x="9" y="9" width="${W - 18}" height="${H - 18}" rx="11" fill="url(#frame)"/>
-<rect x="18" y="18" width="324" height="34" rx="6" fill="${f.lite}" stroke="${f.dark}" stroke-width="1"/>
-<text x="29" y="40" font-size="${nameFont}" font-weight="bold" fill="${ink}">${esc(name)}</text>
-<circle cx="325" cy="35" r="11" fill="${f.dark}" stroke="#0c0b0e" stroke-width="1"/>
-<text x="325" y="39" font-size="10" font-weight="bold" fill="#fff1e8" text-anchor="middle" font-family="ui-monospace,monospace">${esc(tier)}</text>
-<rect x="${art.x - 3}" y="${art.y - 3}" width="${art.w + 6}" height="${art.h + 6}" rx="4" fill="${f.dark}"/>
+<rect x="0" y="0" width="${W}" height="${H}" rx="30" fill="#0c0b0e"/>
+<rect x="18" y="18" width="636" height="900" rx="20" fill="url(#frame)"/>
+<rect x="40" y="46" width="592" height="54" rx="10" fill="url(#plate)" stroke="#0c0b0e" stroke-width="1.5"/>
+<text x="60" y="84" font-size="${nameFont}" font-weight="bold" fill="${ink}">${esc(name)}</text>
+<circle cx="600" cy="73" r="21" fill="${f.dark}" stroke="#0c0b0e" stroke-width="1.5"/>
+<text x="600" y="80" font-size="18" font-weight="bold" fill="#fff1e8" text-anchor="middle" font-family="ui-monospace,monospace">${esc(String(e.risk_tier || "").split("-").pop().toUpperCase())}</text>
+<rect x="${art.x - 5}" y="${art.y - 5}" width="${art.w + 10}" height="${art.h + 10}" rx="6" fill="${f.dark}"/>
 ${screen}
-<rect x="18" y="248" width="324" height="26" rx="5" fill="${f.lite}" stroke="${f.dark}" stroke-width="1"/>
-<text x="29" y="266" font-size="12" fill="${ink}">${esc(f.label)} Skill</text>
-<rect x="319" y="254" width="14" height="14" rx="2" transform="rotate(45 326 261)" fill="${rar.col}" stroke="#0c0b0e" stroke-width="0.8"/>
-<rect x="18" y="280" width="324" height="170" rx="4" fill="${parch}" stroke="${pborder}" stroke-width="1.5"/>
-<text x="30" y="306" font-size="9" letter-spacing="1.5" fill="${ink}">TRUST</text>
-${pips}
-<text x="30" y="364" font-size="9" fill="#3a3528">${esc(capLine)}</text>
-<line x1="30" y1="374" x2="330" y2="374" stroke="${pborder}" stroke-width="0.8"/>
+<rect x="51.5" y="536" width="570" height="42" rx="8" fill="url(#plate)" stroke="#0c0b0e" stroke-width="1.5"/>
+<text x="68" y="564" font-size="24" fill="${ink}">${esc(f.label)} Skill</text>
+<rect x="588" y="544" width="20" height="20" rx="3" transform="rotate(45 598 554)" fill="${rar.col}" stroke="#0c0b0e" stroke-width="1.2"/>
+<rect x="52.5" y="585.5" width="569" height="279" rx="10" fill="${parch}" stroke="${pborder}" stroke-width="2"/>
+<text x="73" y="624" font-size="16" letter-spacing="2" fill="${ink}">TRUST</text>
+${bars}
+<text x="73" y="702" font-size="16" fill="#3a3528">${esc(capLine)}</text>
+<line x1="63" y1="718" x2="611" y2="718" stroke="${pborder}" stroke-width="1"/>
 ${flavor}
-<rect x="9" y="${H - 46}" width="${W - 18}" height="37" rx="0" fill="#0c0b0e" opacity="0.5"/>
-<text x="20" y="${H - 28}" font-size="8" fill="#e6ddca" font-family="ui-monospace,monospace">BY ${esc(e.identity || "-")}</text>
-<text x="20" y="${H - 16}" font-size="8" fill="#b3ab98" font-family="ui-monospace,monospace">sha256 ${esc(shortDigest)} - ${rar.label} - EXP ${esc(e.expires || "-")}</text>
-<rect x="286" y="${H - 43}" width="56" height="29" rx="5" fill="${f.lite}" stroke="#0c0b0e" stroke-width="1"/>
-<text x="314" y="${H - 33}" font-size="5.5" letter-spacing="0.5" fill="${ink}" text-anchor="middle" font-family="ui-monospace,monospace">VERIFIED</text>
-<text x="314" y="${H - 19}" font-size="12" font-weight="bold" fill="${ink}" text-anchor="middle" font-family="ui-monospace,monospace">${score}/${reach}</text>
+<rect x="18" y="878" width="636" height="40" fill="#0c0b0e" opacity="0.5"/>
+<text x="44" y="898" font-size="15" fill="#e6ddca" font-family="ui-monospace,monospace">BY ${esc(e.identity || "-")}</text>
+<text x="44" y="914" font-size="14" fill="#b3ab98" font-family="ui-monospace,monospace">sha256 ${esc(shortDigest)} - EXP ${esc(e.expires || "-")}</text>
+<rect x="502" y="838" width="132" height="64" rx="12" fill="url(#plate)" stroke="#0c0b0e" stroke-width="1.5"/>
+<text x="568" y="861" font-size="12" letter-spacing="2" fill="${ink}" text-anchor="middle" font-family="ui-monospace,monospace">VERIFIED</text>
+<text x="568" y="890" font-size="28" font-weight="bold" fill="${ink}" text-anchor="middle" font-family="ui-monospace,monospace">${score}/${reach}</text>
 </svg>
 `;
 }
