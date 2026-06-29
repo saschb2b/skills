@@ -31,3 +31,14 @@ for (const bucket of buckets) {
 const doc = { repo: "saschb2b/skills", card_version: "0.1", count: skills.length, skills };
 writeFileSync("cards.json", JSON.stringify(doc, null, 2) + "\n");
 console.log(`wrote cards.json: ${skills.length} skills`);
+
+// --check (CI): fail if any card is stale vs its live bundle. Pair with
+// `git diff --exit-code -- cards.json` to also catch a cards.json left unbuilt.
+if (process.argv.includes("--check")) {
+  const stale = skills.filter((s) => s.grades?.integrity !== "STRONG").map((s) => s.skill);
+  if (stale.length) {
+    console.error(`stale cards (integrity not STRONG; regenerate with 'card.py generate'): ${stale.join(", ")}`);
+    process.exit(1);
+  }
+  console.log("cards check: all integrity STRONG");
+}

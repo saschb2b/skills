@@ -1,7 +1,8 @@
 # Validates the repo on every push to main and every pull request.
-# Deterministic checks only (no model, no secrets): skill conventions and the
-# invocation eval cases (valid YAML, schema, coverage). The full `pnpm eval`
-# routing run is an agent text run and is not part of CI.
+# Deterministic checks only (no model, no secrets): skill conventions, the
+# invocation eval cases (valid YAML, schema, coverage), and that the trust-card
+# render feed (cards.json) is current. The full `pnpm eval` routing run is an
+# agent text run and is not part of CI.
 #
 # Uses `pull_request` (not `pull_request_target`) and a read-only token, so a
 # fork PR never gets secrets or write access. Per the audit-actions skill you
@@ -31,3 +32,7 @@ jobs:
         run: pnpm check
       - name: Eval cases (valid YAML, schema, coverage)
         run: pnpm eval:validate
+      - name: Trust cards current (no stale card, cards.json rebuilt)
+        run: |
+          pnpm cards:check
+          git diff --exit-code -- cards.json
