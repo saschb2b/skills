@@ -1,7 +1,7 @@
 [
   {
     "path": "SKILL.md",
-    "sha256": "98cd074ea75bf02409b38a42a2e81a541a61aafdf0458d833743b1c319873b54"
+    "sha256": "c23d6622c53ad213fd720ccb0fc8edce13c1d39ade042257b68cae5d409244ed"
   },
   {
     "path": "assets/card.template.md",
@@ -17,14 +17,18 @@
   },
   {
     "path": "references/index.md",
-    "sha256": "a95a096ed764a678ebefc9969d2a3dd3abaeca66c29f257b03fba00c6f2336c5"
+    "sha256": "a74474e836444ab63e0579aa1cdf943d3c2f26c6fb4b22c4c331042f1ffb1851"
   },
   {
     "path": "references/layers.md",
-    "sha256": "a51abed721c421452df25549b782a2cabe670c028260be53f6463c322bae7ccf"
+    "sha256": "23b035b820ce86dd088dacfc683c9bf0e743014a96a84a1d4d3566a9ad210498"
+  },
+  {
+    "path": "references/rendering.md",
+    "sha256": "9f194ec50502e83468b4cd8a3e12afb6f820e178a2bdc3405c8e1921ba7f3da4"
   },
   {
     "path": "scripts/card.py",
-    "sha256": "353858a6f4603c829cf45bd88239fab185a792557cd0fbc67a28dee06d7f5c1b"
+    "sha256": "394cdd24d1fce54f25f0c8e9b8b4847b1f691157fc0273c4ab1e9088ccca9af7"
   }
 ]

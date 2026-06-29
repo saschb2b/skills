@@ -28,14 +28,17 @@ Commands:
   validate <card>           OKF conformance (hard rule) + soft warnings
 """
 from __future__ import annotations
-import argparse, base64, datetime, hashlib, json, os, re, shutil, subprocess, sys
+import argparse, base64, datetime, hashlib, json, os, re, shutil, subprocess, sys, tempfile
 
 # ----------------------------------------------------------------------------- helpers
 SKIP = {".git", ".DS_Store"}
 # Card-related artifacts never count toward the bundle digest, so signing or
-# attesting (which writes these) can't change the thing being attested.
+# attesting (which writes these) can't change the thing being attested. The
+# rendered label (CARD.svg) and a skill's optional hero art (hero.*) are
+# decoration, also kept out of the digest.
 CARD_SUFFIXES = (".manifest.json", ".sigstore", ".key", ".pem")
-CARD_NAMES = {"CARD.md"}
+CARD_NAMES = {"CARD.md", "CARD.svg"}
+CARD_PREFIXES = ("hero.",)
 URL_RE = re.compile(r"https?://[^\s)\"'>]+")
 NET_HINTS = ("requests.", "urllib", "httpx", "http.client", "socket.",
              "fetch(", "axios", "curl ", "wget ")
@@ -61,6 +64,8 @@ def sha256_file(path: str) -> str:
 def is_card_artifact(rel: str, card_name: str | None = None) -> bool:
     base = os.path.basename(rel)
     if base in CARD_NAMES or (card_name and base == card_name):
+        return True
+    if base.startswith(CARD_PREFIXES):
         return True
     return base.endswith(CARD_SUFFIXES)
 
@@ -329,6 +334,32 @@ def local_ed25519_verify(digest: str, signing: dict) -> bool:
     except Exception:
         return False
 
+
+def cosign_verify_blob(card_path: str, signing: dict, digest: str):
+    """Re-verify a keyless sigstore signature against its bundle instead of
+    trusting the recorded scheme. STRONG only if cosign actually validates it;
+    MEDIUM if the signature is recorded but cosign is not here to re-check."""
+    bundle = os.path.join(os.path.dirname(card_path) or ".", signing.get("bundle", ""))
+    if not signing.get("bundle") or not os.path.exists(bundle):
+        return "ABSENT", "sigstore bundle missing"
+    if not have("cosign"):
+        return "MEDIUM", "sigstore signature recorded; install cosign to re-verify"
+    ident, issuer = signing.get("cert_identity"), signing.get("cert_issuer")
+    id_flags = (["--certificate-identity", ident, "--certificate-oidc-issuer", issuer]
+                if ident and issuer else
+                ["--certificate-identity-regexp", ".*", "--certificate-oidc-issuer-regexp", ".*"])
+    tf = tempfile.NamedTemporaryFile("wb", delete=False)
+    try:
+        tf.write(digest.encode()); tf.close()
+        r = subprocess.run(["cosign", "verify-blob", "--bundle", bundle, *id_flags, tf.name],
+                           capture_output=True)
+    finally:
+        os.unlink(tf.name)
+    if r.returncode != 0:
+        return "ABSENT", "sigstore signature FAILED cosign verify-blob"
+    who = f"signer {ident}" if ident else "signer not pinned (pass --cert-identity to assert who)"
+    return "STRONG", f"sigstore + rekor, cosign verify-blob OK; {who}"
+
 # ----------------------------------------------------------------------------- card I/O
 def split_card(path: str):
     text = open(path, encoding="utf-8").read()
@@ -408,17 +439,26 @@ def cmd_sign(args):
     data = load_card(args.card)
     digest = data["target_digest"]
     if have("cosign") and not args.local:
-        # keyless Sigstore: identity from OIDC, entry lands in Rekor.
+        # keyless Sigstore: identity from OIDC, entry lands in Rekor. Let cosign
+        # inherit this terminal so its browser/device login prompt is visible.
+        # Capturing it would hang the interactive flow with no output, since the
+        # "open this URL to authenticate" message would be swallowed. In CI the
+        # OIDC token is ambient and no prompt appears.
+        print("signing with cosign (keyless); a browser will open for Sigstore login...")
         try:
             subprocess.run(["cosign", "sign-blob", "--yes", "--bundle",
                             args.card + ".sigstore", "-"], input=digest.encode(),
-                           check=True, capture_output=True)
+                           check=True)
             data["signing"] = {"scheme": "sigstore-keyless",
                                "bundle": os.path.basename(args.card) + ".sigstore"}
+            if args.cert_identity:
+                data["signing"]["cert_identity"] = args.cert_identity
+            if args.cert_issuer:
+                data["signing"]["cert_issuer"] = args.cert_issuer
             data["transparency"] = {"log": "rekor", "stapled": True}
             print("signed via cosign (keyless); rekor entry stapled")
         except subprocess.CalledProcessError as e:
-            print("cosign failed, falling back to local ed25519:", e.stderr.decode()[:120])
+            print(f"cosign failed (exit {e.returncode}); falling back to local ed25519")
             data["signing"] = local_ed25519_sign(digest, args.key)
     else:
         data["signing"] = local_ed25519_sign(digest, args.key)
@@ -464,8 +504,7 @@ def cmd_verify(args):
         notes["authorship"] = ("valid ed25519 over digest (identity self-asserted)"
                                if ok else "ed25519 signature INVALID")
     elif s["scheme"].startswith("sigstore"):
-        grades["authorship"] = "STRONG"
-        notes["authorship"] = "sigstore keyless + rekor (verify bundle with cosign)"
+        grades["authorship"], notes["authorship"] = cosign_verify_blob(args.card, s, data["target_digest"])
 
     # capability
     cap = data.get("capability", {})
@@ -569,6 +608,8 @@ def main():
     s = sub.add_parser("sign"); s.add_argument("card")
     s.add_argument("--key"); s.add_argument("--identity")
     s.add_argument("--local", action="store_true", help="force local ed25519")
+    s.add_argument("--cert-identity", help="expected signer identity, recorded so verify can pin it")
+    s.add_argument("--cert-issuer", help="expected OIDC issuer, recorded alongside --cert-identity")
     s.set_defaults(func=cmd_sign)
 
     a = sub.add_parser("attest"); a.add_argument("card")

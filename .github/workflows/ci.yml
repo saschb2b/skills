@@ -32,7 +32,7 @@ jobs:
         run: pnpm check
       - name: Eval cases (valid YAML, schema, coverage)
         run: pnpm eval:validate
-      - name: Trust cards current (no stale card, cards.json rebuilt)
+      - name: Trust cards current (no stale card, feed + labels rebuilt)
         run: |
           pnpm cards:check
-          git diff --exit-code -- cards.json
+          git diff --exit-code -- cards.json skills/*/*/CARD.svg

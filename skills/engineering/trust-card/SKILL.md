@@ -4,8 +4,9 @@ description: >-
   Generate, sign, attest, and verify holistic trust cards for OKF knowledge
   bundles and agent skills. A card binds content, artifact, and capability
   provenance into one OKF concept and renders a graded trust gradient instead of
-  a binary "verified" badge. Use this skill whenever the user wants to make a
-  skill card, trust card, or provenance card; sign or attest a bundle or skill;
+  a binary "verified" badge, and can be drawn as a shareable SVG cartridge. Use
+  this skill whenever the user wants to make a
+  skill card, trust card, or provenance card; render or visualize a card; sign or attest a bundle or skill;
   prove a bundle is unaltered; declare or check a permission/capability manifest;
   or decide whether a skill or knowledge bundle is safe to load, even if they
   only say "card", "sign it", "is this skill trustworthy", or "verify this
@@ -78,7 +79,7 @@ python scripts/card.py attest <dir>/CARD.md \
     --kind review --by did:web:auditor.example  --result vouch
 
 # 4. Verify: recompute integrity from the live bundle, render the gradient,
-#    optionally enforce a consumer policy.
+#    optionally enforce a consumer policy (--json for a machine-readable gradient).
 python scripts/card.py verify <dir>/CARD.md --bundle <dir> \
     --policy integrity:STRONG,authorship:MEDIUM,capability:MEDIUM
 
@@ -106,6 +107,26 @@ python scripts/card.py validate <dir>/CARD.md
 - **For skills with inferred capability**, state clearly that shell/network were
   *guessed from the code*, not declared or enforced, and recommend a declared
   permission manifest plus a sandbox runtime as the real fix.
+
+## Visual card and render feed
+
+A card can be drawn as a shareable SVG "cartridge", laid out like a Magic the
+Gathering card. The frame color is the skill's domain, a cost pip shows the risk
+tier, a rarity symbol and score box show the trust gradient, and the trust bars
+and description sit in a parchment text box. `CARD.svg` and any `hero.*` art are
+**decoration excluded from the integrity digest**, so styling a card never
+changes what it attests.
+
+- `card.py verify --json` emits the graded gradient as JSON, the input a
+  renderer reads (so the picture never re-implements grading).
+- This repo's reference renderer is `scripts/build-cards.mjs` (`pnpm cards`),
+  which writes a `CARD.svg` per skill plus an aggregated `cards.json` feed;
+  `pnpm cards:check` is wired into CI to fail on a stale card.
+- Drop a `hero.png` or `hero.svg` into a skill to replace the digest identicon
+  with real art.
+
+The full layout, the domain-to-color and trust-to-rarity mappings, the score
+formula, and the feed shape are in `references/rendering.md`.
 
 ## What to tell the user about limits
 

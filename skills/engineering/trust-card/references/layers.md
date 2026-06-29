@@ -28,7 +28,7 @@ them into one badge throws away the information a consumer needs.
 ## What this script covers today
 
 - Layers **0, 1, 4**: fully (digest + manifest + face).
-- Layer **2**: local ed25519 always; Sigstore keyless if `cosign` is on PATH.
+- Layer **2**: local ed25519 always; Sigstore keyless if `cosign` is on PATH. `verify` re-checks the signature rather than trusting it (`cosign verify-blob` for keyless, in-process for ed25519), so authorship is earned; without `cosign` a recorded keyless signature drops to MEDIUM.
 - Layer **3**: recorded when cosign keyless is used (Rekor entry stapled);
   otherwise marked absent.
 - Layer **5**: epistemic capability for OKF bundles (executes/injects/asserts-

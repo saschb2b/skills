@@ -6,6 +6,7 @@
     {
       "skill": "android-compose",
       "bucket": "engineering",
+      "domain": "Mobile",
       "title": "android-compose",
       "description": "Modern Android development with Jetpack Compose as the default UI toolkit and Material 3 Expressive as the default design direction, a dated snapshot. Covers Compose fundamentals (composables...",
       "risk_tier": "executable-L1",
@@ -46,11 +47,19 @@
         "content_provenance": "n/a for executable skills",
         "vouching": "0 attestation(s) bound to this digest",
         "freshness": "not expired"
+      },
+      "trust_score": 7,
+      "reachable": 13,
+      "rarity": "uncommon",
+      "art": {
+        "svg": "CARD.svg",
+        "hero": null
       }
     },
     {
       "skill": "audit-actions",
       "bucket": "engineering",
+      "domain": "Security",
       "title": "audit-actions",
       "description": "Audit a repository's GitHub Actions workflows for unsafe pull_request_target usage that can lead to supply chain compromise. Use when the user asks to audit workflows, review CI/CD security, check...",
       "risk_tier": "executable-L1",
@@ -93,11 +102,19 @@
         "content_provenance": "n/a for executable skills",
         "vouching": "0 attestation(s) bound to this digest",
         "freshness": "not expired"
+      },
+      "trust_score": 7,
+      "reachable": 13,
+      "rarity": "uncommon",
+      "art": {
+        "svg": "CARD.svg",
+        "hero": null
       }
     },
     {
       "skill": "codegen-api",
       "bucket": "engineering",
+      "domain": "Frontend / UI",
       "title": "codegen-api",
       "description": "Set up typesafe API code generation in 2026, preferring framework-agnostic options factories over generated hooks. Walks the decision matrix for REST (OpenAPI via hey-api) and GraphQL...",
       "risk_tier": "executable-L1",
@@ -141,11 +158,19 @@
         "content_provenance": "n/a for executable skills",
         "vouching": "0 attestation(s) bound to this digest",
         "freshness": "not expired"
+      },
+      "trust_score": 7,
+      "reachable": 13,
+      "rarity": "uncommon",
+      "art": {
+        "svg": "CARD.svg",
+        "hero": null
       }
     },
     {
       "skill": "godot",
       "bucket": "engineering",
+      "domain": "Game",
       "title": "godot",
       "description": "Godot game engine development skill, a dated snapshot tracking the current stable Godot (4.x, currently 4.7). Covers GDScript static typing and syntax, scene and node architecture, the resource...",
       "risk_tier": "executable-L1",
@@ -189,11 +214,19 @@
         "content_provenance": "n/a for executable skills",
         "vouching": "0 attestation(s) bound to this digest",
         "freshness": "not expired"
+      },
+      "trust_score": 7,
+      "reachable": 13,
+      "rarity": "uncommon",
+      "art": {
+        "svg": "CARD.svg",
+        "hero": null
       }
     },
     {
       "skill": "javascript-ecosystem",
       "bucket": "engineering",
+      "domain": "Frontend / UI",
       "title": "javascript-ecosystem",
       "description": "Default to the latest stable major versions of JavaScript and TypeScript frameworks and their current paradigms, instead of the older versions and patterns that dominate LLM training data. A...",
       "risk_tier": "executable-L1",
@@ -255,11 +288,19 @@
         "content_provenance": "n/a for executable skills",
         "vouching": "0 attestation(s) bound to this digest",
         "freshness": "not expired"
+      },
+      "trust_score": 7,
+      "reachable": 13,
+      "rarity": "uncommon",
+      "art": {
+        "svg": "CARD.svg",
+        "hero": null
       }
     },
     {
       "skill": "mcp-server",
       "bucket": "engineering",
+      "domain": "AI & Agents",
       "title": "mcp-server",
       "description": "Build, extend, and maintain a Model Context Protocol (MCP) server across its whole lifecycle against the current spec and official SDKs. Covers the architecture, choosing a transport (stdio vs...",
       "risk_tier": "executable-L1",
@@ -321,11 +362,19 @@
         "content_provenance": "n/a for executable skills",
         "vouching": "0 attestation(s) bound to this digest",
         "freshness": "not expired"
+      },
+      "trust_score": 7,
+      "reachable": 13,
+      "rarity": "uncommon",
+      "art": {
+        "svg": "CARD.svg",
+        "hero": null
       }
     },
     {
       "skill": "odsf",
       "bucket": "engineering",
+      "domain": "AI & Agents",
       "title": "odsf",
       "description": "Author, validate, and maintain a design system for AI agents as a conformant Open Design System Format (ODSF) bundle, a profile (v0.1) of the Open Knowledge Format that adds design tokens, runnable...",
       "risk_tier": "executable-L1",
@@ -375,11 +424,19 @@
         "content_provenance": "n/a for executable skills",
         "vouching": "0 attestation(s) bound to this digest",
         "freshness": "not expired"
+      },
+      "trust_score": 7,
+      "reachable": 13,
+      "rarity": "uncommon",
+      "art": {
+        "svg": "CARD.svg",
+        "hero": null
       }
     },
     {
       "skill": "okf",
       "bucket": "engineering",
+      "domain": "AI & Agents",
       "title": "okf",
       "description": "Author, validate, and maintain knowledge for AI agents as conformant Open Knowledge Format (OKF) bundles, Google's vendor-neutral spec (v0.1) of markdown files with YAML frontmatter for portable...",
       "risk_tier": "executable-L1",
@@ -430,11 +487,19 @@
         "content_provenance": "n/a for executable skills",
         "vouching": "0 attestation(s) bound to this digest",
         "freshness": "not expired"
+      },
+      "trust_score": 7,
+      "reachable": 13,
+      "rarity": "uncommon",
+      "art": {
+        "svg": "CARD.svg",
+        "hero": null
       }
     },
     {
       "skill": "react-compiler",
       "bucket": "engineering",
+      "domain": "Frontend / UI",
       "title": "react-compiler",
       "description": "Write and review React code as if the React Compiler is enabled. Skip manual useMemo, useCallback, and React.memo by default, and audit existing code for stale manual memoization. Use when writing or...",
       "risk_tier": "executable-L1",
@@ -477,11 +542,19 @@
         "content_provenance": "n/a for executable skills",
         "vouching": "0 attestation(s) bound to this digest",
         "freshness": "not expired"
+      },
+      "trust_score": 7,
+      "reachable": 13,
+      "rarity": "uncommon",
+      "art": {
+        "svg": "CARD.svg",
+        "hero": null
       }
     },
     {
       "skill": "react-stinky",
       "bucket": "engineering",
+      "domain": "Frontend / UI",
       "title": "react-stinky",
       "description": "Detect React and TypeScript maintainability smells across the whole component, hook, and module, not just its props, then explain the cost of each and propose a concrete fix with a source link....",
       "risk_tier": "executable-L1",
@@ -543,11 +616,19 @@
         "content_provenance": "n/a for executable skills",
         "vouching": "0 attestation(s) bound to this digest",
         "freshness": "not expired"
+      },
+      "trust_score": 7,
+      "reachable": 13,
+      "rarity": "uncommon",
+      "art": {
+        "svg": "CARD.svg",
+        "hero": null
       }
     },
     {
       "skill": "theme-colors",
       "bucket": "engineering",
+      "domain": "Frontend / UI",
       "title": "theme-colors",
       "description": "Audit and refactor UI code so every color value comes from the theme. Replace hex codes, rgba(), hsl(), oklch() literals, and named CSS colors with theme palette tokens (primary, secondary, error...",
       "risk_tier": "executable-L1",
@@ -590,15 +671,23 @@
         "content_provenance": "n/a for executable skills",
         "vouching": "0 attestation(s) bound to this digest",
         "freshness": "not expired"
+      },
+      "trust_score": 7,
+      "reachable": 13,
+      "rarity": "uncommon",
+      "art": {
+        "svg": "CARD.svg",
+        "hero": null
       }
     },
     {
       "skill": "trust-card",
       "bucket": "engineering",
+      "domain": "Security",
       "title": "trust-card",
       "description": "Generate, sign, attest, and verify holistic trust cards for OKF knowledge bundles and agent skills. A card binds content, artifact, and capability provenance into one OKF concept and renders a graded...",
       "risk_tier": "executable-L1",
-      "target_digest": "sha256:59d66cbf98a4fadadde93b548310c5d102110e74639d0b819b9f05e5e93e5470",
+      "target_digest": "sha256:3deb60841aac7b29c4487d554a5ff576da7de17a19e028396c81f159fdf7971f",
       "identity": "did:web:saschb2b.com",
       "expires": "2027-06-29",
       "capability": {
@@ -626,7 +715,7 @@
       ],
       "grades": {
         "integrity": "STRONG",
-        "authorship": "ABSENT",
+        "authorship": "STRONG",
         "capability": "MEDIUM",
         "content_provenance": "UNVERIFIED",
         "vouching": "ABSENT",
@@ -634,16 +723,24 @@
       },
       "notes": {
         "integrity": "digest matches live bundle",
-        "authorship": "card is unsigned",
+        "authorship": "sigstore + rekor, cosign verify-blob OK; signer not pinned (pass --cert-identity to assert who)",
         "capability": "permission manifest declared (enforce in sandbox)",
         "content_provenance": "n/a for executable skills",
         "vouching": "0 attestation(s) bound to this digest",
         "freshness": "not expired"
+      },
+      "trust_score": 10,
+      "reachable": 13,
+      "rarity": "rare",
+      "art": {
+        "svg": "CARD.svg",
+        "hero": null
       }
     },
     {
       "skill": "visual-consistency",
       "bucket": "engineering",
+      "domain": "Frontend / UI",
       "title": "visual-consistency",
       "description": "Detect and fix visual and layout consistency defects in rendered UI, the systematic raggedness AI generators emit and seniors notice at a glance. Covers uneven card heights in a grid, sibling cards...",
       "risk_tier": "executable-L1",
@@ -705,11 +802,19 @@
         "content_provenance": "n/a for executable skills",
         "vouching": "0 attestation(s) bound to this digest",
         "freshness": "not expired"
+      },
+      "trust_score": 7,
+      "reachable": 13,
+      "rarity": "uncommon",
+      "art": {
+        "svg": "CARD.svg",
+        "hero": null
       }
     },
     {
       "skill": "ask-ux",
       "bucket": "productivity",
+      "domain": "Frontend / UI",
       "title": "ask-ux",
       "description": "Force UX questioning before any UI work, refactor, or redesign. Use when the user asks to design, redesign, restyle, polish, \"fix\", or \"make nicer\" a screen, component, page, or flow. Also use when...",
       "risk_tier": "executable-L1",
@@ -752,11 +857,19 @@
         "content_provenance": "n/a for executable skills",
         "vouching": "0 attestation(s) bound to this digest",
         "freshness": "not expired"
+      },
+      "trust_score": 7,
+      "reachable": 13,
+      "rarity": "uncommon",
+      "art": {
+        "svg": "CARD.svg",
+        "hero": null
       }
     },
     {
       "skill": "autopilot",
       "bucket": "productivity",
+      "domain": "Writing",
       "title": "autopilot",
       "description": "Work autonomously on a project without waiting for direction. On command, survey the codebase, pick one high-value low-risk improvement, do it, verify it, commit it, then pick the next, looping like...",
       "risk_tier": "executable-L1",
@@ -797,11 +910,19 @@
         "content_provenance": "n/a for executable skills",
         "vouching": "0 attestation(s) bound to this digest",
         "freshness": "not expired"
+      },
+      "trust_score": 7,
+      "reachable": 13,
+      "rarity": "uncommon",
+      "art": {
+        "svg": "CARD.svg",
+        "hero": null
       }
     },
     {
       "skill": "game-design",
       "bucket": "productivity",
+      "domain": "Game",
       "title": "game-design",
       "description": "Analyze, design, critique, balance, and rework video game mechanics, systems, and interface, grounded in a cross-game pattern catalog and design frameworks (MDA, core loops, flow, motivation, game...",
       "risk_tier": "executable-L1",
@@ -863,11 +984,19 @@
         "content_provenance": "n/a for executable skills",
         "vouching": "0 attestation(s) bound to this digest",
         "freshness": "not expired"
+      },
+      "trust_score": 7,
+      "reachable": 13,
+      "rarity": "uncommon",
+      "art": {
+        "svg": "CARD.svg",
+        "hero": null
       }
     },
     {
       "skill": "no-slop",
       "bucket": "productivity",
+      "domain": "Writing",
       "title": "no-slop",
       "description": "Write and revise human-facing prose in a plain, precise, professional register, stripping the tells that mark text as AI-generated. Use when writing or editing a README, blog post, doc, PR or commit...",
       "risk_tier": "executable-L1",
@@ -908,11 +1037,19 @@
         "content_provenance": "n/a for executable skills",
         "vouching": "0 attestation(s) bound to this digest",
         "freshness": "not expired"
+      },
+      "trust_score": 7,
+      "reachable": 13,
+      "rarity": "uncommon",
+      "art": {
+        "svg": "CARD.svg",
+        "hero": null
       }
     },
     {
       "skill": "to-story",
       "bucket": "productivity",
+      "domain": "Writing",
       "title": "to-story",
       "description": "Reshape a draft ticket, Jira issue, or GitHub issue from an engineer's braindump into a real user story with INVEST-clean acceptance criteria, and split stories that are too large using SPIDR. Use...",
       "risk_tier": "executable-L1",
@@ -955,6 +1092,13 @@
         "content_provenance": "n/a for executable skills",
         "vouching": "0 attestation(s) bound to this digest",
         "freshness": "not expired"
+      },
+      "trust_score": 7,
+      "reachable": 13,
+      "rarity": "uncommon",
+      "art": {
+        "svg": "CARD.svg",
+        "hero": null
       }
     }
   ]
