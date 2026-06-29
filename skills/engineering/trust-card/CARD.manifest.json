@@ -1,0 +1,34 @@
+[
+  {
+    "path": "SKILL.md",
+    "sha256": "c23d6622c53ad213fd720ccb0fc8edce13c1d39ade042257b68cae5d409244ed"
+  },
+  {
+    "path": "assets/card.template.md",
+    "sha256": "401eca08e83bd7a773bb0d5c86db505fd000c03814b854dd46393ba783187001"
+  },
+  {
+    "path": "permissions.yaml",
+    "sha256": "33bfa7d5ae883a4afb3365ea0704ed4acac7d349ccaa196021801b1cae9dd90e"
+  },
+  {
+    "path": "references/grading.md",
+    "sha256": "68e355aba12bb42d615e4604ed2859d0937f37a17bfd74fccce47dcdc2c1a624"
+  },
+  {
+    "path": "references/index.md",
+    "sha256": "a74474e836444ab63e0579aa1cdf943d3c2f26c6fb4b22c4c331042f1ffb1851"
+  },
+  {
+    "path": "references/layers.md",
+    "sha256": "23b035b820ce86dd088dacfc683c9bf0e743014a96a84a1d4d3566a9ad210498"
+  },
+  {
+    "path": "references/rendering.md",
+    "sha256": "9f194ec50502e83468b4cd8a3e12afb6f820e178a2bdc3405c8e1921ba7f3da4"
+  },
+  {
+    "path": "scripts/card.py",
+    "sha256": "394cdd24d1fce54f25f0c8e9b8b4847b1f691157fc0273c4ab1e9088ccca9af7"
+  }
+]

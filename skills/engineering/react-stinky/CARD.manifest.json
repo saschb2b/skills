@@ -1,0 +1,22 @@
+[
+  {
+    "path": "SKILL.md",
+    "sha256": "20841dad9dd93f3408f0f5913b32d4bcabbd2894e509c00927173cc6e67a8c8a"
+  },
+  {
+    "path": "permissions.yaml",
+    "sha256": "a59c33d37ea2d14fbd0b443829a952a6a6ff099c8ffcdc1f12ff6a8e9c8112aa"
+  },
+  {
+    "path": "references/catalog.md",
+    "sha256": "30827d62efb74b82ad74457ed83ab53613f4894f60ccd4b6edf23238219341a0"
+  },
+  {
+    "path": "references/duplication-pass.md",
+    "sha256": "46a704cd205af0a8aaa05d4c43255bea110ee5416d7e395f81478df5cb6f344b"
+  },
+  {
+    "path": "references/index.md",
+    "sha256": "8988235ef78252e46736dbebd06019b3d1f230210cdbf77f551747fa08ebce59"
+  }
+]

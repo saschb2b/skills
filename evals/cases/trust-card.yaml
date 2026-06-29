@@ -1,0 +1,16 @@
+owner: trust-card
+
+should_fire:
+  - make a trust card for this skill
+  - sign and attest this OKF bundle before we publish it
+  - "is this skill safe to load?"
+  - verify this bundle has not been tampered with
+  - generate a provenance card for our agent skill and grade its trust
+
+route_to_sibling:
+  - prompt: start an OKF bundle for our analytics knowledge
+    expect: okf
+
+should_not_fire:
+  - turn this braindump into a user story
+  - rewrite this README so it doesn't sound AI-generated

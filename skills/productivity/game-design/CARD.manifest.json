@@ -1,0 +1,82 @@
+[
+  {
+    "path": "INTEGRATION.md",
+    "sha256": "3265353eb9136295cd8ba62f2ff6f375a58abb606e56b81b9fcd74d3124d5fab"
+  },
+  {
+    "path": "SKILL.md",
+    "sha256": "355537afc69e149346b046b8aee41829b2bd9d2c5c36c8dbd7e84d0372048ef2"
+  },
+  {
+    "path": "permissions.yaml",
+    "sha256": "a59c33d37ea2d14fbd0b443829a952a6a6ff099c8ffcdc1f12ff6a8e9c8112aa"
+  },
+  {
+    "path": "references/accessibility.md",
+    "sha256": "dd217e5c6a435eccc5fa6183aa8d448c99a92ef3f94b9956b5c0398357dde2b3"
+  },
+  {
+    "path": "references/critique.md",
+    "sha256": "4549ffce0126eca05acfb9a3c6723e08181d3fcafeea18298d17e4b13a0804f0"
+  },
+  {
+    "path": "references/dialogue.md",
+    "sha256": "91f935648656d1f187e55938be29ded6dea79a8aa4e9e85254c7491571ca58bd"
+  },
+  {
+    "path": "references/frameworks.md",
+    "sha256": "db4f9f951ff518fb3cf37aec496118d32d37362c17cdaaefdb7579523a3b177a"
+  },
+  {
+    "path": "references/guidance-and-feedback.md",
+    "sha256": "e105c599321fc8ee0dd8d3f6c4ba7af03980329d585eb195bcd8bb55496f2a04"
+  },
+  {
+    "path": "references/index.md",
+    "sha256": "fb63a2120a54dcab951f50d04f1ece97e1d00dfeb8c0ea1cf9dfbaa61f0d4fa6"
+  },
+  {
+    "path": "references/input-prompts.md",
+    "sha256": "a7a298536015c178216424fb48dff7fc3d007d96139772717f0e8b5fbef3596b"
+  },
+  {
+    "path": "references/interface.md",
+    "sha256": "85f145823f70faf976e35f0e62d83012d68663632f0a990f23855204a1b225c5"
+  },
+  {
+    "path": "references/inventory.md",
+    "sha256": "7641cf8a9f72ee148317b17a8c6d6200865978bd458f5b7ae0da8514086b4975"
+  },
+  {
+    "path": "references/log.md",
+    "sha256": "0d0d086b1a365f8d979e2e0c28ee282af49badc84652294f693c2ade7efcb025"
+  },
+  {
+    "path": "references/menus-and-screens.md",
+    "sha256": "6798f0177dac02fcf603c185e570cebd9615ab99f9511631d2be111d5c8eaaa7"
+  },
+  {
+    "path": "references/method.md",
+    "sha256": "afefbc722d10152bb04ea8687da3aba2fbe79ea3c8ea25a81177ad8fdb142305"
+  },
+  {
+    "path": "references/onboarding.md",
+    "sha256": "d561265e3d25e7ad4e1832bfb8cacc474219e04a689c13a9f84868704fa869be"
+  },
+  {
+    "path": "references/patterns.md",
+    "sha256": "4ea3a05b336d6b0089b4cc2721cb1e48987ef0cbe1e5d4065b7dd383170d5c57"
+  },
+  {
+    "path": "references/principles.md",
+    "sha256": "b5ee7a0b9c8c933cec871e65c08a39cea976f555c5350630d36c1538e34188ca"
+  },
+  {
+    "path": "references/systems.md",
+    "sha256": "cbee6085efe8ac040b061608a80c628ee5bb4ddb45012574e1e250ef824b143e"
+  },
+  {
+    "path": "references/transitions.md",
+    "sha256": "fd875bc444f4f313c26a12abe48299c0b27cf7c444b0e275f1a421856506b6ad"
+  }
+]

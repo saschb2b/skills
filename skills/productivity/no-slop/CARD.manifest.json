@@ -1,0 +1,34 @@
+[
+  {
+    "path": "SKILL.md",
+    "sha256": "0ce15e25e92fd38bc76b0b591af51abf4d4d6f282e383f2f36b2e060ff9e84c9"
+  },
+  {
+    "path": "permissions.yaml",
+    "sha256": "a59c33d37ea2d14fbd0b443829a952a6a6ff099c8ffcdc1f12ff6a8e9c8112aa"
+  },
+  {
+    "path": "references/code-comments.md",
+    "sha256": "1b627215eca7a271fa3cb3025ff1f9b81d2bf7c08b29bc6641b9e98f61f3a981"
+  },
+  {
+    "path": "references/code-strings.md",
+    "sha256": "b3ca59d05f9c137e1e1601931c7cc1de9050cdc15060684ccd034d69bd2e1498"
+  },
+  {
+    "path": "references/commits-and-prs.md",
+    "sha256": "b77c4ab21508cb6fd56cee860b8ae2cd04bf44e22d289fee21e7b8dee94c324d"
+  },
+  {
+    "path": "references/formatting.md",
+    "sha256": "b42c561df6a9943683f718ecaffbedd59c20b11cc81d24481c48be8bdb6755b2"
+  },
+  {
+    "path": "references/index.md",
+    "sha256": "2416b6572623fe9eefaed8209b355b6f9bac43f78d76dcbb71f202f133c65ba0"
+  },
+  {
+    "path": "references/prose.md",
+    "sha256": "da9c30b01c00dd6778d035cae14a0301bb9712e88258cbc748a2070ec7614ea6"
+  }
+]

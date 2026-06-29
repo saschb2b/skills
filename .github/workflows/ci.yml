@@ -1,7 +1,13 @@
 # Validates the repo on every push to main and every pull request.
-# Deterministic checks only (no model, no secrets): skill conventions and the
-# invocation eval cases (valid YAML, schema, coverage). The full `pnpm eval`
-# routing run is an agent text run and is not part of CI.
+# Deterministic checks only (no model, no secrets): skill conventions, the
+# invocation eval cases (valid YAML, schema, coverage), and that no trust card
+# is stale against its bundle. The full `pnpm eval` routing run is an agent text
+# run and is not part of CI.
+#
+# The card gate checks integrity (a digest recompute, fully offline). It does
+# NOT byte-diff the rendered feed, because re-verifying a sigstore signature
+# needs cosign, which is absent here, so a signed card would grade authorship
+# MEDIUM in CI and STRONG locally. Integrity is the guarantee that matters.
 #
 # Uses `pull_request` (not `pull_request_target`) and a read-only token, so a
 # fork PR never gets secrets or write access. Per the audit-actions skill you
@@ -31,3 +37,5 @@ jobs:
         run: pnpm check
       - name: Eval cases (valid YAML, schema, coverage)
         run: pnpm eval:validate
+      - name: Trust cards current (no card stale against its bundle)
+        run: pnpm cards:check
