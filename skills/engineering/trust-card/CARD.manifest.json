@@ -1,0 +1,30 @@
+[
+  {
+    "path": "SKILL.md",
+    "sha256": "98cd074ea75bf02409b38a42a2e81a541a61aafdf0458d833743b1c319873b54"
+  },
+  {
+    "path": "assets/card.template.md",
+    "sha256": "401eca08e83bd7a773bb0d5c86db505fd000c03814b854dd46393ba783187001"
+  },
+  {
+    "path": "permissions.yaml",
+    "sha256": "33bfa7d5ae883a4afb3365ea0704ed4acac7d349ccaa196021801b1cae9dd90e"
+  },
+  {
+    "path": "references/grading.md",
+    "sha256": "68e355aba12bb42d615e4604ed2859d0937f37a17bfd74fccce47dcdc2c1a624"
+  },
+  {
+    "path": "references/index.md",
+    "sha256": "a95a096ed764a678ebefc9969d2a3dd3abaeca66c29f257b03fba00c6f2336c5"
+  },
+  {
+    "path": "references/layers.md",
+    "sha256": "a51abed721c421452df25549b782a2cabe670c028260be53f6463c322bae7ccf"
+  },
+  {
+    "path": "scripts/card.py",
+    "sha256": "353858a6f4603c829cf45bd88239fab185a792557cd0fbc67a28dee06d7f5c1b"
+  }
+]

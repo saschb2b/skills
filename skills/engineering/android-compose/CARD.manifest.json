@@ -1,0 +1,62 @@
+[
+  {
+    "path": "MAINTENANCE.md",
+    "sha256": "8acac4a3791d43b5763244096afc2619c13f6575182b0b15bff4e53c40a0d831"
+  },
+  {
+    "path": "SKILL.md",
+    "sha256": "fb6c4d710d78317226a9653fa5838cd3a79bf646f3361364410ebffacff921aa"
+  },
+  {
+    "path": "permissions.yaml",
+    "sha256": "a59c33d37ea2d14fbd0b443829a952a6a6ff099c8ffcdc1f12ff6a8e9c8112aa"
+  },
+  {
+    "path": "references/architecture.md",
+    "sha256": "f7c7061d67e798b62f6228f977673fee474ad9d3e8c8f6ef536489430d17ed01"
+  },
+  {
+    "path": "references/compose.md",
+    "sha256": "98849a498d006a0f1a466b131189e0d6be4327f95795b8ed4d144e0185a36ceb"
+  },
+  {
+    "path": "references/data.md",
+    "sha256": "0e7931a7e6b6b11ef5b23756f8918f1669ce834093f92e853b8e29f993370f9e"
+  },
+  {
+    "path": "references/index.md",
+    "sha256": "2f5cffe2d34f9b4dcc400be1f1c70625ca2a3e2cbfccfdba2bd4a793d283eaf0"
+  },
+  {
+    "path": "references/interop.md",
+    "sha256": "26bb59090f414cc457998371ae8bcfa8b6a9a40259ddc23f758556d2b25a8983"
+  },
+  {
+    "path": "references/material3-expressive.md",
+    "sha256": "03a309d20759bf051c469a10c627a491ae245ce56f80251f570a5349d2936509"
+  },
+  {
+    "path": "references/navigation.md",
+    "sha256": "330a7a5e5003a81980562e2c8ce12ffc005cfe0ca469f8bbae418fa000fd2334"
+  },
+  {
+    "path": "references/performance.md",
+    "sha256": "b9e07c2e2c4c8b8b04f1528e3e5110471112f0ad8cb999d0656c95b184897fcf"
+  },
+  {
+    "path": "references/pitfalls.md",
+    "sha256": "8190959cdc4bf64a2328df904907c30f98531c70bc9ddb9d3885fa3fbfa25c88"
+  },
+  {
+    "path": "references/testing.md",
+    "sha256": "b1d9a4a48d92f406577d7caf350cffd1eeb5c1c2c1bb73dcddd1d33dc0a0a0c3"
+  },
+  {
+    "path": "references/theming.md",
+    "sha256": "f2254cb5627a9a235da4afae3cc0f6d04cccb59b464afbd18c22d4f0956a4022"
+  },
+  {
+    "path": "references/tooling.md",
+    "sha256": "1fab807bd207d9c39638666e2b1e7d99346af5a08fbe488765b7db4c6a732ed4"
+  }
+]

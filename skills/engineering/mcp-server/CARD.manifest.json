@@ -1,0 +1,38 @@
+[
+  {
+    "path": "SKILL.md",
+    "sha256": "f9cd6eb5e7fd6d057a68e1012dfc9735a1f0263917407d9752441bc4abb74b0f"
+  },
+  {
+    "path": "permissions.yaml",
+    "sha256": "a59c33d37ea2d14fbd0b443829a952a6a6ff099c8ffcdc1f12ff6a8e9c8112aa"
+  },
+  {
+    "path": "references/index.md",
+    "sha256": "dc51a4764a7fb5040ca64a3b2bdb07a663b5a6bc6976df990b0bb29b9c074d98"
+  },
+  {
+    "path": "references/maintenance.md",
+    "sha256": "6621ceb8d339c3beeefed8a10eefb2a241bb52a351e7353c01f5a7d401d9b736"
+  },
+  {
+    "path": "references/protocol.md",
+    "sha256": "536e7ef2a9b2b82c70e5fa82215a184d918974b12d8cbc1039fbd7fa4cc33d7e"
+  },
+  {
+    "path": "references/publishing.md",
+    "sha256": "b9157fbc41b9bbe705d4ecaee744a39261e521d1c0c356528a2a17892aca2ad7"
+  },
+  {
+    "path": "references/security.md",
+    "sha256": "a81f4bafaef28787d638dfe95d825a9ad828f3729137767119061526155f3f67"
+  },
+  {
+    "path": "references/testing.md",
+    "sha256": "24ee25a198eaba2e85451dc2096e298aae514baac5d37efcde3ec840c84fe9f3"
+  },
+  {
+    "path": "references/tool-design.md",
+    "sha256": "e9578b9f4d3b8be47aa00b05259a89fb959107ddf3ef3a69e24966965aafec3a"
+  }
+]

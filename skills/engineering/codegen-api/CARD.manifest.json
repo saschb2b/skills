@@ -1,0 +1,22 @@
+[
+  {
+    "path": "SKILL.md",
+    "sha256": "50bba5d154bb246bddaad47477f27c592373c2bc0bba06ab8ef483f36d6de8c9"
+  },
+  {
+    "path": "permissions.yaml",
+    "sha256": "a59c33d37ea2d14fbd0b443829a952a6a6ff099c8ffcdc1f12ff6a8e9c8112aa"
+  },
+  {
+    "path": "references/dx-pitfalls.md",
+    "sha256": "097f0f1986282e8b7a962f9947853b416564d965e9e768525eeaa51545eefbc3"
+  },
+  {
+    "path": "references/fragments.md",
+    "sha256": "b2cf2ea8c8d16d4485cfb33808d74c4babfe02fe48a0319835f529663983d1d7"
+  },
+  {
+    "path": "references/index.md",
+    "sha256": "5d4621870ec8011151f2c3d0a8ef4e218c42ce22761b5a3b59ece92010446554"
+  }
+]

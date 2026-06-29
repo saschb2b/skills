@@ -1,0 +1,961 @@
+{
+  "repo": "saschb2b/skills",
+  "card_version": "0.1",
+  "count": 18,
+  "skills": [
+    {
+      "skill": "android-compose",
+      "bucket": "engineering",
+      "title": "android-compose",
+      "description": "Modern Android development with Jetpack Compose as the default UI toolkit and Material 3 Expressive as the default design direction, a dated snapshot. Covers Compose fundamentals (composables...",
+      "risk_tier": "executable-L1",
+      "target_digest": "sha256:f7096621f4eaa97fb5658cb40e82aa3e381b8b31ac5621989fe39e358e3d7267",
+      "identity": "did:web:saschb2b.com",
+      "expires": "2027-06-29",
+      "capability": {
+        "model": "executable",
+        "manifest_declared": "permissions.yaml",
+        "source": "declared",
+        "network": "see-manifest",
+        "shell": null,
+        "filesystem_writes": null,
+        "network_evidence": [],
+        "shell_evidence": [],
+        "declared_external_sources": []
+      },
+      "layers": [
+        "integrity",
+        "authorship",
+        "capability",
+        "content_provenance",
+        "vouching",
+        "freshness"
+      ],
+      "grades": {
+        "integrity": "STRONG",
+        "authorship": "ABSENT",
+        "capability": "MEDIUM",
+        "content_provenance": "UNVERIFIED",
+        "vouching": "ABSENT",
+        "freshness": "MEDIUM"
+      },
+      "notes": {
+        "integrity": "digest matches live bundle",
+        "authorship": "card is unsigned",
+        "capability": "permission manifest declared (enforce in sandbox)",
+        "content_provenance": "n/a for executable skills",
+        "vouching": "0 attestation(s) bound to this digest",
+        "freshness": "not expired"
+      }
+    },
+    {
+      "skill": "audit-actions",
+      "bucket": "engineering",
+      "title": "audit-actions",
+      "description": "Audit a repository's GitHub Actions workflows for unsafe pull_request_target usage that can lead to supply chain compromise. Use when the user asks to audit workflows, review CI/CD security, check...",
+      "risk_tier": "executable-L1",
+      "target_digest": "sha256:d8ac9d1ac04b2df935c1f558e21f843274f0ddf5398f6fa7cb4a85f5d8191201",
+      "identity": "did:web:saschb2b.com",
+      "expires": "2027-06-29",
+      "capability": {
+        "model": "executable",
+        "manifest_declared": "permissions.yaml",
+        "source": "declared",
+        "network": "see-manifest",
+        "shell": null,
+        "filesystem_writes": null,
+        "network_evidence": [],
+        "shell_evidence": [],
+        "declared_external_sources": [
+          "https://saschb2b.com/blog/pull-request-target-trap"
+        ]
+      },
+      "layers": [
+        "integrity",
+        "authorship",
+        "capability",
+        "content_provenance",
+        "vouching",
+        "freshness"
+      ],
+      "grades": {
+        "integrity": "STRONG",
+        "authorship": "ABSENT",
+        "capability": "MEDIUM",
+        "content_provenance": "UNVERIFIED",
+        "vouching": "ABSENT",
+        "freshness": "MEDIUM"
+      },
+      "notes": {
+        "integrity": "digest matches live bundle",
+        "authorship": "card is unsigned",
+        "capability": "permission manifest declared (enforce in sandbox)",
+        "content_provenance": "n/a for executable skills",
+        "vouching": "0 attestation(s) bound to this digest",
+        "freshness": "not expired"
+      }
+    },
+    {
+      "skill": "codegen-api",
+      "bucket": "engineering",
+      "title": "codegen-api",
+      "description": "Set up typesafe API code generation in 2026, preferring framework-agnostic options factories over generated hooks. Walks the decision matrix for REST (OpenAPI via hey-api) and GraphQL...",
+      "risk_tier": "executable-L1",
+      "target_digest": "sha256:3b9e0ddc69e433c9752a363fe6a75d05e03c6260469d04c14adf55efed2a91bb",
+      "identity": "did:web:saschb2b.com",
+      "expires": "2027-06-29",
+      "capability": {
+        "model": "executable",
+        "manifest_declared": "permissions.yaml",
+        "source": "declared",
+        "network": "see-manifest",
+        "shell": null,
+        "filesystem_writes": null,
+        "network_evidence": [],
+        "shell_evidence": [],
+        "declared_external_sources": [
+          "https://api.example.com/graphql",
+          "https://saschb2b.com/blog/typesafe-api-codegen-2026"
+        ]
+      },
+      "layers": [
+        "integrity",
+        "authorship",
+        "capability",
+        "content_provenance",
+        "vouching",
+        "freshness"
+      ],
+      "grades": {
+        "integrity": "STRONG",
+        "authorship": "ABSENT",
+        "capability": "MEDIUM",
+        "content_provenance": "UNVERIFIED",
+        "vouching": "ABSENT",
+        "freshness": "MEDIUM"
+      },
+      "notes": {
+        "integrity": "digest matches live bundle",
+        "authorship": "card is unsigned",
+        "capability": "permission manifest declared (enforce in sandbox)",
+        "content_provenance": "n/a for executable skills",
+        "vouching": "0 attestation(s) bound to this digest",
+        "freshness": "not expired"
+      }
+    },
+    {
+      "skill": "godot",
+      "bucket": "engineering",
+      "title": "godot",
+      "description": "Godot game engine development skill, a dated snapshot tracking the current stable Godot (4.x, currently 4.7). Covers GDScript static typing and syntax, scene and node architecture, the resource...",
+      "risk_tier": "executable-L1",
+      "target_digest": "sha256:3bcb3b5a5097286a6192737ce02eca252529819df2f8b826248c4a6f4d0ef737",
+      "identity": "did:web:saschb2b.com",
+      "expires": "2027-06-29",
+      "capability": {
+        "model": "executable",
+        "manifest_declared": "permissions.yaml",
+        "source": "declared",
+        "network": "see-manifest",
+        "shell": null,
+        "filesystem_writes": null,
+        "network_evidence": [],
+        "shell_evidence": [],
+        "declared_external_sources": [
+          "https://docs.godotengine.org/en/4.7/tutorials/migrating/upgrading_to_godot_4.7.html",
+          "https://godotengine.org/releases/4.7/"
+        ]
+      },
+      "layers": [
+        "integrity",
+        "authorship",
+        "capability",
+        "content_provenance",
+        "vouching",
+        "freshness"
+      ],
+      "grades": {
+        "integrity": "STRONG",
+        "authorship": "ABSENT",
+        "capability": "MEDIUM",
+        "content_provenance": "UNVERIFIED",
+        "vouching": "ABSENT",
+        "freshness": "MEDIUM"
+      },
+      "notes": {
+        "integrity": "digest matches live bundle",
+        "authorship": "card is unsigned",
+        "capability": "permission manifest declared (enforce in sandbox)",
+        "content_provenance": "n/a for executable skills",
+        "vouching": "0 attestation(s) bound to this digest",
+        "freshness": "not expired"
+      }
+    },
+    {
+      "skill": "javascript-ecosystem",
+      "bucket": "engineering",
+      "title": "javascript-ecosystem",
+      "description": "Default to the latest stable major versions of JavaScript and TypeScript frameworks and their current paradigms, instead of the older versions and patterns that dominate LLM training data. A...",
+      "risk_tier": "executable-L1",
+      "target_digest": "sha256:8912d634a8feb0976fb22ba614207b3a93acede9356d8fb38e60aa7f32cdba0a",
+      "identity": "did:web:saschb2b.com",
+      "expires": "2027-06-29",
+      "capability": {
+        "model": "executable",
+        "manifest_declared": "permissions.yaml",
+        "source": "declared",
+        "network": "see-manifest",
+        "shell": null,
+        "filesystem_writes": null,
+        "network_evidence": [],
+        "shell_evidence": [],
+        "declared_external_sources": [
+          "https://ai-sdk.dev/docs/migration-guides/migration-guide-5-0",
+          "https://analogjs.org/docs",
+          "https://analogjs.org/docs/features/routing/overview",
+          "https://angular.dev/ai/mcp",
+          "https://angular.dev/guide/signals",
+          "https://angular.dev/guide/testing",
+          "https://angular.dev/guide/testing/migrating-to-vitest",
+          "https://angular.dev/reference/releases",
+          "https://api.example.com",
+          "https://api.example.com/graphql",
+          "https://api.example.com/v1/",
+          "https://app.posthog.com",
+          "https://astro.build/blog/astro-5/",
+          "https://authjs.dev/getting-started/migrating-to-v5",
+          "https://base-ui.com/react/overview/quick-start",
+          "https://biomejs.dev/",
+          "https://biomejs.dev/linter/plugins/",
+          "https://blog.date-fns.org/v40-with-time-zone-support/",
+          "https://blog.vuejs.org/",
+          "https://bun.com/blog"
+        ]
+      },
+      "layers": [
+        "integrity",
+        "authorship",
+        "capability",
+        "content_provenance",
+        "vouching",
+        "freshness"
+      ],
+      "grades": {
+        "integrity": "STRONG",
+        "authorship": "ABSENT",
+        "capability": "MEDIUM",
+        "content_provenance": "UNVERIFIED",
+        "vouching": "ABSENT",
+        "freshness": "MEDIUM"
+      },
+      "notes": {
+        "integrity": "digest matches live bundle",
+        "authorship": "card is unsigned",
+        "capability": "permission manifest declared (enforce in sandbox)",
+        "content_provenance": "n/a for executable skills",
+        "vouching": "0 attestation(s) bound to this digest",
+        "freshness": "not expired"
+      }
+    },
+    {
+      "skill": "mcp-server",
+      "bucket": "engineering",
+      "title": "mcp-server",
+      "description": "Build, extend, and maintain a Model Context Protocol (MCP) server across its whole lifecycle against the current spec and official SDKs. Covers the architecture, choosing a transport (stdio vs...",
+      "risk_tier": "executable-L1",
+      "target_digest": "sha256:a1765f3e0f65aa3542f654724c0caf8053689cbb0f02c415b7edcbbeef54b8bf",
+      "identity": "did:web:saschb2b.com",
+      "expires": "2027-06-29",
+      "capability": {
+        "model": "executable",
+        "manifest_declared": "permissions.yaml",
+        "source": "declared",
+        "network": "see-manifest",
+        "shell": null,
+        "filesystem_writes": null,
+        "network_evidence": [],
+        "shell_evidence": [],
+        "declared_external_sources": [
+          "https://blog.modelcontextprotocol.io/posts/2025-09-08-mcp-registry-preview/",
+          "https://blog.modelcontextprotocol.io/posts/2026-03-16-tool-annotations/",
+          "https://blog.modelcontextprotocol.io/posts/2026-07-28-release-candidate/",
+          "https://cheatsheetseries.owasp.org/cheatsheets/MCP_Security_Cheat_Sheet.html",
+          "https://example.com/mcp`",
+          "https://github.com/Vollkorn-Games/aseprite-mcp",
+          "https://github.com/Vollkorn-Games/godot-mcp",
+          "https://github.com/alice/weather-server",
+          "https://github.com/github/github-mcp-server",
+          "https://github.com/modelcontextprotocol/mcpb",
+          "https://github.com/modelcontextprotocol/typescript-sdk",
+          "https://modelcontextprotocol.io/docs/sdk",
+          "https://modelcontextprotocol.io/docs/tools/debugging",
+          "https://modelcontextprotocol.io/docs/tools/inspector",
+          "https://modelcontextprotocol.io/specification/2025-06-18/basic/authorization",
+          "https://modelcontextprotocol.io/specification/2025-06-18/basic/security_best_practices",
+          "https://modelcontextprotocol.io/specification/2025-11-25/basic/lifecycle",
+          "https://modelcontextprotocol.io/specification/2025-11-25/basic/transports",
+          "https://modelcontextprotocol.io/specification/2025-11-25/changelog",
+          "https://modelcontextprotocol.io/specification/2025-11-25/server/tools"
+        ]
+      },
+      "layers": [
+        "integrity",
+        "authorship",
+        "capability",
+        "content_provenance",
+        "vouching",
+        "freshness"
+      ],
+      "grades": {
+        "integrity": "STRONG",
+        "authorship": "ABSENT",
+        "capability": "MEDIUM",
+        "content_provenance": "UNVERIFIED",
+        "vouching": "ABSENT",
+        "freshness": "MEDIUM"
+      },
+      "notes": {
+        "integrity": "digest matches live bundle",
+        "authorship": "card is unsigned",
+        "capability": "permission manifest declared (enforce in sandbox)",
+        "content_provenance": "n/a for executable skills",
+        "vouching": "0 attestation(s) bound to this digest",
+        "freshness": "not expired"
+      }
+    },
+    {
+      "skill": "odsf",
+      "bucket": "engineering",
+      "title": "odsf",
+      "description": "Author, validate, and maintain a design system for AI agents as a conformant Open Design System Format (ODSF) bundle, a profile (v0.1) of the Open Knowledge Format that adds design tokens, runnable...",
+      "risk_tier": "executable-L1",
+      "target_digest": "sha256:345cdff3a0e2a9dd7a8968e894ae1fefc15a6d0d5eedd502a435de8591857089",
+      "identity": "did:web:saschb2b.com",
+      "expires": "2027-06-29",
+      "capability": {
+        "model": "executable",
+        "manifest_declared": "permissions.yaml",
+        "source": "declared",
+        "network": "see-manifest",
+        "shell": null,
+        "filesystem_writes": null,
+        "network_evidence": [],
+        "shell_evidence": [],
+        "declared_external_sources": [
+          "https://github.com/GoogleCloudPlatform/knowledge-catalog",
+          "https://github.com/GoogleCloudPlatform/knowledge-catalog/blob/main/okf/SPEC.md",
+          "https://github.com/google-labs-code/design.md",
+          "https://github.com/saschb2b/Open-Design-System-Format",
+          "https://github.com/saschb2b/Open-Design-System-Format/blob/main/PHILOSOPHY.md",
+          "https://github.com/saschb2b/Open-Design-System-Format/blob/main/SPEC.md",
+          "https://github.com/saschb2b/Open-Design-System-Format/blob/main/TEMPLATES.md",
+          "https://www.designtokens.org/"
+        ]
+      },
+      "layers": [
+        "integrity",
+        "authorship",
+        "capability",
+        "content_provenance",
+        "vouching",
+        "freshness"
+      ],
+      "grades": {
+        "integrity": "STRONG",
+        "authorship": "ABSENT",
+        "capability": "MEDIUM",
+        "content_provenance": "UNVERIFIED",
+        "vouching": "ABSENT",
+        "freshness": "MEDIUM"
+      },
+      "notes": {
+        "integrity": "digest matches live bundle",
+        "authorship": "card is unsigned",
+        "capability": "permission manifest declared (enforce in sandbox)",
+        "content_provenance": "n/a for executable skills",
+        "vouching": "0 attestation(s) bound to this digest",
+        "freshness": "not expired"
+      }
+    },
+    {
+      "skill": "okf",
+      "bucket": "engineering",
+      "title": "okf",
+      "description": "Author, validate, and maintain knowledge for AI agents as conformant Open Knowledge Format (OKF) bundles, Google's vendor-neutral spec (v0.1) of markdown files with YAML frontmatter for portable...",
+      "risk_tier": "executable-L1",
+      "target_digest": "sha256:5f5b940c890b130d7c463b0cca667b19b1c794eb9b20270fb325ce828ce46dc3",
+      "identity": "did:web:saschb2b.com",
+      "expires": "2027-06-29",
+      "capability": {
+        "model": "executable",
+        "manifest_declared": "permissions.yaml",
+        "source": "declared",
+        "network": "see-manifest",
+        "shell": null,
+        "filesystem_writes": null,
+        "network_evidence": [],
+        "shell_evidence": [],
+        "declared_external_sources": [
+          "https://cloud.google.com/blog/products/data-analytics/how-the-open-knowledge-format-can-improve-data-sharing/",
+          "https://console.cloud.google.com/bigquery?p=acme&d=sales&t=orders",
+          "https://example.com/docs/ga4-export",
+          "https://github.com/GoogleCloudPlatform/knowledge-catalog/blob/main/okf/SPEC.md",
+          "https://github.com/GoogleCloudPlatform/knowledge-catalog/tree/main/okf",
+          "https://support.google.com/analytics/answer/7029846",
+          "https://wiki.acme.example/metrics/engagement",
+          "https://wiki.acme.example/sales/orders",
+          "https://wiki.acme.internal/data/quality"
+        ]
+      },
+      "layers": [
+        "integrity",
+        "authorship",
+        "capability",
+        "content_provenance",
+        "vouching",
+        "freshness"
+      ],
+      "grades": {
+        "integrity": "STRONG",
+        "authorship": "ABSENT",
+        "capability": "MEDIUM",
+        "content_provenance": "UNVERIFIED",
+        "vouching": "ABSENT",
+        "freshness": "MEDIUM"
+      },
+      "notes": {
+        "integrity": "digest matches live bundle",
+        "authorship": "card is unsigned",
+        "capability": "permission manifest declared (enforce in sandbox)",
+        "content_provenance": "n/a for executable skills",
+        "vouching": "0 attestation(s) bound to this digest",
+        "freshness": "not expired"
+      }
+    },
+    {
+      "skill": "react-compiler",
+      "bucket": "engineering",
+      "title": "react-compiler",
+      "description": "Write and review React code as if the React Compiler is enabled. Skip manual useMemo, useCallback, and React.memo by default, and audit existing code for stale manual memoization. Use when writing or...",
+      "risk_tier": "executable-L1",
+      "target_digest": "sha256:b9fee74a132f971816f186950d29ef7f0ff782f610619fdeef9d0537ce531c78",
+      "identity": "did:web:saschb2b.com",
+      "expires": "2027-06-29",
+      "capability": {
+        "model": "executable",
+        "manifest_declared": "permissions.yaml",
+        "source": "declared",
+        "network": "see-manifest",
+        "shell": null,
+        "filesystem_writes": null,
+        "network_evidence": [],
+        "shell_evidence": [],
+        "declared_external_sources": [
+          "https://saschb2b.com/blog/react-compiler-year-in-review"
+        ]
+      },
+      "layers": [
+        "integrity",
+        "authorship",
+        "capability",
+        "content_provenance",
+        "vouching",
+        "freshness"
+      ],
+      "grades": {
+        "integrity": "STRONG",
+        "authorship": "ABSENT",
+        "capability": "MEDIUM",
+        "content_provenance": "UNVERIFIED",
+        "vouching": "ABSENT",
+        "freshness": "MEDIUM"
+      },
+      "notes": {
+        "integrity": "digest matches live bundle",
+        "authorship": "card is unsigned",
+        "capability": "permission manifest declared (enforce in sandbox)",
+        "content_provenance": "n/a for executable skills",
+        "vouching": "0 attestation(s) bound to this digest",
+        "freshness": "not expired"
+      }
+    },
+    {
+      "skill": "react-stinky",
+      "bucket": "engineering",
+      "title": "react-stinky",
+      "description": "Detect React and TypeScript maintainability smells across the whole component, hook, and module, not just its props, then explain the cost of each and propose a concrete fix with a source link....",
+      "risk_tier": "executable-L1",
+      "target_digest": "sha256:154620ea2fb5c2d91d48c2c21abdc3ca6608fd90e03ed7fd9492bfad7aa5c58d",
+      "identity": "did:web:saschb2b.com",
+      "expires": "2027-06-29",
+      "capability": {
+        "model": "executable",
+        "manifest_declared": "permissions.yaml",
+        "source": "declared",
+        "network": "see-manifest",
+        "shell": null,
+        "filesystem_writes": null,
+        "network_evidence": [],
+        "shell_evidence": [],
+        "declared_external_sources": [
+          "https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-label",
+          "https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/button_role",
+          "https://developer.mozilla.org/en-US/docs/Web/HTML/Element",
+          "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label",
+          "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#default_value",
+          "https://mui.com/material-ui/api/autocomplete/",
+          "https://mui.com/material-ui/api/button/",
+          "https://nextjs.org/docs/app/getting-started/server-and-client-components",
+          "https://react.dev/learn/choosing-the-state-structure#avoid-duplication-in-state",
+          "https://react.dev/learn/choosing-the-state-structure#avoid-redundant-state",
+          "https://react.dev/learn/choosing-the-state-structure#don-t-mirror-props-in-state",
+          "https://react.dev/learn/conditional-rendering",
+          "https://react.dev/learn/passing-data-deeply-with-context",
+          "https://react.dev/learn/passing-props-to-a-component",
+          "https://react.dev/learn/passing-props-to-a-component#passing-jsx-as-children",
+          "https://react.dev/learn/removing-effect-dependencies",
+          "https://react.dev/learn/rendering-lists",
+          "https://react.dev/learn/rendering-lists#keeping-list-items-in-order-with-key",
+          "https://react.dev/learn/responding-to-events#naming-event-handler-props",
+          "https://react.dev/learn/reusing-logic-with-custom-hooks"
+        ]
+      },
+      "layers": [
+        "integrity",
+        "authorship",
+        "capability",
+        "content_provenance",
+        "vouching",
+        "freshness"
+      ],
+      "grades": {
+        "integrity": "STRONG",
+        "authorship": "ABSENT",
+        "capability": "MEDIUM",
+        "content_provenance": "UNVERIFIED",
+        "vouching": "ABSENT",
+        "freshness": "MEDIUM"
+      },
+      "notes": {
+        "integrity": "digest matches live bundle",
+        "authorship": "card is unsigned",
+        "capability": "permission manifest declared (enforce in sandbox)",
+        "content_provenance": "n/a for executable skills",
+        "vouching": "0 attestation(s) bound to this digest",
+        "freshness": "not expired"
+      }
+    },
+    {
+      "skill": "theme-colors",
+      "bucket": "engineering",
+      "title": "theme-colors",
+      "description": "Audit and refactor UI code so every color value comes from the theme. Replace hex codes, rgba(), hsl(), oklch() literals, and named CSS colors with theme palette tokens (primary, secondary, error...",
+      "risk_tier": "executable-L1",
+      "target_digest": "sha256:8f2c47b14459154c05f9f82ff638864d4273b188fdaa3717529d9988dfdb7d47",
+      "identity": "did:web:saschb2b.com",
+      "expires": "2027-06-29",
+      "capability": {
+        "model": "executable",
+        "manifest_declared": "permissions.yaml",
+        "source": "declared",
+        "network": "see-manifest",
+        "shell": null,
+        "filesystem_writes": null,
+        "network_evidence": [],
+        "shell_evidence": [],
+        "declared_external_sources": [
+          "https://saschb2b.com/blog/designer-meets-theme"
+        ]
+      },
+      "layers": [
+        "integrity",
+        "authorship",
+        "capability",
+        "content_provenance",
+        "vouching",
+        "freshness"
+      ],
+      "grades": {
+        "integrity": "STRONG",
+        "authorship": "ABSENT",
+        "capability": "MEDIUM",
+        "content_provenance": "UNVERIFIED",
+        "vouching": "ABSENT",
+        "freshness": "MEDIUM"
+      },
+      "notes": {
+        "integrity": "digest matches live bundle",
+        "authorship": "card is unsigned",
+        "capability": "permission manifest declared (enforce in sandbox)",
+        "content_provenance": "n/a for executable skills",
+        "vouching": "0 attestation(s) bound to this digest",
+        "freshness": "not expired"
+      }
+    },
+    {
+      "skill": "trust-card",
+      "bucket": "engineering",
+      "title": "trust-card",
+      "description": "Generate, sign, attest, and verify holistic trust cards for OKF knowledge bundles and agent skills. A card binds content, artifact, and capability provenance into one OKF concept and renders a graded...",
+      "risk_tier": "executable-L1",
+      "target_digest": "sha256:59d66cbf98a4fadadde93b548310c5d102110e74639d0b819b9f05e5e93e5470",
+      "identity": "did:web:saschb2b.com",
+      "expires": "2027-06-29",
+      "capability": {
+        "model": "executable",
+        "manifest_declared": "permissions.yaml",
+        "source": "declared",
+        "network": "see-manifest",
+        "shell": null,
+        "filesystem_writes": null,
+        "network_evidence": [
+          "scripts/card.py"
+        ],
+        "shell_evidence": [
+          "scripts/card.py"
+        ],
+        "declared_external_sources": []
+      },
+      "layers": [
+        "integrity",
+        "authorship",
+        "capability",
+        "content_provenance",
+        "vouching",
+        "freshness"
+      ],
+      "grades": {
+        "integrity": "STRONG",
+        "authorship": "ABSENT",
+        "capability": "MEDIUM",
+        "content_provenance": "UNVERIFIED",
+        "vouching": "ABSENT",
+        "freshness": "MEDIUM"
+      },
+      "notes": {
+        "integrity": "digest matches live bundle",
+        "authorship": "card is unsigned",
+        "capability": "permission manifest declared (enforce in sandbox)",
+        "content_provenance": "n/a for executable skills",
+        "vouching": "0 attestation(s) bound to this digest",
+        "freshness": "not expired"
+      }
+    },
+    {
+      "skill": "visual-consistency",
+      "bucket": "engineering",
+      "title": "visual-consistency",
+      "description": "Detect and fix visual and layout consistency defects in rendered UI, the systematic raggedness AI generators emit and seniors notice at a glance. Covers uneven card heights in a grid, sibling cards...",
+      "risk_tier": "executable-L1",
+      "target_digest": "sha256:85e30105dbdc61340b15a75e0b7fb6c6dd4a3ca78e142c868ac49e343265ca17",
+      "identity": "did:web:saschb2b.com",
+      "expires": "2027-06-29",
+      "capability": {
+        "model": "executable",
+        "manifest_declared": "permissions.yaml",
+        "source": "declared",
+        "network": "see-manifest",
+        "shell": null,
+        "filesystem_writes": null,
+        "network_evidence": [],
+        "shell_evidence": [],
+        "declared_external_sources": [
+          "https://anthonyhobday.com/sideprojects/saferules/",
+          "https://atlassian.design/foundations/spacing",
+          "https://blog.logrocket.com/css-gap-vs-margin/",
+          "https://carbondesignsystem.com/components/data-table/usage/",
+          "https://carbondesignsystem.com/elements/2x-grid/overview/",
+          "https://carbondesignsystem.com/elements/icons/library/",
+          "https://css-tricks.com/flexbox-truncated-text/",
+          "https://css-tricks.com/tips-aligning-icons-text/",
+          "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_anchor_positioning",
+          "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_flexible_box_layout/Aligning_items_in_a_flex_container",
+          "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout",
+          "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout/Subgrid",
+          "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/line-clamp",
+          "https://developer.mozilla.org/en-US/docs/Web/CSS/aspect-ratio",
+          "https://developer.mozilla.org/en-US/docs/Web/CSS/font-variant-numeric",
+          "https://developer.mozilla.org/en-US/docs/Web/CSS/hyphens",
+          "https://developer.mozilla.org/en-US/docs/Web/CSS/overflow-wrap",
+          "https://developer.mozilla.org/en-US/docs/Web/CSS/text-align",
+          "https://developer.mozilla.org/en-US/docs/Web/CSS/text-overflow",
+          "https://developer.mozilla.org/en-US/docs/Web/CSS/text-wrap"
+        ]
+      },
+      "layers": [
+        "integrity",
+        "authorship",
+        "capability",
+        "content_provenance",
+        "vouching",
+        "freshness"
+      ],
+      "grades": {
+        "integrity": "STRONG",
+        "authorship": "ABSENT",
+        "capability": "MEDIUM",
+        "content_provenance": "UNVERIFIED",
+        "vouching": "ABSENT",
+        "freshness": "MEDIUM"
+      },
+      "notes": {
+        "integrity": "digest matches live bundle",
+        "authorship": "card is unsigned",
+        "capability": "permission manifest declared (enforce in sandbox)",
+        "content_provenance": "n/a for executable skills",
+        "vouching": "0 attestation(s) bound to this digest",
+        "freshness": "not expired"
+      }
+    },
+    {
+      "skill": "ask-ux",
+      "bucket": "productivity",
+      "title": "ask-ux",
+      "description": "Force UX questioning before any UI work, refactor, or redesign. Use when the user asks to design, redesign, restyle, polish, \"fix\", or \"make nicer\" a screen, component, page, or flow. Also use when...",
+      "risk_tier": "executable-L1",
+      "target_digest": "sha256:b8c42ed670805556d20a105952d950563744f5fea6b4086fb55acc007f691d3f",
+      "identity": "did:web:saschb2b.com",
+      "expires": "2027-06-29",
+      "capability": {
+        "model": "executable",
+        "manifest_declared": "permissions.yaml",
+        "source": "declared",
+        "network": "see-manifest",
+        "shell": null,
+        "filesystem_writes": null,
+        "network_evidence": [],
+        "shell_evidence": [],
+        "declared_external_sources": [
+          "https://saschb2b.com/blog/questions-before-pixels"
+        ]
+      },
+      "layers": [
+        "integrity",
+        "authorship",
+        "capability",
+        "content_provenance",
+        "vouching",
+        "freshness"
+      ],
+      "grades": {
+        "integrity": "STRONG",
+        "authorship": "ABSENT",
+        "capability": "MEDIUM",
+        "content_provenance": "UNVERIFIED",
+        "vouching": "ABSENT",
+        "freshness": "MEDIUM"
+      },
+      "notes": {
+        "integrity": "digest matches live bundle",
+        "authorship": "card is unsigned",
+        "capability": "permission manifest declared (enforce in sandbox)",
+        "content_provenance": "n/a for executable skills",
+        "vouching": "0 attestation(s) bound to this digest",
+        "freshness": "not expired"
+      }
+    },
+    {
+      "skill": "autopilot",
+      "bucket": "productivity",
+      "title": "autopilot",
+      "description": "Work autonomously on a project without waiting for direction. On command, survey the codebase, pick one high-value low-risk improvement, do it, verify it, commit it, then pick the next, looping like...",
+      "risk_tier": "executable-L1",
+      "target_digest": "sha256:ddf3683f9ad619f8b23bf76d1b71a02903489021917ba2531c0834b1ce879fd8",
+      "identity": "did:web:saschb2b.com",
+      "expires": "2027-06-29",
+      "capability": {
+        "model": "executable",
+        "manifest_declared": "permissions.yaml",
+        "source": "declared",
+        "network": "see-manifest",
+        "shell": null,
+        "filesystem_writes": null,
+        "network_evidence": [],
+        "shell_evidence": [],
+        "declared_external_sources": []
+      },
+      "layers": [
+        "integrity",
+        "authorship",
+        "capability",
+        "content_provenance",
+        "vouching",
+        "freshness"
+      ],
+      "grades": {
+        "integrity": "STRONG",
+        "authorship": "ABSENT",
+        "capability": "MEDIUM",
+        "content_provenance": "UNVERIFIED",
+        "vouching": "ABSENT",
+        "freshness": "MEDIUM"
+      },
+      "notes": {
+        "integrity": "digest matches live bundle",
+        "authorship": "card is unsigned",
+        "capability": "permission manifest declared (enforce in sandbox)",
+        "content_provenance": "n/a for executable skills",
+        "vouching": "0 attestation(s) bound to this digest",
+        "freshness": "not expired"
+      }
+    },
+    {
+      "skill": "game-design",
+      "bucket": "productivity",
+      "title": "game-design",
+      "description": "Analyze, design, critique, balance, and rework video game mechanics, systems, and interface, grounded in a cross-game pattern catalog and design frameworks (MDA, core loops, flow, motivation, game...",
+      "risk_tier": "executable-L1",
+      "target_digest": "sha256:2097eb2ec2049f9b5b6afca68d62143b7fd839e9c7fe43d2b91b44f3f9633ba1",
+      "identity": "did:web:saschb2b.com",
+      "expires": "2027-06-29",
+      "capability": {
+        "model": "executable",
+        "manifest_declared": "permissions.yaml",
+        "source": "declared",
+        "network": "see-manifest",
+        "shell": null,
+        "filesystem_writes": null,
+        "network_evidence": [],
+        "shell_evidence": [],
+        "declared_external_sources": [
+          "http://algorithmancy.8kindsoffun.com/",
+          "http://mycours.es/gamedesign2014/files/2014/10/Game-Feel-Steve-Swink-chapter-1.pdf",
+          "https://accessible.games/accessible-player-experiences/",
+          "https://archive.org/details/sequelitis-mega-man-classic-vs.-mega-man-x",
+          "https://books.google.com/books/about/Game_Mechanics.html?id=_Azio0txIdAC",
+          "https://celiahodent.com/gamers-brain-part-3-ux-engagement-immersion-retention-gdc17-talk/",
+          "https://code.claude.com/docs/en/hooks",
+          "https://code.claude.com/docs/en/memory",
+          "https://code.claude.com/docs/en/skills",
+          "https://danfelder.net/2015/05/21/design-101-complexity-vs-depth/",
+          "https://dblp.org/rec/conf/fdg/ZagalB013.html",
+          "https://dl.acm.org/doi/10.1145/1357054.1357282",
+          "https://dl.acm.org/doi/10.1145/985921.986102",
+          "https://emshort.blog/2016/04/12/beyond-branching-quality-based-and-salience-based-narrative-structures/",
+          "https://en.wikipedia.org/wiki/Flow_(psychology",
+          "https://gameaccessibilityguidelines.com/",
+          "https://gameaccessibilityguidelines.com/allow-controls-to-be-remapped-reconfigured/",
+          "https://gameaccessibilityguidelines.com/avoid-flickering-images-and-repetitive-patterns/",
+          "https://gameaccessibilityguidelines.com/use-an-easily-readable-default-font-size/",
+          "https://gamebalanceconcepts.wordpress.com/2010/07/21/level-3-transitive-mechanics-and-cost-curves/"
+        ]
+      },
+      "layers": [
+        "integrity",
+        "authorship",
+        "capability",
+        "content_provenance",
+        "vouching",
+        "freshness"
+      ],
+      "grades": {
+        "integrity": "STRONG",
+        "authorship": "ABSENT",
+        "capability": "MEDIUM",
+        "content_provenance": "UNVERIFIED",
+        "vouching": "ABSENT",
+        "freshness": "MEDIUM"
+      },
+      "notes": {
+        "integrity": "digest matches live bundle",
+        "authorship": "card is unsigned",
+        "capability": "permission manifest declared (enforce in sandbox)",
+        "content_provenance": "n/a for executable skills",
+        "vouching": "0 attestation(s) bound to this digest",
+        "freshness": "not expired"
+      }
+    },
+    {
+      "skill": "no-slop",
+      "bucket": "productivity",
+      "title": "no-slop",
+      "description": "Write and revise human-facing prose in a plain, precise, professional register, stripping the tells that mark text as AI-generated. Use when writing or editing a README, blog post, doc, PR or commit...",
+      "risk_tier": "executable-L1",
+      "target_digest": "sha256:0f338a92d287ba6b8d0abd7f5eace0e180f5ba10023a470f146a73b844a3ae9a",
+      "identity": "did:web:saschb2b.com",
+      "expires": "2027-06-29",
+      "capability": {
+        "model": "executable",
+        "manifest_declared": "permissions.yaml",
+        "source": "declared",
+        "network": "see-manifest",
+        "shell": null,
+        "filesystem_writes": null,
+        "network_evidence": [],
+        "shell_evidence": [],
+        "declared_external_sources": []
+      },
+      "layers": [
+        "integrity",
+        "authorship",
+        "capability",
+        "content_provenance",
+        "vouching",
+        "freshness"
+      ],
+      "grades": {
+        "integrity": "STRONG",
+        "authorship": "ABSENT",
+        "capability": "MEDIUM",
+        "content_provenance": "UNVERIFIED",
+        "vouching": "ABSENT",
+        "freshness": "MEDIUM"
+      },
+      "notes": {
+        "integrity": "digest matches live bundle",
+        "authorship": "card is unsigned",
+        "capability": "permission manifest declared (enforce in sandbox)",
+        "content_provenance": "n/a for executable skills",
+        "vouching": "0 attestation(s) bound to this digest",
+        "freshness": "not expired"
+      }
+    },
+    {
+      "skill": "to-story",
+      "bucket": "productivity",
+      "title": "to-story",
+      "description": "Reshape a draft ticket, Jira issue, or GitHub issue from an engineer's braindump into a real user story with INVEST-clean acceptance criteria, and split stories that are too large using SPIDR. Use...",
+      "risk_tier": "executable-L1",
+      "target_digest": "sha256:55f4796d8b9346ee35111950fd7bbbf66f459e2605eceaa314de9935feeae1bd",
+      "identity": "did:web:saschb2b.com",
+      "expires": "2027-06-29",
+      "capability": {
+        "model": "executable",
+        "manifest_declared": "permissions.yaml",
+        "source": "declared",
+        "network": "see-manifest",
+        "shell": null,
+        "filesystem_writes": null,
+        "network_evidence": [],
+        "shell_evidence": [],
+        "declared_external_sources": [
+          "https://saschb2b.com/blog/stories-not-braindumps"
+        ]
+      },
+      "layers": [
+        "integrity",
+        "authorship",
+        "capability",
+        "content_provenance",
+        "vouching",
+        "freshness"
+      ],
+      "grades": {
+        "integrity": "STRONG",
+        "authorship": "ABSENT",
+        "capability": "MEDIUM",
+        "content_provenance": "UNVERIFIED",
+        "vouching": "ABSENT",
+        "freshness": "MEDIUM"
+      },
+      "notes": {
+        "integrity": "digest matches live bundle",
+        "authorship": "card is unsigned",
+        "capability": "permission manifest declared (enforce in sandbox)",
+        "content_provenance": "n/a for executable skills",
+        "vouching": "0 attestation(s) bound to this digest",
+        "freshness": "not expired"
+      }
+    }
+  ]
+}

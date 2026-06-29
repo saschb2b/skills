@@ -1,0 +1,22 @@
+[
+  {
+    "path": "SKILL.md",
+    "sha256": "8fb8cad89b5a4556e5a866d63c87ab6b0f186bb2e13cdddf893a3eb60e181e6d"
+  },
+  {
+    "path": "permissions.yaml",
+    "sha256": "a59c33d37ea2d14fbd0b443829a952a6a6ff099c8ffcdc1f12ff6a8e9c8112aa"
+  },
+  {
+    "path": "references/exceptions.md",
+    "sha256": "982246534d93caedc0cd5389e37cd39ddc6d1427bdc572a3c553b5f6ec870ae4"
+  },
+  {
+    "path": "references/index.md",
+    "sha256": "bea433872ea8cc31a3b09701e1a5af000adb3f77f250892867bf0d6856357051"
+  },
+  {
+    "path": "references/lint-setup.md",
+    "sha256": "02b74a4c3409a0affb5987e255ff541ce5ba2cde2952d2dd47265d208ad79a7a"
+  }
+]
