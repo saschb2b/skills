@@ -192,8 +192,10 @@ const doc = { repo: "saschb2b/skills", card_version: "0.1", count: skills.length
 writeFileSync("cards.json", JSON.stringify(doc, null, 2) + "\n");
 console.log(`wrote cards.json + ${skills.length} CARD.svg (${skills.filter((s) => s.art.hero).length} with hero art)`);
 
-// --check (CI): fail if any card is stale vs its live bundle. Pair with
-// `git diff --exit-code` over cards.json and the SVGs to catch unbuilt output.
+// --check (CI): fail if any card is stale vs its live bundle (integrity is a
+// digest recompute, fully offline). The feed's byte freshness is not gated,
+// since re-verifying a sigstore signature needs cosign (absent in CI), which
+// would grade a signed card MEDIUM here and STRONG locally.
 if (process.argv.includes("--check")) {
   const stale = skills.filter((s) => s.grades?.integrity !== "STRONG").map((s) => s.skill);
   if (stale.length) {
