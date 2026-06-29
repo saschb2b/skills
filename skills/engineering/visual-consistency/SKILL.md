@@ -2,7 +2,7 @@
 name: visual-consistency
 description: Detect and fix visual and layout consistency defects in rendered UI, the systematic raggedness AI generators emit and seniors notice at a glance. Covers uneven card heights in a grid, sibling cards whose internal sections (title, body, footer) do not line up, trailing icons such as open-in-new-tab at ragged X positions, and arbitrary off-scale spacing, plus alignment, repeated elements (buttons, radius, shadow, icons), type scale, tables and numeric alignment, borders, overflow, layout shift, touch targets, and focus rings. Each smell carries an objective detection signal, a concrete CSS fix (subgrid, equal-height grids, spacing tokens, tabular-nums), an exception guard, a severity, and whether an agent may fix it freely or must surface a design call first. Use when reviewing or building any UI, when a card grid or list looks busy or ragged, when spacing feels arbitrary, or when asked to tidy or align a layout so it scans cleanly. Defers color to theme-colors and component code smells to react-stinky.
 tags: [frontend, ui, css, review]
-date: 2026-06-17
+date: 2026-06-29
 ---
 
 # Visual Consistency
@@ -25,13 +25,13 @@ These are the defects that prompted the skill. Each has a clean, modern fix; the
 Ten families, detailed with per-smell detection signals and sources in [catalog.md](./references/catalog.md):
 
 - **Card grids and repeated items.** Equal height, internal-section alignment (subgrid), ragged trailing icons and values.
-- **Spacing and rhythm.** Off-scale values, raw literals where a token exists, outer padding smaller than inner, spacing not reflecting grouping.
-- **Alignment and grid.** Elements not sharing a common edge, off baseline grid, icon-to-text misalignment, centered long text, mixed alignment, label and value rows that do not form a column, content-container width that jumps between sections.
+- **Spacing and rhythm.** Off-scale values, raw literals where a token exists, outer padding smaller than inner, content flush to the viewport edge, spacing not reflecting grouping.
+- **Alignment and grid.** Elements not sharing a common edge, off baseline grid, icon-to-text misalignment, centered long text, justified prose without hyphenation, mixed alignment, label and value rows that do not form a column, content-container width that jumps between sections.
 - **Repeated-element consistency.** Same-role buttons or inputs at different sizes, inconsistent border-radius, ad-hoc shadows instead of an elevation scale, mismatched icon sizes, inconsistent interaction states and untokenized motion.
-- **Typography.** Off-scale font sizes, too many sizes, line-height not paired to size, line length past the readable measure, awkward heading wrapping (balance and pretty), inconsistent units for one role.
+- **Typography.** Off-scale font sizes, too many sizes, line-height not paired to size, line length past the readable measure, awkward heading wrapping (balance and pretty), uppercase running text, inconsistent units for one role.
 - **Tables and lists.** Numbers not right-aligned, no `tabular-nums`, header not matching its column, uneven row heights.
 - **Borders and dividers.** Overuse of borders for separation, redundant adjacent divides, inconsistent divider weight.
-- **Responsive, overflow, long content.** Fixed widths that overflow small screens, long strings with no `overflow-wrap`, text clipped by a fixed height, ellipsis with no full-text affordance, text spacing the user cannot override.
+- **Responsive, overflow, long content.** Fixed widths that overflow small screens, long strings with no `overflow-wrap`, text clipped by a fixed height, positioned layers clipped by an ancestor's overflow, ellipsis with no full-text affordance, text spacing the user cannot override.
 - **Layout stability.** Media with no dimensions or `aspect-ratio`, skeletons sized differently from the loaded content.
 - **Touch targets and focus.** Hit area below the minimum, stripped focus outline with no replacement, inconsistent focus rings.
 
