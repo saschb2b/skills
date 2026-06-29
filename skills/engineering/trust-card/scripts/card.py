@@ -102,10 +102,27 @@ def parse_frontmatter(path: str) -> dict:
     if end == -1:
         return {}
     fm = {}
-    for line in text[3:end].splitlines():
-        if ":" in line and not line.strip().startswith("#"):
-            k, _, v = line.partition(":")
-            fm[k.strip()] = v.strip().strip('"').strip("'")
+    lines = text[3:end].splitlines()
+    i = 0
+    while i < len(lines):
+        line = lines[i]
+        i += 1
+        # only top-level `key: value` lines; skip blanks, comments, and indented
+        # (nested / continuation) lines
+        if not line.strip() or line.strip().startswith("#") or ":" not in line or line[:1] in (" ", "\t"):
+            continue
+        k, _, v = line.partition(":")
+        v = v.strip()
+        if v in (">", ">-", ">+", "|", "|-", "|+"):
+            # YAML block/folded scalar: gather the indented continuation lines
+            block = []
+            while i < len(lines) and (not lines[i].strip() or lines[i][:1] in (" ", "\t")):
+                block.append(lines[i].strip())
+                i += 1
+            joiner = "\n" if v[0] == "|" else " "
+            fm[k.strip()] = joiner.join(b for b in block if b).strip()
+        else:
+            fm[k.strip()] = v.strip('"').strip("'")
     return fm
 
 
