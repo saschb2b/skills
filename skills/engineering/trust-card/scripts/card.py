@@ -171,12 +171,20 @@ def detect_type(root: str) -> str:
     return "unknown"
 
 
+def summary(text: str, n: int = 200) -> str:
+    """A short card face: collapse whitespace, cut at a word boundary, not mid-word."""
+    text = " ".join((text or "").split())
+    if len(text) <= n:
+        return text
+    return text[:n].rsplit(" ", 1)[0].rstrip(",;:") + "..."
+
+
 def face(root: str, kind: str) -> dict:
     if kind == "skill":
         fm = parse_frontmatter(os.path.join(root, "SKILL.md"))
         return {"name": fm.get("name") or os.path.basename(os.path.abspath(root)),
                 "version": fm.get("version", "0.0.0"),
-                "description": fm.get("description", "")[:200]}
+                "description": summary(fm.get("description", ""))}
     fm = parse_frontmatter(os.path.join(root, "index.md"))
     return {"name": fm.get("title") or os.path.basename(os.path.abspath(root)),
             "version": fm.get("version", "0.0.0"),
@@ -494,6 +502,23 @@ def cmd_verify(args):
     else:
         grades["freshness"] = "UNVERIFIED"; notes["freshness"] = "no expiry set"
 
+    # machine-readable feed (for rendering elsewhere); skips the policy gate
+    if args.json:
+        print(json.dumps({
+            "title": data.get("title"),
+            "description": data.get("description"),
+            "risk_tier": data.get("risk_tier"),
+            "target_digest": data.get("target_digest"),
+            "identity": data.get("identity"),
+            "expires": data.get("expires"),
+            "capability": data.get("capability"),
+            "layers": ["integrity", "authorship", "capability",
+                       "content_provenance", "vouching", "freshness"],
+            "grades": grades,
+            "notes": notes,
+        }))
+        return
+
     # ---- render the gradient (never a single boolean)
     rank = {"STRONG": 3, "MEDIUM": 2, "WEAK": 1, "UNVERIFIED": 0, "ABSENT": 0}
     print(f"\nTrust gradient for: {data['title']}  [{data['risk_tier']}]")
@@ -554,6 +579,7 @@ def main():
     v = sub.add_parser("verify"); v.add_argument("card")
     v.add_argument("--bundle", help="bundle dir, to recompute integrity")
     v.add_argument("--policy", help="e.g. integrity:STRONG,authorship:MEDIUM")
+    v.add_argument("--json", action="store_true", help="emit the gradient as JSON instead of bars")
     v.set_defaults(func=cmd_verify)
 
     vl = sub.add_parser("validate"); vl.add_argument("card"); vl.set_defaults(func=cmd_validate)
