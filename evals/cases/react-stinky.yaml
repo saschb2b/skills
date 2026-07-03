@@ -5,6 +5,9 @@ should_fire:
   - smell-check the hooks in this folder
   - this component does fetching, state, and rendering all at once, clean it up
   - it has isError, isWarning, and isSuccess booleans, is that a smell?
+  - there is a stray 0 rendering above my list when it is empty
+  - my async onClick swallows errors and users can double-submit the form
+  - we get hydration mismatch warnings because this component calls Date.now() during render
 
 route_to_sibling:
   - prompt: should I keep these useMemo calls or drop them?
