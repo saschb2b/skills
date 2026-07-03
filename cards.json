@@ -556,9 +556,9 @@
       "bucket": "engineering",
       "domain": "Frontend / UI",
       "title": "react-stinky",
-      "description": "Detect React and TypeScript maintainability smells across the whole component, hook, and module, not just its props, then explain the cost of each and propose a concrete fix with a source link....",
+      "description": "Detect React and TypeScript maintainability smells across the whole component, hook, and module, explain the cost of each, and propose a fix with a source link. Covers prop and API design (naming...",
       "risk_tier": "executable-L1",
-      "target_digest": "sha256:154620ea2fb5c2d91d48c2c21abdc3ca6608fd90e03ed7fd9492bfad7aa5c58d",
+      "target_digest": "sha256:e839504495ac735bbb2280f40e3f65ee0f66f79b3817026e26cbd961a44d814e",
       "identity": "did:web:saschb2b.com",
       "expires": "2027-06-29",
       "capability": {
@@ -573,6 +573,7 @@
         "declared_external_sources": [
           "https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-label",
           "https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/button_role",
+          "https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/dialog_role",
           "https://developer.mozilla.org/en-US/docs/Web/HTML/Element",
           "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label",
           "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#default_value",
@@ -583,14 +584,13 @@
           "https://react.dev/learn/choosing-the-state-structure#avoid-redundant-state",
           "https://react.dev/learn/choosing-the-state-structure#don-t-mirror-props-in-state",
           "https://react.dev/learn/conditional-rendering",
+          "https://react.dev/learn/keeping-components-pure",
           "https://react.dev/learn/passing-data-deeply-with-context",
           "https://react.dev/learn/passing-props-to-a-component",
           "https://react.dev/learn/passing-props-to-a-component#passing-jsx-as-children",
-          "https://react.dev/learn/removing-effect-dependencies",
-          "https://react.dev/learn/rendering-lists",
-          "https://react.dev/learn/rendering-lists#keeping-list-items-in-order-with-key",
-          "https://react.dev/learn/responding-to-events#naming-event-handler-props",
-          "https://react.dev/learn/reusing-logic-with-custom-hooks"
+          "https://react.dev/learn/queueing-a-series-of-state-updates",
+          "https://react.dev/learn/referencing-values-with-refs",
+          "https://react.dev/learn/removing-effect-dependencies"
         ]
       },
       "layers": [
@@ -603,7 +603,7 @@
       ],
       "grades": {
         "integrity": "STRONG",
-        "authorship": "STRONG",
+        "authorship": "ABSENT",
         "capability": "MEDIUM",
         "content_provenance": "UNVERIFIED",
         "vouching": "ABSENT",
@@ -611,15 +611,15 @@
       },
       "notes": {
         "integrity": "digest matches live bundle",
-        "authorship": "sigstore + rekor, cosign verify-blob OK; signer not pinned (pass --cert-identity to assert who)",
+        "authorship": "card is unsigned",
         "capability": "permission manifest declared (enforce in sandbox)",
         "content_provenance": "n/a for executable skills",
         "vouching": "0 attestation(s) bound to this digest",
         "freshness": "not expired"
       },
-      "trust_score": 10,
+      "trust_score": 7,
       "reachable": 13,
-      "rarity": "rare",
+      "rarity": "uncommon",
       "art": {
         "svg": "CARD.svg",
         "hero": null
