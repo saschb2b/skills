@@ -13,12 +13,12 @@ Pillars:
 1. Component API and props (categories 1 to 18, the backbone)
 2. State and data flow (19 to 25)
 3. Effects and lifecycle (26 to 31)
-4. Component structure and hooks (32 to 36)
-5. Rendering correctness (37 to 43)
-6. Accessibility in markup (44 to 47)
-7. Async, events, and error handling (48 to 50)
-8. TypeScript discipline (51 to 55)
-9. Cross-file duplication (56, folder and repo scope only)
+4. Component structure and hooks (32 to 37)
+5. Rendering correctness (38 to 44)
+6. Accessibility in markup (45 to 48)
+7. Async, events, and error handling (49 to 51)
+8. TypeScript discipline (52 to 56)
+9. Cross-file duplication (57, folder and repo scope only)
 
 Defer memoization (`useMemo`, `useCallback`, `React.memo`) to the `react-compiler` skill and color literals to `theme-colors`.
 
@@ -228,29 +228,35 @@ Defer memoization (`useMemo`, `useCallback`, `React.memo`) to the `react-compile
 
 ### 32. god-component [Funky]
 - **Sniff for:** one component that fetches data, holds many `useState`/`useReducer`, runs business logic, and renders a large tree; hundreds of lines; a dozen handlers defined inline; mixed concerns that change for unrelated reasons; the hook-shaped twin, one `use*` hook that fetches, subscribes, manages a form, and returns a dozen values consumed by unrelated parts of the tree.
-- **Fix:** extract stateful logic into custom hooks (`useGameState`, `useSeedInput`) and extract presentational chunks into subcomponents. Split a god hook by concern the same way. Aim for a component that reads as a short composition of named parts.
+- **Fix:** extract stateful logic into custom hooks (`useGameState`, `useSeedInput`) and extract presentational chunks into subcomponents. Split a god hook by concern the same way. When the logic is data access or domain rules, extraction into a hook the view still calls only hides the coupling; lift it above the component instead and pass results down (category 33). Aim for a component that reads as a short composition of named parts.
 - **Don't flag:** length alone is not a smell. A long but linear, single-purpose render with no tangled state can be perfectly maintainable. Judge by number of responsibilities, not lines.
 - **Source:** React, Reusing Logic with Custom Hooks (https://react.dev/learn/reusing-logic-with-custom-hooks).
 
-### 33. nested-component-def [Rancid]
+### 33. coupled-view [Funky]
+- **Sniff for:** a reusable-looking view that reaches out to its environment instead of receiving props: API clients or query hooks (`useQuery`, `fetch`, an `api` module) called inside the component; global stores, app contexts, or the router read deep in the tree (`useSelector`, `useContext(AppState)`, `useRouter`); domain rules computed inline in the body or the JSX (pricing math, permission checks, validation policy, date logic). The litmus test is rendering it in a pure environment, Storybook or a unit test: if it needs the network, a store, a provider stack, or the router mocked before it renders at all, the view is coupled. A 500-line component file usually carries this smell and god-component (32) together.
+- **Fix:** split the container from the view. Lift data access and domain decisions one layer up (the page, a container component, or a hook composed there) and pass the results down as props named for the behavior they drive (`canEdit`, `dueLabel`, `onSubmit`, `items`), not for where the data came from. Move pure domain rules into plain functions above the view so they are testable without React. The leaf then renders anywhere from plain props, with no mocks.
+- **Don't flag:** page- and route-level components are the composition layer; fetching and store access is their job. Reading a narrow, app-wide context through a documented hook (theme, locale, session) is not environment coupling (see category 25 for context structure). Do not force a container split on a small one-off component that will never be reused or rendered in isolation.
+- **Source:** React, Thinking in React (https://react.dev/learn/thinking-in-react).
+
+### 34. nested-component-def [Rancid]
 - **Sniff for:** a `function Child() {}` or a `const Child = (...) => ...` defined inside another component's body and rendered as `<Child />`; a component created inside `map` or a render helper that returns a component type.
 - **Fix:** hoist the component to module scope (or pass data as props). A component defined inline is a brand-new type every render, so React unmounts and remounts it, losing its state and DOM and thrashing performance.
 - **Don't flag:** a small arrow that returns JSX and is called as a function (`{renderRow(item)}`), not mounted as `<Row />`, is just a helper and is fine. The smell is mounting a freshly-defined component type.
 - **Source:** React, Your First Component (https://react.dev/learn/your-first-component#nesting-and-organizing-components).
 
-### 34. extract-custom-hook [Funky]
+### 35. extract-custom-hook [Funky]
 - **Sniff for:** the same `useState` plus `useEffect` cluster copy-pasted across components (a fetch-and-loading block, a media-query listener, a debounce); stateful logic interleaved with unrelated rendering.
 - **Fix:** extract a `use*` hook that owns the state and effects and returns the values. Reuse it across components; the logic gets one home and a name.
 - **Don't flag:** a one-off piece of stateful logic used in a single place does not need a hook yet. Extract on the second use, not in anticipation.
 - **Source:** React, Reusing Logic with Custom Hooks (https://react.dev/learn/reusing-logic-with-custom-hooks#extracting-your-own-custom-hook-from-a-component).
 
-### 35. conditional-hooks [Rancid]
+### 36. conditional-hooks [Rancid]
 - **Sniff for:** a hook called inside an `if`, a loop, a `&&`, or after an early `return`; a hook count that can vary between renders; hooks called from a regular function that is not a component or a `use*` hook.
 - **Fix:** call every hook unconditionally at the top level, then branch on the result. Move conditions inside the hook (pass `enabled` flags) rather than around the call.
 - **Don't flag:** the React 19 `use(promise)` API may be called conditionally by design; it is the documented exception, not a violation of the Rules of Hooks.
 - **Source:** React, Rules of Hooks (https://react.dev/reference/rules/rules-of-hooks).
 
-### 36. positional-hook-params [Funky]
+### 37. positional-hook-params [Funky]
 - **Sniff for:** a hook or utility with three or more positional parameters, especially where the later ones are optional flags, numbers, or enums (`useGame(pool, seed, excluded, retryKey, gameType)`), so call sites read `useThing(a, b, undefined, 0, "custom")`.
 - **Fix:** keep the one or two required positional arguments, then collect the rest into a single options object (`useGame(pool, seed, { retryKey, gameType })`). Call sites become self-labeling and new options do not shift positions. This applies equally to a hook's typed contract (a `useGame: (a, b, c, d, e) => ...` prop or interface), not just the implementation.
 - **Don't flag:** one or two clear positional params (a value and a callback, like `useState(initial)`) are idiomatic and need no object.
@@ -258,43 +264,43 @@ Defer memoization (`useMemo`, `useCallback`, `React.memo`) to the `react-compile
 
 # Pillar 5. Rendering correctness
 
-### 37. index-keys [Funky, Rancid on a list that reorders or edits]
+### 38. index-keys [Funky, Rancid on a list that reorders or edits]
 - **Sniff for:** `key={index}` or `key={i}` on a list that can reorder, filter, insert, or delete; missing `key` on mapped elements; a non-stable key (`key={Math.random()}`) that remounts every item; a keyless shorthand fragment (`<>...</>`) as the mapped element, which cannot carry a key; nested maps keyed only at the inner level.
 - **Fix:** key by a stable, unique id from the data (`key={item.id}`). The key tells React which item is which across renders; an index gives the wrong answer the moment the list changes, corrupting input state and animations. Use `<Fragment key={...}>` for mapped fragments, and key every level of a nested map.
 - **Don't flag:** an index key is acceptable for a list that is static, never reordered, and has no per-item state or input. The bug only appears when items move.
 - **Source:** React, Rendering Lists (https://react.dev/learn/rendering-lists#keeping-list-items-in-order-with-key).
 
-### 38. direct-mutation [Rancid]
+### 39. direct-mutation [Rancid]
 - **Sniff for:** mutating state in place (`state.items.push(x)`, `obj.field = y`, `arr.sort()`) then calling `setState(sameRef)`; mutating a prop; splicing an array held in state; building the next state by editing the current one.
 - **Fix:** produce a new value (`setItems([...items, x])`, `setObj({ ...obj, field: y })`, `[...arr].sort()`). React compares by reference, so an in-place edit can render stale UI or skip updates. Never write to props.
 - **Don't flag:** mutating a brand-new local object you just created this render, before it enters state, is fine. The rule is about values React already holds.
 - **Source:** React, Updating Objects in State (https://react.dev/learn/updating-objects-in-state).
 
-### 39. impure-render [Rancid]
+### 40. impure-render [Rancid]
 - **Sniff for:** `Math.random()`, `Date.now()`, `new Date()`, or `crypto.randomUUID()` in the render path feeding ids, keys, or initial values (a new identity every render; under SSR, a hydration mismatch); mutating a module-level or outer-scope variable during render; calling `setState` unconditionally during render (an infinite loop) or setting another component's state during render (the "cannot update a component while rendering" error); browser-only reads in render (`window.innerWidth`, `localStorage`, `navigator.language`) that crash SSR or hydrate differently from the server output.
 - **Fix:** renders must be pure. Move randomness and clock reads into a lazy initializer (`useState(() => ...)`), an effect, or the event handler; use `useId` for stable element ids; bring browser state in through an effect or `useSyncExternalStore` with a server snapshot; compute locale- and time-dependent formatting from props the server also has.
 - **Don't flag:** the documented adjust-state-during-render form (`if (prev !== next) { setPrev(next); ... }`) is legal, though a `key` reset (category 31) usually reads better. Mutating an object you created during this same render is fine.
 - **Source:** React, Keeping Components Pure (https://react.dev/learn/keeping-components-pure).
 
-### 40. leaked-conditional [Rancid]
+### 41. leaked-conditional [Rancid]
 - **Sniff for:** a number on the left of `&&` in JSX (`{items.length && <List/>}`, `{count && <Badge/>}`), which renders a literal `0` (and crashes React Native when raw text lands outside `<Text>`); `NaN` leaking the same way; truthiness standing in for presence (`{value && <Stat value={value}/>}`), which hides legitimate falsy values (`0`, `''`).
 - **Fix:** make the left side a real boolean (`items.length > 0 &&`), or use a ternary with an explicit `null`; when `0` or `''` are valid values to show, test presence (`value != null`) instead of truthiness.
 - **Don't flag:** `&&` with a genuine boolean on the left is idiomatic and fine.
 - **Source:** React, Conditional Rendering (https://react.dev/learn/conditional-rendering).
 
-### 41. ternary-sprawl [Funky]
+### 42. ternary-sprawl [Funky]
 - **Sniff for:** nested ternaries inside JSX (`{a ? <X/> : b ? <Y/> : <Z/>}`), several deep; long `&&` chains gating blocks; the same condition repeated across multiple branches; an entire screen rendered as one giant conditional expression.
 - **Fix:** lift the decision out of JSX into a variable or an early `return`, or extract a subcomponent per branch. For more than two states, a small lookup map or a `switch` in a helper reads better than nested `?:`.
 - **Don't flag:** a single short ternary for a two-way choice (`{isOpen ? <Close/> : <Open/>}`) is clear and idiomatic.
 - **Source:** React, Conditional Rendering (https://react.dev/learn/conditional-rendering).
 
-### 42. repeated-markup [Funky]
+### 43. repeated-markup [Funky]
 - **Sniff for:** three or more JSX blocks that are near-identical and differ only in data (a `left`/`right` pair of the same panel repeated per content type; a `switch` whose arms render the same element shape; the same element duplicated for "A" and "B" sides); copy-pasted conditional branches kept in sync by hand.
 - **Fix:** extract one parameterized helper or subcomponent and call it with the differing data (`renderPanel('left')` and `renderPanel('right')`, or a `<Panel side="left" />` that switches on the content type internally). One shape, one place to change.
 - **Don't flag:** two short, diverging blocks, or blocks that look alike today but are expected to evolve apart. Duplication is cheaper than the wrong abstraction; flag clear, mechanical copy-paste, not every similarity.
 - **Source:** React, Rendering Lists (https://react.dev/learn/rendering-lists). (The DRY twin of component-naming, category 3, for inline JSX rather than whole components.)
 
-### 43. inline-jsx-churn [Whiff, Funky against a memoized child]
+### 44. inline-jsx-churn [Whiff, Funky against a memoized child]
 - **Sniff for:** a new object, array, or arrow literal created in JSX props (`style={{...}}`, `options={[...]}`, `onChange={() => ...}`) that feeds a memoized child component or an effect dependency.
 - **Fix:** hoist truly-static values to module-level constants; for values that depend on render, this is memoization territory, which the `react-compiler` skill owns. Without the compiler, a stable reference matters only when a `React.memo` child or an effect dep actually reads it.
 - **Don't flag:** inline literals on plain DOM elements or non-memoized children are fine and not worth a finding. Do not turn this into a blanket "no inline functions" rule.
@@ -302,25 +308,25 @@ Defer memoization (`useMemo`, `useCallback`, `React.memo`) to the `react-compile
 
 # Pillar 6. Accessibility in markup
 
-### 44. clickable-nonsemantic [Rancid]
+### 45. clickable-nonsemantic [Rancid]
 - **Sniff for:** `onClick` on a `<div>`, `<span>`, `<Box>`, `<Stack>`, `<Paper>`, or other non-interactive element with no `role`, no `tabIndex`, and no keyboard handler; a custom "button" that only works with a mouse; a clickable card or row that keyboard users cannot reach or trigger.
 - **Fix:** render a real control (`<button>`, `<a>`, MUI `Button`/`IconButton`, `CardActionArea`, or `component="button"`). If you must keep the element, add `role="button"`, `tabIndex={0}`, and an `onKeyDown` that fires on Enter and Space. Links use `<a href>`, not `onClick` navigation.
 - **Don't flag:** a click handler on a genuinely non-interactive surface where the same action is also available through a real focusable control nearby (a backdrop that closes a dialog, with an explicit close button) is a known pattern.
 - **Source:** MDN, button role (https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/button_role).
 
-### 45. semantic-html [Funky, Rancid when a form button defaults to submit]
+### 46. semantic-html [Funky, Rancid when a form button defaults to submit]
 - **Sniff for:** `<div>` soup where a semantic element fits (`<div onClick>` for a button, `<div>` lists instead of `<ul>/<li>`, headings faked with styled `<div>`, navigation not in `<nav>`, a `<div>` form without `<form>`); heading levels chosen for size, not structure; a `<button>` inside a `<form>` with no `type`, so it defaults to `submit` and fires the form; an `<img>` in markup with no `alt` attribute at all.
 - **Fix:** use the element that matches the meaning (`<button>`, `<nav>`, `<ul>`, `<main>`, `<header>`, `<h1>`..`<h6>` in order). Semantic elements bring focus, keyboard behavior, and screen-reader semantics for free; style them with CSS. Give every form button an explicit `type` (`type="button"` unless it submits); every `<img>` gets `alt`, empty for decorative.
 - **Don't flag:** a `<div>` used purely for layout or grouping with no semantic role is exactly what `<div>` is for. Not every element needs a semantic tag.
 - **Source:** MDN, HTML elements reference (https://developer.mozilla.org/en-US/docs/Web/HTML/Element).
 
-### 46. label-association [Rancid]
+### 47. label-association [Rancid]
 - **Sniff for:** an `<input>`, `<select>`, or `<textarea>` with no associated `<label htmlFor>`, no `aria-label`, and no `aria-labelledby`; placeholder text used as the only label; an icon-only control with no accessible name.
 - **Fix:** associate a visible `<label htmlFor={id}>` with the control's `id`, or wrap the control in the label. When no visible label exists, give an `aria-label`. Placeholder is a hint, not a label.
 - **Don't flag:** a control already labeled by a component that wires the association for you (MUI `TextField` with its `label` prop) is fine. Verify the wiring before flagging.
 - **Source:** MDN, the label element (https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label).
 
-### 47. focus-management [Funky, Rancid when keyboard users are trapped or dropped]
+### 48. focus-management [Funky, Rancid when keyboard users are trapped or dropped]
 - **Sniff for:** a hand-rolled modal, drawer, or popover with no focus trap, no focus move on open, no focus return to the trigger on close, and no Escape handling; a positive `tabIndex` (1 or more) rewriting the tab order; `autoFocus` on page-level content stealing focus on load (fine inside a dialog); removing the focused element (deleting a list row, closing a menu) so focus silently falls to `<body>`; `outline: none` with no visible `:focus-visible` replacement.
 - **Fix:** prefer a primitive that already manages focus (a native `<dialog>`, MUI Dialog/Menu/Popover, Radix); if hand-rolled, trap Tab inside, focus the first sensible element on open, restore focus to the trigger on close, and close on Escape; keep `tabIndex` to `0` and `-1`; after removing the focused node, move focus somewhere sensible on purpose; style focus with `:focus-visible` instead of deleting it.
 - **Don't flag:** components built on an a11y-complete library primitive already handle this; verify what the wrapper actually wraps before flagging.
@@ -328,19 +334,19 @@ Defer memoization (`useMemo`, `useCallback`, `React.memo`) to the `react-compile
 
 # Pillar 7. Async, events, and error handling
 
-### 48. async-handler [Funky, Rancid when a failure is silent or a double submit mutates twice]
+### 49. async-handler [Funky, Rancid when a failure is silent or a double submit mutates twice]
 - **Sniff for:** `onClick={async () => { await save() }}` with no `try`/`catch` and no error state, so a failed save disappears into an unhandled rejection; no pending state, so a double click fires the mutation twice; `setState` after `await` in a component that can unmount or refetch meanwhile, with no guard; fire-and-forget promises (`void doThing()`, a bare call) whose outcome the UI pretends to know; a `catch` that only logs to the console while the UI shows success.
 - **Fix:** every user-triggered promise needs an owner. Wrap the `await` in `try`/`catch` (or `.catch`) and land the failure in state the UI renders; track in-flight state and disable the control while pending (React 19 form `action`, `useActionState`, and `useTransition` provide pending and error handling for free); guard or abort continuations that can outlive the component.
 - **Don't flag:** a handler whose promise is already owned upstream (a mutation library with global error UI) is fine; logging alone can be acceptable for non-critical telemetry.
 - **Source:** React, useActionState (https://react.dev/reference/react/useActionState).
 
-### 49. missing-error-boundary [Funky]
+### 50. missing-error-boundary [Funky]
 - **Sniff for:** a whole app or route tree with no error boundary, so one render throw white-screens everything; risky subtrees (API-shaped content, markdown, embeds, third-party widgets) rendered bare; a `try`/`catch` wrapped around JSX expecting to catch a child's render error (it cannot); code relying on a boundary to catch event-handler or async errors (boundaries only catch render, lifecycle, and constructor throws); a boundary whose fallback is a dead end with no reset.
-- **Fix:** put boundaries at meaningful seams, the route and the independent widget, with a fallback that names the failure and offers a reset (remount via `key` or a reset callback); in the Next.js App Router, add `error.tsx` per segment; handle handler and async failures where they happen (category 48).
+- **Fix:** put boundaries at meaningful seams, the route and the independent widget, with a fallback that names the failure and offers a reset (remount via `key` or a reset callback); in the Next.js App Router, add `error.tsx` per segment; handle handler and async failures where they happen (category 49).
 - **Don't flag:** not every component needs a boundary. A framework layer that already provides one at the route level (Next.js `error.tsx`) counts.
 - **Source:** React, Catching rendering errors with an error boundary (https://react.dev/reference/react/Component#catching-rendering-errors-with-an-error-boundary).
 
-### 50. unsafe-html [Rancid]
+### 51. unsafe-html [Rancid]
 - **Sniff for:** `dangerouslySetInnerHTML` fed user- or API-supplied strings with no sanitization (stored XSS); fetched HTML or markdown rendered through a pipeline with sanitization disabled; an `href` or `src` built from user input with no scheme check (a `javascript:` URL executes on click); `target="_blank"` to an untrusted URL without `rel="noopener noreferrer"`.
 - **Fix:** prefer text and components over raw HTML; when raw HTML is the requirement, sanitize with DOMPurify (or a sanitizing markdown renderer) and centralize the one sink allowed to do it; allow only known URL schemes (http, https, mailto) on dynamic links; add `rel="noopener noreferrer"` to external `target="_blank"` links.
 - **Don't flag:** developer-authored static HTML in `dangerouslySetInnerHTML` is a maintainability whiff, not an injection risk. Modern browsers imply `noopener` on `target="_blank"`, so rate a missing `rel` low unless the URL is user-controlled.
@@ -348,31 +354,31 @@ Defer memoization (`useMemo`, `useCallback`, `React.memo`) to the `react-compile
 
 # Pillar 8. TypeScript discipline
 
-### 51. any-escape [Funky, Rancid when it hides a real bug]
+### 52. any-escape [Funky, Rancid when it hides a real bug]
 - **Sniff for:** `any`, `as any`, `: any` params, `any[]`, `Promise<any>`; `@ts-ignore` or `@ts-expect-error` suppressing a real error; an untyped third-party value flowing through the app as `any`.
 - **Fix:** type the value, or use `unknown` and narrow with a guard before use. For external data, validate at the boundary (a schema like Zod) and let the parsed type flow inward. Replace `@ts-ignore` with a typed fix or a narrowly-scoped, commented `@ts-expect-error`.
 - **Don't flag:** a single, commented `any` at a genuinely untyped boundary can be pragmatic. Prefer `unknown`, but do not block a change over one well-justified escape.
 - **Source:** typescript-eslint, no-explicit-any (https://typescript-eslint.io/rules/no-explicit-any/).
 
-### 52. unsafe-assertion [Funky, Rancid when the cast is false]
+### 53. unsafe-assertion [Funky, Rancid when the cast is false]
 - **Sniff for:** an `as` cast that changes the type to something the value is not (`as User` on a partial object, `as unknown as T` to silence the checker); a non-null assertion `!` on a value that can be null or undefined (`document.getElementById(id)!`, `data!.field`); casting away `readonly` or a union arm.
 - **Fix:** narrow with a runtime check (`if (!el) return`, `typeof`, `in`, a discriminant) so the type follows the check; reach for a type guard or schema validation instead of asserting. Use `!` only where you can prove non-null and a check is genuinely impossible.
 - **Don't flag:** a `const` assertion (`as const`) is a different, safe tool. A narrowing assertion the compiler cannot see but you can prove (a ref set in the same effect) may be acceptable with a comment.
 - **Source:** TypeScript, Everyday Types and type assertions (https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#type-assertions).
 
-### 53. loose-internal-types [Whiff, Funky for `Function`/`object`]
+### 54. loose-internal-types [Whiff, Funky for `Function`/`object`]
 - **Sniff for:** `object`, `{}`, or `Function` as a type; a `string` or `number` where a finite set of values is meant (a status, a mode, a kind) in internal (non-prop) code; an index signature (`Record<string, unknown>`) standing in for a known shape; implicit `any` from an untyped function.
 - **Fix:** model the real shape (an interface or a string-union type); type callbacks with their signature (`(id: string) => void`, not `Function`); replace stringly-typed states with a union (`type Status = 'idle' | 'loading' | 'done'`).
 - **Don't flag:** `unknown` for a genuinely unknown value, and `Record<string, T>` for a real dictionary, are correct. This is the internal-code twin of prop-specificity (category 4); apply the same "a rename or a union is already a win" judgment.
 - **Source:** TypeScript, Everyday Types (https://www.typescriptlang.org/docs/handbook/2/everyday-types.html).
 
-### 54. untyped-catch [Funky, Rancid when it hides real failures]
+### 55. untyped-catch [Funky, Rancid when it hides real failures]
 - **Sniff for:** `catch (e: any)` or property dives on a bare `e` (`e.message`, `e.response.data`) with no narrowing; an empty `catch {}` or `.catch(() => {})` that swallows the failure; `throw "string"` or `throw { code }`, so `instanceof Error` narrowing can never work; one catch-all mapping every failure to the same generic message when callers need to tell a validation error from an outage.
 - **Fix:** treat the caught value as `unknown` (turn on `useUnknownInCatchVariables`, part of `strict`) and narrow before use (`instanceof Error`, a type guard, schema-parse the error payload); handle what you can and rethrow the rest; throw `Error` subclasses so narrowing works; when callers branch on failure kinds, return a discriminated result union instead of throwing strings.
 - **Don't flag:** an intentionally ignored failure with a comment saying why (a best-effort cache write, a fire-and-forget metric) is fine.
 - **Source:** TypeScript, useUnknownInCatchVariables (https://www.typescriptlang.org/tsconfig/#useUnknownInCatchVariables).
 
-### 55. missing-exhaustive-check [Funky, Rancid when a new variant silently renders nothing]
+### 56. missing-exhaustive-check [Funky, Rancid when a new variant silently renders nothing]
 - **Sniff for:** a `switch` or `if`/`else` chain over a union (`status`, `variant`, a discriminated union) with a silent fallthrough or a `default` returning `null`, so adding a member compiles clean and renders nothing; the same union switched on in several files, each a place to forget the new member; a status-to-label, icon, or color lookup typed `Record<string, ...>`, hiding a missing key.
 - **Fix:** make the compiler enforce completeness. End the `switch` with a `never` check (`default: { const _exhaustive: never = value; ... }`) or type the lookup against the union (`satisfies Record<Status, string>`), so an added member errors at every site; collapse scattered switches over the same union into one mapping module when they encode the same decision.
 - **Don't flag:** a deliberate default for a genuinely open set (a server-sent string you do not control) is correct. The smell is a closed union handled as if it were open.
@@ -382,8 +388,8 @@ Defer memoization (`useMemo`, `useCallback`, `React.memo`) to the `react-compile
 
 This pillar runs only in folder and repo-sweep scope, after the per-file pass, because it compares files against each other. The method (inventory, cluster, confirm, report) is in [duplication-pass.md](./duplication-pass.md).
 
-### 56. duplicate-implementation [Funky]
+### 57. duplicate-implementation [Funky]
 - **Sniff for:** the same UI built twice (a named, reusable component plus an inline reimplementation of it in another file); a `type` or `interface` declared independently in two files (`interface CategorySection` in both the component and its caller); a utility or constant copy-pasted instead of imported; two components with the same prop shape and the same rendered tree.
 - **Fix:** keep one canonical version and use it everywhere (replace the inline reimplementation with the existing component, move the shared `type` into a common module and import it, import the utility instead of copying it). When neither copy is canonical, extract a shared one. Name the concrete drift risk (what breaks when one copy changes and the other does not).
-- **Don't flag:** superficial similarity across different domains (two unrelated card layouts), framework-required boilerplate, generated code, test fixtures, and two-line helpers clearer inlined. Duplication is a smell only when the copies encode the same decision and must change together. For duplicated hook logic see category 34; for duplicated JSX within one file see category 42.
-- **Source:** React, Reusing Logic with Custom Hooks (https://react.dev/learn/reusing-logic-with-custom-hooks). (The cross-file form of the DRY principle; pairs with categories 34 and 42.)
+- **Don't flag:** superficial similarity across different domains (two unrelated card layouts), framework-required boilerplate, generated code, test fixtures, and two-line helpers clearer inlined. Duplication is a smell only when the copies encode the same decision and must change together. For duplicated hook logic see category 35; for duplicated JSX within one file see category 43.
+- **Source:** React, Reusing Logic with Custom Hooks (https://react.dev/learn/reusing-logic-with-custom-hooks). (The cross-file form of the DRY principle; pairs with categories 35 and 43.)

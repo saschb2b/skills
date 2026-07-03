@@ -18,7 +18,7 @@ Nine pillars. The categories under each, with detection signals and sources, are
 1. **Component API and props** (the backbone, 18 categories). Component and prop naming, boolean and callback conventions, string-union variants over boolean flags, discriminated unions, controlled and uncontrolled state, children and slot composition, render props, generics, extending HTML, refs, styling APIs, accessibility props, server-component boundaries, JSDoc.
 2. **State and data flow.** Derivable values held in `useState`, props copied into state, two sources of truth for one fact, prop drilling, stale closures in timers and async continuations, `useState`/`useRef` role confusion, god contexts and unstable provider values.
 3. **Effects and lifecycle.** Effects that compute derived data, replace an event handler, or push data up to the parent; fetches and subscriptions and timers with no cleanup (races and leaks); dependency arrays that do not match what the effect reads; state reset by an effect instead of `key`.
-4. **Component structure and hooks.** God components (and god hooks) doing fetching, logic, and presentation at once; a component defined inside another (remounts every render); stateful logic that wants a custom hook; conditional hooks; positional-parameter sprawl on a hook or util.
+4. **Component structure and hooks.** God components (and god hooks) doing fetching, logic, and presentation at once; views coupled to their environment, with data access and domain rules that belong a layer up and should arrive as behavior-named props (the test is whether it renders in Storybook without mocks); a component defined inside another (remounts every render); stateful logic that wants a custom hook; conditional hooks; positional-parameter sprawl on a hook or util.
 5. **Rendering correctness.** Array index as `key` on a list that reorders or edits, direct mutation of state or props, impure renders (randomness and clock reads, `setState` during render, hydration-unsafe browser reads), the stray `0` leaked by `&&`, nested ternaries, copy-pasted JSX blocks.
 6. **Accessibility in markup.** `onClick` on a non-interactive element with no `role`, `tabIndex`, or keyboard handler; div soup where semantic elements belong; form controls with no associated label; broken focus management in hand-rolled modals and menus.
 7. **Async, events, and error handling.** Async handlers that swallow failures or allow double submits, missing error boundaries around risky subtrees, unsanitized HTML and URL sinks (`dangerouslySetInnerHTML`, `javascript:` hrefs).
@@ -46,7 +46,8 @@ Folder and repo-sweep scope additionally run a cross-file duplication pass ([dup
 4. Rate the smell (see ratings below).
 5. Emit a finding with location, the cost, and a before to after fix.
 6. In folder or repo scope, run the cross-file duplication pass (Pillar 9, [duplication-pass.md](./references/duplication-pass.md)) after the per-file pass and fold its findings in.
-7. End with a summary count. If nothing survives the guard, say it smells fresh.
+7. When findings cluster on the structural smells (duplicated state, prop drilling, effect data to parent, god component, coupled view), or the request is to restructure, decouple, or make a component reusable, plan the fix with the dependency-graph method in [restructure-pass.md](./references/restructure-pass.md): map every relation as a labeled edge, then rewire to the fewest one-layer edges before proposing code.
+8. End with a summary count. If nothing survives the guard, say it smells fresh.
 
 ## Stink ratings
 
