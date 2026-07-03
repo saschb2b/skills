@@ -6,8 +6,12 @@
 // own visual identity, not anyone's frame artwork. Domain sets the frame color;
 // trust score sets rarity; optional hero.* art fills the art window. Everything
 // is deterministic, so files commit and CI-diff cleanly. Regenerate with:
-//   pnpm cards            write cards.json + every CARD.svg
-//   pnpm cards:check      the same, then fail if any card is stale (CI)
+//   pnpm cards                write cards.json + every CARD.svg
+//   pnpm cards <skill...>     regenerate only those skills; their cards.json
+//                             entries are patched in place, everything else
+//                             (other entries, other CARD.svg) stays untouched
+//   pnpm cards:check          full build, then fail if any card is stale (CI);
+//                             also accepts skill names to scope the check
 import { execFileSync } from "node:child_process";
 import { readdirSync, existsSync, readFileSync, writeFileSync } from "node:fs";
 
@@ -161,7 +165,12 @@ ${flavor}
 `;
 }
 
+// Positional args scope the run to those skills: only they are re-verified and
+// re-rendered, and their cards.json entries are patched into the existing feed.
+const only = process.argv.slice(2).filter((a) => !a.startsWith("--"));
+
 const skills = [];
+const scanOrder = []; // every skill with a CARD.md, in feed order
 for (const bucket of buckets) {
   const base = `skills/${bucket}`;
   for (const name of readdirSync(base).sort()) {
@@ -171,6 +180,8 @@ for (const bucket of buckets) {
       console.warn(`skip ${name}: no CARD.md (run: python3 ${CARD} generate ${dir})`);
       continue;
     }
+    scanOrder.push(name);
+    if (only.length && !only.includes(name)) continue;
     const out = execFileSync("python3", [CARD, "verify", `${dir}/CARD.md`, "--bundle", dir, "--json"], { encoding: "utf8" });
     const hero = HERO_FILES.find((h) => existsSync(`${dir}/${h}`)) || null;
     const heroDataUri = hero
@@ -188,9 +199,32 @@ for (const bucket of buckets) {
   }
 }
 
-const doc = { repo: "saschb2b/skills", card_version: "0.1", count: skills.length, skills };
+if (only.length) {
+  const missing = only.filter((n) => !skills.some((s) => s.skill === n));
+  if (missing.length) {
+    console.error(`no such skill (or no CARD.md): ${missing.join(", ")}`);
+    process.exit(1);
+  }
+}
+
+// Scoped run: patch the fresh entries into the existing feed instead of
+// recomputing every skill. Order and membership still follow the disk scan,
+// so a full rebuild produces the same feed shape.
+let feed = skills;
+if (only.length) {
+  const existing = existsSync("cards.json") ? JSON.parse(readFileSync("cards.json", "utf8")).skills || [] : [];
+  const byName = new Map(existing.map((s) => [s.skill, s]));
+  for (const s of skills) byName.set(s.skill, s);
+  feed = scanOrder.map((n) => byName.get(n)).filter(Boolean);
+  const absent = scanOrder.filter((n) => !byName.has(n));
+  if (absent.length) console.warn(`not in the feed yet (run a full 'pnpm cards' to add): ${absent.join(", ")}`);
+}
+
+const doc = { repo: "saschb2b/skills", card_version: "0.1", count: feed.length, skills: feed };
 writeFileSync("cards.json", JSON.stringify(doc, null, 2) + "\n");
-console.log(`wrote cards.json + ${skills.length} CARD.svg (${skills.filter((s) => s.art.hero).length} with hero art)`);
+console.log(only.length
+  ? `wrote cards.json (patched ${skills.map((s) => s.skill).join(", ")}; ${feed.length} entries) + ${skills.length} CARD.svg`
+  : `wrote cards.json + ${skills.length} CARD.svg (${skills.filter((s) => s.art.hero).length} with hero art)`);
 
 // --check (CI): fail if any card is stale vs its live bundle (integrity is a
 // digest recompute, fully offline). The feed's byte freshness is not gated,
