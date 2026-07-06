@@ -49,7 +49,7 @@
   },
   {
     "path": "references/log.md",
-    "sha256": "a8b9a76af24bfbba6f7a2d397c52a85436a57f323ee7a1d0fb28fe86ac2fc968"
+    "sha256": "f8494847998ae7e16ed526ca8e784cca97dc55bc2b7bd84394686c442fc9c899"
   },
   {
     "path": "references/menus-and-screens.md",
@@ -61,11 +61,11 @@
   },
   {
     "path": "references/onboarding.md",
-    "sha256": "d561265e3d25e7ad4e1832bfb8cacc474219e04a689c13a9f84868704fa869be"
+    "sha256": "3a8c2060aa6199f64c961dd11aad7bbff852425df8eee74cc21d82bcaf767897"
   },
   {
     "path": "references/patterns.md",
-    "sha256": "72734763cf25601abac641331b4ac96ae1bd13d84b67f353c9d5e6e89621aabd"
+    "sha256": "72a1741850d1f05dd34cba0fa9b45838f036cc6aee482997e4b193cf6161e0fe"
   },
   {
     "path": "references/principles.md",
@@ -73,7 +73,7 @@
   },
   {
     "path": "references/systems.md",
-    "sha256": "cbee6085efe8ac040b061608a80c628ee5bb4ddb45012574e1e250ef824b143e"
+    "sha256": "c34e68a7912c16a174ff71ea98c99e1cc93f4620540fe3243bb65d9b8edb9b4f"
   },
   {
     "path": "references/transitions.md",
