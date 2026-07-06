@@ -3,7 +3,7 @@ type: Playbook
 title: "Onboarding, Tutorials, and Hints"
 description: "How to teach a game without a wall of text. The first-session problem, teaching through level design, the introduce-develop-twist-test structure, and hint systems on the guidance-versus-discovery axis."
 tags: [game-design, onboarding, tutorial, teaching, hints]
-timestamp: 2026-06-24T00:00:00Z
+timestamp: 2026-07-06T00:00:00Z
 ---
 
 # Onboarding, Tutorials, and Hints
@@ -25,6 +25,7 @@ The strongest tutorials have no tutorial. The canon to steal from:
 
 - **Super Mario Bros. World 1-1** teaches jump, enemy, block, and powerup in the first few wordless steps, and the Goomba is deliberately the first enemy because a ground-bound thing you can jump over forgives a slow learner where a Koopa would punish one.
 - **Half-Life 2's invisible tutorial** ([GMTK](https://www.youtube.com/watch?v=MMggqenxuZc)) carries its only text on button prompts and stages the environment so the player discovers each verb. **Mega Man X**'s intro stage (Egoraptor's [Sequelitis](https://archive.org/details/sequelitis-mega-man-classic-vs.-mega-man-x), 2011) teaches the whole kit wordlessly through a single designed sequence.
+- **Pokemon teaches a 289-cell ruleset it never displays.** The type-effectiveness matrix appears nowhere in-game; every move carries a visible type tag, every hit answers with "It's super effective!" or its opposites, and players internalize the chart inductively over hundreds of battles, then treat the knowledge as personally discovered. The generalizable move: a ruleset far too large for a tutorial can be taught by tagging every action and grading every outcome, but only when the game supplies enough repetition to carry the induction. The economy variant of the same idea is in [principles.md](principles.md): Expedition 33 pays its harder defensive input in resources, so the reward structure teaches mastery with no text at all.
 - **Valve's playtest discipline** is the engine under all of it: observers watch silently and are forbidden to give hints ([Birdwell, The Cabal](https://www.gamedeveloper.com/design/the-cabal-valve-s-design-process-for-creating-i-half-life-i-), 1999); Portal's simpler early chambers exist because early testers drowned. If a tester needs a hint you cannot ship, the level has not taught it yet.
 
 The transferable rule is the affordance-and-signifier pair from Don Norman: an affordance is the action a thing makes possible, a [signifier](https://jnd.org/signifiers-not-affordances/) is the perceptible cue that says where and how to act. Teach by building signifiers into the world (the button prompt, the lit ledge, the lone Goomba), not by narrating.

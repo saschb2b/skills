@@ -926,7 +926,7 @@
       "title": "game-design",
       "description": "Analyze, design, critique, balance, and rework video game mechanics, systems, and interface, grounded in a cross-game pattern catalog and design frameworks (MDA, core loops, flow, motivation, game...",
       "risk_tier": "executable-L1",
-      "target_digest": "sha256:29bedd1e0256becb4d69ed231fe5f1d55fd2227748be8a1001051d04cec85588",
+      "target_digest": "sha256:96772ff749f28d6fb7a1d267134cdc2b853b84c2fa9c270379eb85137de05bfb",
       "identity": "did:web:saschb2b.com",
       "expires": "2027-07-06",
       "capability": {
@@ -971,7 +971,7 @@
       ],
       "grades": {
         "integrity": "STRONG",
-        "authorship": "STRONG",
+        "authorship": "ABSENT",
         "capability": "MEDIUM",
         "content_provenance": "UNVERIFIED",
         "vouching": "ABSENT",
@@ -979,15 +979,15 @@
       },
       "notes": {
         "integrity": "digest matches live bundle",
-        "authorship": "sigstore + rekor, cosign verify-blob OK; signer not pinned (pass --cert-identity to assert who)",
+        "authorship": "card is unsigned",
         "capability": "permission manifest declared (enforce in sandbox)",
         "content_provenance": "n/a for executable skills",
         "vouching": "0 attestation(s) bound to this digest",
         "freshness": "not expired"
       },
-      "trust_score": 10,
+      "trust_score": 7,
       "reachable": 13,
-      "rarity": "rare",
+      "rarity": "uncommon",
       "art": {
         "svg": "CARD.svg",
         "hero": null

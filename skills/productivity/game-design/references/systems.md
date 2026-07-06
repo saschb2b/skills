@@ -3,7 +3,7 @@ type: Reference
 title: "Systems, Economies, and Balance"
 description: "Internal economies, feedback loops, balancing methods, randomness, reward schedules, and the ethics line, with sources."
 tags: [game-design, economy, balance, randomness, rewards, ethics]
-timestamp: 2026-06-21T00:00:00Z
+timestamp: 2026-07-06T00:00:00Z
 ---
 
 # Systems, Economies, and Balance
@@ -33,7 +33,7 @@ Well-designed games layer both: positive feedback to reward skill and conclude, 
 ## Balancing methods
 
 - **Transitive balance and cost curves** ([Schreiber](https://gamebalanceconcepts.wordpress.com/2010/07/21/level-3-transitive-mechanics-and-cost-curves/)): a linear power order, balanced by pricing power so better things cost more. Express each benefit and drawback in one resource and require cost to track benefit. The vocabulary matters: an option that is too strong is overpowered (fix the benefit) or under-costed (fix the cost), and those are different fixes.
-- **Intransitive balance, rock paper scissors** ([Schreiber](https://gamebalanceconcepts.wordpress.com/2010/09/01/level-9-intransitive-mechanics/)): no single best option because everything is countered. It is an emergency brake on dominant strategies but harder to tune for fairness. Real games combine transitive and intransitive.
+- **Intransitive balance, rock paper scissors** ([Schreiber](https://gamebalanceconcepts.wordpress.com/2010/09/01/level-9-intransitive-mechanics/)): no single best option because everything is countered. It is an emergency brake on dominant strategies but harder to tune for fairness. Real games combine transitive and intransitive. Applied at combat-content scale this becomes the typed-damage-matrix pattern in [patterns.md](patterns.md), where a hand-tuned effectiveness matrix moves depth from raw numbers onto matchups.
 - **What balance means** (Sirlin, [definitions](https://www.sirlin.net/articles/balancing-multiplayer-games-part-1-definitions)): a game is balanced when a reasonably large number of options are viable, especially at high-level play. A dominant strategy that consistently beats experts by doing one move collapses the decision into a non-decision; that is degenerate. Note the split of responsibility: the player should exploit any legal tactic (most have undiscovered counters), but the designer still removes the genuinely degenerate ones. Do not conflate the two roles.
 
 ## Randomness: input versus output
