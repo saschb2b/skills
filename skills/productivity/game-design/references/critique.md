@@ -3,7 +3,7 @@ type: Playbook
 title: "Critique and Rework Playbook"
 description: "The design-review smell catalog with detection signals and fixes, plus the procedure for reworking a flat or broken mechanic."
 tags: [game-design, critique, rework, review, balance]
-timestamp: 2026-06-21T00:00:00Z
+timestamp: 2026-07-06T00:00:00Z
 ---
 
 # Critique and Rework Playbook
@@ -21,7 +21,8 @@ Each smell has a detection signal you can look for and a fix to reach for. Most 
 | **Hollow loop** | The reward does not feed the next tier; feedback is missing or illegible; the player cannot say what they are working toward. | Close the loop so each output fuels a larger loop, and make the feedback immediate and legible so the mental model updates. |
 | **Bare core is not fun** | The loop only entertains once progression, story, and meta are layered on; the moment-to-moment verb is dull alone. | Run the isolation test and fix the core verb first. No progression or narrative scaffolding saves a boring core. |
 | **Treadmill / power creep** | Numbers rise but the experience does not change; new content is strictly stronger than old and devalues it. | Prefer horizontal options over bigger numbers, reward capability over magnitude, and augment axes rather than replacing them. |
-| **Lying or missing telegraph** | Players blame the game, not themselves; damage feels random; "there was no way to know". | Show intent before the player commits, and make the telegraph honest. A telegraph that lies or omits is worse than none. |
+| **Lying or missing telegraph** | Players blame the game, not themselves; damage feels random; "there was no way to know". | Show intent before the player commits, and make the telegraph honest. A telegraph that lies or omits is worse than none. Honesty about *what* is the promise; deceptive *timing* is a legitimate difficulty dial, but only with assist tooling budgeted (see the telegraph principle in [principles.md](principles.md)). |
+| **Skill gate dressed as skill bonus** | An execution mechanic sold as a bonus becomes mandatory at high difficulty: one-shot damage means the reward for skill is the only way to survive, and build-based answers (tank stats, shields, revives) stop mattering. | Audit the or-die threshold. Keep at least one honest build-based answer viable at every difficulty, or commit openly to being an action game and tutor it that way. Expedition 33's late-game parry-or-die is the canonical case. |
 | **Complexity over depth** | Many rules to learn produce few real decisions; players bounce off the rules; the option space is wide but shallow. | Cut or fold options until the rules you keep each create a genuine decision. Depth comes from interaction, not addition; when unsure, choose the less complex option. |
 | **Flat budget** | A loadout or grid is roomy enough to fit "the answer"; the constraint never bites; mid-game goes slack. | Tighten the slot count relative to the pool, or make items non-uniform in weight so the budget pressures choices. |
 | **Meta as power, not variety (when it should be variety)** | A replay-heavy game gets easier each run; the new-player gap widens; runs stop feeling distinct. | Move meta-progression to unlocking options rather than base stats, unless the game deliberately wants you to win and stop. |
