@@ -2,13 +2,13 @@
 name: game-design
 description: Analyze, design, critique, balance, and rework video game mechanics, systems, and interface, grounded in a cross-game pattern catalog and design frameworks (MDA, core loops, flow, motivation, game feel, economy, balance). The first stop for any design-touching change or discussion, including mid-implementation in an engine like Godot. Use when designing, balancing, brainstorming, or reworking a mechanic, progression, economy, loadout, inventory, loot, shop, enemy or difficulty scaling, reward, menu, or UI system; when tuning the numbers or structure that encode a design call (drop rates, prices, curves, scaling); when asking whether something is fun, too grindy, or has a dominant strategy; when designing menus, HUD, screens, transitions, onboarding, hints, dialogue, guidance, feedback, input prompts, or accessibility; or when self-authoring game systems or UI while building one. Rides alongside godot, which writes the engine code, while this decides what that code should do.
 tags: [game, design]
-date: 2026-06-21
+date: 2026-07-06
 source_post: game-mechanics
 ---
 
 # Game Design
 
-A designer's reference, written from play. Use it to decide what to design and why it works; `godot` handles how to implement it in the engine, and on a change that is both at once, run them together rather than letting one defer to the other. It carries a cross-game pattern catalog distilled from 16 dissected games, the durable design frameworks, an interface and UX layer (menus, screens, teaching, dialogue, feedback, accessibility), and a stance: opinionated but anti-dogmatic. Both work, for different games. Pick a stance, and be ready to argue with this one.
+A designer's reference, written from play. Use it to decide what to design and why it works; `godot` handles how to implement it in the engine, and on a change that is both at once, run them together rather than letting one defer to the other. It carries a cross-game pattern catalog distilled from 17 dissected games, the durable design frameworks, an interface and UX layer (menus, screens, teaching, dialogue, feedback, accessibility), and a stance: opinionated but anti-dogmatic. Both work, for different games. Pick a stance, and be ready to argue with this one.
 
 This fires whenever game design is on the table: a new concept, a mechanic that feels off, a rework, a balance question, a menu or HUD or tutorial or dialogue screen that needs designing, "is this fun / too grindy / a dominant strategy", or the agent making its own design and interface calls while building a game. The depth lives in the OKF bundle in [references/](./references/index.md); this file is the procedure.
 
@@ -62,7 +62,8 @@ The most transferable moves from the catalog ([principles.md](./references/princ
 - **Meta-progression unlocks variety, not power.** The next run should be more interesting, not easier. (Power-ramp metas like Hades are the deliberate exception, for games that want you to eventually win.)
 - **Costed power forces commitment.** Run-defining loot with a real drawback gives each run a direction; uncosted upgrades flatten every run into the same kitchen sink.
 - **Loadout as budget.** Power lives inside a fixed budget (slots, points, cells, hand size); more of one means less of another. A small slot count over a large pool produces identity.
-- **Telegraph honestly.** Show what is coming so combat is a decision, not a coin flip, and never let a telegraph lie. A lying telegraph is worse than none.
+- **Telegraph honestly.** Show what is coming so combat is a decision, not a coin flip, and never let a telegraph lie. A lying telegraph is worse than none. Honesty is about what; timing strictness is a separate, tunable dial with an accessibility bill.
+- **Give the defender a verb.** Make the player do something when they are attacked; the dead time between turns is where genre fatigue lives. Pay successful defense in resources, not just survival, and the economy teaches mastery by itself.
 - **Subtract.** A tighter, smaller kit usually beats a bigger one. Make skipping a real option and removing as rewarding as adding.
 - **Inventory is a decision or a chore.** Treat equipment, loot, consumables, loadouts, and upgrades as one problem: a carried thing earns its slot or it is clutter. A capacity limit only creates a choice when its cost is visible and immediate, and a consumable players hoard is punishing them. The full treatment (storage models, the inventory puzzle, itemization, enhancement, weight, the hoarder trap) is in [inventory.md](./references/inventory.md).
 
@@ -114,4 +115,4 @@ The interface layer:
 
 ## Source
 
-Distilled from Sascha Becker's [game-mechanics](https://github.com/saschb2b/game-mechanics) knowledge base (16 games dissected, 19 cross-game concept pages), grounded in the standard design literature cited throughout the bundle (MDA, Koster, Cook, Schell, Swink, Adams and Dormans, Schreiber, Sirlin), with the interface layer grounded in the game UX and accessibility literature (Hodent, Norman, the Fagerholt and Lorentzon diegesis matrix, Desurvire's playability heuristics, Hamilton, and the Game Accessibility and Xbox Accessibility Guidelines).
+Distilled from Sascha Becker's [game-mechanics](https://github.com/saschb2b/game-mechanics) knowledge base (17 games dissected, 19 cross-game concept pages), grounded in the standard design literature cited throughout the bundle (MDA, Koster, Cook, Schell, Swink, Adams and Dormans, Schreiber, Sirlin), with the interface layer grounded in the game UX and accessibility literature (Hodent, Norman, the Fagerholt and Lorentzon diegesis matrix, Desurvire's playability heuristics, Hamilton, and the Game Accessibility and Xbox Accessibility Guidelines).

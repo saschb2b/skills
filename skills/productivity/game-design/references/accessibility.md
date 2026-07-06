@@ -3,7 +3,7 @@ type: Reference
 title: "Game Accessibility"
 description: "Designing so more people can play. The major guidelines, the impairment categories and the features that serve them, assist and difficulty modes, the subtitle and text numbers, and the ethical, market, and legal case."
 tags: [game-design, accessibility, ui, assist-modes, captions]
-timestamp: 2026-06-24T00:00:00Z
+timestamp: 2026-07-06T00:00:00Z
 ---
 
 # Game Accessibility
@@ -40,7 +40,7 @@ The accessibility feature that draws the most heat, and the one worth getting ri
 - **Celeste's Assist Mode** is the template for granular, opt-in modification (game-speed slowdown, infinite stamina, invincibility, per-save), framed by Matt Thorson around "every player is different" and deliberately renamed from "Cheat Mode" so it would not feel judgmental. The framing to keep, from speedrunner Halfcoordinated: "a wheelchair ramp doesn't ruin stairs, braille doesn't ruin a book, and assist mode doesn't ruin a game".
 - **The Last of Us Part II** is the breadth benchmark (60+ options, a menu screen reader, a high-contrast mode), and **God of War Ragnarök** adds navigation and traversal assists. These show that depth of accessibility is now a shippable AAA standard, not a stretch goal.
 
-The "should every game have an easy mode" argument (the Sekiro discourse) is worth representing honestly: one side holds that a unified difficulty is authorial intent and central to the meaning of victory; the other holds that the playing field is not level for disabled players and that one person's assist setting in a single-player game costs no one else anything. The design resolution that satisfies both is granular, opt-in assists (slow the game 20%, grant one extra dash) over a single Easy toggle, the same self-tuning instinct as embedding difficulty in the mechanics from [frameworks.md](frameworks.md), and the difficulty-staircase logic in [principles.md](principles.md).
+The "should every game have an easy mode" argument (the Sekiro discourse) is worth representing honestly: one side holds that a unified difficulty is authorial intent and central to the meaning of victory; the other holds that the playing field is not level for disabled players and that one person's assist setting in a single-player game costs no one else anything. The design resolution that satisfies both is granular, opt-in assists (slow the game 20%, grant one extra dash) over a single Easy toggle, the same self-tuning instinct as embedding difficulty in the mechanics from [frameworks.md](frameworks.md), and the difficulty-staircase logic in [principles.md](principles.md). The cautionary case for auditing which inputs your assists actually cover is Expedition 33: offensive timed hits could be auto-resolved from day one, but the defensive timing that actually gated survival could not be assisted on any difficulty, and the gap (later half-patched by widening Story-mode windows 40%) became the game's loudest accessibility criticism.
 
 ## The case
 
