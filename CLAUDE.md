@@ -33,6 +33,33 @@ Then run `pnpm check` (which runs `node scripts/check-skills.mjs`) and `pnpm eva
 
 The `javascript-ecosystem` skill is a dated snapshot of a fast-moving ecosystem, so it carries extra anti-staleness machinery: a snapshot `date`, a per-notes-file `**Verified YYYY-MM-DD**` stamp, a freshness section in its `SKILL.md`, and `skills/engineering/javascript-ecosystem/MAINTENANCE.md`. Run `node scripts/check-freshness.mjs` to list the oldest entries due for a re-verify against official docs.
 
+## Trust cards (re-signing a changed skill)
+
+Most skills carry a `CARD.md` (a `trust-card` OKF concept binding the skill's content digest, signature, and capability manifest) plus a rendered `CARD.svg`. `cards.json` at the repo root is the aggregate render feed. `pnpm cards:check` gates CI: it rebuilds every card and fails if any is stale, so a skill whose files changed must have its card regenerated, rebuilt, and re-signed before merge.
+
+The lifecycle when you edit a skill's content, in order (finish all content edits first, since the digest is computed over the bundle):
+
+1. **Regenerate the card** so its `target_digest` matches the new content:
+   ```sh
+   python3 skills/engineering/trust-card/scripts/card.py generate skills/<bucket>/<slug> \
+       --identity did:web:saschb2b.com --expires <YYYY-MM-DD>
+   ```
+   This rewrites `<slug>/CARD.md` and `<slug>/CARD.manifest.json`.
+2. **Rebuild the render feed** for that skill: `pnpm cards <slug>` (updates `cards.json` and `<slug>/CARD.svg`). Run bare `pnpm cards` to rebuild all.
+3. **Sign the bound digest.** This is Sascha's interactive step and cannot be done from an agent session:
+   ```sh
+   python3 skills/engineering/trust-card/scripts/card.py sign skills/<bucket>/<slug>/CARD.md
+   ```
+   With `cosign` on PATH this runs the keyless Sigstore + Rekor flow, which opens a browser for OIDC login and writes `<slug>/CARD.md.sigstore` with the Rekor entry stapled. Add `--key ~/keys/card.key` to use the local ed25519 fallback instead. Card artifacts (`CARD.md`, `CARD.svg`, `CARD.md.sigstore`, hero art) are excluded from the content digest, so signing never re-stales the thing it signs.
+4. **Verify and commit the signature separately.** Sascha commits it as `chore: sign <slug> changes` (a distinct commit before merge, per the git workflow):
+   ```sh
+   python3 skills/engineering/trust-card/scripts/card.py verify skills/<bucket>/<slug>/CARD.md \
+       --bundle skills/<bucket>/<slug>
+   pnpm cards:check   # what CI enforces; stays red until the signed card is committed
+   ```
+
+The full command reference and the layer-by-layer trust model live in `skills/engineering/trust-card/SKILL.md` and its `references/layers.md`.
+
 ## Skill-invocation evals
 
 The `description` is the only field the agent reads when deciding to auto-invoke a skill, so a reword can silently stop the agent reaching for it, or make it grab a sibling instead. The harness in `evals/` is the regression test. Run it on your own whenever you touch a skill:

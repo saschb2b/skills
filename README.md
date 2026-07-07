@@ -235,6 +235,8 @@ These are personal skills, but the structure is reusable. To write your own:
 3. Start the `description` with what the skill does, then `Use when ...` triggers. This is the only field the agent reads when deciding to load the skill.
 4. Keep `SKILL.md` under ~100 lines. If it bulges, split into sibling files and link to them.
 
+Skills carry a signed `CARD.md` trust card. After you change a skill's content, regenerate, rebuild, and re-sign its card (the last step is an interactive Sigstore browser flow) before merge, or `pnpm cards:check` fails in CI. The step-by-step is in [CLAUDE.md](./CLAUDE.md#trust-cards-re-signing-a-changed-skill).
+
 See [CLAUDE.md](./CLAUDE.md) for the full conventions.
 
 ## License

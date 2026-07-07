@@ -440,9 +440,9 @@
       "title": "okf",
       "description": "Author, validate, and maintain knowledge for AI agents as conformant Open Knowledge Format (OKF) bundles, Google's vendor-neutral spec (v0.1) of markdown files with YAML frontmatter for portable...",
       "risk_tier": "executable-L1",
-      "target_digest": "sha256:5f5b940c890b130d7c463b0cca667b19b1c794eb9b20270fb325ce828ce46dc3",
+      "target_digest": "sha256:d0e6a40e1c60c2f78d682f62a62d5c503ed7f0a419970611fe48536c75579667",
       "identity": "did:web:saschb2b.com",
-      "expires": "2027-06-29",
+      "expires": "2027-07-07",
       "capability": {
         "model": "executable",
         "manifest_declared": "permissions.yaml",
