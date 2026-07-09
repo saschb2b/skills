@@ -93,6 +93,7 @@ Skills install by slug, and the agent auto-invokes one by reading its `descripti
 | --- | --- |
 | **[no-slop](./skills/productivity/no-slop/SKILL.md)** | Write and revise human-facing prose in a plain, professional register, stripping the tells that mark text as AI-generated. Five rules (punctuation, structure, vocabulary, stance, formatting), a tells table with fixes, before/after rewrites, and a guard against over-correcting into robotic prose. Catches list-itis and forced enumeration, not just em dashes and slop words. |
 | **[to-story](./skills/productivity/to-story/SKILL.md)** | Reshape a draft Jira or GitHub ticket into a real user story with INVEST-clean acceptance criteria. Splits oversized stories with SPIDR. |
+| **[breadcrumbs](./skills/productivity/breadcrumbs/SKILL.md)** | Capture the answer to a codebase investigation so the next agent reads it instead of re-deriving it. Read the trail before you dig, drop an anchored finding (answer plus `file:line` plus freshness stamp) after you dig, fix it when it drifts. Findings live where the next agent already looks (CLAUDE.md, AGENTS.md, or a linked notes file), so the same "first I need to understand X" search never runs twice. |
 | **[autopilot](./skills/productivity/autopilot/SKILL.md)** | Hand off the project and let the agent run on its own: survey, pick one high-value low-risk improvement, verify it, commit it, and loop. Generate-then-rank work selection with anti-churn rails. |
 
 ### Mobile
