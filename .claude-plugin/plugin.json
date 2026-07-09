@@ -18,6 +18,7 @@
     "./skills/productivity/to-story",
     "./skills/productivity/autopilot",
     "./skills/productivity/no-slop",
-    "./skills/productivity/game-design"
+    "./skills/productivity/game-design",
+    "./skills/productivity/breadcrumbs"
   ]
 }

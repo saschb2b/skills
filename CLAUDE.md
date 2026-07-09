@@ -23,7 +23,7 @@ The two folders are the on-disk split (operates on a codebase vs operates on a p
 
 When you add a new skill, touch five places. Forgetting any of them silently degrades the install experience or leaves the skill untested for invocation.
 
-1. `skills/<bucket>/<slug>/SKILL.md`. The skill itself.
+1. `skills/<bucket>/<slug>/SKILL.md` plus `skills/<bucket>/<slug>/permissions.yaml`. The skill itself. Every skill folder carries a `permissions.yaml` capability manifest (the card's `bom` counts it, so a missing one desyncs the card). For a pure-knowledge skill it is the five-line block used by `no-slop` and `autopilot`. `model: knowledge`, `executes: false`, `network: none`, `shell: false`, `filesystem_writes: false`. Those stay `false` even when the skill's guidance has the agent write files, because that is the agent's capability, not the shipped artifact's.
 2. `README.md`. Add a line under the matching **domain group** in the Skill reference section (the listing groups by domain, not by bucket). Link the slug to its SKILL.md.
 3. `skills/<bucket>/README.md`. Add a line in the bucket index.
 4. `.claude-plugin/plugin.json`. Add `./skills/<bucket>/<slug>` to the `skills` array.
@@ -44,7 +44,7 @@ The lifecycle when you edit a skill's content, in order (finish all content edit
    python3 skills/engineering/trust-card/scripts/card.py generate skills/<bucket>/<slug> \
        --identity did:web:saschb2b.com --expires <YYYY-MM-DD>
    ```
-   This rewrites `<slug>/CARD.md` and `<slug>/CARD.manifest.json`.
+   This rewrites `<slug>/CARD.md` and `<slug>/CARD.manifest.json`. Convention for `--expires` is roughly one year out (the existing cards were minted with a 2027-06-29 horizon).
 2. **Rebuild the render feed** for that skill: `pnpm cards <slug>` (updates `cards.json` and `<slug>/CARD.svg`). Run bare `pnpm cards` to rebuild all.
 3. **Sign the bound digest.** This is Sascha's interactive step and cannot be done from an agent session:
    ```sh

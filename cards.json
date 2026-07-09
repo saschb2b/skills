@@ -1,7 +1,7 @@
 {
   "repo": "saschb2b/skills",
   "card_version": "0.1",
-  "count": 18,
+  "count": 19,
   "skills": [
     {
       "skill": "android-compose",
@@ -876,6 +876,59 @@
       "target_digest": "sha256:ddf3683f9ad619f8b23bf76d1b71a02903489021917ba2531c0834b1ce879fd8",
       "identity": "did:web:saschb2b.com",
       "expires": "2027-06-29",
+      "capability": {
+        "model": "executable",
+        "manifest_declared": "permissions.yaml",
+        "source": "declared",
+        "network": "see-manifest",
+        "shell": null,
+        "filesystem_writes": null,
+        "network_evidence": [],
+        "shell_evidence": [],
+        "declared_external_sources": []
+      },
+      "layers": [
+        "integrity",
+        "authorship",
+        "capability",
+        "content_provenance",
+        "vouching",
+        "freshness"
+      ],
+      "grades": {
+        "integrity": "STRONG",
+        "authorship": "STRONG",
+        "capability": "MEDIUM",
+        "content_provenance": "UNVERIFIED",
+        "vouching": "ABSENT",
+        "freshness": "MEDIUM"
+      },
+      "notes": {
+        "integrity": "digest matches live bundle",
+        "authorship": "sigstore + rekor, cosign verify-blob OK; signer not pinned (pass --cert-identity to assert who)",
+        "capability": "permission manifest declared (enforce in sandbox)",
+        "content_provenance": "n/a for executable skills",
+        "vouching": "0 attestation(s) bound to this digest",
+        "freshness": "not expired"
+      },
+      "trust_score": 10,
+      "reachable": 13,
+      "rarity": "rare",
+      "art": {
+        "svg": "CARD.svg",
+        "hero": null
+      }
+    },
+    {
+      "skill": "breadcrumbs",
+      "bucket": "productivity",
+      "domain": "AI & Agents",
+      "title": "breadcrumbs",
+      "description": "Capture the answer to a codebase investigation so the next agent reads it instead of re-deriving the same thing. Fires when you catch yourself saying \"first I need to understand how X works before I...",
+      "risk_tier": "executable-L1",
+      "target_digest": "sha256:a7a4d3074475a5fa65b33d6f72ad8d3bf054a67354b003aea9c6a4075f76f511",
+      "identity": "did:web:saschb2b.com",
+      "expires": "2027-07-10",
       "capability": {
         "model": "executable",
         "manifest_declared": "permissions.yaml",

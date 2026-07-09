@@ -1,0 +1,16 @@
+owner: breadcrumbs
+
+should_fire:
+  - I just traced how our auth flow works, write it down so the next agent doesn't have to
+  - every session we re-discover where the retry timeout is configured, capture it once
+  - before I touch the checkout code I need to understand it first, and leave notes so we don't redo this
+  - record what you learned about this module so nobody greps it from scratch again
+
+route_to_sibling:
+  - prompt: package our analytics knowledge as a portable OKF bundle for agents
+    expect: okf
+
+should_not_fire:
+  - rename the getUser function to fetchUser across the repo
+  - turn this braindump into a user story
+  - fix the null pointer on line 42 of parser.ts
