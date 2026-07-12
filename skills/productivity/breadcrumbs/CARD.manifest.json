@@ -1,10 +1,38 @@
 [
   {
     "path": "SKILL.md",
-    "sha256": "ca0b679a3b4385ee07763274889b2ba0e08971a8fba48cd5901604b3c2fd2e83"
+    "sha256": "09feb85857fa1234efd6fa323bef5a5eaf7bb7d5290462ff4e4a511b9b523fc7"
   },
   {
     "path": "permissions.yaml",
-    "sha256": "0ae42ed51512e8422653ae7fcf9c64517e673250a47405518cd41da5ca8505e4"
+    "sha256": "d2b0a93a8780f464e82ae6f485f30aef85256a7016f3cae0c7f560c017497efa"
+  },
+  {
+    "path": "references/evidence.md",
+    "sha256": "4080431084ae6de1def66af9489bd2efd19f9674c37eadc243af5f6f191a8730"
+  },
+  {
+    "path": "references/examples.md",
+    "sha256": "958c3bedde5ac86c20ed30a5c21285a1ed45d1c5ae51a588fe1c51c65ed64a33"
+  },
+  {
+    "path": "references/index.md",
+    "sha256": "14412823b096d5b8d6bf7d463aead0586b73299798ff70ae462fc80731052d81"
+  },
+  {
+    "path": "references/log.md",
+    "sha256": "bf93cfda1988ac8a118cc3f41ac4ffe23ff41c8b56bea4e8e8836ba2c4b42c5c"
+  },
+  {
+    "path": "references/repairs.md",
+    "sha256": "e4be48510bfea7a8a74aebbc04a56959ee67c7dd3b27d053640c476789d83dfb"
+  },
+  {
+    "path": "references/scope-rails.md",
+    "sha256": "047278c6c4515108b9cc4201ca0d5fd4619ef07b11ef5787b3c484fc5d8cc5af"
+  },
+  {
+    "path": "references/smells.md",
+    "sha256": "3a0b420d2e5cac88befe4a6a5c4156ebb7a415348c6f42ee9683e6c86ccb3d2e"
   }
 ]

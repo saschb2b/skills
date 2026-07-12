@@ -924,11 +924,11 @@
       "bucket": "productivity",
       "domain": "AI & Agents",
       "title": "breadcrumbs",
-      "description": "Capture the answer to a codebase investigation so the next agent reads it instead of re-deriving the same thing. Fires when you catch yourself saying \"first I need to understand how X works before I...",
+      "description": "Heal codebase understanding gaps exposed during implementation, debugging, or investigation. Use when tracing reveals misleading names, repeated backtracking, disconnected navigation paths, hidden...",
       "risk_tier": "executable-L1",
-      "target_digest": "sha256:a7a4d3074475a5fa65b33d6f72ad8d3bf054a67354b003aea9c6a4075f76f511",
+      "target_digest": "sha256:95d05c217661cf7db4a146325793e1b0bc340a9ebe927aa60cf90ba404c45b8b",
       "identity": "did:web:saschb2b.com",
-      "expires": "2027-07-10",
+      "expires": "2027-07-12",
       "capability": {
         "model": "executable",
         "manifest_declared": "permissions.yaml",
@@ -938,7 +938,15 @@
         "filesystem_writes": null,
         "network_evidence": [],
         "shell_evidence": [],
-        "declared_external_sources": []
+        "declared_external_sources": [
+          "https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions",
+          "https://diataxis.fr/start-here/",
+          "https://go.dev/doc/effective_go#errors",
+          "https://google.github.io/eng-practices/review/reviewer/comments.html",
+          "https://link.springer.com/article/10.1007/s10664-025-10721-2",
+          "https://se.inf.ethz.ch/~meyer/publications/old/dbc_chapter.pdf",
+          "https://web.engr.oregonstate.edu/~burnett/Reprints/TSE-IFT-2013-asprinted.pdf"
+        ]
       },
       "layers": [
         "integrity",

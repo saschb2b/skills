@@ -1,16 +1,36 @@
 owner: breadcrumbs
 
 should_fire:
-  - I just traced how our auth flow works, write it down so the next agent doesn't have to
-  - every session we re-discover where the retry timeout is configured, capture it once
-  - before I touch the checkout code I need to understand it first, and leave notes so we don't redo this
-  - record what you learned about this module so nobody greps it from scratch again
+  - I finally found the retry delay under analytics config even though it controls checkout; make this less confusing while fixing the timeout
+  - this workaround looks wrong, but removing it breaks Safari because of an undocumented browser bug
+  - I had to inspect every caller to discover that this function must run inside a transaction
+  - the setup guide says this variable is optional, but startup crashes without it
+  - the parser only reports invalid input even though we now know which field caused the failure
+  - that module name sent me down the wrong path; leave this area clearer than we found it
+  - we just spent an hour discovering there are two copies of this setting and nobody knows which one wins
+  - this generated file was the obvious place to fix the problem, but the next generation overwrites it
+  - I kept bouncing from the controller to three wrappers and back because nothing exposes the actual entry point
+
+in_context:
+  - |-
+    (mid-session, debugging a checkout failure)
+    User: We found the actual timeout in analytics/config.ts after checking four unrelated modules. Fix the value, and please make its ownership clearer while you are there.
+  - |-
+    (mid-session, implementing a database change)
+    User: The code now works. It took us far too long to learn that saveOrder must be called inside an existing transaction, so make that contract harder to miss too.
 
 route_to_sibling:
-  - prompt: package our analytics knowledge as a portable OKF bundle for agents
+  - prompt: package our analytics tables, metrics, and join paths as a portable knowledge bundle for agents
     expect: okf
+  - prompt: keep working autonomously through this repository and make whatever improvements you judge worthwhile
+    expect: autopilot
+  - prompt: rewrite this onboarding guide in a plain professional voice and remove the AI-sounding prose
+    expect: no-slop
 
 should_not_fire:
+  - document the complete architecture for onboarding new engineers
+  - create a log of everything you discover while investigating this bug
+  - add comments to every function in the package
+  - refactor this module to improve runtime performance
   - rename the getUser function to fetchUser across the repo
-  - turn this braindump into a user story
-  - fix the null pointer on line 42 of parser.ts
+  - explain how this compiler algorithm works; the domain is complex but the implementation is accurate and well documented

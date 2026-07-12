@@ -1,62 +1,66 @@
 ---
 name: breadcrumbs
-description: Capture the answer to a codebase investigation so the next agent reads it instead of re-deriving the same thing. Fires when you catch yourself saying "first I need to understand how X works before I can do Y", or you just finished tracing something (how a flow works, where a value is configured, why a workaround exists, how two modules connect). Leave a durable breadcrumb recording the finding, the file-and-line anchors that prove it, and a freshness stamp, written where the next agent already looks (CLAUDE.md, AGENTS.md, or a linked notes file). It also covers the read side, checking the trail before starting any non-trivial investigation. Use when starting or finishing codebase investigation, when about to grep and read your way to an understanding later agents will also need, when the same discovery keeps repeating across sessions, or when you invoke /breadcrumbs.
-tags: [workflow, documentation, meta]
-date: 2026-07-08
+description: Heal codebase understanding gaps exposed during implementation, debugging, or investigation. Use when tracing reveals misleading names, repeated backtracking, disconnected navigation paths, hidden contracts, surprising dependencies, stale documentation, unclear errors, undocumented constraints, false leads, or avoidable complexity. Make the smallest durable improvement at the source through clearer code, types, validation, tests, errors, comments, or existing documentation. Also use when a task was harder to grasp than it should have been or you think "that should have been documented." Do not create a breadcrumb trail, investigation log, freshness system, or separate knowledge store.
+tags: [workflow, documentation, maintainability]
+date: 2026-07-12
 ---
 
 # Breadcrumbs
 
-## The reflex
+## Leave the path clearer
 
-You catch yourself typing "first I need to understand how X works" or "before I can do Y, let me trace Z." You grep, you read, you build the mental model, you do the task. Then the model evaporates when the turn ends, and the next agent types the same sentence and repeats the same search. Breadcrumbs breaks that loop: when an investigation produces reusable understanding, you leave the answer behind where the next agent will find it.
+Treat avoidable confusion encountered during real work as evidence of a codebase smell. Before leaving the area, remove a small part of the friction that made it difficult to understand.
 
-Three moves, in order of when they bite:
+The healed codebase is the breadcrumb. Do not create a trail, registry, entry format, freshness stamp, or read-before-investigating ritual. Improve the place where understanding failed so the next developer benefits without knowing this skill exists.
 
-1. **Read before you dig.** Check the trail before you start searching.
-2. **Drop a breadcrumb after you dig.** When the investigation produced reusable understanding, record the answer.
-3. **Keep the trail honest.** When you rely on a breadcrumb, verify its anchors still hold; fix or delete it if they don't.
+Close every non-trivial trace with one question: what specific feature of the codebase made this harder to grasp than the behavior warranted? If the answer identifies a repeatable expectation failure, run the loop. If it identifies only unfamiliarity or genuine domain complexity, make no incidental change.
 
-## Read before you dig
+## Run the healing loop
 
-Before any non-trivial investigation, check the trail (see "Where the trail lives"). If a breadcrumb already answers your question and its anchors still hold, use it instead of re-searching. That is the entire payoff. A skill that only ever writes is a diary, not a trail. The read move is what makes the write move worth anything, so it comes first.
+1. **Notice the expectation failure.** Catch moments such as "that name sent me the wrong way," "I had to inspect every caller," or "that should have been documented."
+2. **Finish the trace.** Distinguish a repeatable codebase problem from temporary unfamiliarity or inherently difficult domain knowledge.
+3. **Name the smell.** Identify what caused the friction: misleading information scent, hostile navigation topology, an implicit contract, hidden rationale, fragmented ownership, diagnostic opacity, stale guidance, or accidental complexity. Use the [smell catalog](references/smells.md) when the cause is ambiguous.
+4. **Choose one coherent repair.** Prefer removing confusion, then clearer code, executable constraints, better diagnostics, a local why, and finally an existing documentation surface. One repair may touch code, tests, and existing docs when they close the same expectation gap. Use the [repair patterns](references/repairs.md) for concrete transformations and placement guidance.
+5. **Check scope.** Keep the repair close to the traced area, useful beyond this session, and small enough to verify. Use the [scope rails](references/scope-rails.md) when the repair changes behavior, public contracts, architecture, or files outside the task.
+6. **Heal and verify.** Apply the repair while the evidence is fresh. Run the narrowest relevant test, type check, documentation check, or reference search.
+7. **Continue the task.** Mention the incidental repair in the normal handoff. Do not maintain a ledger.
 
-## Drop a breadcrumb
+## Prefer the strongest durable form
 
-Not every fact earns one. The bar is reusable, non-obvious, and stable enough to outlive the task.
+Choose the highest useful rung that fits safely:
 
-| Breadcrumb-worthy | Skip it |
-| --- | --- |
-| How a flow actually works end to end | Anything one grep reveals |
-| Where a value is really configured (not where you'd guess) | What the README or CLAUDE.md already states |
-| Why a workaround or odd choice exists | Ephemeral task state ("halfway through renaming X") |
-| How two modules or services connect | A fact that changes every week |
-| A convention the repo follows but never documents | Your personal preference about the code |
+1. Delete obsolete or misleading material.
+2. Rename, relocate, simplify, or expose the right entry point.
+3. Encode the contract in types, schemas, validation, assertions, or tests.
+4. Improve errors and diagnostic context.
+5. Explain a reason that code cannot express in a short adjacent comment.
+6. Update the existing documentation surface readers already use.
 
-Test: if the next agent would spend more than a couple of minutes re-deriving it, drop the breadcrumb.
+Prefer executable clarity over prose. A comment is for a reason or constraint, not a narration of visible code. Documentation is for setup, navigation, cross-cutting concepts, and operational knowledge that does not belong in one symbol.
 
-A breadcrumb has four parts (a fifth when the reason matters):
+## Apply the two tests
 
-- **Topic**. Phrased as the question a future agent will actually search for, not a title.
-- **Answer**. One to five lines. The conclusion, not the transcript of how you found it.
-- **Anchors**. The `file:line` and symbol names the answer rests on. Anchors make a breadcrumb falsifiable: the next agent can spot-check them, so staleness becomes visible instead of silent. A breadcrumb with no anchors is a rumor.
-- **Verified**. The date and short commit sha, so freshness is legible at a glance.
-- **Why** (optional). The reason it is this way, when non-obvious. This is the line that stops the next person "fixing" a deliberate choice.
+Before editing, ask:
 
-## Where the trail lives
+- **Repeatability:** could another competent developer reasonably hit the same confusion?
+- **Payoff:** would this repair have shortened the trace without requiring knowledge of this skill?
 
-The trail must live where the next agent already looks, or discovery fails and you are back to re-deriving. Prefer, in order:
+If either answer is no, continue the original task without manufacturing cleanup.
 
-1. **The repo's eagerly-read agent doc** (`CLAUDE.md`, `AGENTS.md`, `.cursorrules`, `.github/copilot-instructions.md`). Agents load it every session for free, so a breadcrumb here is found without anyone knowing to look. Best for a handful of durable facts.
-2. **A dedicated file linked from that doc** (`.agents/breadcrumbs.md`) once the trail outgrows a section. The eagerly-read doc points to it, so discovery still starts from a place agents already land.
-3. **An OKF concept**, when the repo already keeps knowledge as an OKF bundle. Use the `okf` skill so each breadcrumb ships typed and cross-linked.
+Zero repairs is a successful outcome when the trace exposed no real smell. The skill rewards reduced future friction, not visible activity.
 
-Discovery is the whole game. A perfect finding written where nobody looks gets re-derived anyway. Commit the trail by default so it travels with the code, survives the session, and helps humans too. Gitignore it only if the team wants agent scratch kept out of history.
+## Stay proportional
 
-## Keep the trail honest
+Do not widen a focused task into an architectural rewrite, add comments everywhere, duplicate facts across documents, preserve temporary task state, create speculative TODOs, or comprehensively document the system. Do not hide behavior changes inside a clarity cleanup.
 
-Code drifts, so a breadcrumb can go stale. Anchors are the guard. When you rely on one, spot-check its anchors against the current code. If they no longer match, fix the breadcrumb or delete it in the same turn you noticed. A wrong breadcrumb is worse than none, because it is trusted: it sends the next agent confidently in the wrong direction. Never leave one you caught being stale behind you.
+When the proper repair is too large, risky, or uncertain, do not create a breadcrumb file. State the concrete smell, evidence, and likely repair in the normal handoff so the owner can choose whether to expand scope.
 
-## Dogfood it
+## Reference knowledge
 
-The clearest signal to drop a breadcrumb is you writing "first I need to understand X." That sentence means the answer is not yet on the trail. When you finish, put it there. The proof this skill works is that the same investigation never has to happen twice in the same repo.
+Start at the [reference index](references/index.md), or open only the concept needed:
+
+- [Knowledge smell catalog](references/smells.md). Diagnose the expectation failure and reject false positives.
+- [Repair patterns](references/repairs.md). Select the strongest local repair and place knowledge where it naturally belongs.
+- [Scope and autonomy rails](references/scope-rails.md). Decide whether to repair now, verify more, or surface the issue.
+- [Worked healing examples](references/examples.md). Compare weak breadcrumb-like notes with repairs that change the next trace.
+- [Research basis](references/evidence.md). Consult the primary evidence behind information scent, explicit contracts, comments, diagnostics, documentation placement, and decision records.
