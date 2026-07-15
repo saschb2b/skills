@@ -102,6 +102,12 @@ Skills install by slug, and the agent auto-invokes one by reading its `descripti
 | --- | --- |
 | **[android-compose](./skills/engineering/android-compose/SKILL.md)** | Build Android apps Compose-first with Material 3 Expressive as the design direction: strong-skipping-aware Compose, Expressive theming and components (honest about the experimental opt-in), UDF architecture, type-safe Navigation Compose and Navigation 3, the data layer, the Gradle Kotlin DSL build with the Compose compiler plugin and KSP, testing, performance, and version-tagged pitfalls. A dated snapshot that checks the project's versions first. |
 
+### Desktop
+
+| Skill | What it does |
+| --- | --- |
+| **[tauri-stinky](./skills/engineering/tauri-stinky/SKILL.md)** | Detect Rust and Tauri maintainability smells across the backend crate, the IPC boundary, and the app shell. Thirteen pillars, 57 categories: Rust discipline (error handling and panics, ownership, type design, modules, async correctness, an overgeneration pillar for the dead code and speculative layers agents ship, unsafe and lint hygiene, testing) and the Tauri layer (command design, managed state, events vs channels, capabilities and security, IPC contract and codegen, config and build footprint). Rates each Rancid, Funky, or Whiff with the fix and a source, runs a cross-boundary contract audit (commands vs invokes, events, types, capability grants), and ships a mechanical gate stack (fmt, clippy, test, audit, deny, machete) with a Cargo lints table. A per-smell guard respects poison-recovery locks, `spawn_blocking` architectures, and single-boundary-module patterns instead of nitpicking them. Defers frontend component smells to `react-stinky`. |
+
 ### Security & supply chain
 
 | Skill | What it does |

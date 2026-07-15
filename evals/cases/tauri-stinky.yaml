@@ -1,0 +1,26 @@
+owner: tauri-stinky
+
+should_fire:
+  - review my src-tauri code for smells
+  - smell-check the rust side of my tauri app
+  - my tauri commands all return Result<String, String>, is that fine?
+  - the app freezes whenever this command runs, it does the zip compression inline
+  - audit our capabilities json, I think we granted way too much to the webview
+  - the agent wrote 800 lines of rust for this feature and I don't trust half of it
+  - set up quality gates and clippy lints for our tauri project
+  - our TypeScript interfaces keep drifting from the serde structs they mirror
+  - there are unwraps all over these rust command handlers
+  - invoke fails at runtime with invalid args missing required key
+
+route_to_sibling:
+  - prompt: this React component does fetching, state, and rendering all at once, clean it up
+    expect: react-stinky
+  - prompt: the colors in our tauri frontend are hardcoded hex values
+    expect: theme-colors
+  - prompt: audit our github actions workflows for pull_request_target misuse
+    expect: audit-actions
+
+should_not_fire:
+  - deploy the staging branch
+  - write a blog post about why we chose tauri over electron
+  - how do I center a div
