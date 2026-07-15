@@ -75,9 +75,9 @@ Run the bundled checker against a bundle directory:
 node okf-validate.mjs path/to/bundle
 ```
 
-It errors (exit 1) on the hard requirement (a concept missing frontmatter or a non-empty `type`) and warns on soft guidance (a non-ISO `log.md` date, a broken cross-link) without failing the bundle, because consumers tolerate those. The reviewer's checklist behind the script is in [commands.md](./commands.md).
+It errors (exit 1) on the hard requirement (a concept missing frontmatter or a non-empty `type`) and warns on soft guidance without failing the bundle, because consumers tolerate those. Among the warnings it reports the bundle's **graph connectivity** — **orphans** (a concept with no concept-to-concept link in or out) and **broken concept links** (a link whose target is not a concept, including a link into a reserved `index.md`). Pass `--strict` to turn those into failures: that is the producer gate, because an agent traversing the bundle cannot reach an orphan or cross a broken link, so either is missing context by construction. The reviewer's checklist behind the script is in [commands.md](./commands.md).
 
-**Validation checks conformance, not coverage.** A thin stub of a fifty-page site passes it clean, because the one rule is about each file's `type`, not about whether the bundle captured the source. When you *produce* a bundle from a source (`export`, `enrich`), the script is necessary but not sufficient — also run the creation gate in [commands.md](./commands.md): every discovered section covered, concepts with real depth, a connected graph, and any crawl boundary recorded in `log.md`. Passing `okf-validate` is not the same as finishing the export.
+**Validation checks conformance, not coverage.** A thin stub of a fifty-page site passes it clean, because the one rule is about each file's `type`, not about whether the bundle captured the source. When you *produce* a bundle from a source (`export`, `enrich`), the default run is necessary but not sufficient — run `okf-validate --strict` and the creation gate in [commands.md](./commands.md): every discovered section covered, concepts with real depth, a connected graph with no orphans or broken links, and any crawl boundary recorded in `log.md`. Passing the default `okf-validate` is not the same as finishing the export.
 
 ## Files in this skill
 

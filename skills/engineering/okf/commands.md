@@ -45,6 +45,7 @@ Connect two concepts and say what the connection means.
 1. Prefer a bundle-absolute target beginning with `/`, for example `/tables/customers.md`. It survives moving the source file within its directory. Relative targets like `customers.md` are valid too.
 2. Put the relationship in the prose around the link, not in the link. `Joined with [customers](/tables/customers.md) on \`customer_id\`` says what the edge means; the link alone does not.
 3. A broken link is tolerated, not an error, so linking ahead of a concept you have not written yet is fine. Note it in `log.md` if you want to come back.
+4. Link to *concepts*, not to an `index.md`. The index is generated navigation (`index`), not a graph node, so a consumer that builds the concept graph treats a link into an `index.md` as broken. Point at the concrete concept you mean.
 
 Touches: the source concept's body.
 
@@ -73,14 +74,16 @@ Touches: `log.md`.
 Run the script, then read the warnings with judgment.
 
 ```sh
-node okf-validate.mjs path/to/bundle
+node okf-validate.mjs path/to/bundle            # tolerant: errors only on the hard rule
+node okf-validate.mjs path/to/bundle --strict   # producer gate: also fail on connectivity
 ```
 
-It exits non-zero only on the hard requirement. The reviewer's checklist behind it:
+By default it exits non-zero only on the hard requirement, so it mirrors the permissive consumer. `--strict` turns the connectivity warnings into failures — use it as the producer gate. The reviewer's checklist behind it:
 
 - **Errors (must fix).** Every non-reserved `.md` opens with a frontmatter block, and every block has a non-empty `type`.
 - **Structure (should hold).** `index.md` has no frontmatter except a root `okf_version`. `log.md` date headings are `YYYY-MM-DD`. Reserved names are not used for concepts.
-- **Warnings (judgment).** A broken cross-link or a non-ISO log date is reported but does not fail the bundle, because consumers tolerate both. Fix the ones that are real mistakes; leave the forward-references you meant.
+- **Connectivity (the producer gate, `--strict`).** No **orphans** (a concept with no concept-to-concept link in or out) and no **broken concept links** (a link whose target is not a concept — a missing file, or a reserved `index.md`/`log.md`). Consumers tolerate both, so they only warn by default; a *producer* resolves them, because an agent that traverses the graph cannot reach an orphan or cross a broken link. This is graph connectivity, not the counts from `export`'s coverage gate — a bundle can cover every source unit and still be a disconnected pile.
+- **Warnings (judgment).** A non-ISO log date is reported but does not fail the bundle. Fix the ones that are real mistakes; leave the forward-references you meant.
 
 ## `export`: produce a bundle from a source
 
@@ -107,7 +110,7 @@ The producer role: turn an existing source into a bundle. The source can be stru
 
 - **Coverage.** Every row of the discovery inventory is either a concept or a recorded skip with a reason. The concept count is in the same order of magnitude as the discovered-unit count; a large multi-section source that yielded a dozen files did not cover the source. Every top-level section is represented — for a site that means its profile or CV, every project, every article, and every entry of each listing or catalog, not only the items featured on the front page.
 - **Depth.** Each concept carries real structure — a schema, a definition, a transformed summary, citations — not a one-line restatement of its title. A folder of stubs is not a bundle.
-- **Graph.** Concepts that relate are cross-linked with the relationship named in prose, so the result is a graph and not a pile.
+- **Graph, with no dead ends.** Concepts that relate are cross-linked with the relationship named in prose, so the result is a graph and not a pile. An agent traverses the bundle by following those links, so two failure modes strand context: an **orphan** (a concept with no concept link in or out — nothing reaches it, it reaches nothing) and a **broken concept link** (a link whose target is not a concept: a missing file, or a reserved `index.md`/`log.md`). Link every concept to at least one related concept, and link to *concepts*, not to an `index.md` — the index is generated navigation, not a graph node. Run `node okf-validate.mjs <bundle> --strict`, which fails on both, before calling the export done.
 - **Provenance.** Every mirrored page has its `resource` URL, a fetch `timestamp`, and a `# Citations` entry.
 - **Navigation.** Each directory's `index.md` lists its concepts, and the root `index.md` reaches every section.
 - **Boundary recorded.** If bounds — page cap, host allowlist, `robots.txt` exclusions, paywalled or JS-only pages — left parts of the source uncovered, name them in `log.md` so the gap is visible instead of implied-complete.
