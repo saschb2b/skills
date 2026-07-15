@@ -28,13 +28,13 @@ Touches: the new concept file, its directory `index.md`, `log.md`.
 
 ## `enrich`: turn a source into concepts
 
-Reproduce the reference producer pattern, which runs in two passes. Use this when pointing the skill at a real dataset, an OpenAPI spec, a wiki space, or a tree of docstrings.
+Reproduce the reference producer pattern, which runs in two passes. Use this when pointing the skill at a real dataset, an OpenAPI spec, a wiki space, a website, or a tree of docstrings.
 
-1. **Walk the source.** Enumerate its units (every table and view in a dataset, every path in an OpenAPI spec, every page in a wiki). One unit becomes one concept.
-2. **Metadata pass.** For each unit, write one concept from the source's own metadata alone: a `type`, the frontmatter you can derive mechanically (name, `description`, `resource`), and a `# Schema`.
-3. **Web pass (optional).** Treat a list of seed URLs as authoritative documentation. Fetch each, follow only outbound links that look authoritative for the concepts you have, and for each page either (a) enrich one or more existing concepts, (b) mint a standalone `references/<slug>.md` concept (`type: Reference`) for the page, or (c) skip. Record sources under `# Citations`. Bound the crawl: cap the number of pages and restrict to an allowed set of hosts so it cannot overrun.
+1. **Walk the source exhaustively, before writing anything.** Enumerate *every* unit the source contains, not the ones that happen to be linked from its front door: every table and view in a dataset, every path in an OpenAPI spec, every page in a wiki. For a website, the landing page is an entry point, never the scope — discover the full surface from `sitemap.xml` and `robots.txt`, then from every section and listing page (a blog index, a projects index, an archive, a catalog), following pagination to the end. Write the enumeration down as an explicit inventory (a checklist of unit → intended concept path; see [templates.md](./templates.md)) and treat it as the work-list the passes must burn down. A source with fifty pages yields an inventory of fifty rows; ending with three is the signature of stopping at the front door.
+2. **Metadata pass.** For each unit in the inventory, write one concept from the source's own metadata alone: a `type`, the frontmatter you can derive mechanically (name, `description`, `resource`), and a `# Schema`.
+3. **Web pass.** Treat the inventory's URLs (and any seed URLs) as authoritative documentation. Fetch each, follow outbound links that look authoritative for the concepts you have, and for each page either (a) enrich one or more existing concepts, (b) mint a standalone `references/<slug>.md` concept (`type: Reference`) for the page, or (c) skip *and record the skip*. Record sources under `# Citations`. Completeness is the goal and the bounds are guardrails, not stopping points: cap the page count and restrict to an allowed set of hosts so the crawl cannot wander, and when a cap or host limit leaves inventory rows uncovered, list what remains in `log.md` rather than calling the source done. Silent truncation is the failure this command exists to prevent.
 4. **Wire the graph.** Add cross-links between concepts you now know are related (foreign keys, derivations, dependencies), labeling each relationship in prose.
-5. **Generate indexes and a log**, then validate.
+5. **Generate indexes and a log**, then validate — and run the creation gate under `export` before calling the bundle done.
 
 Touches: many concept files, a `references/` subtree, `index.md` at each level, `log.md`. This is the heaviest command; do it in slices and validate between slices.
 
@@ -95,13 +95,22 @@ The producer role: turn an existing source into a bundle. The source can be stru
 
 **External URLs and webpages.** Yes, `/okf export <url>` is a supported path, and it is exactly what the reference agent's web pass does. OKF fits it well: `resource` holds the page URL, `# Citations` records provenance, and the body is just markdown.
 
-1. Fetch the page with your agent's web-fetch tool (for a set of URLs, drive it from `enrich`'s web pass). One page becomes one concept; a large doc or doc site becomes several linked concepts, the way a wiki space does.
+1. **Map the whole surface first, then fetch.** `export <url>` means the *source behind that URL*, not only the single page at it. When the URL is one page (a lone article), one page becomes one concept. When it is a site or section root (a homepage, a docs root, a blog, a portfolio), it is the entry point to many concepts: enumerate the full surface the way `enrich`'s first step does — `sitemap.xml`, `robots.txt`, and every section and listing page — into an explicit inventory before writing anything, then drive the fetch from that inventory. A multi-section site (a portfolio or CV, a blog with an article list, a projects index, a catalog that lists many entries) captured as a handful of concepts from the homepage's featured links is a *failed* export, not a small one — it silently drops most of the knowledge the user asked to preserve.
 2. Place it the canonical way. Mirrored external material lives at `references/<slug>.md` with `type: Reference` (other descriptive types like `Web Page` or `API Reference` are fine). Set `resource` to the canonical URL and `timestamp` to when you fetched it. If the page is documentation for a concept you already have, enrich that concept instead of, or in addition to, minting a new `references/` doc.
 3. Transform, do not paste. Re-express the page as structural markdown (headings, lists, tables, code), not raw HTML-to-markdown noise. A bundle is curated knowledge, not a scrape. Transforming includes upgrading form: a paragraph describing a flow becomes a ` ```mermaid ` fence, a formula written out in words becomes TeX, a terms section becomes a definition list.
 4. Cite the source URL under `# Citations`, and link related pages to each other so the result is a graph, not a pile.
 5. Generate indexes and a `log.md`, then validate.
 
 **Caveats to record in the bundle itself.** A webpage is a moving target, so the concept is a dated snapshot; the `timestamp` and the cited URL are how a consumer re-checks it later. Bound a multi-URL crawl with a page cap and an allowed-hosts list, the way the reference agent does, so it cannot wander the open web. Respect the source's terms and copyright: prefer summarizing and citing over copying a third party's full text, and keep provenance explicit so a reader can tell what is original and what is borrowed.
+
+**The creation gate — pass it before you call an export done.** Conformance is not completeness: `node okf-validate.mjs` checks only the one hard rule and will happily pass a three-file stub of a fifty-page site. Run this coverage-and-depth review yourself before declaring the bundle finished, and if any line fails, the export is not done — widen the crawl from the inventory and fill the gaps:
+
+- **Coverage.** Every row of the discovery inventory is either a concept or a recorded skip with a reason. The concept count is in the same order of magnitude as the discovered-unit count; a large multi-section source that yielded a dozen files did not cover the source. Every top-level section is represented — for a site that means its profile or CV, every project, every article, and every entry of each listing or catalog, not only the items featured on the front page.
+- **Depth.** Each concept carries real structure — a schema, a definition, a transformed summary, citations — not a one-line restatement of its title. A folder of stubs is not a bundle.
+- **Graph.** Concepts that relate are cross-linked with the relationship named in prose, so the result is a graph and not a pile.
+- **Provenance.** Every mirrored page has its `resource` URL, a fetch `timestamp`, and a `# Citations` entry.
+- **Navigation.** Each directory's `index.md` lists its concepts, and the root `index.md` reaches every section.
+- **Boundary recorded.** If bounds — page cap, host allowlist, `robots.txt` exclusions, paywalled or JS-only pages — left parts of the source uncovered, name them in `log.md` so the gap is visible instead of implied-complete.
 
 The output of either path is a plain directory you can commit, tar, or drop into a larger repo.
 
