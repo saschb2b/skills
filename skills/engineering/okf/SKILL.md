@@ -50,7 +50,7 @@ A concept is frontmatter plus a markdown body. Its identity is its path with the
 - **Body.** Favor structural markdown (headings, lists, tables, fenced code) over freeform prose. Conventional headings, used when they apply, are `# Schema`, `# Examples`, `# Citations`. For each fact, pick the sharpest form the extended set offers (next section).
 - **Reserved filenames**, never a concept. `index.md` is a directory listing and carries no frontmatter, except the bundle-root `index.md`, which may declare `okf_version`. `log.md` is a dated change history.
 - **Links.** Prefer bundle-absolute links like `/tables/customers.md` (stable when files move). Relative links such as `tables/customers.md` are also valid. A link asserts a relationship whose meaning lives in the surrounding prose, not in the link.
-- **External material.** A webpage or doc you pull in becomes an ordinary concept under `references/<slug>.md` with `type: Reference` and its URL in `resource`. That is how a bundle absorbs outside sources (see `/okf export`).
+- **External material.** A webpage or doc you pull in becomes an ordinary concept under `references/<slug>.md` with `type: Reference` and its URL in `resource`. Absorb its *content*, not just its URL: extract the substance into the body so the concept stands alone offline — `resource` is provenance for re-checking, not a replacement for the knowledge. A summary that defers to the live link is a stub (see `/okf export`).
 
 ## Pick the sharpest markdown form
 
