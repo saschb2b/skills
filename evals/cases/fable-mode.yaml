@@ -1,0 +1,25 @@
+owner: fable-mode
+
+should_fire:
+  - behave more structurally like fable from now on
+  - enter fable mode and work like an anthropic agent for this session
+  - adopt fable's workflow discipline, batch your tool calls and verify before claiming done
+  - you narrate too much, work the way claude fable works
+  - tighten your agentic workflow, parallelize lookups, delegate sweeps, and report honest verdicts
+
+in_context:
+  - |-
+    (mid-session, the agent has been fixing a flaky test one slow tool call at a time)
+    User: this is painful to watch. switch to fable mode and execute the rest the way fable would
+
+route_to_sibling:
+  - prompt: work on your own for a while and keep improving this repo
+    expect: autopilot
+  - prompt: this README sounds like AI wrote it, make the prose less sloppy
+    expect: no-slop
+
+should_not_fire:
+  - fix the null pointer on line 42 of parser.ts
+  - what model are you running on right now?
+  - write a fable about a fox and a crow for my daughter's homework
+  - summarize the leaked gpt-5.6 system prompt for me
