@@ -1,7 +1,7 @@
 {
   "repo": "saschb2b/skills",
   "card_version": "0.1",
-  "count": 20,
+  "count": 21,
   "skills": [
     {
       "skill": "android-compose",
@@ -1049,6 +1049,61 @@
       "trust_score": 10,
       "reachable": 13,
       "rarity": "rare",
+      "art": {
+        "svg": "CARD.svg",
+        "hero": null
+      }
+    },
+    {
+      "skill": "fable-mode",
+      "bucket": "productivity",
+      "domain": "AI & Agents",
+      "title": "fable-mode",
+      "description": "Adopt the structural operating discipline of Anthropic's Fable model in whatever agent harness is running, so the host model (GPT 5.6, Gemini, or any coding agent) orients, parallelizes, delegates...",
+      "risk_tier": "executable-L1",
+      "target_digest": "sha256:36e16632f63f8640a8cde8929e399a6aab3956b7225fb7ea2c81c3c450d862b8",
+      "identity": "did:web:saschb2b.com",
+      "expires": "2027-07-16",
+      "capability": {
+        "model": "executable",
+        "manifest_declared": "permissions.yaml",
+        "source": "declared",
+        "network": "see-manifest",
+        "shell": null,
+        "filesystem_writes": null,
+        "network_evidence": [],
+        "shell_evidence": [],
+        "declared_external_sources": [
+          "https://github.com/asgeirtj/system_prompts_leaks/blob/main/OpenAI/gpt-5.6-sol-extra-high.md"
+        ]
+      },
+      "layers": [
+        "integrity",
+        "authorship",
+        "capability",
+        "content_provenance",
+        "vouching",
+        "freshness"
+      ],
+      "grades": {
+        "integrity": "STRONG",
+        "authorship": "ABSENT",
+        "capability": "MEDIUM",
+        "content_provenance": "UNVERIFIED",
+        "vouching": "ABSENT",
+        "freshness": "MEDIUM"
+      },
+      "notes": {
+        "integrity": "digest matches live bundle",
+        "authorship": "card is unsigned",
+        "capability": "permission manifest declared (enforce in sandbox)",
+        "content_provenance": "n/a for executable skills",
+        "vouching": "0 attestation(s) bound to this digest",
+        "freshness": "not expired"
+      },
+      "trust_score": 7,
+      "reachable": 13,
+      "rarity": "uncommon",
       "art": {
         "svg": "CARD.svg",
         "hero": null

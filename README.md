@@ -5,7 +5,7 @@
 **Expert practice, packaged as checklists your coding agent can actually run.**
 
 [![skills.sh](https://skills.sh/b/saschb2b/skills)](https://skills.sh/saschb2b/skills)
-[![Skills](https://img.shields.io/badge/skills-18-2ea44f)](#skill-reference)
+[![Skills](https://img.shields.io/badge/skills-21-2ea44f)](#skill-reference)
 [![Docs](https://img.shields.io/badge/docs-saschb2b.com-0969da)](https://saschb2b.com/skills)
 [![License](https://img.shields.io/badge/license-MIT-0969da)](./LICENSE)
 
@@ -50,6 +50,7 @@ npx skills@latest add saschb2b/skills --skill ask-ux
 npx skills@latest add saschb2b/skills --skill to-story
 npx skills@latest add saschb2b/skills --skill no-slop
 npx skills@latest add saschb2b/skills --skill autopilot
+npx skills@latest add saschb2b/skills --skill fable-mode
 npx skills@latest add saschb2b/skills --skill game-design
 npx skills@latest add saschb2b/skills --skill trust-card
 ```
@@ -95,6 +96,7 @@ Skills install by slug, and the agent auto-invokes one by reading its `descripti
 | **[to-story](./skills/productivity/to-story/SKILL.md)** | Reshape a draft Jira or GitHub ticket into a real user story with INVEST-clean acceptance criteria. Splits oversized stories with SPIDR. |
 | **[breadcrumbs](./skills/productivity/breadcrumbs/SKILL.md)** | Heal understanding gaps exposed during ordinary implementation, debugging, and investigation. Diagnose misleading information scent, hostile navigation topology, hidden contracts, invisible rationale, fragmented ownership, stale guidance, opaque errors, and accidental complexity, then make the smallest durable repair at the source. Includes a research-backed OKF smell catalog, concrete repair patterns, worked examples, and autonomy rails. The clearer codebase is the breadcrumb; there is no separate trail or knowledge system. |
 | **[autopilot](./skills/productivity/autopilot/SKILL.md)** | Hand off the project and let the agent run on its own: survey, pick one high-value low-risk improvement, verify it, commit it, and loop. Generate-then-rank work selection with anti-churn rails. |
+| **[fable-mode](./skills/productivity/fable-mode/SKILL.md)** | Make the host model (GPT 5.6, Gemini, or any coding agent) execute work the way Anthropic's Fable model does. Eleven disciplines as a vendored OKF bundle (the operating loop, parallel dispatch, delegation economy, orchestration patterns, verification gates, faithful reporting, the irreversibility gate, context economy, tool and code conduct, memory discipline, trust boundaries against prompt injection), a harness-mapping runbook that degrades gracefully when a capability is missing, and an instruction-by-instruction delta map against the leaked GPT 5.6 system prompt. Five invariants never degrade: the three honest verdicts, verification to the depth the environment allows, the irreversibility gate, trust boundaries, and no re-derivation. Composes with `autopilot` (that picks the work, this executes it). |
 
 ### Mobile
 
