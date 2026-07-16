@@ -481,7 +481,7 @@
         "freshness": "MEDIUM"
       },
       "notes": {
-        "integrity": "MISMATCH live=sha256:4640b112de9c9e8b557e3d63b0d603f1f9727a3c69222bbda8bceb5efb0461cb",
+        "integrity": "MISMATCH live=sha256:c49549fd991c1ddd80c6ef7ce2d8699084bfedd4a595bd701e996049f7de3c26",
         "authorship": "sigstore + rekor, cosign verify-blob OK; signer not pinned (pass --cert-identity to assert who)",
         "capability": "permission manifest declared (enforce in sandbox)",
         "content_provenance": "n/a for executable skills",
@@ -1087,7 +1087,7 @@
       ],
       "grades": {
         "integrity": "STRONG",
-        "authorship": "ABSENT",
+        "authorship": "STRONG",
         "capability": "MEDIUM",
         "content_provenance": "UNVERIFIED",
         "vouching": "ABSENT",
@@ -1095,15 +1095,15 @@
       },
       "notes": {
         "integrity": "digest matches live bundle",
-        "authorship": "card is unsigned",
+        "authorship": "sigstore + rekor, cosign verify-blob OK; signer not pinned (pass --cert-identity to assert who)",
         "capability": "permission manifest declared (enforce in sandbox)",
         "content_provenance": "n/a for executable skills",
         "vouching": "0 attestation(s) bound to this digest",
         "freshness": "not expired"
       },
-      "trust_score": 7,
+      "trust_score": 10,
       "reachable": 13,
-      "rarity": "uncommon",
+      "rarity": "rare",
       "art": {
         "svg": "CARD.svg",
         "hero": null
