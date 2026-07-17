@@ -105,6 +105,13 @@ When a skill carries substantial reference knowledge (detection catalogs, per-ar
 
 Why a bundle, not loose files. A bundle is just markdown with frontmatter, so it ships inside the skill with no extra install and no dependency. Formatting the knowledge as OKF makes it navigable (progressive disclosure via `index.md`), portable (any agent or viewer reads it, no SDK), and citable, and it lets the knowledge be promoted to a standalone bundle later without a rewrite. Use it when the reference material is big enough to bloat SKILL.md or is reused; a small skill keeps its knowledge inline.
 
+**Always work on a bundle through the `okf` skill, never freehand.** This is a standing instruction for any agent in this repo, covering every `references/` bundle and any standalone bundle authored here:
+
+- **Creation.** New bundle or new concept file: invoke the `okf` skill and follow its `init`/`add` playbooks (descriptive `type`, recommended frontmatter, structural body, the sharpest markdown form per fact).
+- **Enrichment.** Growing a bundle from a source or deepening one: run the skill's `enrich` flow including the entity pass, so every load-bearing name the documents mention but never explain gets its own linked concept.
+- **Editing.** Any edit to an existing bundle triggers the skill's implicit-mode bookkeeping: refresh the concept's `timestamp`, append a dated `log.md` entry (heading is the bare ISO date), regenerate the affected `index.md`, and add a link with the relationship named in prose whenever an edit creates one.
+- **Validation.** Finish every bundle-touching change with the skill's `validate` command in strict mode (the producer gate: zero orphans, zero broken links), not just the default conformance check that CI runs. `pnpm check` passing is necessary, not sufficient.
+
 Rules for a `references/` bundle:
 
 - Every concept file carries YAML frontmatter with a non-empty `type` (the one hard OKF requirement). Recommended: `title`, a one-sentence `description`, `tags`, and an ISO 8601 `timestamp`. The `: ` and ` #` frontmatter traps apply here too, so quote any value that needs them.
@@ -112,13 +119,13 @@ Rules for a `references/` bundle:
 - Reserved filenames `index.md` and `log.md` are never concept files.
 - Cross-link with relative or bundle-absolute (`/foo.md`) paths, and name the relationship in the prose, not the link.
 
-Validate one bundle directly with the vendored checker:
+Validate one bundle directly with the vendored checker; after producing or editing a bundle, run it with `--strict` (the producer gate, turning orphans and broken concept links into failures):
 
 ```sh
-node skills/engineering/okf/okf-validate.mjs skills/<bucket>/<slug>/references
+node skills/engineering/okf/okf-validate.mjs skills/<bucket>/<slug>/references --strict
 ```
 
-`check-skills.mjs` runs this for every skill that has a `references/` directory and fails on a non-conformant bundle, so the rule is enforced on every commit.
+`check-skills.mjs` runs the non-strict form for every skill that has a `references/` directory and fails on a non-conformant bundle, so the hard rule is enforced on every commit; the strict pass is the agent's own bar when touching a bundle.
 
 `javascript-ecosystem` follows this layout too: its ~90 per-tool notes live under `references/<category>/`. On top of the OKF bundle it carries the dated-snapshot machinery (a per-note `**Verified YYYY-MM-DD**` stamp, `scripts/check-freshness.mjs`, and `MAINTENANCE.md`), because a fast-moving ecosystem snapshot needs explicit re-verification.
 
