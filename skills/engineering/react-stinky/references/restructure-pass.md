@@ -3,11 +3,11 @@ type: Playbook
 title: "React Stinky: Restructure Pass"
 description: "A dependency-graph method for planning the fix when findings cluster on structural smells; map every relation as a node graph, then rewire to the fewest one-layer edges."
 tags: [react, typescript, refactoring, architecture, decoupling]
-timestamp: 2026-07-03T00:00:00Z
+timestamp: 2026-07-17T00:00:00Z
 ---
 # React Stinky: Restructure Pass
 
-The catalog detects smells one at a time; this pass plans the fix when the findings are structural. Model the component's dependencies as an explicit node graph, read the smells off the graph's shape, then rewire to the cleanest shape and check the result against the same rules. Write the graph down (adjacency lists in the analysis; a small before/after in the report) instead of holding it in your head; the point is that every edge is enumerated and every restructuring claim is checkable.
+The [catalog](./catalog.md) detects smells one at a time; this pass plans the fix when the findings are structural. Model the component's dependencies as an explicit node graph, read the smells off the graph's shape, then rewire to the cleanest shape and check the result against the same rules. Write the graph down (adjacency lists in the analysis; a small before/after in the report) instead of holding it in your head; the point is that every edge is enumerated and every restructuring claim is checkable.
 
 Run it when findings cluster on the structural smells (duplicated-state 21, prop-drilling 22, effect-data-to-parent 28, god-component 32, coupled-view 33, duplicate-implementation 57), or when the request is to restructure, decouple, or make a component reusable. Skip it when a local fix closes the finding; a 40-line component does not need a graph.
 
@@ -40,8 +40,8 @@ Edges, labeled by kind. Every hook call, import, context read, and callback is a
 
 Apply in order; each rule constrains the next.
 
-1. **One fact, one home, at the lowest common ancestor of its readers and writers.** State placed lower than its readers forces sync edges; higher than needed forces drilling.
-2. **Edges travel one layer: props down, events up.** A reach-out edge from a reusable view moves up to the composition layer (page, container, or a hook composed there) and re-enters as a prop named for the behavior it drives (`canEdit`, `dueLabel`, `onSubmit`).
+1. **[One fact, one home](./concepts/one-fact-one-home.md), at the lowest common ancestor of its readers and writers.** State placed lower than its readers forces sync edges; higher than needed forces drilling.
+2. **Edges travel one layer: props down, events up.** A reach-out edge from a reusable view moves up to the [composition layer](./concepts/composition-layer.md) (page, container, or a hook composed there) and re-enters as a prop named for the behavior it drives (`canEdit`, `dueLabel`, `onSubmit`).
 3. **Count consumers before making anything generic.** Genericize when the graph shows a second real consumer (or one concretely scheduled); a generic component with one consumer is speculative coupling wearing a clean shirt.
 4. **Arbitrate the leftover tension by edge count.** If a lift created a pass-through chain three or more deep, do not drill: pass pre-rendered `children` or slots so the middle layers never see the data, or use context for app-wide, slow-changing facts (category 25 rules apply). If a context would serve fewer than three consumers or a fast-changing value, stay with props.
 5. **Prefer the rewiring that deletes the most wrong edges while adding the fewest new nodes.** One moved boundary beats three new abstractions.

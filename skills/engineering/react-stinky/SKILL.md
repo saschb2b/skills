@@ -13,7 +13,7 @@ It defers two neighboring concerns to sibling skills so it does not duplicate th
 
 ## What it sniffs for
 
-Nine pillars. The categories under each, with detection signals and sources, are in [catalog.md](./references/catalog.md).
+Nine pillars. The categories under each, with detection signals and sources, are in [catalog.md](./references/catalog.md). The background models the findings lean on (controlled vs uncontrolled, render snapshots, effects as synchronization, one fact one home, impossible states, the composition layer, hydration) are separate linked concepts under [references/concepts/](./references/concepts/index.md); read one when a finding needs the underlying model explained, not just named.
 
 1. **Component API and props** (the backbone, 18 categories). Component and prop naming, boolean and callback conventions, string-union variants over boolean flags, discriminated unions, controlled and uncontrolled state, children and slot composition, render props, generics, extending HTML, refs, styling APIs, accessibility props, server-component boundaries, JSDoc.
 2. **State and data flow.** Derivable values held in `useState`, props copied into state, two sources of truth for one fact, prop drilling, stale closures in timers and async continuations, `useState`/`useRef` role confusion, god contexts and unstable provider values.

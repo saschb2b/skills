@@ -3,7 +3,7 @@ type: Smell Catalog
 title: "React Stinky Catalog"
 description: "The full smell catalog, in nine pillars."
 tags: [react, typescript, code-smells, maintainability]
-timestamp: 2026-07-03T00:00:00Z
+timestamp: 2026-07-17T00:00:00Z
 ---
 # React Stinky Catalog
 
@@ -21,6 +21,8 @@ Pillars:
 9. Cross-file duplication (57, folder and repo scope only)
 
 Defer memoization (`useMemo`, `useCallback`, `React.memo`) to the `react-compiler` skill and color literals to `theme-colors`.
+
+The load-bearing models the categories lean on each have their own concept: [controlled vs uncontrolled](./concepts/controlled-uncontrolled.md), [render snapshots](./concepts/render-snapshots.md), [effects are synchronization](./concepts/effects-model.md), [one fact, one home](./concepts/one-fact-one-home.md), [impossible states](./concepts/impossible-states.md), [the composition layer](./concepts/composition-layer.md), and [hydration and render purity](./concepts/hydration.md). Read the concept when a finding needs the underlying model, not just the smell.
 
 # Pillar 1. Component API and props
 
@@ -66,13 +68,13 @@ Defer memoization (`useMemo`, `useCallback`, `React.memo`) to the `react-compile
 
 ### 7. discriminated-unions [Funky, Rancid when it permits an impossible state]
 - **Sniff for:** a flat interface with a discriminant plus optional per-state props (`status` + `errorMessage?` + `successData?`; `type` + optional `options?`/`min?`/`max?`); union arms that still share every prop as optional and so constrain nothing; per-variant props repeated as optional across all arms; all-optional content allowing empty or conflicting values (`src?` + `name?`).
-- **Fix:** a `|` union keyed by the discriminant, each arm listing only its props and making them required where needed (`{ status: 'error'; errorMessage: string }`); `never`-type the forbidden props (`href?: never`, `onClick?: never`) to make variants mutually exclusive; make per-variant props required.
+- **Fix:** a `|` union keyed by the discriminant, each arm listing only its props and making them required where needed (`{ status: 'error'; errorMessage: string }`); `never`-type the forbidden props (`href?: never`, `onClick?: never`) to make variants mutually exclusive; make per-variant props required. The full modeling toolkit is in [impossible-states](./concepts/impossible-states.md).
 - **Don't flag:** `never`-exclusivity makes prop spreading and delegation harder, so it suits leaf components, not intermediate wrappers. React itself uses a runtime warning, not `never`, for the value plus defaultValue clash.
 - **Source:** TypeScript, Discriminated Unions (https://www.typescriptlang.org/docs/handbook/2/narrowing.html#discriminated-unions).
 
 ### 8. controlled-uncontrolled [Funky, Rancid when state is reset by effect or the mode flips mid-life]
 - **Sniff for:** invented setter and state names instead of the native contract (`toggled`/`setToggled`, `initialDate`); custom dual-mode trios (`expanded`/`startExpanded`/`onToggle`); per-operation callbacks as the only API for multi-value state (`onAddTag` + `onRemoveTag` with no `value`/`onChange`); resetting internal state via a `resetTrigger` prop plus `useEffect`, or a redundant id prop driving `useEffect(() => setDraft(...))`; a `value` fed by possibly-undefined data (`value={user?.name}`), so the input mounts uncontrolled and flips to controlled when the data arrives (React warns, and the field can reset).
-- **Fix:** `checked`/`onChange` for booleans, `value`/`onChange`/`defaultValue` for the general case; apply the same trio per dimension (`open`/`defaultOpen`/`onOpenChange`); for multi-value report the whole new array via one `onChange(next)`; reset by remounting with `key={id}` at the call site; keep a controlled input controlled from the first render (`value={user?.name ?? ''}`).
+- **Fix:** follow the ownership contract in [controlled-uncontrolled](./concepts/controlled-uncontrolled.md): `checked`/`onChange` for booleans, `value`/`onChange`/`defaultValue` for the general case; apply the same trio per dimension (`open`/`defaultOpen`/`onOpenChange`); for multi-value report the whole new array via one `onChange(next)`; reset by remounting with `key={id}` at the call site; keep a controlled input controlled from the first render (`value={user?.name ?? ''}`).
 - **Don't flag:** per-operation `onAdd`/`onRemove` callbacks are fine as a supplement to `value`/`onChange` when the parent must react differently per operation.
 - **Source:** React Docs, controlled input and You Might Not Need an Effect (https://react.dev/reference/react-dom/components/input).
 
@@ -158,7 +160,7 @@ Defer memoization (`useMemo`, `useCallback`, `React.memo`) to the `react-compile
 
 ### 21. duplicated-state [Funky, Rancid when the copies disagree]
 - **Sniff for:** the same fact stored twice (`selectedItem` object plus `selectedId`; a list and a `selectedIndex` into a different list); nested state that duplicates a parent's data; an id and the full object both held in state; several `useState` values set together from one source that could be one value or derived from each other; boolean pairs that can contradict (`isSending` and `isSent` both true) where one `status` union was meant; state nested so deep that one update needs multi-level spreads.
-- **Fix:** store the minimal source of truth (usually the id) and derive the rest during render. One fact, one home. Collapse contradiction-prone booleans into a single `status` union; flatten or normalize deep state (objects by id plus arrays of ids) so updates touch one level.
+- **Fix:** store the minimal source of truth (usually the id) and derive the rest during render. [One fact, one home](./concepts/one-fact-one-home.md). Collapse contradiction-prone booleans into a single `status` union (the modeling is in [impossible-states](./concepts/impossible-states.md)); flatten or normalize deep state (objects by id plus arrays of ids) so updates touch one level.
 - **Don't flag:** a denormalized cache held deliberately for performance, with a clear single writer, is a considered tradeoff rather than an accident.
 - **Source:** React, Choosing the State Structure (https://react.dev/learn/choosing-the-state-structure#avoid-duplication-in-state).
 
@@ -170,7 +172,7 @@ Defer memoization (`useMemo`, `useCallback`, `React.memo`) to the `react-compile
 
 ### 23. stale-closure [Funky, Rancid when updates are visibly lost]
 - **Sniff for:** `setCount(count + 1)` called more than once in one handler or inside an async continuation, so later calls still read the render-time value and drop updates; a `setInterval`, `setTimeout`, or subscription callback set up once (`[]` deps) that reads state captured on the first render forever; reading state right after `await` and expecting the value a `setState` above just queued; an event listener added in a mount effect that reads state or props.
-- **Fix:** use functional updates when the next state depends on the previous (`setCount(c => c + 1)`), including inside timers; make long-lived callbacks see fresh values (list the dependency and re-subscribe, or keep the latest value in a ref an effect updates); after `await`, work with local variables you already hold instead of re-reading state that has not re-rendered yet.
+- **Fix:** use functional updates when the next state depends on the previous (`setCount(c => c + 1)`), including inside timers; make long-lived callbacks see fresh values (list the dependency and re-subscribe, or keep the latest value in a ref an effect updates); after `await`, work with local variables you already hold instead of re-reading state that has not re-rendered yet. The underlying model is [render-snapshots](./concepts/render-snapshots.md).
 - **Don't flag:** a single `setCount(count + 1)` in a plain synchronous handler is fine. The smell needs a repeated, deferred, or long-lived read of a captured value.
 - **Source:** React, Queueing a Series of State Updates (https://react.dev/learn/queueing-a-series-of-state-updates).
 
@@ -187,6 +189,8 @@ Defer memoization (`useMemo`, `useCallback`, `React.memo`) to the `react-compile
 - **Source:** React, Scaling Up with Reducer and Context (https://react.dev/learn/scaling-up-with-reducer-and-context).
 
 # Pillar 3. Effects and lifecycle
+
+The decision model this pillar applies (render-time computation vs event handler vs effect, and cleanup as the other half of synchronization) is in [effects-model](./concepts/effects-model.md).
 
 ### 26. effect-for-derived [Funky, Rancid when it cascades renders]
 - **Sniff for:** a `useEffect` whose only job is `setState` from props or other state; chains of effects that each set state the next one reads; "when X changes, recompute Y into state".
@@ -220,7 +224,7 @@ Defer memoization (`useMemo`, `useCallback`, `React.memo`) to the `react-compile
 
 ### 31. reset-with-key [Funky]
 - **Sniff for:** resetting all internal state when an identity prop changes by way of a `useEffect(() => { setX(initial); ... }, [id])`, or a `resetTrigger`/`version` prop that exists only to re-init state.
-- **Fix:** remount the subtree with `key={id}` at the call site. React throws away and rebuilds the state for free, with no effect and no reset prop. (This is the markup-side twin of category 8.)
+- **Fix:** remount the subtree with `key={id}` at the call site. React throws away and rebuilds the state for free, with no effect and no reset prop. (This is the markup-side twin of category 8; the ownership model is [controlled-uncontrolled](./concepts/controlled-uncontrolled.md).)
 - **Don't flag:** resetting one field in response to a real event (not an identity change) belongs in that event handler, not a `key`.
 - **Source:** React, You Might Not Need an Effect (https://react.dev/learn/you-might-not-need-an-effect#resetting-all-state-when-a-prop-changes).
 
@@ -234,7 +238,7 @@ Defer memoization (`useMemo`, `useCallback`, `React.memo`) to the `react-compile
 
 ### 33. coupled-view [Funky]
 - **Sniff for:** a reusable-looking view that reaches out to its environment instead of receiving props: API clients or query hooks (`useQuery`, `fetch`, an `api` module) called inside the component; global stores, app contexts, or the router read deep in the tree (`useSelector`, `useContext(AppState)`, `useRouter`); domain rules computed inline in the body or the JSX (pricing math, permission checks, validation policy, date logic). The litmus test is rendering it in a pure environment, Storybook or a unit test: if it needs the network, a store, a provider stack, or the router mocked before it renders at all, the view is coupled. A 500-line component file usually carries this smell and god-component (32) together.
-- **Fix:** split the container from the view. Lift data access and domain decisions one layer up (the page, a container component, or a hook composed there) and pass the results down as props named for the behavior they drive (`canEdit`, `dueLabel`, `onSubmit`, `items`), not for where the data came from. Move pure domain rules into plain functions above the view so they are testable without React. The leaf then renders anywhere from plain props, with no mocks.
+- **Fix:** split the container from the view (the boundary rules and the litmus are in [composition-layer](./concepts/composition-layer.md)). Lift data access and domain decisions one layer up (the page, a container component, or a hook composed there) and pass the results down as props named for the behavior they drive (`canEdit`, `dueLabel`, `onSubmit`, `items`), not for where the data came from. Move pure domain rules into plain functions above the view so they are testable without React. The leaf then renders anywhere from plain props, with no mocks.
 - **Don't flag:** page- and route-level components are the composition layer; fetching and store access is their job. Reading a narrow, app-wide context through a documented hook (theme, locale, session) is not environment coupling (see category 25 for context structure). Do not force a container split on a small one-off component that will never be reused or rendered in isolation.
 - **Source:** React, Thinking in React (https://react.dev/learn/thinking-in-react).
 
@@ -278,7 +282,7 @@ Defer memoization (`useMemo`, `useCallback`, `React.memo`) to the `react-compile
 
 ### 40. impure-render [Rancid]
 - **Sniff for:** `Math.random()`, `Date.now()`, `new Date()`, or `crypto.randomUUID()` in the render path feeding ids, keys, or initial values (a new identity every render; under SSR, a hydration mismatch); mutating a module-level or outer-scope variable during render; calling `setState` unconditionally during render (an infinite loop) or setting another component's state during render (the "cannot update a component while rendering" error); browser-only reads in render (`window.innerWidth`, `localStorage`, `navigator.language`) that crash SSR or hydrate differently from the server output.
-- **Fix:** renders must be pure. Move randomness and clock reads into a lazy initializer (`useState(() => ...)`), an effect, or the event handler; use `useId` for stable element ids; bring browser state in through an effect or `useSyncExternalStore` with a server snapshot; compute locale- and time-dependent formatting from props the server also has.
+- **Fix:** renders must be pure (why SSR punishes every violation twice is in [hydration](./concepts/hydration.md)). Move randomness and clock reads into a lazy initializer (`useState(() => ...)`), an effect, or the event handler; use `useId` for stable element ids; bring browser state in through an effect or `useSyncExternalStore` with a server snapshot; compute locale- and time-dependent formatting from props the server also has.
 - **Don't flag:** the documented adjust-state-during-render form (`if (prev !== next) { setPrev(next); ... }`) is legal, though a `key` reset (category 31) usually reads better. Mutating an object you created during this same render is fine.
 - **Source:** React, Keeping Components Pure (https://react.dev/learn/keeping-components-pure).
 
@@ -380,7 +384,7 @@ Defer memoization (`useMemo`, `useCallback`, `React.memo`) to the `react-compile
 
 ### 56. missing-exhaustive-check [Funky, Rancid when a new variant silently renders nothing]
 - **Sniff for:** a `switch` or `if`/`else` chain over a union (`status`, `variant`, a discriminated union) with a silent fallthrough or a `default` returning `null`, so adding a member compiles clean and renders nothing; the same union switched on in several files, each a place to forget the new member; a status-to-label, icon, or color lookup typed `Record<string, ...>`, hiding a missing key.
-- **Fix:** make the compiler enforce completeness. End the `switch` with a `never` check (`default: { const _exhaustive: never = value; ... }`) or type the lookup against the union (`satisfies Record<Status, string>`), so an added member errors at every site; collapse scattered switches over the same union into one mapping module when they encode the same decision.
+- **Fix:** make the compiler enforce completeness (the closed-vs-open-set reasoning is in [impossible-states](./concepts/impossible-states.md)). End the `switch` with a `never` check (`default: { const _exhaustive: never = value; ... }`) or type the lookup against the union (`satisfies Record<Status, string>`), so an added member errors at every site; collapse scattered switches over the same union into one mapping module when they encode the same decision.
 - **Don't flag:** a deliberate default for a genuinely open set (a server-sent string you do not control) is correct. The smell is a closed union handled as if it were open.
 - **Source:** TypeScript, Exhaustiveness checking (https://www.typescriptlang.org/docs/handbook/2/narrowing.html#exhaustiveness-checking).
 

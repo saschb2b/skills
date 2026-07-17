@@ -558,9 +558,9 @@
       "title": "react-stinky",
       "description": "Detect React and TypeScript maintainability smells across the whole component, hook, and module, explain the cost of each, and propose a fix with a source link. Covers prop and API design (naming...",
       "risk_tier": "executable-L1",
-      "target_digest": "sha256:e839504495ac735bbb2280f40e3f65ee0f66f79b3817026e26cbd961a44d814e",
+      "target_digest": "sha256:fa631b8b95aac47a1579617d7280a2652fc349fdbf7955b0e47d2e625ce8febd",
       "identity": "did:web:saschb2b.com",
-      "expires": "2027-06-29",
+      "expires": "2027-07-17",
       "capability": {
         "model": "executable",
         "manifest_declared": "permissions.yaml",
@@ -577,20 +577,20 @@
           "https://developer.mozilla.org/en-US/docs/Web/HTML/Element",
           "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label",
           "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#default_value",
+          "https://martinfowler.com/bliki/PresentationDomainSeparation.html",
           "https://mui.com/material-ui/api/autocomplete/",
           "https://mui.com/material-ui/api/button/",
           "https://nextjs.org/docs/app/getting-started/server-and-client-components",
+          "https://react.dev/learn/choosing-the-state-structure",
           "https://react.dev/learn/choosing-the-state-structure#avoid-duplication-in-state",
+          "https://react.dev/learn/choosing-the-state-structure#avoid-impossible-states",
           "https://react.dev/learn/choosing-the-state-structure#avoid-redundant-state",
           "https://react.dev/learn/choosing-the-state-structure#don-t-mirror-props-in-state",
           "https://react.dev/learn/conditional-rendering",
           "https://react.dev/learn/keeping-components-pure",
+          "https://react.dev/learn/lifecycle-of-reactive-effects",
           "https://react.dev/learn/passing-data-deeply-with-context",
-          "https://react.dev/learn/passing-props-to-a-component",
-          "https://react.dev/learn/passing-props-to-a-component#passing-jsx-as-children",
-          "https://react.dev/learn/queueing-a-series-of-state-updates",
-          "https://react.dev/learn/referencing-values-with-refs",
-          "https://react.dev/learn/removing-effect-dependencies"
+          "https://react.dev/learn/passing-props-to-a-component"
         ]
       },
       "layers": [
@@ -603,7 +603,7 @@
       ],
       "grades": {
         "integrity": "STRONG",
-        "authorship": "STRONG",
+        "authorship": "ABSENT",
         "capability": "MEDIUM",
         "content_provenance": "UNVERIFIED",
         "vouching": "ABSENT",
@@ -611,15 +611,15 @@
       },
       "notes": {
         "integrity": "digest matches live bundle",
-        "authorship": "sigstore + rekor, cosign verify-blob OK; signer not pinned (pass --cert-identity to assert who)",
+        "authorship": "card is unsigned",
         "capability": "permission manifest declared (enforce in sandbox)",
         "content_provenance": "n/a for executable skills",
         "vouching": "0 attestation(s) bound to this digest",
         "freshness": "not expired"
       },
-      "trust_score": 10,
+      "trust_score": 7,
       "reachable": 13,
-      "rarity": "rare",
+      "rarity": "uncommon",
       "art": {
         "svg": "CARD.svg",
         "hero": null

@@ -1,0 +1,13 @@
+# Log
+
+## 2026-07-17
+
+**Enrichment (entity pass).** Added the `concepts/` directory: seven background models the catalog and passes leaned on but never explained (controlled vs uncontrolled, render snapshots, effects are synchronization, one fact one home, impossible states, the composition layer, hydration and render purity). Linked the catalog, duplication pass, and restructure pass into the concept graph with relationships named in prose (also curing the restructure pass's orphan status), refreshed the touched timestamps, and regenerated the root index. Crawl boundary: sources are the canonical React and TypeScript documentation already cited per catalog entry; no live-web crawl was run.
+
+## 2026-07-03
+
+**Update.** Catalog extended to nine pillars and 57 categories; restructure pass added.
+
+## 2026-06-16
+
+**Creation.** Bundle created with the smell catalog and the duplication pass, distilled from the cant-maintain React API-design challenge set and the canonical React, TypeScript, MDN, Next.js, and MUI documentation.
