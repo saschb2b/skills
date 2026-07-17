@@ -5,7 +5,7 @@
 **Expert practice, packaged as checklists your coding agent can actually run.**
 
 [![skills.sh](https://skills.sh/b/saschb2b/skills)](https://skills.sh/saschb2b/skills)
-[![Skills](https://img.shields.io/badge/skills-21-2ea44f)](#skill-reference)
+[![Skills](https://img.shields.io/badge/skills-22-2ea44f)](#skill-reference)
 [![Docs](https://img.shields.io/badge/docs-saschb2b.com-0969da)](https://saschb2b.com/skills)
 [![License](https://img.shields.io/badge/license-MIT-0969da)](./LICENSE)
 
@@ -38,6 +38,7 @@ npx skills@latest add saschb2b/skills --skill audit-actions
 npx skills@latest add saschb2b/skills --skill mcp-server
 npx skills@latest add saschb2b/skills --skill react-compiler
 npx skills@latest add saschb2b/skills --skill react-stinky
+npx skills@latest add saschb2b/skills --skill test-stinky
 npx skills@latest add saschb2b/skills --skill codegen-api
 npx skills@latest add saschb2b/skills --skill theme-colors
 npx skills@latest add saschb2b/skills --skill javascript-ecosystem
@@ -109,6 +110,12 @@ Skills install by slug, and the agent auto-invokes one by reading its `descripti
 | Skill | What it does |
 | --- | --- |
 | **[tauri-stinky](./skills/engineering/tauri-stinky/SKILL.md)** | Detect Rust and Tauri maintainability smells across the backend crate, the IPC boundary, and the app shell. Thirteen pillars, 57 categories: Rust discipline (error handling and panics, ownership, type design, modules, async correctness, an overgeneration pillar for the dead code and speculative layers agents ship, unsafe and lint hygiene, testing) and the Tauri layer (command design, managed state, events vs channels, capabilities and security, IPC contract and codegen, config and build footprint). Rates each Rancid, Funky, or Whiff with the fix and a source, runs a cross-boundary contract audit (commands vs invokes, events, types, capability grants), and ships a mechanical gate stack (fmt, clippy, test, audit, deny, machete) with a Cargo lints table. A per-smell guard respects poison-recovery locks, `spawn_blocking` architectures, and single-boundary-module patterns instead of nitpicking them. Defers frontend component smells to `react-stinky`. |
+
+### Testing & quality
+
+| Skill | What it does |
+| --- | --- |
+| **[test-stinky](./skills/engineering/test-stinky/SKILL.md)** | Detect test-suite quality smells in any language or framework, the counterweight to agents that blindly chase coverage and ship huge, slow, flaky suites. Nine pillars, 49 categories: test intent and shape, assertions (assertion-free, weak, tautological, snapshot-everything), fixtures and duplication (DAMP over DRY, mystery guests), test doubles (over-mocking, mock drift), determinism (time, randomness, order, shared state, hermeticity), async and waiting (sleeps vs condition waits), speed and cost (inverted pyramid, heavy setup, redundant layers), coverage theater, and lifecycle hygiene (skipped-test rot, retries as policy, green-by-rerun, silent conditional passes). Rates each Rancid, Funky, or Whiff with the fix and a source, runs a sweep-level suite pass with a slimming procedure for oversized suites, and ships a mechanical gate stack (test lint, order shuffle, duration budgets, lane split, flake detection, mutation spot-checks). Defers production-code smells to `react-stinky` and `tauri-stinky`. |
 
 ### Security & supply chain
 

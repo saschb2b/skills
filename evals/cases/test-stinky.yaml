@@ -1,0 +1,28 @@
+owner: test-stinky
+
+should_fire:
+  - audit our test suite for quality
+  - the test suite is huge and CI takes 40 minutes now, slim it down
+  - these tests are flaky, they pass alone but fail when the whole suite runs
+  - smell-check the tests folder
+  - our e2e tests sleep for two seconds before every assertion, clean that up
+  - the agent covered the feature with 400 tests and I don't trust any of them
+  - review this pytest file
+  - why does this test only fail on CI and never locally
+  - we rerun CI until it goes green, how do we stop doing that
+  - set up quality gates so the test suite stays fast and trustworthy
+  - half our jest tests just assert toBeTruthy, is that even testing anything
+  - this test mocks every dependency and then asserts the mocks were called
+
+route_to_sibling:
+  - prompt: this React component does fetching, state, and rendering all at once, clean it up
+    expect: react-stinky
+  - prompt: there are unwraps all over these rust command handlers
+    expect: tauri-stinky
+  - prompt: our jest config still uses the old transform syntax, what does the current major want
+    expect: javascript-ecosystem
+
+should_not_fire:
+  - deploy the staging branch
+  - write a blog post about test-driven development
+  - how do I center a div

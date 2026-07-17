@@ -19,6 +19,8 @@ route_to_sibling:
     expect: theme-colors
   - prompt: audit our github actions workflows for pull_request_target misuse
     expect: audit-actions
+  - prompt: our cargo tests spawn real processes and sleep in polling loops, the suite is slow and flaky
+    expect: test-stinky
 
 should_not_fire:
   - deploy the staging branch

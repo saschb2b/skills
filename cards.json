@@ -1,7 +1,7 @@
 {
   "repo": "saschb2b/skills",
   "card_version": "0.1",
-  "count": 21,
+  "count": 22,
   "skills": [
     {
       "skill": "android-compose",
@@ -694,6 +694,80 @@
       "trust_score": 10,
       "reachable": 13,
       "rarity": "rare",
+      "art": {
+        "svg": "CARD.svg",
+        "hero": null
+      }
+    },
+    {
+      "skill": "test-stinky",
+      "bucket": "engineering",
+      "domain": "AI & Agents",
+      "title": "test-stinky",
+      "description": "Detect test-suite quality smells in any language or framework, explain the cost of each, and propose a fix with a source link. A counterweight to agents that blindly chase coverage and ship huge...",
+      "risk_tier": "executable-L1",
+      "target_digest": "sha256:1b9ce445853906613fe8893c552ff76e6bb15d5eaf4937f4942dc5bb6357f7f9",
+      "identity": "did:web:saschb2b.com",
+      "expires": "2027-07-17",
+      "capability": {
+        "model": "executable",
+        "manifest_declared": "permissions.yaml",
+        "source": "declared",
+        "network": "see-manifest",
+        "shell": null,
+        "filesystem_writes": null,
+        "network_evidence": [],
+        "shell_evidence": [],
+        "declared_external_sources": [
+          "http://`,",
+          "http://jmock.org/oopsla2004.pdf",
+          "http://xunitpatterns.com/Assertion%20Roulette.html",
+          "http://xunitpatterns.com/Creation%20Method.html",
+          "http://xunitpatterns.com/Erratic%20Test.html",
+          "http://xunitpatterns.com/Obscure%20Test.html",
+          "http://xunitpatterns.com/Slow%20Tests.html",
+          "http://xunitpatterns.com/Test%20Code%20Duplication.html",
+          "http://xunitpatterns.com/Test%20Double.html",
+          "http://xunitpatterns.com/Test-Specific%20Subclass.html",
+          "https://`,",
+          "https://abseil.io/resources/swe-book/html/ch12.html",
+          "https://abseil.io/resources/swe-book/html/ch13.html",
+          "https://dl.acm.org/doi/10.1145/351240.351266",
+          "https://docs.pytest.org/en/stable/how-to/skipping.html",
+          "https://fast-check.dev/",
+          "https://hypothesis.readthedocs.io/",
+          "https://kentcdodds.com/blog/aha-testing",
+          "https://kentcdodds.com/blog/effective-snapshot-testing",
+          "https://kentcdodds.com/blog/testing-implementation-details"
+        ]
+      },
+      "layers": [
+        "integrity",
+        "authorship",
+        "capability",
+        "content_provenance",
+        "vouching",
+        "freshness"
+      ],
+      "grades": {
+        "integrity": "STRONG",
+        "authorship": "ABSENT",
+        "capability": "MEDIUM",
+        "content_provenance": "UNVERIFIED",
+        "vouching": "ABSENT",
+        "freshness": "MEDIUM"
+      },
+      "notes": {
+        "integrity": "digest matches live bundle",
+        "authorship": "card is unsigned",
+        "capability": "permission manifest declared (enforce in sandbox)",
+        "content_provenance": "n/a for executable skills",
+        "vouching": "0 attestation(s) bound to this digest",
+        "freshness": "not expired"
+      },
+      "trust_score": 7,
+      "reachable": 13,
+      "rarity": "uncommon",
       "art": {
         "svg": "CARD.svg",
         "hero": null

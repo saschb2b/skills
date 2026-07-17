@@ -17,6 +17,8 @@ route_to_sibling:
     expect: theme-colors
   - prompt: the buttons in this toolbar are all slightly different heights
     expect: visual-consistency
+  - prompt: our React Testing Library tests are flaky and full of waitFor timeouts, audit them
+    expect: test-stinky
 
 should_not_fire:
   - deploy the staging branch
