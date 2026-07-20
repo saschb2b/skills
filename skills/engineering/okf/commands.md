@@ -86,6 +86,34 @@ By default it exits non-zero only on the hard requirement, so it mirrors the per
 - **Connectivity (the producer gate, `--strict`).** No **orphans** (a concept with no concept-to-concept link in or out) and no **broken concept links** (a link whose target is not a concept — a missing file, or a reserved `index.md`/`log.md`). Consumers tolerate both, so they only warn by default; a *producer* resolves them, because an agent that traverses the graph cannot reach an orphan or cross a broken link. This is graph connectivity, not the counts from `export`'s coverage gate — a bundle can cover every source unit and still be a disconnected pile.
 - **Warnings (judgment).** A non-ISO log date is reported but does not fail the bundle. Fix the ones that are real mistakes; leave the forward-references you meant.
 
+## `health`: inspect knowledge quality without changing conformance
+
+Use Studio's deterministic health tools when the question goes beyond the OKF v0.1 hard rule.
+
+1. Call `okf_health_summary` and keep its bundle fingerprint.
+2. Filter the summary by category, severity, or fact-versus-heuristic basis instead of loading every concept.
+3. Call `okf_health_finding` for the evidence and rationale behind a selected result.
+4. Call `okf_health_affected` for bounded metadata about the concepts involved.
+5. Call `okf_health_repair` only when you need to know whether an exact mechanical repair exists. A guided result requires judgment and must not be presented as deterministic.
+
+Health covers conformance, graph connectivity, navigation, provenance, freshness signals, duplication, and coverage hints. Only the conformance category mirrors the validator. Every other category remains a fact about bundle shape or a named heuristic. A fingerprint mismatch means the bundle changed; start from a new summary instead of using stale findings.
+
+Outside Studio, run `okf-validate.mjs`, inspect indexes and links with filesystem search, and report which findings are deterministic versus heuristic. Omit Studio finding IDs, repairability claims, and fingerprints that the available tools cannot produce.
+
+## `retrieve`: select coherent evidence and explain the route
+
+Use Studio's `okf_retrieve` tool when a question needs more than a known concept read.
+
+1. Send the question without a route override first. Studio classifies exact, lexical, relationship, global, temporal, structured, full-context, and mixed requests deterministically.
+2. Check the bundle fingerprint, provider disclosure, context budget, omissions, conflicts, and abstention signal before using the packet.
+3. Cite the returned concept and section identities. Read a full concept only when the selected section lacks defining context.
+4. Override the route only to compare a named alternative. Retain both receipt IDs and explain what evidence changed.
+5. Treat repair suggestions as review inputs. Send an accepted proposal through the existing staged-write flow; a receipt never writes the bundle.
+
+The manifest, ranker scores, summaries, and receipts are disposable app data. They are not OKF facts and do not change conformance.
+
+Outside Studio, reproduce the same bounded evidence selection with the available file search, reads, and link traversal. Cite concept paths and sections directly, state omissions or conflicts, and abstain when the necessary evidence is outside the inspected bundle; do not invent a retrieval receipt.
+
 ## `export`: produce a bundle from a source
 
 The producer role: turn an existing source into a bundle. The source can be structured (a data catalog, a metadata export, a schema registry) or prose (an internal docs site, a wiki, a webpage, or a set of external URLs).

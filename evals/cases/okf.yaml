@@ -5,6 +5,15 @@ should_fire:
   - document this BigQuery table so an agent can read it
   - export our data catalog to a portable agent-readable format
   - make this runbook conformant with the Open Knowledge Format spec
+  - audit this OKF bundle for broken navigation and stale provenance
+  - trace what depends on this metric before we rename it
+  - revise this concept so it is clearer without changing any claims
+  - retrieve the bundle evidence that answers how net revenue is calculated
+
+in_context:
+  - |-
+    (mid-session, editing an existing OKF bundle)
+    User: add this citation to the refunds concept and keep its index, timestamp, links, and log current
 
 route_to_sibling:
   - prompt: package our design system as a bundle for an agent to build UI from
@@ -13,3 +22,4 @@ route_to_sibling:
 should_not_fire:
   - turn this braindump into a user story
   - rewrite this README so it doesn't sound AI-generated
+  - review the impact of renaming this private TypeScript helper

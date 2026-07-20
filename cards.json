@@ -438,11 +438,11 @@
       "bucket": "engineering",
       "domain": "AI & Agents",
       "title": "okf",
-      "description": "Author, validate, and maintain knowledge for AI agents as conformant Open Knowledge Format (OKF) bundles, Google's vendor-neutral spec (v0.1) of markdown files with YAML frontmatter for portable...",
+      "description": "Create, inspect, retrieve, author, revise, enrich, audit, repair, research, analyze change impact, migrate, validate, and maintain knowledge for AI agents as conformant Open Knowledge Format (OKF)...",
       "risk_tier": "executable-L1",
-      "target_digest": "sha256:d0e6a40e1c60c2f78d682f62a62d5c503ed7f0a419970611fe48536c75579667",
+      "target_digest": "sha256:527a8f7dc667f922a799f04a3f2f85b14b03e877ab38aed489e7beb30379ea3e",
       "identity": "did:web:saschb2b.com",
-      "expires": "2027-07-07",
+      "expires": "2027-07-20",
       "capability": {
         "model": "executable",
         "manifest_declared": "permissions.yaml",
@@ -458,10 +458,12 @@
           "https://example.com/docs/ga4-export",
           "https://github.com/GoogleCloudPlatform/knowledge-catalog/blob/main/okf/SPEC.md",
           "https://github.com/GoogleCloudPlatform/knowledge-catalog/tree/main/okf",
+          "https://react.dev",
           "https://support.google.com/analytics/answer/7029846",
           "https://wiki.acme.example/metrics/engagement",
           "https://wiki.acme.example/sales/orders",
-          "https://wiki.acme.internal/data/quality"
+          "https://wiki.acme.internal/data/quality",
+          "https://www.saschb2b.com/work"
         ]
       },
       "layers": [
@@ -473,7 +475,7 @@
         "freshness"
       ],
       "grades": {
-        "integrity": "ABSENT",
+        "integrity": "STRONG",
         "authorship": "STRONG",
         "capability": "MEDIUM",
         "content_provenance": "UNVERIFIED",
@@ -481,14 +483,14 @@
         "freshness": "MEDIUM"
       },
       "notes": {
-        "integrity": "MISMATCH live=sha256:c49549fd991c1ddd80c6ef7ce2d8699084bfedd4a595bd701e996049f7de3c26",
+        "integrity": "digest matches live bundle",
         "authorship": "sigstore + rekor, cosign verify-blob OK; signer not pinned (pass --cert-identity to assert who)",
         "capability": "permission manifest declared (enforce in sandbox)",
         "content_provenance": "n/a for executable skills",
         "vouching": "0 attestation(s) bound to this digest",
         "freshness": "not expired"
       },
-      "trust_score": 7,
+      "trust_score": 10,
       "reachable": 13,
       "rarity": "rare",
       "art": {
