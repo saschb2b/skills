@@ -9,30 +9,30 @@
   },
   {
     "path": "references/evidence.md",
-    "sha256": "4080431084ae6de1def66af9489bd2efd19f9674c37eadc243af5f6f191a8730"
+    "sha256": "675931b5bf636abb8172dfef72636c619f2db3334ed22e865bdd39f1258d1dcd"
   },
   {
     "path": "references/examples.md",
-    "sha256": "958c3bedde5ac86c20ed30a5c21285a1ed45d1c5ae51a588fe1c51c65ed64a33"
+    "sha256": "31321ac415ed1f454d69291067d46786f814d05a9206a0448e3700947f9ed26f"
   },
   {
     "path": "references/index.md",
-    "sha256": "14412823b096d5b8d6bf7d463aead0586b73299798ff70ae462fc80731052d81"
+    "sha256": "9ba302b0a9cbcfbdcfcd5a44680780fa4d0bc7a583fb4e831bd69675d1d39af6"
   },
   {
     "path": "references/log.md",
-    "sha256": "bf93cfda1988ac8a118cc3f41ac4ffe23ff41c8b56bea4e8e8836ba2c4b42c5c"
+    "sha256": "4c943dcd6f3d88bda98df7d9d85303b3b789ccb86782f080613beee39c239ef3"
   },
   {
     "path": "references/repairs.md",
-    "sha256": "e4be48510bfea7a8a74aebbc04a56959ee67c7dd3b27d053640c476789d83dfb"
+    "sha256": "d280b73cbe4d716712d4661c5fec518e5170271667daf1e7a30c4166b054764b"
   },
   {
     "path": "references/scope-rails.md",
-    "sha256": "047278c6c4515108b9cc4201ca0d5fd4619ef07b11ef5787b3c484fc5d8cc5af"
+    "sha256": "f522e1d24f07e981bf1b88469feb463cf00543137461c82e26a4dd5c9de9e27a"
   },
   {
     "path": "references/smells.md",
-    "sha256": "3a0b420d2e5cac88befe4a6a5c4156ebb7a415348c6f42ee9683e6c86ccb3d2e"
+    "sha256": "11c0419bcd6e6a6708a9e30d5bd08e5e8cf81675bfc0c3674eea122602a8120c"
   }
 ]

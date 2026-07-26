@@ -9,19 +9,19 @@
   },
   {
     "path": "references/catalog.md",
-    "sha256": "21b8c69325a52a94631cf9016650d42075e9f060772d224e5214b46ab5ba151d"
+    "sha256": "1e445af783949e4fd6fe0aadc8ecc63f27c6183e83b487352920d81ccfac22e8"
   },
   {
     "path": "references/concepts/damp-vs-dry.md",
-    "sha256": "0b0cd891dd65eca5229f84fb6d9679792df19e8e033e4ba094f90babfe159290"
+    "sha256": "20a2526d758a1a3160784725beadf7919322655775c1c144a9e186fa28668ae8"
   },
   {
     "path": "references/concepts/flakiness.md",
-    "sha256": "827948352d94359cd47efbf34a755b7b815958c8fa1f2e0a54b03e5dffdf4d5a"
+    "sha256": "5180c5c8e182797f8495e476ca32d7881e66945eccbb8df427d073185c8e14c6"
   },
   {
     "path": "references/concepts/hermeticity.md",
-    "sha256": "76f9d520aea0251f164fb2975505604ae9e3f42230a1fcdddaa36bce51eec3e6"
+    "sha256": "48dba1dc1a0308ef5536448b054d5561b41c4d2aa3895cea16211b574a6a4166"
   },
   {
     "path": "references/concepts/index.md",
@@ -29,34 +29,34 @@
   },
   {
     "path": "references/concepts/mutation-testing.md",
-    "sha256": "dfdeeffb1aca823669e166872e90ffc8f2197da00aeab22db959857734faa151"
+    "sha256": "64cb80bf497d12553fa657b7a25f3c151577fe5407383b23e928dd86eaf67f47"
   },
   {
     "path": "references/concepts/property-based-testing.md",
-    "sha256": "671b501525e06fc0cb753043ba41d2eba6a94e5bb2af55828e7c97ac1f0e1406"
+    "sha256": "7076b74351c544a0f463317a3934d1297b84c2aea6ecdc381b7ae1a1f17e66a2"
   },
   {
     "path": "references/concepts/test-doubles.md",
-    "sha256": "c829f992a0346fca4d4d1fabe875bbb14911aa95a8af854883d06625501c27b2"
+    "sha256": "2023a4f2158456eaa9fee241ba137e4c6c3dfa075c0b06fe39518d05878fafb0"
   },
   {
     "path": "references/concepts/test-pyramid.md",
-    "sha256": "66c2db71fccc0425e040c3ea323f0b4a41db66ac613f65859b572e305cec3fbf"
+    "sha256": "1a5204e91f26b018a039afdd568e9dbd5737d486bc3a848c59d317cf2dfcabe5"
   },
   {
     "path": "references/gates.md",
-    "sha256": "805207d1fd43a2dce9f5589b09e74d6504dc623d7d89751aeb9c16929a04250b"
+    "sha256": "18227d74f12083466670bbb5d47410906b59b6b40b69c069c2b8b9d4e0be55a6"
   },
   {
     "path": "references/index.md",
-    "sha256": "024c8fb6480dd951044bc3eeb29ba7593b93ade152974b60d733e10fbb7a65ab"
+    "sha256": "d0058d4d3377227e7176e2a48301e1daf509b15a809709d7afabb76859e3eaf1"
   },
   {
     "path": "references/log.md",
-    "sha256": "0ec67008dcdc743393a8fdf1aab8038afd5c4c9febdbddb93807599ff9ba430b"
+    "sha256": "ef88cf46900088b9692c25a2c8d9a54fc977c792b282ef7ae192f8ab64eed472"
   },
   {
     "path": "references/suite-pass.md",
-    "sha256": "6eae3000a0a12c87cd5ee59a9d3490c2e1b9c4068ff66499de49bcbc5612a1c9"
+    "sha256": "ee86aad6f1be40c7043f400acbba2ccb21b5e52c5f4b3acb1f6dad618dd269b8"
   }
 ]

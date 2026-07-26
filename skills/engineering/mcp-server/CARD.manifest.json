@@ -9,30 +9,30 @@
   },
   {
     "path": "references/index.md",
-    "sha256": "dc51a4764a7fb5040ca64a3b2bdb07a663b5a6bc6976df990b0bb29b9c074d98"
+    "sha256": "b781d7ed843bde7f822cccd32ebaa52ab4e1b9eea2a90a52611050602c1e2cd2"
   },
   {
     "path": "references/maintenance.md",
-    "sha256": "6621ceb8d339c3beeefed8a10eefb2a241bb52a351e7353c01f5a7d401d9b736"
+    "sha256": "c5ead9b4f127a6f10c6b38699e60be4cf90257541b606e2e184d9bb27bc5cab7"
   },
   {
     "path": "references/protocol.md",
-    "sha256": "536e7ef2a9b2b82c70e5fa82215a184d918974b12d8cbc1039fbd7fa4cc33d7e"
+    "sha256": "ff18ff27c1454f971640da188bb32ea9b4db3790d98a28bc49e3d7ac911f0f60"
   },
   {
     "path": "references/publishing.md",
-    "sha256": "b9157fbc41b9bbe705d4ecaee744a39261e521d1c0c356528a2a17892aca2ad7"
+    "sha256": "2690c109dc0fed2464421994bb340956eb4a045ed3929e2f1b2adcc9f8c2aceb"
   },
   {
     "path": "references/security.md",
-    "sha256": "a81f4bafaef28787d638dfe95d825a9ad828f3729137767119061526155f3f67"
+    "sha256": "12f9861dd176273b189bbccb3286daea335d92767ba595fd3937a396fdab6e50"
   },
   {
     "path": "references/testing.md",
-    "sha256": "24ee25a198eaba2e85451dc2096e298aae514baac5d37efcde3ec840c84fe9f3"
+    "sha256": "a49f9c7d0920669338b9c45ed9d70bbdfa73c75ca87eb4deb703ce226a25edfa"
   },
   {
     "path": "references/tool-design.md",
-    "sha256": "e9578b9f4d3b8be47aa00b05259a89fb959107ddf3ef3a69e24966965aafec3a"
+    "sha256": "594261b4d7cb221aba9865b652d4d01259e1e4439991692db5f6528ee13781b1"
   }
 ]

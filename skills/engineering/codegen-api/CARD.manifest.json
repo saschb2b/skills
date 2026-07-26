@@ -9,14 +9,14 @@
   },
   {
     "path": "references/dx-pitfalls.md",
-    "sha256": "097f0f1986282e8b7a962f9947853b416564d965e9e768525eeaa51545eefbc3"
+    "sha256": "c6babb9533e50ec6c2a3eeae37dbf5e8c6d83419eb4e2198615697416456b634"
   },
   {
     "path": "references/fragments.md",
-    "sha256": "b2cf2ea8c8d16d4485cfb33808d74c4babfe02fe48a0319835f529663983d1d7"
+    "sha256": "d6546881a5b120a0b0fe89088093660cbd729f30f1338e1deb6684b5e7b23abb"
   },
   {
     "path": "references/index.md",
-    "sha256": "5d4621870ec8011151f2c3d0a8ef4e218c42ce22761b5a3b59ece92010446554"
+    "sha256": "a351a78bf8db2e44be166929ed91c8cfd925374544701c2e7e5daf31d7c01634"
   }
 ]
