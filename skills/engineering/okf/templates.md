@@ -178,7 +178,16 @@ title: <human-readable name>
 description: <one sentence>
 resource: <canonical URI for the underlying asset>
 tags: [<tag>, <tag>]
-timestamp: <YYYY-MM-DDThh:mm:ssZ>
+generated: { by: <producer/version | human:id | process:id>, at: <YYYY-MM-DDThh:mm:ssZ> }
+verified: { by: human:<id>, at: <YYYY-MM-DDThh:mm:ssZ> }
+status: stable
+stale_after: <YYYY-MM-DD>
+sources:
+  - id: <stable-key>
+    resource: <url, bundle path, or scope descriptor>
+    title: <human-readable label>
+    author: <actor>
+    last_modified: <YYYY-MM-DD>
 ---
 
 # Schema
@@ -191,11 +200,14 @@ timestamp: <YYYY-MM-DDThh:mm:ssZ>
 -- a representative query
 \`\`\`
 
-# Citations
-[1] [<source title>](<url>)
+A claim traced to one source carries a footnote keyed to that source's id.[^<stable-key>]
+
+[^<stable-key>]: <source title>
 ```
 
 `type` is the only required field. Drop any recommended field you cannot stand behind rather than guessing, and add domain-specific keys freely.
+
+The trust fields are the ones most often filled in wrongly, so be strict with yourself about three of them. `generated.by` is the actor that actually wrote the content, which for agent-written knowledge is `<producer>/<version>` and never `human:<id>`. `verified` records a confirmation that actually happened; omit it entirely rather than seeding it, because it is the sole input to the trust tier a consumer computes. `stale_after` is a real shelf life, not decoration; put it on the concepts that genuinely expire, or consumers learn to ignore it everywhere.
 
 ## Bundle-root index.md
 
@@ -203,7 +215,7 @@ The one `index.md` that may carry frontmatter, solely to declare the version.
 
 ```markdown
 ---
-okf_version: "0.1"
+okf_version: "0.2"
 ---
 
 # Sales knowledge
@@ -252,7 +264,14 @@ title: Orders
 description: One row per completed customer order.
 resource: https://console.cloud.google.com/bigquery?p=acme&d=sales&t=orders
 tags: [sales, revenue]
-timestamp: 2026-05-28T14:30:00Z
+generated: { by: reference_agent/gemini-2.5-pro, at: 2026-05-28T14:30:00Z }
+verified: { by: human:dpatel, at: 2026-06-02T10:15:00Z }
+sources:
+  - id: dictionary
+    resource: https://wiki.acme.example/sales/orders
+    title: Sales warehouse data dictionary
+    author: team:data-platform
+    last_modified: 2026-05-20
 ---
 
 # Schema
@@ -264,7 +283,7 @@ timestamp: 2026-05-28T14:30:00Z
 | `created_at` | TIMESTAMP | When the order was placed (UTC). |
 
 # Joins
-Joined with [customers](/tables/customers.md) on `customer_id`. One customer has many orders.
+Joined with [customers](/tables/customers.md) on `customer_id`. One customer has many orders.[^dictionary]
 
 \`\`\`mermaid
 erDiagram
@@ -278,9 +297,10 @@ FROM `acme.sales.orders`
 GROUP BY customer_id;
 \`\`\`
 
-# Citations
-[1] [Sales warehouse data dictionary](https://wiki.acme.example/sales/orders)
+[^dictionary]: Sales warehouse data dictionary
 ```
+
+Read the frontmatter as a consumer would. `generated.by` is an agent, so nothing here is hand-written, but `verified` names a `human:` actor, which puts the concept in the **human-reviewed** tier. The `sources` entry carries `last_modified`, so a consumer can see the dictionary changed after this table was documented and weigh that. The footnote is a join key into `sources`, not prose.
 
 ## Worked example: a metric
 
@@ -292,7 +312,13 @@ type: Metric
 title: Weekly active users
 description: Distinct users with at least one qualifying event in a trailing 7-day window.
 tags: [engagement, growth]
-timestamp: 2026-06-01T09:00:00Z
+generated: { by: reference_agent/gemini-2.5-pro, at: 2026-06-01T09:00:00Z }
+status: stable
+stale_after: 2026-12-01
+sources:
+  - id: defs
+    resource: https://wiki.acme.example/metrics/engagement
+    title: Engagement metrics definitions
 ---
 
 # Definition
@@ -315,11 +341,12 @@ WHERE event_date BETWEEN DATE_SUB(@d, INTERVAL 6 DAY) AND @d
 \`\`\`
 
 # Notes
-Bot traffic is excluded upstream in [events](/tables/events.md). Do not re-filter here.
+Bot traffic is excluded upstream in [events](/tables/events.md). Do not re-filter here.[^defs]
 
-# Citations
-[1] [Engagement metrics definitions](https://wiki.acme.example/metrics/engagement)
+[^defs]: Engagement metrics definitions
 ```
+
+No `verified` key, so a consumer places this in the **unverified** tier. That is the honest state for a definition an agent wrote and nobody has signed off, and it is exactly the signal that would be destroyed by adding a `verified` entry to make the bundle look better. The `stale_after` says the definition is expected to be re-confirmed before December.
 
 ## Worked example: a runbook
 
@@ -331,7 +358,9 @@ type: Runbook
 title: Orders pipeline failure
 description: Recover the orders ingestion pipeline when the daily load fails.
 tags: [oncall, pipeline]
-timestamp: 2026-06-10T17:45:00Z
+generated: { by: human:rkm, at: 2026-06-10T17:45:00Z }
+verified: { by: process:runbook-drill, at: 2026-07-01T03:00:00Z }
+status: stable
 ---
 
 # When this fires
@@ -356,9 +385,11 @@ Page the data-platform on-call if the partition is still missing after one re-ru
 [^backfill]: Hand backfills bypass the dedupe stage and have produced double-counted revenue twice; see the 2026-03 incident review.
 ```
 
+A subtlety worth internalizing: a human *wrote* this, but the only `verified` actor is a process, so the tier is **machine-confirmed**, not human-reviewed. The tier is computed from who confirmed, never from who authored, because self-authorship is not review. Note also that `[^backfill]` keys to nothing in `sources`; a footnote is still an ordinary footnote when the concept is not using keyed attribution.
+
 ## Worked example: a glossary
 
-`glossary.md`. Term meanings are definition lists, not bullet prose; a caveat too small for `# Citations` is a footnote. The glossary is the home for a term whose whole story is one or two sentences; an entity with its own facts, history, or relationships graduates to its own concept (next example).
+`glossary.md`. Term meanings are definition lists, not bullet prose; a caveat too small for its own `sources` entry is a footnote. The glossary is the home for a term whose whole story is one or two sentences; an entity with its own facts, history, or relationships graduates to its own concept (next example).
 
 ```markdown
 ---
@@ -366,7 +397,7 @@ type: Glossary
 title: Sales terms
 description: What the sales bundle's recurring terms mean, in one place.
 tags: [sales, terminology]
-timestamp: 2026-06-12T08:00:00Z
+generated: { by: reference_agent/gemini-2.5-pro, at: 2026-06-12T08:00:00Z }
 ---
 
 # Terms
@@ -387,7 +418,7 @@ Active user
 
 ## Worked example: an entity concept (the entity pass)
 
-`technologies/react.md`. The shape the entity pass (`enrich` step 4) mints for a name the source uses but never explains — here, one of thirty technologies a CV listed as bare text. What the source lacks, the concept supplies: a self-contained explanation from the entity's authoritative home and producer knowledge, then the entity's role *in this bundle*, linked both ways so the skills table's "React" cell now points here and this concept points back. `# Citations` says what each source contributed, so verified and recalled facts stay distinguishable.
+`technologies/react.md`. The shape the entity pass (`enrich` step 4) mints for a name the source uses but never explains, here one of thirty technologies a CV listed as bare text. What the source lacks, the concept supplies: a self-contained explanation from the entity's authoritative home and producer knowledge, then the entity's role *in this bundle*, linked both ways so the skills table's "React" cell now points here and this concept points back. The `sources` family says what each input contributed, so sourced and recalled facts stay distinguishable: producer knowledge gets its own entry whose `resource` is a scope descriptor rather than a URL, and the footnotes show which sentence rests on which.
 
 ```markdown
 ---
@@ -396,29 +427,41 @@ title: React
 description: The declarative UI library most of the portfolio's frontend work builds on.
 resource: https://react.dev
 tags: [frontend, library, javascript]
-timestamp: 2026-07-16T09:00:00Z
+generated: { by: reference_agent/gemini-2.5-pro, at: 2026-07-16T09:00:00Z }
+sources:
+  - id: reactdev
+    resource: https://react.dev
+    title: react.dev, official documentation
+  - id: cv
+    resource: https://www.saschb2b.com/work
+    title: Work, saschb2b.com, where the source names it
+  - id: recalled
+    resource: producer knowledge at 2026-07-16, not read from a source
+    title: Producer knowledge
 ---
 
 React is a declarative JavaScript library for building component-based user
 interfaces, maintained by Meta and a large open-source community. Components
 describe their UI as a function of state; React reconciles changes against the
-DOM. Since React 19, the React Compiler handles memoization automatically.
+DOM.[^reactdev] Since React 19, the React Compiler handles memoization
+automatically.[^recalled]
 
 # Role in this bundle
 The primary frontend library in [technical expertise](/expertise.md), used
 across most [projects](/projects/synthwave-drive.md) and examined in articles
 such as [React state management in 2026](/articles/react-state-management-2026.md)
-and [React structure, then and now](/articles/react-structure-then-and-now.md).
+and [React structure, then and now](/articles/react-structure-then-and-now.md).[^cv]
 
-# Citations
-[1] [react.dev](https://react.dev) — official documentation; the definition above.
-[2] [Work — saschb2b.com](https://www.saschb2b.com/work) — where the source names it.
-[3] Producer knowledge (2026-07-16) — the React 19 compiler note; verify against [1].
+[^reactdev]: react.dev, official documentation
+[^cv]: Work, saschb2b.com
+[^recalled]: Producer knowledge, unverified against a source
 ```
+
+The `recalled` entry is the pattern that matters here. A `sources` entry may name a population or scope it cannot link to, which is what lets producer knowledge be declared rather than quietly blended into sourced text. A reader can now see which sentence came from the official docs and which came from the agent, and re-check only the second.
 
 ## Worked example: an external page mirrored as a reference
 
-`references/ga4-export-schema.md`. This is the canonical shape for turning a webpage or external URL into a bundle concept (`/okf export <url>`). `resource` is the live URL, `timestamp` is when you fetched it, and the body is a transformed summary, not a paste. Other concepts cite it.
+`references/ga4-export-schema.md`. This is the canonical shape for turning a webpage or external URL into a bundle concept (`/okf export <url>`). `resource` is the live URL, `generated.at` is when you fetched it, `generated.by` is what fetched it, and the body is a transformed summary, not a paste. Other concepts cite it.
 
 ```markdown
 ---
@@ -427,7 +470,16 @@ title: GA4 BigQuery Export schema
 description: Google's reference for the tables and columns GA4 exports to BigQuery.
 resource: https://support.google.com/analytics/answer/7029846
 tags: [ga4, external, documentation]
-timestamp: 2026-06-18T11:00:00Z
+generated: { by: reference_agent/gemini-2.5-pro, at: 2026-06-18T11:00:00Z }
+stale_after: 2026-12-18
+sources:
+  - id: ga4-schema
+    resource: https://support.google.com/analytics/answer/7029846
+    title: BigQuery Export schema
+    author: team:ga4-docs
+    last_modified: 2026-05-30
+    usage_count: 5000
+usage_window: { from: 2026-06-01, to: 2026-06-30 }
 ---
 
 # Summary
@@ -435,12 +487,55 @@ GA4 exports one `events_YYYYMMDD` table per day into a per-property dataset.
 Each row is one event, with nested `event_params` and `user_properties` records.
 
 # Key points
-* The export is append-only; intraday data lands in `events_intraday_YYYYMMDD`.
+* The export is append-only; intraday data lands in `events_intraday_YYYYMMDD`.[^ga4-schema]
 * `event_timestamp` is microseconds since the Unix epoch (UTC).
 * Cited by [events](/tables/events.md) and [weekly active users](/metrics/weekly_active_users.md).
 
-# Citations
-[1] [BigQuery Export schema](https://support.google.com/analytics/answer/7029846)
+[^ga4-schema]: BigQuery Export schema
 ```
 
-A `references/` concept is an ordinary concept (it just happens to mirror something external), so it validates like any other and shows up in the graph. Keep the snapshot honest: the `timestamp` plus the cited URL tell a reader how to re-check it, and you should summarize and cite rather than copy a third party's full text.
+A `references/` concept is an ordinary concept (it just happens to mirror something external), so it validates like any other and shows up in the graph. Keep the snapshot honest: `generated.at` plus the source URL tell a reader how to re-check it, `last_modified` tells them whether the upstream page has moved since, and `stale_after` puts a date on when the mirror should be re-fetched. Summarize and cite rather than copying a third party's full text.
+
+## Worked example: an attested computation
+
+`computations/revenue_fy.md`. New in v0.2, and the shape to reach for whenever the bundle backs a *number* rather than a description. The point is the asymmetry: an agent may fill `parameters` and run this, but may not write or edit the SQL, and a deterministic attester checks afterwards that it did neither.
+
+```markdown
+---
+type: Attested Computation
+title: Revenue for fiscal year
+description: Recognized revenue for a fiscal year, per Finance's definition.
+status: stable
+runtime: bigquery
+parameters:
+  - { name: year, type: integer, required: true }
+executor:
+  resource: /skills/run-on-bq.md
+  receipt: [job_id, executed_sql, result]
+attester:
+  resource: /attesters/revenue.py
+generated: { by: reference_agent/gemini-2.5-pro, at: 2026-06-20T22:53:05Z }
+verified: { by: human:ahormati, at: 2026-06-25T09:00:00Z }
+stale_after: 2026-09-23
+sources:
+  - id: rev-policy
+    resource: https://wiki.acme/finance/revenue-recognition
+    title: Revenue recognition policy
+---
+
+Recognized revenue follows the shipment date, not the order date.[^rev-policy]
+Used by [monthly revenue](/metrics/monthly_revenue.md).
+
+# Computation
+\`\`\`sql
+SELECT SUM(amount_usd) AS revenue
+FROM `acme.finance.recognized_revenue`
+WHERE fiscal_year = @year;
+\`\`\`
+
+[^rev-policy]: Revenue recognition policy
+```
+
+Long or generated SQL goes in a file instead: set `computation: /computations/lib/revenue.sql` and drop the `# Computation` fence. Use one form or the other, never both.
+
+Two things this example is making explicit. `verified` says a human agreed the *definition* matches Finance's policy; it says nothing about any particular run, which is what the attester is for. And the attester checks both halves: *provenance*, that the executed SQL equals this computation bound with the claimed `year`, compared canonicalized so formatting is not a loophole; and *fidelity*, that the number a consumer displays matches the receipt's result re-read by `job_id` rather than copied out of the agent's prose.

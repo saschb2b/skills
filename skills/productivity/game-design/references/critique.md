@@ -3,7 +3,7 @@ type: Playbook
 title: "Critique and Rework Playbook"
 description: "The design-review smell catalog with detection signals and fixes, plus the procedure for reworking a flat or broken mechanic."
 tags: [game-design, critique, rework, review, balance]
-timestamp: 2026-07-06T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-07-06T00:00:00Z }
 ---
 
 # Critique and Rework Playbook

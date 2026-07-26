@@ -3,7 +3,7 @@ type: Library Notes
 title: "urql"
 description: "urql stays a lightweight, exchange-based client: behavior is composed from middleware-like exchanges, with document caching by default and opt-in normalized caching via `@urql/exchange-graphcache`."
 tags: [javascript, graphql]
-timestamp: 2026-06-04T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-04T00:00:00Z }
 ---
 # urql
 

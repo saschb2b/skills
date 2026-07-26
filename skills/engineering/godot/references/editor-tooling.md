@@ -3,7 +3,7 @@ type: Reference
 title: "Editor Tooling & Exposing Tunables Reference"
 description: "The clean Godot answer to \"let me adjust custom things in the editor instead of hunting for constants in code\" is **data-driven design**: never hardcode a tunable as a code constant when you can…"
 tags: [godot, gamedev, gdscript]
-timestamp: 2026-06-19T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-19T00:00:00Z }
 ---
 # Editor Tooling & Exposing Tunables Reference
 

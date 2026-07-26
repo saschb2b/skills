@@ -3,7 +3,14 @@ type: Principle
 title: "One Fact, One Home"
 description: "Single source of truth for state; store the minimal fact at the lowest common ancestor of its readers and writers, derive everything else during render."
 tags: [react, state, architecture, single-source-of-truth]
-timestamp: 2026-07-17T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-07-17T00:00:00Z }
+sources:
+  - resource: https://react.dev/learn/choosing-the-state-structure
+    title: "React, Choosing the State Structure"
+  - resource: https://react.dev/learn/sharing-state-between-components
+    title: "React, Sharing State Between Components"
+  - resource: https://react.dev/learn/thinking-in-react
+    title: "React, Thinking in React, step 4"
 ---
 # One Fact, One Home
 
@@ -24,9 +31,3 @@ The lowest common ancestor of everyone who reads or writes it:
 - Two components needing the same fact means **lift it to their LCA**, not mirror it between them.
 
 Ownership questions the LCA cannot settle (parent or the component itself) are the [controlled vs uncontrolled](controlled-uncontrolled.md) contract.
-
-# Citations
-
-- React, Choosing the State Structure (https://react.dev/learn/choosing-the-state-structure)
-- React, Sharing State Between Components (https://react.dev/learn/sharing-state-between-components)
-- React, Thinking in React, step 4 (https://react.dev/learn/thinking-in-react)

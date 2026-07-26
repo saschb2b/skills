@@ -13,94 +13,94 @@
   },
   {
     "path": "references/3d.md",
-    "sha256": "47effad61b8974ad27692d6544f51054cb3bcb041d78157c22d221b4ec73e02d"
+    "sha256": "8081a04139781831b1b4a34929abb824ca0c72d48bf82ab2d8b5fe6f87822d34"
   },
   {
     "path": "references/animation.md",
-    "sha256": "009d10adca1f2ea7b314eebaf5a0056bfab0d27efb55e9f180c5bdad54655871"
+    "sha256": "e529cf8af9451d91be0f972e9085ceda458fb3077df1df6852ef456c2cb99970"
   },
   {
     "path": "references/architecture.md",
-    "sha256": "4cf54b240b4e11ce6427eedceefd95285c74a1a7e53f703a0e90bfd1e5358877"
+    "sha256": "7c19f5d0ea561deb7c22412899ed586f2cda642b7696b0f7bce3f4f9d02d3ae5"
   },
   {
     "path": "references/audio.md",
-    "sha256": "a06f985de0cec1390288be2b3b5a85fe2cd854d0b9e4fc12564c081ec62444df"
+    "sha256": "7478d00f4a0a3a7bff61b22b75cd2fb5ff42a462095d62b6b15b52749916e308"
   },
   {
     "path": "references/editor-tooling.md",
-    "sha256": "31c1664150fdd4498b5e771fb76e28256015758d38f761ac61dc73e27a949053"
+    "sha256": "177ddd973510c0b5519168d4422c7897bcb982af3cb60ab15eb8e489bfdfaa74"
   },
   {
     "path": "references/file-formats.md",
-    "sha256": "b9ac030de0178cf2e7b73a052e6bb607e69890fdb5de62b40320b2858d4f6820"
+    "sha256": "e84d6bb109ab91f5cdfa8a861b1de599c20a8964143c7ea1c378f22d46e845a7"
   },
   {
     "path": "references/gdscript.md",
-    "sha256": "5b67c7524af60e9fe97f6edfa7e108b58576293942ca23cd4a2bc7cdff2989b5"
+    "sha256": "6dab0f978781ba0bc6f1b2e9c1f06b14290849050196bcabbf19938a3a8008bc"
   },
   {
     "path": "references/index.md",
-    "sha256": "0be7e8cdec450128cdb2a3a31f588bd3f5efbab551729d2ef79d674453433e2c"
+    "sha256": "63b94ae8904f2eb5af044c244d05f13aeb30010a242dec068a416b67044934d8"
   },
   {
     "path": "references/input.md",
-    "sha256": "06a530a7f5576f422eed5f4a02b069a70d2db78a71c7f52711936173d423022e"
+    "sha256": "924e13c82f44b186b8709fb9982bfbee1db3a110b46e562903d6b43a17bfd3f0"
   },
   {
     "path": "references/math.md",
-    "sha256": "eb3fca01dea7db62abf4e376efb2c67b776635a558bb7c69820debd67b71c196"
+    "sha256": "fff4d325fbbcf7e043639a2446779326b7054065bce80a96e592ac75ee5dfa9b"
   },
   {
     "path": "references/multiplayer.md",
-    "sha256": "b361fd9a34cce37f4c64fd95b7295e90c391b9cf809a00eb990f5a4cc4c3851b"
+    "sha256": "6c3c6414a90bb5d6400ef90c6e6897e89ce9b2bf1b6672428c22efc67bc4cb46"
   },
   {
     "path": "references/navigation.md",
-    "sha256": "8336989555fd29e566980511f5a90a87ae4e963993583c2de0f28ea98e682f40"
+    "sha256": "bd0a14a24bbe4d358605761af2c45999e4b04d91a6750bfee825a60494b80889"
   },
   {
     "path": "references/particles.md",
-    "sha256": "ba9fb770d0c97f3bb527fe97bbe61370fd31d4e51d02384629ff338759898d9b"
+    "sha256": "ca5418a3d38fdf11760680b1cb6f21165a7d4a2689165ea5b5f2a8d88283754d"
   },
   {
     "path": "references/performance.md",
-    "sha256": "a445d511ca5315e1b5ca44e319d571845ac48e691169edab34412ae29b08981a"
+    "sha256": "1b0fbb16d0cb9b4962de3ac7709b8fa6b12b8bbb9b86d1400b226c39d7e42aa7"
   },
   {
     "path": "references/persistence.md",
-    "sha256": "94489b03674ab3e17a70534dfec1ae7e5dc564f2c0f442607da10bcf49dfeaea"
+    "sha256": "9f1dd68eeeb88368c324078d3e6021b100342f2d449e7663b4bdf0b6bc78e488"
   },
   {
     "path": "references/physics.md",
-    "sha256": "59b0559a079a8395a0ef4cad7efa402a5bfb67dd59729270ab16612730242e51"
+    "sha256": "57572f478151dfe2334e6dabbf094d8e5c26c3fb0c5ea9b31c5f88df2ad918a9"
   },
   {
     "path": "references/pitfalls.md",
-    "sha256": "58b4d12f9bec621cd5f11ab9771a745fbf7cf7b2b4108db33504a334d3630847"
+    "sha256": "e615ec219970172b2a29e81158c9106313bc378f1f11c01912682b5db9feb66d"
   },
   {
     "path": "references/scene-tree.md",
-    "sha256": "50c89fc183ee2d285988782aa3fb77f14ea00fd4510b53bee62f13feaa97292a"
+    "sha256": "6d9d4f2f1fa1863c831a10556a85aadc1fede04fe340afbd5f5f0aaa61133295"
   },
   {
     "path": "references/shaders.md",
-    "sha256": "59876691e3135cabea77dadbf3c39b393839eeb556f77136be090d89798178d5"
+    "sha256": "922b71f693b3bbf1f9ff51c9774f206e23bdb95c7397b9c2699b93411dff77e7"
   },
   {
     "path": "references/testing.md",
-    "sha256": "64ecf875108512dd66abf47359721d6b480ab0aa9db85742aa35c55c9b8cb5c3"
+    "sha256": "032500f9c8afb9f37bbec9062bff284f07afbd24e7afd7906576f879fbc7040f"
   },
   {
     "path": "references/tilemaplayer.md",
-    "sha256": "8a9ffcbb26a4ca352531f62668639cf8cc3be05169c6ca9e0b0d649e4aa6e8cc"
+    "sha256": "4729016cc484cbd9f91090d422da4fc3a045fc1511d908c8615e7f5bda04fe40"
   },
   {
     "path": "references/ui.md",
-    "sha256": "40578dd2b2ef71c5360599f2ee187f0fc6a490e53b20a998d753f944552dd5d9"
+    "sha256": "2e42a9b765702c534b3625edb9dbbfe8b9faccdc4df4c7540092eb26d7390abe"
   },
   {
     "path": "references/workflow.md",
-    "sha256": "2f7b10ee7233f9e90a4e2083efa70d82dac78982982328d039325e4fb404b4a2"
+    "sha256": "2fbe3dd97569dfb2f3bcff54bfdfba9f3c8785bc2caef6784ad73609b351ddca"
   }
 ]

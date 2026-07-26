@@ -3,7 +3,7 @@ type: Library Notes
 title: "OpenTelemetry JS"
 description: "SDK 2.0 dropped Node 14/16 (now `^18.19.0 || >=20.6.0`), raised TypeScript to 5.0.4+, retargeted ES2022, and removed classes and namespaces for tree-shaking, while keeping `@opentelemetry/api`..."
 tags: [javascript, observability]
-timestamp: 2026-06-04T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-04T00:00:00Z }
 ---
 # OpenTelemetry JS
 

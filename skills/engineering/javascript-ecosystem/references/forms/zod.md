@@ -3,7 +3,7 @@ type: Library Notes
 title: "Zod"
 description: "Zod 4 is a near-total internal rewrite (much faster parsing, smaller core, far fewer type instantiations)."
 tags: [javascript, forms]
-timestamp: 2026-06-04T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-04T00:00:00Z }
 ---
 # Zod
 

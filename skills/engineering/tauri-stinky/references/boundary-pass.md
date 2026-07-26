@@ -3,7 +3,7 @@ type: Playbook
 title: "Tauri Stinky: Boundary Pass"
 description: "A sweep-level audit of the IPC contract, commands, invokes, events, types, and capabilities checked against each other across the Rust/TS boundary."
 tags: [tauri, rust, typescript, ipc, audit]
-timestamp: 2026-07-15T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-07-15T00:00:00Z }
 ---
 # Tauri Stinky: Boundary Pass
 

@@ -3,7 +3,7 @@ type: Doctrine
 title: Parallel dispatch
 description: Independent tool calls go out in one batch; only real data dependencies are sequenced; waiting is signal-driven, never polled.
 tags: [workflow, tools, latency]
-timestamp: 2026-07-16T10:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-07-16T10:00:00Z }
 ---
 
 # The rule

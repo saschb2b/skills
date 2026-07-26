@@ -3,7 +3,7 @@ type: Library Notes
 title: "TanStack Query (React Query)"
 description: "v5 unified every hook on a single object argument (no positional overloads), and made Suspense first-class via dedicated `useSuspenseQuery`/`useSuspenseInfiniteQuery` where `data` is never typed..."
 tags: [javascript, data]
-timestamp: 2026-06-04T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-04T00:00:00Z }
 ---
 # TanStack Query (React Query)
 

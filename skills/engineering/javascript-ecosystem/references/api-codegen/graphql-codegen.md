@@ -3,7 +3,7 @@ type: Library Notes
 title: "GraphQL Code Generator (client preset)"
 description: "The client preset is the official recommended path."
 tags: [javascript, api-codegen]
-timestamp: 2026-06-04T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-04T00:00:00Z }
 ---
 # GraphQL Code Generator (client preset)
 

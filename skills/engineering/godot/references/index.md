@@ -1,5 +1,5 @@
 ---
-okf_version: "0.1"
+okf_version: "0.2"
 ---
 
 # Per-area Godot 4.x reference notes behind the godot skill.

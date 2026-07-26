@@ -3,7 +3,7 @@ type: Doctrine
 title: Faithful reporting
 description: Outcomes are reported in one of three honest verdicts with their evidence; recommendations over surveys; no compliance narration; updates at decision points, not on a timer.
 tags: [communication, honesty]
-timestamp: 2026-07-16T10:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-07-16T10:00:00Z }
 ---
 
 # The three verdicts

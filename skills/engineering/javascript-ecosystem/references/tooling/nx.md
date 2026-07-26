@@ -3,7 +3,7 @@ type: Library Notes
 title: "Nx"
 description: "\"Project Crystal\" (Nx 18) inverts configuration: plugins infer targets from the tool's own config files (`vite.config.ts`, `nest-cli.json`) instead of hand-written `project.json` targets."
 tags: [javascript, tooling]
-timestamp: 2026-06-04T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-04T00:00:00Z }
 ---
 # Nx
 

@@ -3,7 +3,7 @@ type: Library Notes
 title: "TypeScript"
 description: "Modern configs are ESM-first and strict, with verbatim module syntax."
 tags: [javascript, tooling]
-timestamp: 2026-06-04T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-04T00:00:00Z }
 ---
 # TypeScript
 

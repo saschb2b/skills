@@ -3,7 +3,7 @@ type: Smell Catalog
 title: "React Stinky Catalog"
 description: "The full smell catalog, in nine pillars."
 tags: [react, typescript, code-smells, maintainability]
-timestamp: 2026-07-17T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-07-17T00:00:00Z }
 ---
 # React Stinky Catalog
 

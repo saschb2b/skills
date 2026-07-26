@@ -4,7 +4,7 @@ title: GPT 5.6 delta map
 description: Instruction-by-instruction contrast between the leaked GPT 5.6 system prompt and the Fable doctrine; what to keep, what to override, and what the prompt never covers.
 resource: https://github.com/asgeirtj/system_prompts_leaks/blob/main/OpenAI/gpt-5.6-sol-extra-high.md
 tags: [adoption, gpt-5.6, contrast]
-timestamp: 2026-07-16T10:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-07-16T10:00:00Z }
 ---
 
 # What this is

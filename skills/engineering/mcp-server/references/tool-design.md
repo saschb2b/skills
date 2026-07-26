@@ -3,7 +3,7 @@ type: Playbook
 title: "Tool Design for Agents"
 description: "Anthropic's effective-tools guidance: build workflow tools not endpoint wrappers, write descriptions agents read correctly, structured output, error handling, and the context-budget problem."
 tags: [mcp, tools, prompt-engineering, context, anthropic]
-timestamp: 2026-06-21T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-21T00:00:00Z }
 ---
 
 # Tool Design for Agents

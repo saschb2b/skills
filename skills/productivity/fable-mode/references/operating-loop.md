@@ -3,7 +3,7 @@ type: Doctrine
 title: The operating loop
 description: The turn-level control flow Fable runs, from orientation through faithful report, and the altitude decision that picks how to gather.
 tags: [workflow, control-flow]
-timestamp: 2026-07-16T10:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-07-16T10:00:00Z }
 ---
 
 # The loop

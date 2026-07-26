@@ -3,7 +3,7 @@ type: Reference
 title: "Editor & CLI Workflow Reference"
 description: "The Godot executable is also the toolchain: it imports, syntax-checks, runs, and exports a project from the command line."
 tags: [godot, gamedev, gdscript]
-timestamp: 2026-06-19T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-19T00:00:00Z }
 ---
 # Editor & CLI Workflow Reference
 

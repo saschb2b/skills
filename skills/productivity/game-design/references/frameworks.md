@@ -3,7 +3,7 @@ type: Reference
 title: "Design Frameworks"
 description: "MDA, core loops and skill atoms, the flow corridor, player motivation, depth versus complexity, and game feel, with sources."
 tags: [game-design, frameworks, mda, flow, motivation, game-feel]
-timestamp: 2026-06-21T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-21T00:00:00Z }
 ---
 
 # Design Frameworks

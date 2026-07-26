@@ -3,7 +3,7 @@ type: Reference
 title: "Systems, Economies, and Balance"
 description: "Internal economies, feedback loops, balancing methods, randomness, reward schedules, and the ethics line, with sources."
 tags: [game-design, economy, balance, randomness, rewards, ethics]
-timestamp: 2026-07-06T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-07-06T00:00:00Z }
 ---
 
 # Systems, Economies, and Balance

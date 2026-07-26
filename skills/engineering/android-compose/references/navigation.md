@@ -3,7 +3,7 @@ type: Reference
 title: "Navigation"
 description: "Do not mix the two in one graph."
 tags: [android, jetpack-compose, kotlin]
-timestamp: 2026-06-15T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-15T00:00:00Z }
 ---
 # Navigation
 

@@ -3,7 +3,7 @@ type: Library Notes
 title: "Vue"
 description: "`<script setup>` Composition API is the idiomatic default."
 tags: [javascript, frameworks]
-timestamp: 2026-06-05T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-05T00:00:00Z }
 ---
 # Vue
 

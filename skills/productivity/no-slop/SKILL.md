@@ -60,7 +60,7 @@ Most "AI slop" is not wrong, it is over-written. Too warm, too balanced, too eag
 The register and the tells apply wherever you write, not only in essays and docs. Each surface carries its own slop, with the tells and rewrites in a sibling file:
 
 - **Formatting** (headings, bold, lists, emoji, badges, smart quotes). See [formatting.md](./references/formatting.md).
-- **Code comments** that narrate the diff or restate the code. See [code-comments.md](./references/code-comments.md).
+- **Code comments** that narrate the diff or restate the code. See [code-comments.md](./references/code-comments.md). That page is the register pass. For whether a comment should exist at all, what it should say instead, and the write-time gate, `comment-stinky` is the deep version; use it when the task is about the comments themselves rather than about the prose sounding generated.
 - **Commit messages and PR descriptions** that restate the diff instead of the reason for it. See [commits-and-prs.md](./references/commits-and-prs.md).
 - **Strings in code** (test names, error and log messages). See [code-strings.md](./references/code-strings.md).
 

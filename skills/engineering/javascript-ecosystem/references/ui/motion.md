@@ -3,7 +3,7 @@ type: Library Notes
 title: "Motion (formerly Framer Motion)"
 description: "The library was rebranded from `framer-motion` to `motion` and is now an independent, framework-agnostic project spanning vanilla JavaScript, React (`motion/react`), and Vue (`motion-v`)."
 tags: [javascript, ui]
-timestamp: 2026-06-04T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-04T00:00:00Z }
 ---
 # Motion (formerly Framer Motion)
 

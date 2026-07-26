@@ -3,7 +3,7 @@ type: Reference
 title: "no-slop: strings in code"
 description: "Test names, error messages, and log lines are read by a human at the worst moment, when a test fails or production breaks."
 tags: [writing, ai-slop, style, editing]
-timestamp: 2026-06-14T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-14T00:00:00Z }
 ---
 # no-slop: strings in code
 

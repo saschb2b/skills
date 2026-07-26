@@ -3,7 +3,7 @@ type: Library Notes
 title: "PostHog (product analytics)"
 description: "Initialization now centers on a dated `defaults` snapshot (e.g."
 tags: [javascript, observability]
-timestamp: 2026-06-04T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-04T00:00:00Z }
 ---
 # PostHog (product analytics)
 

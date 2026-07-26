@@ -3,7 +3,7 @@ type: Library Notes
 title: "Material UI (MUI)"
 description: "The major line jumped v5 to v6 to v7 to v9 (no v2, no v8) to share a major with MUI X."
 tags: [javascript, ui]
-timestamp: 2026-06-04T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-04T00:00:00Z }
 ---
 # Material UI (MUI)
 

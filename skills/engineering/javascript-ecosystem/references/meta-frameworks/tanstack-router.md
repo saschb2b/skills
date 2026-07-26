@@ -3,7 +3,7 @@ type: Library Notes
 title: "TanStack Router"
 description: "TanStack Router is a standalone, end-to-end type-safe React router (TanStack Start is the full-stack framework built on top of it)."
 tags: [javascript, meta-frameworks]
-timestamp: 2026-06-05T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-05T00:00:00Z }
 ---
 # TanStack Router
 

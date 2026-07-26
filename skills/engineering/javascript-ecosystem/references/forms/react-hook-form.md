@@ -3,7 +3,7 @@ type: Library Notes
 title: "React Hook Form"
 description: "Still on the v7 major and actively maintained (a v8 beta is in flight)."
 tags: [javascript, forms]
-timestamp: 2026-06-04T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-04T00:00:00Z }
 ---
 # React Hook Form
 

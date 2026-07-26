@@ -3,7 +3,7 @@ type: Playbook
 title: "React Stinky: Duplication Pass"
 description: "A sweep-level pass for cross-file duplication, the DRY smells a single-file scan cannot see."
 tags: [react, typescript, code-smells, maintainability]
-timestamp: 2026-07-17T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-07-17T00:00:00Z }
 ---
 # React Stinky: Duplication Pass
 

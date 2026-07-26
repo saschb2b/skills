@@ -3,7 +3,7 @@ type: Grading Policy
 title: "Grading and consumer policy"
 description: "The STRONG to ABSENT gradient, the consumer policy syntax, and how to choose a verification bar by risk tier."
 tags: [trust, provenance, security, policy]
-timestamp: 2026-06-29T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-29T00:00:00Z }
 ---
 
 # Grading and consumer policy

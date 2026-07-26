@@ -3,7 +3,7 @@ type: Reference
 title: "Pitfalls and Migrations"
 description: "var count = mutableStateOf(0) // BAD: new state object each recomposition"
 tags: [android, jetpack-compose, kotlin]
-timestamp: 2026-06-15T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-15T00:00:00Z }
 ---
 # Pitfalls and Migrations
 

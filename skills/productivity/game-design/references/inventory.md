@@ -3,7 +3,7 @@ type: Reference
 title: "Inventory and Items"
 description: "Where loot, equipment, consumables, loadouts, and upgrades meet the player. Storage models, the inventory puzzle, itemization, enhancement, weight, the hoarder trap, and the quality-of-life and ethics lines."
 tags: [game-design, inventory, loot, items, loadout]
-timestamp: 2026-07-06T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-07-06T00:00:00Z }
 ---
 
 # Inventory and Items

@@ -3,7 +3,7 @@ type: Reference
 title: "Build and Tooling"
 description: "Use `build.gradle.kts` (Kotlin DSL) and a single `gradle/libs.versions.toml` version catalog as the source of truth for versions."
 tags: [android, jetpack-compose, kotlin]
-timestamp: 2026-06-15T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-15T00:00:00Z }
 ---
 # Build and Tooling
 

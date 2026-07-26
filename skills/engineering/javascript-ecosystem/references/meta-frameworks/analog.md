@@ -3,7 +3,7 @@ type: Library Notes
 title: "AnalogJS"
 description: "AnalogJS is the fullstack Angular meta-framework, the Angular equivalent of Next.js, Nuxt, and SvelteKit."
 tags: [javascript, meta-frameworks]
-timestamp: 2026-06-05T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-05T00:00:00Z }
 ---
 # AnalogJS
 

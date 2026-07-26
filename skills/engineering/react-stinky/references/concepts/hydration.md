@@ -3,7 +3,14 @@ type: Concept
 title: "Hydration and Render Purity"
 description: "Why server-rendered React demands pure renders; the same component runs twice in two worlds, and any divergence is a mismatch, a flash, or a crash."
 tags: [react, ssr, hydration, purity]
-timestamp: 2026-07-17T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-07-17T00:00:00Z }
+sources:
+  - resource: https://react.dev/learn/keeping-components-pure
+    title: "React, Keeping Components Pure"
+  - resource: https://react.dev/reference/react-dom/client/hydrateRoot
+    title: "React, hydrateRoot and hydration mismatch causes"
+  - resource: https://react.dev/reference/react/useId
+    title: "React, useId"
 ---
 # Hydration and Render Purity
 
@@ -30,9 +37,3 @@ sequenceDiagram
 | "Render differently on the client" branches (`typeof window !== 'undefined'`) | Deliberately divergent first render | Render the server version first, switch after mount via effect-set state |
 
 The general rule is the render-purity rule (category 40): a render is a pure function of props, state, and context. SSR is simply the environment that punishes every violation, because the impurity gets called twice with an equality check between the runs.
-
-# Citations
-
-- React, Keeping Components Pure (https://react.dev/learn/keeping-components-pure)
-- React, hydrateRoot and hydration mismatch causes (https://react.dev/reference/react-dom/client/hydrateRoot)
-- React, useId (https://react.dev/reference/react/useId)

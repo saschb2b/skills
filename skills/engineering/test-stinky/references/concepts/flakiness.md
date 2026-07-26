@@ -3,7 +3,14 @@ type: Concept
 title: "Flakiness"
 description: "What a flaky test is, where flakes actually come from, and the detect-quarantine-fix lifecycle with the metrics that keep a suite trusted."
 tags: [testing, flakiness, ci, reliability]
-timestamp: 2026-07-17T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-07-17T00:00:00Z }
+sources:
+  - resource: https://martinfowler.com/articles/nonDeterminism.html
+    title: "Fowler, Eradicating Non-Determinism in Tests"
+  - resource: https://testing.googleblog.com/2016/05/flaky-tests-at-google-and-how-we.html
+    title: "Google Testing Blog, Flaky Tests at Google and How We Mitigate Them"
+  - resource: https://testing.googleblog.com/2017/04/where-do-our-flaky-tests-come-from.html
+    title: "Google Testing Blog, Where Do Our Flaky Tests Come From?"
 ---
 # Flakiness
 
@@ -28,9 +35,3 @@ In root-cause order, mapped to the catalog categories that detect each:
 ## Metrics
 
 First-attempt green rate is the trust metric; pass-on-retry count is the leading indicator; quarantine size and age are the debt gauge. A suite with retries on and none of these measured is flying blind (categories 40, 45).
-
-# Citations
-
-- Fowler, Eradicating Non-Determinism in Tests (https://martinfowler.com/articles/nonDeterminism.html)
-- Google Testing Blog, Flaky Tests at Google and How We Mitigate Them (https://testing.googleblog.com/2016/05/flaky-tests-at-google-and-how-we.html)
-- Google Testing Blog, Where Do Our Flaky Tests Come From? (https://testing.googleblog.com/2017/04/where-do-our-flaky-tests-come-from.html)

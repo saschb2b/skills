@@ -3,7 +3,7 @@ type: Library Notes
 title: "tRPC"
 description: "v11's new TanStack Query integration stops wrapping `useQuery`/`useMutation` and instead exposes native `queryOptions`/`mutationOptions`, so you call TanStack's own hooks."
 tags: [javascript, backend]
-timestamp: 2026-06-05T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-05T00:00:00Z }
 ---
 # tRPC
 

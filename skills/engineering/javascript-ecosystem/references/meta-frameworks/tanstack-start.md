@@ -3,7 +3,7 @@ type: Library Notes
 title: "TanStack Start"
 description: "TanStack Start is a full-stack meta-framework on top of TanStack Router plus Vite."
 tags: [javascript, meta-frameworks]
-timestamp: 2026-06-04T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-04T00:00:00Z }
 ---
 # TanStack Start
 

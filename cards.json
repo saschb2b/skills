@@ -1,7 +1,7 @@
 {
   "repo": "saschb2b/skills",
   "card_version": "0.1",
-  "count": 22,
+  "count": 23,
   "skills": [
     {
       "skill": "android-compose",
@@ -10,9 +10,9 @@
       "title": "android-compose",
       "description": "Modern Android development with Jetpack Compose as the default UI toolkit and Material 3 Expressive as the default design direction, a dated snapshot. Covers Compose fundamentals (composables...",
       "risk_tier": "executable-L1",
-      "target_digest": "sha256:f7096621f4eaa97fb5658cb40e82aa3e381b8b31ac5621989fe39e358e3d7267",
+      "target_digest": "sha256:59c6833b22b7484cd57abc14ac370a98e20b2f9bbd25360e310098afd287ac04",
       "identity": "did:web:saschb2b.com",
-      "expires": "2027-06-29",
+      "expires": "2027-07-27",
       "capability": {
         "model": "executable",
         "manifest_declared": "permissions.yaml",
@@ -34,7 +34,7 @@
       ],
       "grades": {
         "integrity": "STRONG",
-        "authorship": "STRONG",
+        "authorship": "ABSENT",
         "capability": "MEDIUM",
         "content_provenance": "UNVERIFIED",
         "vouching": "ABSENT",
@@ -42,15 +42,15 @@
       },
       "notes": {
         "integrity": "digest matches live bundle",
-        "authorship": "sigstore + rekor, cosign verify-blob OK; signer not pinned (pass --cert-identity to assert who)",
+        "authorship": "card is unsigned",
         "capability": "permission manifest declared (enforce in sandbox)",
         "content_provenance": "n/a for executable skills",
         "vouching": "0 attestation(s) bound to this digest",
         "freshness": "not expired"
       },
-      "trust_score": 10,
+      "trust_score": 7,
       "reachable": 13,
-      "rarity": "rare",
+      "rarity": "uncommon",
       "art": {
         "svg": "CARD.svg",
         "hero": null
@@ -89,7 +89,7 @@
       ],
       "grades": {
         "integrity": "STRONG",
-        "authorship": "STRONG",
+        "authorship": "MEDIUM",
         "capability": "MEDIUM",
         "content_provenance": "UNVERIFIED",
         "vouching": "ABSENT",
@@ -97,13 +97,13 @@
       },
       "notes": {
         "integrity": "digest matches live bundle",
-        "authorship": "sigstore + rekor, cosign verify-blob OK; signer not pinned (pass --cert-identity to assert who)",
+        "authorship": "sigstore signature recorded; install cosign to re-verify",
         "capability": "permission manifest declared (enforce in sandbox)",
         "content_provenance": "n/a for executable skills",
         "vouching": "0 attestation(s) bound to this digest",
         "freshness": "not expired"
       },
-      "trust_score": 10,
+      "trust_score": 9,
       "reachable": 13,
       "rarity": "rare",
       "art": {
@@ -118,9 +118,9 @@
       "title": "codegen-api",
       "description": "Set up typesafe API code generation in 2026, preferring framework-agnostic options factories over generated hooks. Walks the decision matrix for REST (OpenAPI via hey-api) and GraphQL...",
       "risk_tier": "executable-L1",
-      "target_digest": "sha256:3b9e0ddc69e433c9752a363fe6a75d05e03c6260469d04c14adf55efed2a91bb",
+      "target_digest": "sha256:19d63bdecd273cb266852f8cae9198a089f8eedddb4a6e565591b7d51c6a7d29",
       "identity": "did:web:saschb2b.com",
-      "expires": "2027-06-29",
+      "expires": "2027-07-27",
       "capability": {
         "model": "executable",
         "manifest_declared": "permissions.yaml",
@@ -145,7 +145,7 @@
       ],
       "grades": {
         "integrity": "STRONG",
-        "authorship": "STRONG",
+        "authorship": "ABSENT",
         "capability": "MEDIUM",
         "content_provenance": "UNVERIFIED",
         "vouching": "ABSENT",
@@ -153,15 +153,89 @@
       },
       "notes": {
         "integrity": "digest matches live bundle",
-        "authorship": "sigstore + rekor, cosign verify-blob OK; signer not pinned (pass --cert-identity to assert who)",
+        "authorship": "card is unsigned",
         "capability": "permission manifest declared (enforce in sandbox)",
         "content_provenance": "n/a for executable skills",
         "vouching": "0 attestation(s) bound to this digest",
         "freshness": "not expired"
       },
-      "trust_score": 10,
+      "trust_score": 7,
       "reachable": 13,
-      "rarity": "rare",
+      "rarity": "uncommon",
+      "art": {
+        "svg": "CARD.svg",
+        "hero": null
+      }
+    },
+    {
+      "skill": "comment-stinky",
+      "bucket": "engineering",
+      "domain": "AI & Agents",
+      "title": "comment-stinky",
+      "description": "Detect code-comment smells in any language, explain the cost of each, and propose the rewrite. Built against the failure mode where a comment narrates the edit that produced it (now, no longer...",
+      "risk_tier": "executable-L1",
+      "target_digest": "sha256:0b0850ef8a79cfe0d6b08a7e308f95477e6b827ff68e7c9e1c5a42f7fc9ff274",
+      "identity": "did:web:saschb2b.com",
+      "expires": "2027-07-27",
+      "capability": {
+        "model": "executable",
+        "manifest_declared": "permissions.yaml",
+        "source": "declared",
+        "network": "see-manifest",
+        "shell": null,
+        "filesystem_writes": null,
+        "network_evidence": [],
+        "shell_evidence": [],
+        "declared_external_sources": [
+          "https://antirez.com/news/124",
+          "https://blog.codinghorror.com/code-tells-you-how-comments-tell-you-why/",
+          "https://cbea.ms/git-commit/",
+          "https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions",
+          "https://cwe.mitre.org/data/definitions/390.html",
+          "https://doc.rust-lang.org/rustdoc/how-to-write-documentation.html",
+          "https://doc.rust-lang.org/rustdoc/write-documentation/documentation-tests.html",
+          "https://git-scm.com/docs/git-commit#_discussion",
+          "https://go.dev/doc/comment",
+          "https://google.github.io/eng-practices/review/developer/cl-descriptions.html",
+          "https://google.github.io/styleguide/cppguide.html#Comments",
+          "https://google.github.io/styleguide/cppguide.html#Implementation_Comments",
+          "https://google.github.io/styleguide/cppguide.html#TODO_Comments",
+          "https://google.github.io/styleguide/pyguide.html#38-comments-and-docstrings",
+          "https://jcip.net/annotations/doc/net/jcip/annotations/GuardedBy.html",
+          "https://martinfowler.com/bliki/CodeAsDocumentation.html",
+          "https://peps.python.org/pep-0257/",
+          "https://refactoring.com/catalog/extractFunction.html",
+          "https://refactoring.guru/replace-magic-number-with-symbolic-constant",
+          "https://refactoring.guru/smells/comments"
+        ]
+      },
+      "layers": [
+        "integrity",
+        "authorship",
+        "capability",
+        "content_provenance",
+        "vouching",
+        "freshness"
+      ],
+      "grades": {
+        "integrity": "STRONG",
+        "authorship": "ABSENT",
+        "capability": "MEDIUM",
+        "content_provenance": "UNVERIFIED",
+        "vouching": "ABSENT",
+        "freshness": "MEDIUM"
+      },
+      "notes": {
+        "integrity": "digest matches live bundle",
+        "authorship": "card is unsigned",
+        "capability": "permission manifest declared (enforce in sandbox)",
+        "content_provenance": "n/a for executable skills",
+        "vouching": "0 attestation(s) bound to this digest",
+        "freshness": "not expired"
+      },
+      "trust_score": 7,
+      "reachable": 13,
+      "rarity": "uncommon",
       "art": {
         "svg": "CARD.svg",
         "hero": null
@@ -174,9 +248,9 @@
       "title": "godot",
       "description": "Godot game engine development skill, a dated snapshot tracking the current stable Godot (4.x, currently 4.7). Covers GDScript static typing and syntax, scene and node architecture, the resource...",
       "risk_tier": "executable-L1",
-      "target_digest": "sha256:3bcb3b5a5097286a6192737ce02eca252529819df2f8b826248c4a6f4d0ef737",
+      "target_digest": "sha256:f2c2137160dde8a4d76eb7111b3f46d12fbab1cecc87dd831af38859443af534",
       "identity": "did:web:saschb2b.com",
-      "expires": "2027-06-29",
+      "expires": "2027-07-27",
       "capability": {
         "model": "executable",
         "manifest_declared": "permissions.yaml",
@@ -201,7 +275,7 @@
       ],
       "grades": {
         "integrity": "STRONG",
-        "authorship": "STRONG",
+        "authorship": "ABSENT",
         "capability": "MEDIUM",
         "content_provenance": "UNVERIFIED",
         "vouching": "ABSENT",
@@ -209,15 +283,15 @@
       },
       "notes": {
         "integrity": "digest matches live bundle",
-        "authorship": "sigstore + rekor, cosign verify-blob OK; signer not pinned (pass --cert-identity to assert who)",
+        "authorship": "card is unsigned",
         "capability": "permission manifest declared (enforce in sandbox)",
         "content_provenance": "n/a for executable skills",
         "vouching": "0 attestation(s) bound to this digest",
         "freshness": "not expired"
       },
-      "trust_score": 10,
+      "trust_score": 7,
       "reachable": 13,
-      "rarity": "rare",
+      "rarity": "uncommon",
       "art": {
         "svg": "CARD.svg",
         "hero": null
@@ -230,9 +304,9 @@
       "title": "javascript-ecosystem",
       "description": "Default to the latest stable major versions of JavaScript and TypeScript frameworks and their current paradigms, instead of the older versions and patterns that dominate LLM training data. A...",
       "risk_tier": "executable-L1",
-      "target_digest": "sha256:8912d634a8feb0976fb22ba614207b3a93acede9356d8fb38e60aa7f32cdba0a",
+      "target_digest": "sha256:966d0604731c9223fb3371848a05130aa09ee4b076d3a416a697fa565489e887",
       "identity": "did:web:saschb2b.com",
-      "expires": "2027-06-29",
+      "expires": "2027-07-27",
       "capability": {
         "model": "executable",
         "manifest_declared": "permissions.yaml",
@@ -275,7 +349,7 @@
       ],
       "grades": {
         "integrity": "STRONG",
-        "authorship": "STRONG",
+        "authorship": "ABSENT",
         "capability": "MEDIUM",
         "content_provenance": "UNVERIFIED",
         "vouching": "ABSENT",
@@ -283,15 +357,15 @@
       },
       "notes": {
         "integrity": "digest matches live bundle",
-        "authorship": "sigstore + rekor, cosign verify-blob OK; signer not pinned (pass --cert-identity to assert who)",
+        "authorship": "card is unsigned",
         "capability": "permission manifest declared (enforce in sandbox)",
         "content_provenance": "n/a for executable skills",
         "vouching": "0 attestation(s) bound to this digest",
         "freshness": "not expired"
       },
-      "trust_score": 10,
+      "trust_score": 7,
       "reachable": 13,
-      "rarity": "rare",
+      "rarity": "uncommon",
       "art": {
         "svg": "CARD.svg",
         "hero": null
@@ -304,9 +378,9 @@
       "title": "mcp-server",
       "description": "Build, extend, and maintain a Model Context Protocol (MCP) server across its whole lifecycle against the current spec and official SDKs. Covers the architecture, choosing a transport (stdio vs...",
       "risk_tier": "executable-L1",
-      "target_digest": "sha256:a1765f3e0f65aa3542f654724c0caf8053689cbb0f02c415b7edcbbeef54b8bf",
+      "target_digest": "sha256:25a6e45a2ce7c78f80dccbc6471c25dc7763e1706efd677432dac78746c2ccba",
       "identity": "did:web:saschb2b.com",
-      "expires": "2027-06-29",
+      "expires": "2027-07-27",
       "capability": {
         "model": "executable",
         "manifest_declared": "permissions.yaml",
@@ -349,7 +423,7 @@
       ],
       "grades": {
         "integrity": "STRONG",
-        "authorship": "STRONG",
+        "authorship": "ABSENT",
         "capability": "MEDIUM",
         "content_provenance": "UNVERIFIED",
         "vouching": "ABSENT",
@@ -357,15 +431,15 @@
       },
       "notes": {
         "integrity": "digest matches live bundle",
-        "authorship": "sigstore + rekor, cosign verify-blob OK; signer not pinned (pass --cert-identity to assert who)",
+        "authorship": "card is unsigned",
         "capability": "permission manifest declared (enforce in sandbox)",
         "content_provenance": "n/a for executable skills",
         "vouching": "0 attestation(s) bound to this digest",
         "freshness": "not expired"
       },
-      "trust_score": 10,
+      "trust_score": 7,
       "reachable": 13,
-      "rarity": "rare",
+      "rarity": "uncommon",
       "art": {
         "svg": "CARD.svg",
         "hero": null
@@ -376,11 +450,11 @@
       "bucket": "engineering",
       "domain": "AI & Agents",
       "title": "odsf",
-      "description": "Author, validate, and maintain a design system for AI agents as a conformant Open Design System Format (ODSF) bundle, a profile (v0.1) of the Open Knowledge Format that adds design tokens, runnable...",
+      "description": "Author, validate, and maintain a design system for AI agents as a conformant Open Design System Format (ODSF) bundle, a profile (v0.2) of Open Knowledge Format v0.2 that adds design tokens, runnable...",
       "risk_tier": "executable-L1",
-      "target_digest": "sha256:345cdff3a0e2a9dd7a8968e894ae1fefc15a6d0d5eedd502a435de8591857089",
+      "target_digest": "sha256:f21e1246f5b614f92965a842fb1b332b5143c911228411aec539b7fecc7748db",
       "identity": "did:web:saschb2b.com",
-      "expires": "2027-06-29",
+      "expires": "2027-07-27",
       "capability": {
         "model": "executable",
         "manifest_declared": "permissions.yaml",
@@ -411,7 +485,7 @@
       ],
       "grades": {
         "integrity": "STRONG",
-        "authorship": "STRONG",
+        "authorship": "ABSENT",
         "capability": "MEDIUM",
         "content_provenance": "UNVERIFIED",
         "vouching": "ABSENT",
@@ -419,15 +493,15 @@
       },
       "notes": {
         "integrity": "digest matches live bundle",
-        "authorship": "sigstore + rekor, cosign verify-blob OK; signer not pinned (pass --cert-identity to assert who)",
+        "authorship": "card is unsigned",
         "capability": "permission manifest declared (enforce in sandbox)",
         "content_provenance": "n/a for executable skills",
         "vouching": "0 attestation(s) bound to this digest",
         "freshness": "not expired"
       },
-      "trust_score": 10,
+      "trust_score": 7,
       "reachable": 13,
-      "rarity": "rare",
+      "rarity": "uncommon",
       "art": {
         "svg": "CARD.svg",
         "hero": null
@@ -440,9 +514,9 @@
       "title": "okf",
       "description": "Create, inspect, retrieve, author, revise, enrich, audit, repair, research, analyze change impact, migrate, validate, and maintain knowledge for AI agents as conformant Open Knowledge Format (OKF)...",
       "risk_tier": "executable-L1",
-      "target_digest": "sha256:527a8f7dc667f922a799f04a3f2f85b14b03e877ab38aed489e7beb30379ea3e",
+      "target_digest": "sha256:3b56a7cb7a697ab94a67232318dd58ca5b8aab5242557cdf9adda0f38ac94270",
       "identity": "did:web:saschb2b.com",
-      "expires": "2027-07-20",
+      "expires": "2027-07-27",
       "capability": {
         "model": "executable",
         "manifest_declared": "permissions.yaml",
@@ -455,14 +529,14 @@
         "declared_external_sources": [
           "https://cloud.google.com/blog/products/data-analytics/how-the-open-knowledge-format-can-improve-data-sharing/",
           "https://console.cloud.google.com/bigquery?p=acme&d=sales&t=orders",
-          "https://example.com/docs/ga4-export",
+          "https://developers.google.com/analytics/bigquery/export-schema",
           "https://github.com/GoogleCloudPlatform/knowledge-catalog/blob/main/okf/SPEC.md",
           "https://github.com/GoogleCloudPlatform/knowledge-catalog/tree/main/okf",
           "https://react.dev",
           "https://support.google.com/analytics/answer/7029846",
           "https://wiki.acme.example/metrics/engagement",
           "https://wiki.acme.example/sales/orders",
-          "https://wiki.acme.internal/data/quality",
+          "https://wiki.acme/finance/revenue-recognition",
           "https://www.saschb2b.com/work"
         ]
       },
@@ -476,7 +550,7 @@
       ],
       "grades": {
         "integrity": "STRONG",
-        "authorship": "STRONG",
+        "authorship": "ABSENT",
         "capability": "MEDIUM",
         "content_provenance": "UNVERIFIED",
         "vouching": "ABSENT",
@@ -484,15 +558,15 @@
       },
       "notes": {
         "integrity": "digest matches live bundle",
-        "authorship": "sigstore + rekor, cosign verify-blob OK; signer not pinned (pass --cert-identity to assert who)",
+        "authorship": "card is unsigned",
         "capability": "permission manifest declared (enforce in sandbox)",
         "content_provenance": "n/a for executable skills",
         "vouching": "0 attestation(s) bound to this digest",
         "freshness": "not expired"
       },
-      "trust_score": 10,
+      "trust_score": 7,
       "reachable": 13,
-      "rarity": "rare",
+      "rarity": "uncommon",
       "art": {
         "svg": "CARD.svg",
         "hero": null
@@ -505,9 +579,9 @@
       "title": "react-compiler",
       "description": "Write and review React code as if the React Compiler is enabled. Skip manual useMemo, useCallback, and React.memo by default, and audit existing code for stale manual memoization. Use when writing or...",
       "risk_tier": "executable-L1",
-      "target_digest": "sha256:b9fee74a132f971816f186950d29ef7f0ff782f610619fdeef9d0537ce531c78",
+      "target_digest": "sha256:29a409869e1c79240ba6e2edf6910068ef7e95948988b7c09c9d94516e1e3ffc",
       "identity": "did:web:saschb2b.com",
-      "expires": "2027-06-29",
+      "expires": "2027-07-27",
       "capability": {
         "model": "executable",
         "manifest_declared": "permissions.yaml",
@@ -531,7 +605,7 @@
       ],
       "grades": {
         "integrity": "STRONG",
-        "authorship": "STRONG",
+        "authorship": "ABSENT",
         "capability": "MEDIUM",
         "content_provenance": "UNVERIFIED",
         "vouching": "ABSENT",
@@ -539,15 +613,15 @@
       },
       "notes": {
         "integrity": "digest matches live bundle",
-        "authorship": "sigstore + rekor, cosign verify-blob OK; signer not pinned (pass --cert-identity to assert who)",
+        "authorship": "card is unsigned",
         "capability": "permission manifest declared (enforce in sandbox)",
         "content_provenance": "n/a for executable skills",
         "vouching": "0 attestation(s) bound to this digest",
         "freshness": "not expired"
       },
-      "trust_score": 10,
+      "trust_score": 7,
       "reachable": 13,
-      "rarity": "rare",
+      "rarity": "uncommon",
       "art": {
         "svg": "CARD.svg",
         "hero": null
@@ -560,9 +634,9 @@
       "title": "react-stinky",
       "description": "Detect React and TypeScript maintainability smells across the whole component, hook, and module, explain the cost of each, and propose a fix with a source link. Covers prop and API design (naming...",
       "risk_tier": "executable-L1",
-      "target_digest": "sha256:fa631b8b95aac47a1579617d7280a2652fc349fdbf7955b0e47d2e625ce8febd",
+      "target_digest": "sha256:dd894bf88c98cbf6e3a8765c80804f7369f2aa171062434b4b22322452b55765",
       "identity": "did:web:saschb2b.com",
-      "expires": "2027-07-17",
+      "expires": "2027-07-27",
       "capability": {
         "model": "executable",
         "manifest_declared": "permissions.yaml",
@@ -605,7 +679,7 @@
       ],
       "grades": {
         "integrity": "STRONG",
-        "authorship": "STRONG",
+        "authorship": "ABSENT",
         "capability": "MEDIUM",
         "content_provenance": "UNVERIFIED",
         "vouching": "ABSENT",
@@ -613,15 +687,15 @@
       },
       "notes": {
         "integrity": "digest matches live bundle",
-        "authorship": "sigstore + rekor, cosign verify-blob OK; signer not pinned (pass --cert-identity to assert who)",
+        "authorship": "card is unsigned",
         "capability": "permission manifest declared (enforce in sandbox)",
         "content_provenance": "n/a for executable skills",
         "vouching": "0 attestation(s) bound to this digest",
         "freshness": "not expired"
       },
-      "trust_score": 10,
+      "trust_score": 7,
       "reachable": 13,
-      "rarity": "rare",
+      "rarity": "uncommon",
       "art": {
         "svg": "CARD.svg",
         "hero": null
@@ -634,9 +708,9 @@
       "title": "tauri-stinky",
       "description": "Detect Rust and Tauri maintainability smells across the backend crate, the IPC boundary, and the app shell, explain the cost of each, and propose a fix with a source link. Covers Rust discipline...",
       "risk_tier": "executable-L1",
-      "target_digest": "sha256:33ef5fee30701575167d4a7e06df2f6a6fb5e9315e026f98320ab2be842bedef",
+      "target_digest": "sha256:8af36d4bd7c075dbf638978f25f66e25dcabd9a8744ff69713b8e11391fdab8e",
       "identity": "did:web:saschb2b.com",
-      "expires": "2027-07-15",
+      "expires": "2027-07-27",
       "capability": {
         "model": "executable",
         "manifest_declared": "permissions.yaml",
@@ -679,7 +753,7 @@
       ],
       "grades": {
         "integrity": "STRONG",
-        "authorship": "STRONG",
+        "authorship": "ABSENT",
         "capability": "MEDIUM",
         "content_provenance": "UNVERIFIED",
         "vouching": "ABSENT",
@@ -687,15 +761,15 @@
       },
       "notes": {
         "integrity": "digest matches live bundle",
-        "authorship": "sigstore + rekor, cosign verify-blob OK; signer not pinned (pass --cert-identity to assert who)",
+        "authorship": "card is unsigned",
         "capability": "permission manifest declared (enforce in sandbox)",
         "content_provenance": "n/a for executable skills",
         "vouching": "0 attestation(s) bound to this digest",
         "freshness": "not expired"
       },
-      "trust_score": 10,
+      "trust_score": 7,
       "reachable": 13,
-      "rarity": "rare",
+      "rarity": "uncommon",
       "art": {
         "svg": "CARD.svg",
         "hero": null
@@ -708,9 +782,9 @@
       "title": "test-stinky",
       "description": "Detect test-suite quality smells in any language or framework, explain the cost of each, and propose a fix with a source link. A counterweight to agents that blindly chase coverage and ship huge...",
       "risk_tier": "executable-L1",
-      "target_digest": "sha256:1b9ce445853906613fe8893c552ff76e6bb15d5eaf4937f4942dc5bb6357f7f9",
+      "target_digest": "sha256:f1e1347939af6b3a548797fa5a32b14940ef83af1fa71a712cc1a56bc0ca6bc5",
       "identity": "did:web:saschb2b.com",
-      "expires": "2027-07-17",
+      "expires": "2027-07-27",
       "capability": {
         "model": "executable",
         "manifest_declared": "permissions.yaml",
@@ -753,7 +827,7 @@
       ],
       "grades": {
         "integrity": "STRONG",
-        "authorship": "STRONG",
+        "authorship": "ABSENT",
         "capability": "MEDIUM",
         "content_provenance": "UNVERIFIED",
         "vouching": "ABSENT",
@@ -761,15 +835,15 @@
       },
       "notes": {
         "integrity": "digest matches live bundle",
-        "authorship": "sigstore + rekor, cosign verify-blob OK; signer not pinned (pass --cert-identity to assert who)",
+        "authorship": "card is unsigned",
         "capability": "permission manifest declared (enforce in sandbox)",
         "content_provenance": "n/a for executable skills",
         "vouching": "0 attestation(s) bound to this digest",
         "freshness": "not expired"
       },
-      "trust_score": 10,
+      "trust_score": 7,
       "reachable": 13,
-      "rarity": "rare",
+      "rarity": "uncommon",
       "art": {
         "svg": "CARD.svg",
         "hero": null
@@ -808,7 +882,7 @@
       ],
       "grades": {
         "integrity": "STRONG",
-        "authorship": "STRONG",
+        "authorship": "MEDIUM",
         "capability": "MEDIUM",
         "content_provenance": "UNVERIFIED",
         "vouching": "ABSENT",
@@ -816,13 +890,13 @@
       },
       "notes": {
         "integrity": "digest matches live bundle",
-        "authorship": "sigstore + rekor, cosign verify-blob OK; signer not pinned (pass --cert-identity to assert who)",
+        "authorship": "sigstore signature recorded; install cosign to re-verify",
         "capability": "permission manifest declared (enforce in sandbox)",
         "content_provenance": "n/a for executable skills",
         "vouching": "0 attestation(s) bound to this digest",
         "freshness": "not expired"
       },
-      "trust_score": 10,
+      "trust_score": 9,
       "reachable": 13,
       "rarity": "rare",
       "art": {
@@ -837,9 +911,9 @@
       "title": "trust-card",
       "description": "Generate, sign, attest, and verify holistic trust cards for OKF knowledge bundles and agent skills. A card binds content, artifact, and capability provenance into one OKF concept and renders a graded...",
       "risk_tier": "executable-L1",
-      "target_digest": "sha256:3deb60841aac7b29c4487d554a5ff576da7de17a19e028396c81f159fdf7971f",
+      "target_digest": "sha256:47eac9b761bed93fe19ea5183264d9684996e0bd0e1cc2ec3152c1016b2fd6a2",
       "identity": "did:web:saschb2b.com",
-      "expires": "2027-06-29",
+      "expires": "2027-07-27",
       "capability": {
         "model": "executable",
         "manifest_declared": "permissions.yaml",
@@ -848,10 +922,10 @@
         "shell": null,
         "filesystem_writes": null,
         "network_evidence": [
-          "scripts/card.py"
+          "scripts\\card.py"
         ],
         "shell_evidence": [
-          "scripts/card.py"
+          "scripts\\card.py"
         ],
         "declared_external_sources": []
       },
@@ -865,7 +939,7 @@
       ],
       "grades": {
         "integrity": "STRONG",
-        "authorship": "STRONG",
+        "authorship": "ABSENT",
         "capability": "MEDIUM",
         "content_provenance": "UNVERIFIED",
         "vouching": "ABSENT",
@@ -873,15 +947,15 @@
       },
       "notes": {
         "integrity": "digest matches live bundle",
-        "authorship": "sigstore + rekor, cosign verify-blob OK; signer not pinned (pass --cert-identity to assert who)",
+        "authorship": "card is unsigned",
         "capability": "permission manifest declared (enforce in sandbox)",
         "content_provenance": "n/a for executable skills",
         "vouching": "0 attestation(s) bound to this digest",
         "freshness": "not expired"
       },
-      "trust_score": 10,
+      "trust_score": 7,
       "reachable": 13,
-      "rarity": "rare",
+      "rarity": "uncommon",
       "art": {
         "svg": "CARD.svg",
         "hero": null
@@ -894,9 +968,9 @@
       "title": "visual-consistency",
       "description": "Detect and fix visual and layout consistency defects in rendered UI, the systematic raggedness AI generators emit and seniors notice at a glance. Covers uneven card heights in a grid, sibling cards...",
       "risk_tier": "executable-L1",
-      "target_digest": "sha256:85e30105dbdc61340b15a75e0b7fb6c6dd4a3ca78e142c868ac49e343265ca17",
+      "target_digest": "sha256:f2c2e71a09874d5fd9939438fe9ce61a341412e8e507438c7697026ec3470255",
       "identity": "did:web:saschb2b.com",
-      "expires": "2027-06-29",
+      "expires": "2027-07-27",
       "capability": {
         "model": "executable",
         "manifest_declared": "permissions.yaml",
@@ -939,7 +1013,7 @@
       ],
       "grades": {
         "integrity": "STRONG",
-        "authorship": "STRONG",
+        "authorship": "ABSENT",
         "capability": "MEDIUM",
         "content_provenance": "UNVERIFIED",
         "vouching": "ABSENT",
@@ -947,15 +1021,15 @@
       },
       "notes": {
         "integrity": "digest matches live bundle",
-        "authorship": "sigstore + rekor, cosign verify-blob OK; signer not pinned (pass --cert-identity to assert who)",
+        "authorship": "card is unsigned",
         "capability": "permission manifest declared (enforce in sandbox)",
         "content_provenance": "n/a for executable skills",
         "vouching": "0 attestation(s) bound to this digest",
         "freshness": "not expired"
       },
-      "trust_score": 10,
+      "trust_score": 7,
       "reachable": 13,
-      "rarity": "rare",
+      "rarity": "uncommon",
       "art": {
         "svg": "CARD.svg",
         "hero": null
@@ -994,7 +1068,7 @@
       ],
       "grades": {
         "integrity": "STRONG",
-        "authorship": "STRONG",
+        "authorship": "MEDIUM",
         "capability": "MEDIUM",
         "content_provenance": "UNVERIFIED",
         "vouching": "ABSENT",
@@ -1002,13 +1076,13 @@
       },
       "notes": {
         "integrity": "digest matches live bundle",
-        "authorship": "sigstore + rekor, cosign verify-blob OK; signer not pinned (pass --cert-identity to assert who)",
+        "authorship": "sigstore signature recorded; install cosign to re-verify",
         "capability": "permission manifest declared (enforce in sandbox)",
         "content_provenance": "n/a for executable skills",
         "vouching": "0 attestation(s) bound to this digest",
         "freshness": "not expired"
       },
-      "trust_score": 10,
+      "trust_score": 9,
       "reachable": 13,
       "rarity": "rare",
       "art": {
@@ -1047,7 +1121,7 @@
       ],
       "grades": {
         "integrity": "STRONG",
-        "authorship": "STRONG",
+        "authorship": "MEDIUM",
         "capability": "MEDIUM",
         "content_provenance": "UNVERIFIED",
         "vouching": "ABSENT",
@@ -1055,13 +1129,13 @@
       },
       "notes": {
         "integrity": "digest matches live bundle",
-        "authorship": "sigstore + rekor, cosign verify-blob OK; signer not pinned (pass --cert-identity to assert who)",
+        "authorship": "sigstore signature recorded; install cosign to re-verify",
         "capability": "permission manifest declared (enforce in sandbox)",
         "content_provenance": "n/a for executable skills",
         "vouching": "0 attestation(s) bound to this digest",
         "freshness": "not expired"
       },
-      "trust_score": 10,
+      "trust_score": 9,
       "reachable": 13,
       "rarity": "rare",
       "art": {
@@ -1076,9 +1150,9 @@
       "title": "breadcrumbs",
       "description": "Heal codebase understanding gaps exposed during implementation, debugging, or investigation. Use when tracing reveals misleading names, repeated backtracking, disconnected navigation paths, hidden...",
       "risk_tier": "executable-L1",
-      "target_digest": "sha256:95d05c217661cf7db4a146325793e1b0bc340a9ebe927aa60cf90ba404c45b8b",
+      "target_digest": "sha256:d626f1bcacc8412225043966190d7716e8fdd0d2ec0e4d20650e1119955b04d1",
       "identity": "did:web:saschb2b.com",
-      "expires": "2027-07-12",
+      "expires": "2027-07-27",
       "capability": {
         "model": "executable",
         "manifest_declared": "permissions.yaml",
@@ -1108,7 +1182,7 @@
       ],
       "grades": {
         "integrity": "STRONG",
-        "authorship": "STRONG",
+        "authorship": "ABSENT",
         "capability": "MEDIUM",
         "content_provenance": "UNVERIFIED",
         "vouching": "ABSENT",
@@ -1116,15 +1190,15 @@
       },
       "notes": {
         "integrity": "digest matches live bundle",
-        "authorship": "sigstore + rekor, cosign verify-blob OK; signer not pinned (pass --cert-identity to assert who)",
+        "authorship": "card is unsigned",
         "capability": "permission manifest declared (enforce in sandbox)",
         "content_provenance": "n/a for executable skills",
         "vouching": "0 attestation(s) bound to this digest",
         "freshness": "not expired"
       },
-      "trust_score": 10,
+      "trust_score": 7,
       "reachable": 13,
-      "rarity": "rare",
+      "rarity": "uncommon",
       "art": {
         "svg": "CARD.svg",
         "hero": null
@@ -1137,9 +1211,9 @@
       "title": "fable-mode",
       "description": "Adopt the structural operating discipline of Anthropic's Fable model in whatever agent harness is running, so the host model (GPT 5.6, Gemini, or any coding agent) orients, parallelizes, delegates...",
       "risk_tier": "executable-L1",
-      "target_digest": "sha256:36e16632f63f8640a8cde8929e399a6aab3956b7225fb7ea2c81c3c450d862b8",
+      "target_digest": "sha256:c9c8b72bcb0872bfaa8b898e68adbec883ad1844ced433d0739b7f67b9d39bd8",
       "identity": "did:web:saschb2b.com",
-      "expires": "2027-07-16",
+      "expires": "2027-07-27",
       "capability": {
         "model": "executable",
         "manifest_declared": "permissions.yaml",
@@ -1163,7 +1237,7 @@
       ],
       "grades": {
         "integrity": "STRONG",
-        "authorship": "STRONG",
+        "authorship": "ABSENT",
         "capability": "MEDIUM",
         "content_provenance": "UNVERIFIED",
         "vouching": "ABSENT",
@@ -1171,15 +1245,15 @@
       },
       "notes": {
         "integrity": "digest matches live bundle",
-        "authorship": "sigstore + rekor, cosign verify-blob OK; signer not pinned (pass --cert-identity to assert who)",
+        "authorship": "card is unsigned",
         "capability": "permission manifest declared (enforce in sandbox)",
         "content_provenance": "n/a for executable skills",
         "vouching": "0 attestation(s) bound to this digest",
         "freshness": "not expired"
       },
-      "trust_score": 10,
+      "trust_score": 7,
       "reachable": 13,
-      "rarity": "rare",
+      "rarity": "uncommon",
       "art": {
         "svg": "CARD.svg",
         "hero": null
@@ -1192,9 +1266,9 @@
       "title": "game-design",
       "description": "Analyze, design, critique, balance, and rework video game mechanics, systems, and interface, grounded in a cross-game pattern catalog and design frameworks (MDA, core loops, flow, motivation, game...",
       "risk_tier": "executable-L1",
-      "target_digest": "sha256:96772ff749f28d6fb7a1d267134cdc2b853b84c2fa9c270379eb85137de05bfb",
+      "target_digest": "sha256:f828eb665e7f958084e3c0948734ebe1bcccad2a6e23190980b12758107c7b4b",
       "identity": "did:web:saschb2b.com",
-      "expires": "2027-07-06",
+      "expires": "2027-07-27",
       "capability": {
         "model": "executable",
         "manifest_declared": "permissions.yaml",
@@ -1237,7 +1311,7 @@
       ],
       "grades": {
         "integrity": "STRONG",
-        "authorship": "STRONG",
+        "authorship": "ABSENT",
         "capability": "MEDIUM",
         "content_provenance": "UNVERIFIED",
         "vouching": "ABSENT",
@@ -1245,15 +1319,15 @@
       },
       "notes": {
         "integrity": "digest matches live bundle",
-        "authorship": "sigstore + rekor, cosign verify-blob OK; signer not pinned (pass --cert-identity to assert who)",
+        "authorship": "card is unsigned",
         "capability": "permission manifest declared (enforce in sandbox)",
         "content_provenance": "n/a for executable skills",
         "vouching": "0 attestation(s) bound to this digest",
         "freshness": "not expired"
       },
-      "trust_score": 10,
+      "trust_score": 7,
       "reachable": 13,
-      "rarity": "rare",
+      "rarity": "uncommon",
       "art": {
         "svg": "CARD.svg",
         "hero": null
@@ -1266,9 +1340,9 @@
       "title": "no-slop",
       "description": "Write and revise human-facing prose in a plain, precise, professional register, stripping the tells that mark text as AI-generated. Use when writing or editing a README, blog post, doc, PR or commit...",
       "risk_tier": "executable-L1",
-      "target_digest": "sha256:0f338a92d287ba6b8d0abd7f5eace0e180f5ba10023a470f146a73b844a3ae9a",
+      "target_digest": "sha256:ea986e2f841e61161b6bb266a992ca58bc76c711abb62cc42c53e10f93c9f1ee",
       "identity": "did:web:saschb2b.com",
-      "expires": "2027-06-29",
+      "expires": "2027-07-27",
       "capability": {
         "model": "executable",
         "manifest_declared": "permissions.yaml",
@@ -1290,7 +1364,7 @@
       ],
       "grades": {
         "integrity": "STRONG",
-        "authorship": "STRONG",
+        "authorship": "ABSENT",
         "capability": "MEDIUM",
         "content_provenance": "UNVERIFIED",
         "vouching": "ABSENT",
@@ -1298,15 +1372,15 @@
       },
       "notes": {
         "integrity": "digest matches live bundle",
-        "authorship": "sigstore + rekor, cosign verify-blob OK; signer not pinned (pass --cert-identity to assert who)",
+        "authorship": "card is unsigned",
         "capability": "permission manifest declared (enforce in sandbox)",
         "content_provenance": "n/a for executable skills",
         "vouching": "0 attestation(s) bound to this digest",
         "freshness": "not expired"
       },
-      "trust_score": 10,
+      "trust_score": 7,
       "reachable": 13,
-      "rarity": "rare",
+      "rarity": "uncommon",
       "art": {
         "svg": "CARD.svg",
         "hero": null
@@ -1345,7 +1419,7 @@
       ],
       "grades": {
         "integrity": "STRONG",
-        "authorship": "STRONG",
+        "authorship": "MEDIUM",
         "capability": "MEDIUM",
         "content_provenance": "UNVERIFIED",
         "vouching": "ABSENT",
@@ -1353,13 +1427,13 @@
       },
       "notes": {
         "integrity": "digest matches live bundle",
-        "authorship": "sigstore + rekor, cosign verify-blob OK; signer not pinned (pass --cert-identity to assert who)",
+        "authorship": "sigstore signature recorded; install cosign to re-verify",
         "capability": "permission manifest declared (enforce in sandbox)",
         "content_provenance": "n/a for executable skills",
         "vouching": "0 attestation(s) bound to this digest",
         "freshness": "not expired"
       },
-      "trust_score": 10,
+      "trust_score": 9,
       "reachable": 13,
       "rarity": "rare",
       "art": {

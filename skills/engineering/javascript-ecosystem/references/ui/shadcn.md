@@ -3,7 +3,7 @@ type: Library Notes
 title: "shadcn/ui"
 description: "The package and CLI were renamed `shadcn-ui` to `shadcn`."
 tags: [javascript, ui]
-timestamp: 2026-06-04T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-04T00:00:00Z }
 ---
 # shadcn/ui
 

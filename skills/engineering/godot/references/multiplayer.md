@@ -3,7 +3,7 @@ type: Reference
 title: "High-Level Multiplayer Reference"
 description: "Godot's high-level API runs over a `MultiplayerPeer` (usually `ENetMultiplayerPeer`; `WebSocketMultiplayerPeer`/`WebRTC` for the web)."
 tags: [godot, gamedev, gdscript]
-timestamp: 2026-06-06T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-06T00:00:00Z }
 ---
 # High-Level Multiplayer Reference
 

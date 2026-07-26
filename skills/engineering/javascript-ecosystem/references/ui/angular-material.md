@@ -3,7 +3,7 @@ type: Library Notes
 title: "Angular Material + CDK"
 description: "Standalone components are the default (import the component class directly, no `MatXModule`)."
 tags: [javascript, ui]
-timestamp: 2026-06-05T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-05T00:00:00Z }
 ---
 # Angular Material + CDK
 

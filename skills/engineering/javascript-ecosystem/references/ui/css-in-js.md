@@ -3,7 +3,7 @@ type: Library Notes
 title: "CSS-in-JS and styling status"
 description: "Runtime CSS-in-JS lost ground."
 tags: [javascript, ui]
-timestamp: 2026-06-05T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-05T00:00:00Z }
 ---
 # CSS-in-JS and styling status
 

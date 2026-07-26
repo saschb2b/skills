@@ -3,7 +3,7 @@ type: Library Notes
 title: "Playwright"
 description: "Playwright is the dominant modern end-to-end default, ahead of Cypress on satisfaction and adoption."
 tags: [javascript, testing]
-timestamp: 2026-06-04T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-04T00:00:00Z }
 ---
 # Playwright
 

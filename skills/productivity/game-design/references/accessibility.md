@@ -3,7 +3,7 @@ type: Reference
 title: "Game Accessibility"
 description: "Designing so more people can play. The major guidelines, the impairment categories and the features that serve them, assist and difficulty modes, the subtitle and text numbers, and the ethical, market, and legal case."
 tags: [game-design, accessibility, ui, assist-modes, captions]
-timestamp: 2026-07-06T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-07-06T00:00:00Z }
 ---
 
 # Game Accessibility

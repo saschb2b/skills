@@ -3,7 +3,7 @@ type: Playbook
 title: "React Stinky: Restructure Pass"
 description: "A dependency-graph method for planning the fix when findings cluster on structural smells; map every relation as a node graph, then rewire to the fewest one-layer edges."
 tags: [react, typescript, refactoring, architecture, decoupling]
-timestamp: 2026-07-17T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-07-17T00:00:00Z }
 ---
 # React Stinky: Restructure Pass
 

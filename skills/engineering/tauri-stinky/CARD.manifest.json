@@ -9,22 +9,22 @@
   },
   {
     "path": "references/boundary-pass.md",
-    "sha256": "23373741657ea693fcc14e8dc568055375d272b114c6ba9c053f5a295c22278f"
+    "sha256": "ff6ee230b61e2e91c4bd5a201e8217d9f6870569abc51a5b661febb8f42aa5cb"
   },
   {
     "path": "references/gates.md",
-    "sha256": "21aef17466f602ac6dec41d1cfbafa9697173f917d856ef880a2abddc9bf4cc9"
+    "sha256": "f3478f83cce0efb384f49a74f010a2d76868e59c95c3061475f42dc5ccce15e5"
   },
   {
     "path": "references/index.md",
-    "sha256": "c2ff3e313a2a3526f8fe39052d25e2057c3e6bc4ddc7129d264bd3de6abe0640"
+    "sha256": "91ac8a363d8514c9e1ad7408490682b3b8a0bb2ab9a41b3c46e6a856f749b55c"
   },
   {
     "path": "references/rust-catalog.md",
-    "sha256": "0c2741deef44f22cc8675195d9a8b78a3fdcafe103da1eb43c7581da30a571d9"
+    "sha256": "64f0b8b594437f8d2e9b661b592e1e373f4b2152813c5da63486841867e7fba2"
   },
   {
     "path": "references/tauri-catalog.md",
-    "sha256": "b00d6a1f5d8de761c64b80b969de55a3fecdb0d2e8aacb9ede45d0bfed7c8d95"
+    "sha256": "b8703f60d98f41dad4f950471282d22c9b8aeec43d5e6d2ebecf9e7a0d00d82f"
   }
 ]

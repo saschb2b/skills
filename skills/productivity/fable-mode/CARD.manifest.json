@@ -9,62 +9,62 @@
   },
   {
     "path": "references/context-economy.md",
-    "sha256": "f44d9b809a926faf5a13d3f0281540f3583078c5c94123b65febd30d3cbf8e4a"
+    "sha256": "085f52289c07624759b998c3d4ba6fc6b8f2a4560380154c97d70e6705ab010a"
   },
   {
     "path": "references/delegation.md",
-    "sha256": "f082f2a4d06930a5629a0d74a6e8e882cbdb734f896ed6e6ec58266fdf3f3596"
+    "sha256": "833c17417fd0a41f9fb58f031049a7df36c42c6414e6c25b2335147757c0fec2"
   },
   {
     "path": "references/gpt-5-6-deltas.md",
-    "sha256": "a40a8a35e4f0a74e4e448d49c8e5f26223a8259c5c8ff0d37b485ced6e4c77a1"
+    "sha256": "2ef94373dd88d7e4370f91e6337d49a070e0d7de22c78241599502f8f3697572"
   },
   {
     "path": "references/harness-mapping.md",
-    "sha256": "09cf8bb03168482a70a1fcb2b6d9b5911a7949f8adae5b503bd1ba4c6223fb30"
+    "sha256": "91494ecb591dc077db1e4ddc81aaa9b991c7c8b139e041a9d9e9347b23bbd04b"
   },
   {
     "path": "references/index.md",
-    "sha256": "b7d2229b1eb32a19df41411c03a174a33fd0b23407aaba8ac998514bca2faca9"
+    "sha256": "086ddf4f07578f0e18d67e8e16af3abbec14c800827f015e204b81e9231b083d"
   },
   {
     "path": "references/irreversibility.md",
-    "sha256": "cd17ce2e96971d842135748f62a7247200eb4be990d2f25759f06927ed788dcf"
+    "sha256": "f77723db6aaeb602d9637250434c88856e8d210c5d027760540c7d0248b8b351"
   },
   {
     "path": "references/log.md",
-    "sha256": "a7194d218ebee8df535bbe40e3ff3cbca5325c0e4ec1b2fe4a660584f75b2ac2"
+    "sha256": "14ac965070cd6cf82c37d56f74fbb29239c29a92143bb4faebac9aa28584fd8a"
   },
   {
     "path": "references/memory.md",
-    "sha256": "ae3b0e0b57be431c5f6b7959e6f22ef692737d9056385af04f6bb842e3d84351"
+    "sha256": "f0a8f1b4eaadf90db8028a1c7ccd087404b3485a76ae5d967bcd98b23bd1ee1b"
   },
   {
     "path": "references/operating-loop.md",
-    "sha256": "53fd94aceff086f1553bd9274d3c19aecd61caf2bfa96dd31baf0d48a4817d69"
+    "sha256": "23761e267b3942bc323cfe8f64b16cbee0f7770f1ada10f1d50b64f423a26925"
   },
   {
     "path": "references/orchestration.md",
-    "sha256": "dc08edaafbcc91ade8ca22631d9b4d0954fb76c0e00b9d5fb7c9a494606549e9"
+    "sha256": "563fdd348e3ea1e16a21cf569c031b2f936b3036f681dcc9a2e7fd77fd7e1b04"
   },
   {
     "path": "references/parallel-dispatch.md",
-    "sha256": "5a6337fac6e1d72b606ac3f93e2591b2b5854577d3092d2542b4c1aa4443d026"
+    "sha256": "3002078a8f3eac036e0d8879b9ba765f84fab1051a28b7c7652bdf55ed3c4e38"
   },
   {
     "path": "references/reporting.md",
-    "sha256": "48c3bdddf6e79ab16b3789ddd3dd75587d27a53dc4d4ebb00d522448fc2b0db2"
+    "sha256": "23531c7373dd8732e31f2e1378fc0e01a068bddc6bac0d558e5130aee660ab76"
   },
   {
     "path": "references/tool-and-code-conduct.md",
-    "sha256": "5e00c39236e6315a55acbfa5d730870b0593e81a1eb52f419dad80957faf246d"
+    "sha256": "e35d1ec75fe8135067d4b88c27d3d8579f9c947abd40878cee9b1fbfc41622ad"
   },
   {
     "path": "references/trust-boundaries.md",
-    "sha256": "23edca47291ebbbb584d0810db3c32a5c8f7d5ba01461f29e7cc10991660799a"
+    "sha256": "189c15cb9cd0e00535b0b02a1471edac7a16331613a66b230d1b3ffc515ef5a1"
   },
   {
     "path": "references/verification.md",
-    "sha256": "ba810e015ee4d00baf3aeec486fb262d54db143c99680d0237be3cf6e63e6f18"
+    "sha256": "58305ba57945a64b086ae73dba60eb41577af6231d62f9695d0042f2b41d0211"
   }
 ]

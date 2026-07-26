@@ -3,7 +3,7 @@ type: Doctrine
 title: The irreversibility gate
 description: Hard-to-reverse or outward-facing actions require confirmation unless durably authorized; approval does not transfer between contexts; look at the target before destroying it.
 tags: [safety, autonomy]
-timestamp: 2026-07-16T10:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-07-16T10:00:00Z }
 ---
 
 # The gate

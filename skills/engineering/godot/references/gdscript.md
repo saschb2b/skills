@@ -3,7 +3,7 @@ type: Reference
 title: "GDScript Reference"
 description: "var health: int = 100"
 tags: [godot, gamedev, gdscript]
-timestamp: 2026-06-19T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-19T00:00:00Z }
 ---
 # GDScript Reference
 

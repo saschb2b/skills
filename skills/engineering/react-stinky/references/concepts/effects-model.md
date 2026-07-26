@@ -3,7 +3,14 @@ type: Concept
 title: "Effects Are Synchronization"
 description: "The decision model behind every effect finding; an effect exists to synchronize with a system outside React, everything else belongs in render or in a handler."
 tags: [react, effects, lifecycle, mental-model]
-timestamp: 2026-07-17T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-07-17T00:00:00Z }
+sources:
+  - resource: https://react.dev/learn/synchronizing-with-effects
+    title: "React, Synchronizing with Effects"
+  - resource: https://react.dev/learn/you-might-not-need-an-effect
+    title: "React, You Might Not Need an Effect"
+  - resource: https://react.dev/learn/lifecycle-of-reactive-effects
+    title: "React, Lifecycle of Reactive Effects"
 ---
 # Effects Are Synchronization
 
@@ -24,9 +31,3 @@ flowchart TD
 - **Synchronization implies desynchronization.** Whatever the effect sets up, the cleanup tears down: abort the fetch, remove the listener, close the socket (29). An effect without cleanup for an external resource is a leak or a race by construction.
 - **The dependency array is the sync condition**, not a scheduling tool. It declares which values the synchronization reads ([render snapshots](render-snapshots.md)); editing it to control *when* the effect runs is the smell behind most `[]` bugs (30).
 - **State reset is not synchronization.** Restarting state because an identity changed is `key={id}` at the call site, not an effect (31, and [controlled-uncontrolled](controlled-uncontrolled.md)).
-
-# Citations
-
-- React, Synchronizing with Effects (https://react.dev/learn/synchronizing-with-effects)
-- React, You Might Not Need an Effect (https://react.dev/learn/you-might-not-need-an-effect)
-- React, Lifecycle of Reactive Effects (https://react.dev/learn/lifecycle-of-reactive-effects)

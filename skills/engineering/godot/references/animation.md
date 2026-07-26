@@ -3,7 +3,7 @@ type: Reference
 title: "Animation & Tween Reference"
 description: "Create with `create_tween()` on any node."
 tags: [godot, gamedev, gdscript]
-timestamp: 2026-06-19T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-19T00:00:00Z }
 ---
 # Animation & Tween Reference
 

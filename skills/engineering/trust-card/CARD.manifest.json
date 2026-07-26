@@ -13,19 +13,19 @@
   },
   {
     "path": "references/grading.md",
-    "sha256": "68e355aba12bb42d615e4604ed2859d0937f37a17bfd74fccce47dcdc2c1a624"
+    "sha256": "0fe356d1ad71daa3574ebbc795807d9fc9de9ed8526c3c6af03058d10ea5b2fa"
   },
   {
     "path": "references/index.md",
-    "sha256": "a74474e836444ab63e0579aa1cdf943d3c2f26c6fb4b22c4c331042f1ffb1851"
+    "sha256": "5c8f61c80c9d16ee0cf0ff1312ed34a17c56a042a40f5be995268b2a2cf77678"
   },
   {
     "path": "references/layers.md",
-    "sha256": "23b035b820ce86dd088dacfc683c9bf0e743014a96a84a1d4d3566a9ad210498"
+    "sha256": "ff2c6da84ddfd36972fb5a6591051b6fa42fff1ffc4c8f2459c3aa6ecc0d2999"
   },
   {
     "path": "references/rendering.md",
-    "sha256": "9f194ec50502e83468b4cd8a3e12afb6f820e178a2bdc3405c8e1921ba7f3da4"
+    "sha256": "213a219ed22565b021b8227d4c9d97a7353443a564bd0fb8b7a996417e79d8b0"
   },
   {
     "path": "scripts/card.py",

@@ -3,7 +3,7 @@ type: Playbook
 title: "Onboarding, Tutorials, and Hints"
 description: "How to teach a game without a wall of text. The first-session problem, teaching through level design, the introduce-develop-twist-test structure, and hint systems on the guidance-versus-discovery axis."
 tags: [game-design, onboarding, tutorial, teaching, hints]
-timestamp: 2026-07-06T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-07-06T00:00:00Z }
 ---
 
 # Onboarding, Tutorials, and Hints

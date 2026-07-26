@@ -3,7 +3,7 @@ type: Library Notes
 title: "Solid"
 description: "Signals stay the foundation (`createSignal`, `createMemo`, `createEffect`)."
 tags: [javascript, frameworks]
-timestamp: 2026-06-05T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-05T00:00:00Z }
 ---
 # Solid
 

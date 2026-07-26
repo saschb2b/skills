@@ -3,7 +3,7 @@ type: Reference
 title: "MCP Protocol Surface"
 description: "The spec revision, the two transports, the initialize lifecycle, server and client primitives, tool result shapes, annotations, and the official SDKs."
 tags: [mcp, protocol, transports, lifecycle, sdk]
-timestamp: 2026-06-21T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-21T00:00:00Z }
 ---
 
 # MCP Protocol Surface

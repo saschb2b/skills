@@ -3,7 +3,7 @@ type: Library Notes
 title: "Astro"
 description: "Astro 5 replaced legacy content collections with the Content Layer API (pluggable loaders for any source), merged `static` and `hybrid` into a single `static` default that goes dynamic per-route..."
 tags: [javascript, meta-frameworks]
-timestamp: 2026-06-04T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-04T00:00:00Z }
 ---
 # Astro
 

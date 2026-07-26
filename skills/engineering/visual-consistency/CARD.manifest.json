@@ -9,14 +9,14 @@
   },
   {
     "path": "references/catalog.md",
-    "sha256": "694b965aad14d6d4cc82a8ba1799da38897df95459d792fa1d582be4cce97566"
+    "sha256": "d62516bf307ec1184999a726e29c641a07041b8c4ded6b3e4e906560dd5bec55"
   },
   {
     "path": "references/index.md",
-    "sha256": "01b32a54f4a74e23dfff0267110207af440dbc390bf5f3b56f396b1b5a3b122c"
+    "sha256": "6fff9f64c3b3fff4b88c724d805aab2bd630bf14f9c02825706e392f0745fa04"
   },
   {
     "path": "references/recipes.md",
-    "sha256": "fe3e31f2afb6b85b9de602a7094287ad408c7b727da6089c0ca8fb6c38225d72"
+    "sha256": "cfae9ccbdbc5062fe7fd56582531e1867da5aca1e1582bccfb98985260430bce"
   }
 ]

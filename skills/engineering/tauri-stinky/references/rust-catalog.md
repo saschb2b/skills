@@ -3,7 +3,7 @@ type: Smell Catalog
 title: "Tauri Stinky: Rust Catalog"
 description: "The Rust-side smell catalog, pillars 1 to 7, categories 1 to 34."
 tags: [rust, code-smells, maintainability]
-timestamp: 2026-07-15T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-07-15T00:00:00Z }
 ---
 # Tauri Stinky: Rust Catalog
 

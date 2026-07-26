@@ -3,7 +3,7 @@ type: Reference
 title: "Cross-Game Pattern Catalog"
 description: "Recurring video game design patterns by category, each with its lemma, the problem it solves, the games that exemplify it, and its key pitfall."
 tags: [game-design, patterns, catalog, roguelite, economy]
-timestamp: 2026-07-06T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-07-06T00:00:00Z }
 ---
 
 # Cross-Game Pattern Catalog

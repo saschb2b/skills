@@ -3,7 +3,7 @@ type: Library Notes
 title: "Anthropic TypeScript SDK (`@anthropic-ai/sdk`)"
 description: "The Messages API (`client.messages.create` with a structured `messages` array and content blocks) is the API; legacy Text Completions is obsolete."
 tags: [javascript, ai-sdk]
-timestamp: 2026-06-04T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-04T00:00:00Z }
 ---
 # Anthropic TypeScript SDK (`@anthropic-ai/sdk`)
 

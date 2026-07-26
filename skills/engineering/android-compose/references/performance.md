@@ -3,7 +3,7 @@ type: Reference
 title: "Performance"
 description: "Compose recomposes composables that read changed state."
 tags: [android, jetpack-compose, kotlin]
-timestamp: 2026-06-15T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-15T00:00:00Z }
 ---
 # Performance
 

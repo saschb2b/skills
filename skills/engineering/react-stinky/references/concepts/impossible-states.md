@@ -3,7 +3,12 @@ type: Concept
 title: "Impossible States"
 description: "Model state and props so invalid combinations cannot be expressed; discriminated unions, status unions over boolean sets, and compiler-enforced exhaustiveness."
 tags: [react, typescript, type-design, discriminated-unions]
-timestamp: 2026-07-17T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-07-17T00:00:00Z }
+sources:
+  - resource: https://www.typescriptlang.org/docs/handbook/2/narrowing.html#discriminated-unions
+    title: "TypeScript, Discriminated Unions and Exhaustiveness checking"
+  - resource: https://react.dev/learn/choosing-the-state-structure#avoid-impossible-states
+    title: "React, Choosing the State Structure"
 ---
 # Impossible States
 
@@ -26,8 +31,3 @@ Exhaustiveness check
 ## The boundary caveat
 
 The technique needs a closed set. Data you do not control (a server-sent string) is an open set at the boundary; validate it into a closed union once (a schema parse), then let the closed type flow inward. Handling an open set as closed crashes on the first new value; handling a closed set as open is category 56.
-
-# Citations
-
-- TypeScript, Discriminated Unions and Exhaustiveness checking (https://www.typescriptlang.org/docs/handbook/2/narrowing.html#discriminated-unions)
-- React, Choosing the State Structure (https://react.dev/learn/choosing-the-state-structure#avoid-impossible-states)

@@ -3,7 +3,7 @@ type: Library Notes
 title: "SvelteKit"
 description: "Svelte 5 runes (`$state`, `$derived`, `$effect`, `$props`) replace the implicit Svelte 4 model inside SvelteKit too."
 tags: [javascript, meta-frameworks]
-timestamp: 2026-06-04T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-04T00:00:00Z }
 ---
 # SvelteKit
 

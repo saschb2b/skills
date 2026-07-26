@@ -3,7 +3,7 @@ type: Reference
 title: "Text File Formats Reference (.tscn / .tres / project.godot)"
 description: "Godot's scene (`.tscn`) and resource (`.tres`) files are human-readable INI-like text, which is why they belong in version control over the binary `.scn`/`.res`."
 tags: [godot, gamedev, gdscript]
-timestamp: 2026-06-06T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-06T00:00:00Z }
 ---
 # Text File Formats Reference (.tscn / .tres / project.godot)
 

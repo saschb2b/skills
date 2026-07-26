@@ -9,14 +9,14 @@
   },
   {
     "path": "references/exceptions.md",
-    "sha256": "982246534d93caedc0cd5389e37cd39ddc6d1427bdc572a3c553b5f6ec870ae4"
+    "sha256": "661e72dd6d5faf9354235a88bfd1a43cad2d39e584f115c810637ec51bf482da"
   },
   {
     "path": "references/index.md",
-    "sha256": "bea433872ea8cc31a3b09701e1a5af000adb3f77f250892867bf0d6856357051"
+    "sha256": "5bbd11d0656fbec067daad5751ddefdcc86779cd62469fd4d411f1063d9bbab7"
   },
   {
     "path": "references/lint-setup.md",
-    "sha256": "02b74a4c3409a0affb5987e255ff541ce5ba2cde2952d2dd47265d208ad79a7a"
+    "sha256": "f62b4e799f37146f0b9498ed25b14b8bf7b2e8fdcdebfc205e46e7445cc64000"
   }
 ]

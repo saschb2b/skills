@@ -3,7 +3,7 @@ type: Playbook
 title: "Testing and Debugging an MCP Server"
 description: "The MCP Inspector, the stderr rule, Claude as a live test client, the three testing layers, and the eval-driven loop that lets the agent optimize the tools."
 tags: [mcp, testing, debugging, inspector, evals]
-timestamp: 2026-06-21T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-21T00:00:00Z }
 ---
 
 # Testing and Debugging an MCP Server

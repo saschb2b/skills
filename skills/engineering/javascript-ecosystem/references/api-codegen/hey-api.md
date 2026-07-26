@@ -3,7 +3,7 @@ type: Library Notes
 title: "Hey API (REST / OpenAPI)"
 description: "Hey API generates a framework-agnostic SDK (typed functions over a configurable `fetch`/`axios`/`next` client), and a plugin layer composes on top."
 tags: [javascript, api-codegen]
-timestamp: 2026-06-04T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-04T00:00:00Z }
 ---
 # Hey API (REST / OpenAPI)
 

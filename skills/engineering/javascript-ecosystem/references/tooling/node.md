@@ -3,7 +3,7 @@ type: Library Notes
 title: "Node.js"
 description: "Node now strips TypeScript types natively and by default for `.ts` files (the experimental warning is gone)."
 tags: [javascript, tooling]
-timestamp: 2026-06-04T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-04T00:00:00Z }
 ---
 # Node.js
 

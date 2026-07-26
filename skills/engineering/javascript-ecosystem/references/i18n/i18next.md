@@ -3,7 +3,7 @@ type: Library Notes
 title: "i18next (with react-i18next)"
 description: "i18next is now TypeScript-first."
 tags: [javascript, i18n]
-timestamp: 2026-06-04T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-04T00:00:00Z }
 ---
 # i18next (with react-i18next)
 

@@ -3,7 +3,7 @@ type: Library Notes
 title: "Resend"
 description: "Resend is API-first: you send with an API key via `resend.emails.send()` and can pass a React Email component straight to the `react` field instead of pre-rendering HTML."
 tags: [javascript, email]
-timestamp: 2026-06-04T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-04T00:00:00Z }
 ---
 # Resend
 

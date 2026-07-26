@@ -3,7 +3,7 @@ type: Smell Catalog
 title: "Tauri Stinky: Tauri Catalog"
 description: "The Tauri-layer smell catalog, pillars 8 to 13, categories 35 to 57."
 tags: [tauri, rust, ipc, security, code-smells]
-timestamp: 2026-07-15T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-07-15T00:00:00Z }
 ---
 # Tauri Stinky: Tauri Catalog
 

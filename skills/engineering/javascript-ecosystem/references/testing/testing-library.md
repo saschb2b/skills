@@ -3,7 +3,7 @@ type: Library Notes
 title: "Testing Library (React + user-event)"
 description: "From RTL 16, `@testing-library/dom` is a separate peer dependency you install explicitly, and RTL 16 supports React 19."
 tags: [javascript, testing]
-timestamp: 2026-06-04T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-04T00:00:00Z }
 ---
 # Testing Library (React + user-event)
 

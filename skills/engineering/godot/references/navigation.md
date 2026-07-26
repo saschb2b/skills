@@ -3,7 +3,7 @@ type: Reference
 title: "Navigation & Pathfinding Reference"
 description: "For the hand-built `AStar2D` graph pattern, see [architecture.md](architecture.md)."
 tags: [godot, gamedev, gdscript]
-timestamp: 2026-06-06T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-06T00:00:00Z }
 ---
 # Navigation & Pathfinding Reference
 

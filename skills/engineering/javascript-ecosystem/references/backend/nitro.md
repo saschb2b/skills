@@ -3,7 +3,7 @@ type: Library Notes
 title: "Nitro"
 description: "Nitro is the deploy-anywhere server toolkit (the engine under Nuxt) that builds one app and ships it to Node, Bun, Deno, Cloudflare, Vercel, and Netlify."
 tags: [javascript, backend]
-timestamp: 2026-06-05T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-05T00:00:00Z }
 ---
 # Nitro
 

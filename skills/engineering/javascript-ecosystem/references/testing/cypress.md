@@ -3,7 +3,7 @@ type: Library Notes
 title: "Cypress"
 description: "Cypress is still actively developed (v15 adds AI-assisted authoring, a command-log refresh, ESM and TS fixes), but its position shifted to runner-up behind Playwright for new e2e projects."
 tags: [javascript, testing]
-timestamp: 2026-06-04T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-04T00:00:00Z }
 ---
 # Cypress
 

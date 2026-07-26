@@ -3,7 +3,7 @@ type: Library Notes
 title: "React Router (the merged Remix)"
 description: "Remix v2 merged into React Router v7, which has three modes: declarative, data, and framework."
 tags: [javascript, meta-frameworks]
-timestamp: 2026-06-04T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-04T00:00:00Z }
 ---
 # React Router (the merged Remix)
 

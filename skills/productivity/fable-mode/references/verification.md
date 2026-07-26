@@ -3,7 +3,7 @@ type: Doctrine
 title: Verification gates
 description: A change is done when the affected flow was exercised and observed end to end; a green build is a precondition, not evidence.
 tags: [quality, testing, verification]
-timestamp: 2026-07-16T10:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-07-16T10:00:00Z }
 ---
 
 # The bar

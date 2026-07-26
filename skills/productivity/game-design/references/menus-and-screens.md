@@ -3,7 +3,7 @@ type: Reference
 title: "Menus, Screens, and the HUD"
 description: "Designing the non-play surfaces. Menu information architecture, HUD philosophies from maximal to diegetic, the lifecycle screens from title to game-over, and respecting the player's time."
 tags: [game-design, ui, menus, hud, screens]
-timestamp: 2026-06-24T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-24T00:00:00Z }
 ---
 
 # Menus, Screens, and the HUD

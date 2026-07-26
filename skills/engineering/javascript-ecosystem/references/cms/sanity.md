@@ -3,7 +3,7 @@ type: Library Notes
 title: "Sanity"
 description: "The Studio is config-as-code in a single `sanity.config.ts` (no more `sanity.json`/parts)."
 tags: [javascript, cms]
-timestamp: 2026-06-04T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-04T00:00:00Z }
 ---
 # Sanity
 

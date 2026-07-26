@@ -3,7 +3,7 @@ type: Reference
 title: "Compose and View Interop"
 description: "Embed Compose in an existing View hierarchy with a `ComposeView`."
 tags: [android, jetpack-compose, kotlin]
-timestamp: 2026-06-15T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-15T00:00:00Z }
 ---
 # Compose and View Interop
 

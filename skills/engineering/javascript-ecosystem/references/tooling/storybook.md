@@ -3,7 +3,7 @@ type: Library Notes
 title: "Storybook"
 description: "Testing moved into the core via the Vitest addon: Storybook 9 rebuilt component testing on Vitest browser mode, running stories as real-browser tests, and slimmed the install by folding the former..."
 tags: [javascript, tooling]
-timestamp: 2026-06-04T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-04T00:00:00Z }
 ---
 # Storybook
 

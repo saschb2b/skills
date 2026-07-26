@@ -3,7 +3,7 @@ type: Reference
 title: "no-slop: code comments"
 description: "The slop comment is written for the reviewer of one change and then stranded in code that outlives the review."
 tags: [writing, ai-slop, style, editing]
-timestamp: 2026-06-14T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-14T00:00:00Z }
 ---
 # no-slop: code comments
 

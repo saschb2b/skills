@@ -3,7 +3,7 @@ type: Library Notes
 title: "Payload CMS"
 description: "Payload 3 is a full rewrite that runs inside a Next.js App Router app rather than as a separate Express server."
 tags: [javascript, cms]
-timestamp: 2026-06-04T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-04T00:00:00Z }
 ---
 # Payload CMS
 

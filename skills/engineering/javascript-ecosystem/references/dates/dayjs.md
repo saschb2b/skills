@@ -3,7 +3,7 @@ type: Library Notes
 title: "Day.js"
 description: "Day.js is the roughly 2 KB, immutable, Moment.js-API-compatible drop-in."
 tags: [javascript, dates]
-timestamp: 2026-06-04T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-04T00:00:00Z }
 ---
 # Day.js
 

@@ -3,7 +3,7 @@ type: Doctrine
 title: Memory discipline
 description: Durable knowledge lives as typed single-fact files behind an index, deduplicated on write, verified on recall, and never duplicating what the repo already records.
 tags: [memory, knowledge]
-timestamp: 2026-07-16T10:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-07-16T10:00:00Z }
 ---
 
 # The shape

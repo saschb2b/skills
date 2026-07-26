@@ -3,7 +3,7 @@ type: Library Notes
 title: "Express"
 description: "Express 5 finally shipped after a long gestation, focused on stability and security rather than features."
 tags: [javascript, backend]
-timestamp: 2026-06-05T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-05T00:00:00Z }
 ---
 # Express
 

@@ -3,7 +3,14 @@ type: Concept
 title: "The Composition Layer"
 description: "The container/view split; environment access lives at the page or container layer, views receive behavior-named props, and the Storybook litmus decides which side code is on."
 tags: [react, architecture, container-view, decoupling]
-timestamp: 2026-07-17T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-07-17T00:00:00Z }
+sources:
+  - resource: https://react.dev/learn/thinking-in-react
+    title: "React, Thinking in React"
+  - resource: https://react.dev/learn/passing-data-deeply-with-context
+    title: "React, Passing Data Deeply with Context"
+  - resource: https://martinfowler.com/bliki/PresentationDomainSeparation.html
+    title: "Fowler, Presentation-Domain Separation"
 ---
 # The Composition Layer
 
@@ -23,9 +30,3 @@ A component tree has one layer whose job is **knowing about the environment**: p
 ## What is not a violation
 
 The composition layer itself doing all of the above is the pattern working, not a smell. A narrow app-wide context read through a documented hook (theme, locale, session) is ambient, not environment coupling (category 25 governs its structure). A small one-off component that will never render in isolation does not owe anyone a container split.
-
-# Citations
-
-- React, Thinking in React (https://react.dev/learn/thinking-in-react)
-- React, Passing Data Deeply with Context (https://react.dev/learn/passing-data-deeply-with-context)
-- Fowler, Presentation-Domain Separation (https://martinfowler.com/bliki/PresentationDomainSeparation.html)

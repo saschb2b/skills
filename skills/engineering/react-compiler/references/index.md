@@ -1,5 +1,5 @@
 ---
-okf_version: "0.1"
+okf_version: "0.2"
 ---
 
 # Bailout patterns and strict lint setup behind the react-compiler skill.

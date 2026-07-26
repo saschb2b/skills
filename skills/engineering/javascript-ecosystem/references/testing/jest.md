@@ -3,7 +3,7 @@ type: Library Notes
 title: "Jest"
 description: "Jest 30 is faster and leaner with a modernized toolchain (jsdom 26, dropped legacy Node)."
 tags: [javascript, testing]
-timestamp: 2026-06-04T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-04T00:00:00Z }
 ---
 # Jest
 

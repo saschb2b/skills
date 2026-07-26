@@ -1,5 +1,5 @@
 ---
-okf_version: "0.1"
+okf_version: "0.2"
 ---
 
 # Smell catalog and copy-pasteable recipes behind the visual-consistency skill.

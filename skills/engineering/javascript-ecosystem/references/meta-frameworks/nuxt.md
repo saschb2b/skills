@@ -3,7 +3,7 @@ type: Library Notes
 title: "Nuxt"
 description: "Nuxt 4 is a stability release that promotes the new `app/` source directory as the default `srcDir` and the stricter data layer that was behind `compatibilityVersion: 4` in Nuxt 3."
 tags: [javascript, meta-frameworks]
-timestamp: 2026-06-04T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-04T00:00:00Z }
 ---
 # Nuxt
 

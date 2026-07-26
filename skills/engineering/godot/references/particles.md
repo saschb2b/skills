@@ -3,7 +3,7 @@ type: Reference
 title: "Particles & VFX Reference"
 description: "Both share the same conceptual properties."
 tags: [godot, gamedev, gdscript]
-timestamp: 2026-06-06T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-06T00:00:00Z }
 ---
 # Particles & VFX Reference
 

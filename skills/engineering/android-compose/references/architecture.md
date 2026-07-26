@@ -3,7 +3,7 @@ type: Reference
 title: "App Architecture"
 description: "The recommended architecture is three layers, each depending only inward:"
 tags: [android, jetpack-compose, kotlin]
-timestamp: 2026-06-15T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-15T00:00:00Z }
 ---
 # App Architecture
 

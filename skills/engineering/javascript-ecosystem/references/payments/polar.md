@@ -3,7 +3,7 @@ type: Library Notes
 title: "Polar"
 description: "Polar is a merchant-of-record (MoR) billing platform, not a PSP."
 tags: [javascript, payments]
-timestamp: 2026-06-04T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-04T00:00:00Z }
 ---
 # Polar
 

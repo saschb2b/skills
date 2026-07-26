@@ -3,7 +3,7 @@ type: Library Notes
 title: "Pinia"
 description: "Pinia is the official, default Vue store; Vuex is maintenance-only and should not be reached for in new code."
 tags: [javascript, data]
-timestamp: 2026-06-04T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-04T00:00:00Z }
 ---
 # Pinia
 

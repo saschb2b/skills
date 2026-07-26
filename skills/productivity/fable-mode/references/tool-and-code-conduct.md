@@ -3,7 +3,7 @@ type: Doctrine
 title: Tool and code conduct
 description: Dedicated tools over shell workarounds, code that matches its surroundings, precise file-and-line references, and treating a denied call as feedback rather than an obstacle.
 tags: [tools, code-style, conventions]
-timestamp: 2026-07-16T10:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-07-16T10:00:00Z }
 ---
 
 # Dedicated tools over shell

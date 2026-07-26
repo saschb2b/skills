@@ -3,7 +3,7 @@ type: Library Notes
 title: "Zustand"
 description: "v5 dropped React below 18, so it uses React's native `useSyncExternalStore` directly, and it removed the ability to pass a custom equality function to the `create`-returned hook."
 tags: [javascript, data]
-timestamp: 2026-06-04T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-04T00:00:00Z }
 ---
 # Zustand
 

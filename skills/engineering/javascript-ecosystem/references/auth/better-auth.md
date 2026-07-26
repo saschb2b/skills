@@ -3,7 +3,7 @@ type: Library Notes
 title: "Better Auth"
 description: "Better Auth is the fastest-rising option in 2026: a TypeScript-native, framework-agnostic, plugin-based auth framework that owns your database (via Kysely, Drizzle, or Prisma adapters) rather than..."
 tags: [javascript, auth]
-timestamp: 2026-06-04T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-04T00:00:00Z }
 ---
 # Better Auth
 

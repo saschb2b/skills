@@ -3,7 +3,7 @@ type: Library Notes
 title: "Nodemailer"
 description: "Nodemailer is still the canonical lower-level SMTP and transport library; the role is unchanged, but majors 7 and 8 broke on the edges."
 tags: [javascript, email]
-timestamp: 2026-06-04T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-04T00:00:00Z }
 ---
 # Nodemailer
 

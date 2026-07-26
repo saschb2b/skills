@@ -3,7 +3,7 @@ type: Library Notes
 title: "Turborepo"
 description: "v2 renamed the `turbo.json` `pipeline` key to `tasks`, shipped first-class Watch Mode (`turbo watch`) and Boundaries (module-boundary enforcement), and the engine is fully Rust."
 tags: [javascript, tooling]
-timestamp: 2026-06-04T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-04T00:00:00Z }
 ---
 # Turborepo
 

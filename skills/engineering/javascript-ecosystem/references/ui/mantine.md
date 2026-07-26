@@ -3,7 +3,7 @@ type: Library Notes
 title: "Mantine"
 description: "The Emotion removal already happened in v7 (native CSS modules plus CSS variables, `createStyles` dropped); that is the shift most LLMs miss."
 tags: [javascript, ui]
-timestamp: 2026-06-04T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-04T00:00:00Z }
 ---
 # Mantine
 

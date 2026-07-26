@@ -3,7 +3,7 @@ type: Reference
 title: "Material 3 Expressive"
 description: "Material 3 Expressive (announced Google I/O 2025) is the current Material design direction: bigger and bolder shapes, more emotive color, springier motion, and a richer component set."
 tags: [android, jetpack-compose, kotlin]
-timestamp: 2026-06-15T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-15T00:00:00Z }
 ---
 # Material 3 Expressive
 

@@ -3,7 +3,22 @@ type: Research Synthesis
 title: Research basis for self-healing traces
 description: Primary evidence and authoritative engineering guidance translated into bounded rules for the breadcrumbs skill.
 tags: [program-comprehension, research, maintainability]
-timestamp: 2026-07-12T21:15:00Z
+generated: { by: claude-code/unversioned, at: 2026-07-12T21:15:00Z }
+sources:
+  - resource: https://web.engr.oregonstate.edu/~burnett/Reprints/TSE-IFT-2013-asprinted.pdf
+    title: "An Information Foraging Theory of How Programmers Debug in an Integrated Development Environment, IEEE Transactions on Software Engineering"
+  - resource: https://google.github.io/eng-practices/review/reviewer/comments.html
+    title: "How to write code review comments, Google Engineering Practices"
+  - resource: https://link.springer.com/article/10.1007/s10664-025-10721-2
+    title: "The Effect of Comments on Program Comprehension: An Eye-tracking Study, Empirical Software Engineering"
+  - resource: https://se.inf.ethz.ch/~meyer/publications/old/dbc_chapter.pdf
+    title: "Design by Contract, Bertrand Meyer"
+  - resource: https://go.dev/doc/effective_go#errors
+    title: "Effective Go, Errors, The Go Project"
+  - resource: https://diataxis.fr/start-here/
+    title: "Diátaxis in five minutes, Daniele Procida"
+  - resource: https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions
+    title: "Documenting Architecture Decisions, Michael Nygard"
 ---
 
 # Use evidence without turning it into dogma
@@ -51,13 +66,3 @@ Diátaxis separates tutorials, how-to guides, reference, and explanation because
 Michael Nygard's original ADR guidance limits records to architecturally significant decisions affecting structure, non-functional characteristics, dependencies, interfaces, or construction techniques. The lightweight record captures context, decision, status, and consequences.
 
 **Skill rule:** Use the repository's existing decision-record system for significant cross-cutting rationale. Use a local comment, contract, test, or existing module documentation for smaller facts. Never introduce an ADR system merely because a trace was difficult.
-
-# Citations
-
-1. [An Information Foraging Theory of How Programmers Debug in an Integrated Development Environment](https://web.engr.oregonstate.edu/~burnett/Reprints/TSE-IFT-2013-asprinted.pdf), IEEE Transactions on Software Engineering.
-2. [How to write code review comments](https://google.github.io/eng-practices/review/reviewer/comments.html), Google Engineering Practices.
-3. [The Effect of Comments on Program Comprehension: An Eye-tracking Study](https://link.springer.com/article/10.1007/s10664-025-10721-2), Empirical Software Engineering.
-4. [Design by Contract](https://se.inf.ethz.ch/~meyer/publications/old/dbc_chapter.pdf), Bertrand Meyer.
-5. [Effective Go, Errors](https://go.dev/doc/effective_go#errors), The Go Project.
-6. [Diátaxis in five minutes](https://diataxis.fr/start-here/), Daniele Procida.
-7. [Documenting Architecture Decisions](https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions), Michael Nygard.

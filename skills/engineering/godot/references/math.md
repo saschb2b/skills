@@ -3,7 +3,7 @@ type: Reference
 title: "Math, Vectors & Randomness Reference"
 description: "lerp(a, b, t) # linear interpolate, t in 0..1 (lerpf for typed floats)"
 tags: [godot, gamedev, gdscript]
-timestamp: 2026-06-06T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-06T00:00:00Z }
 ---
 # Math, Vectors & Randomness Reference
 

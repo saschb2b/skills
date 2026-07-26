@@ -3,7 +3,7 @@ type: Library Notes
 title: "SWR"
 description: "SWR is Vercel's minimal stale-while-revalidate data hook, lighter than TanStack Query and Next-aligned."
 tags: [javascript, data]
-timestamp: 2026-06-05T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-05T00:00:00Z }
 ---
 # SWR
 

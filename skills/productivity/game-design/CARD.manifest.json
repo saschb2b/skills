@@ -13,70 +13,70 @@
   },
   {
     "path": "references/accessibility.md",
-    "sha256": "6dd6b5bd0fa4f9fb5c4e2902385c74a253b92b3f905cd6ad8e4677e6861822c8"
+    "sha256": "99a6769c9edafdb02213a6e776dce2770947aae2381ce360506e1fafde6e7b60"
   },
   {
     "path": "references/critique.md",
-    "sha256": "c95128982b5bac6fe291efcbe1d4591eddf787392b77fadad65af42691a003b0"
+    "sha256": "ea95984b8a24f0e65d54a5f4cb6daab537b3a3585b3b73d8c9e606116418fd02"
   },
   {
     "path": "references/dialogue.md",
-    "sha256": "91f935648656d1f187e55938be29ded6dea79a8aa4e9e85254c7491571ca58bd"
+    "sha256": "a2c209434f1471dbd8b41d56e42540ef295ff133e9b88a4a4ae29fce1089336e"
   },
   {
     "path": "references/frameworks.md",
-    "sha256": "db4f9f951ff518fb3cf37aec496118d32d37362c17cdaaefdb7579523a3b177a"
+    "sha256": "44214a3032023330c5ca911f6536ca0f161173469015aa0c67f49009391c640d"
   },
   {
     "path": "references/guidance-and-feedback.md",
-    "sha256": "e105c599321fc8ee0dd8d3f6c4ba7af03980329d585eb195bcd8bb55496f2a04"
+    "sha256": "c410d557e739430cdb3cd616373f61838fd3ad3ed56cef9f9b9a485223a2415f"
   },
   {
     "path": "references/index.md",
-    "sha256": "790ce9d8e872abef8c64a5e2f240b150cc566e68025030684f88ec8558e65819"
+    "sha256": "e6ca380fa3e487faa26d032235c762c9ae3d8eb9ea38a04667d2c0931e887d29"
   },
   {
     "path": "references/input-prompts.md",
-    "sha256": "a7a298536015c178216424fb48dff7fc3d007d96139772717f0e8b5fbef3596b"
+    "sha256": "d5d699134ee770f6a7f9040b03619d61786363d1f20c4aa33971260598be2967"
   },
   {
     "path": "references/interface.md",
-    "sha256": "85f145823f70faf976e35f0e62d83012d68663632f0a990f23855204a1b225c5"
+    "sha256": "ec036517cf2ec50a5bfa5d9b692767f37f91734b0078a819d3a173e8aa54e81c"
   },
   {
     "path": "references/inventory.md",
-    "sha256": "73fbb9e23a82e5cd928b7aa1a227daab687f5173eed0dc85d0e542482976a3ec"
+    "sha256": "bef6a6580cebd66163f222b8e4745580b95a29ff6ecbea51cfd1944e7c03c2bd"
   },
   {
     "path": "references/log.md",
-    "sha256": "f8494847998ae7e16ed526ca8e784cca97dc55bc2b7bd84394686c442fc9c899"
+    "sha256": "1e63a62b2c643034a77f2ec6e49e9e7d2362621dbe647dff1846e8d5f3b1bcdb"
   },
   {
     "path": "references/menus-and-screens.md",
-    "sha256": "6798f0177dac02fcf603c185e570cebd9615ab99f9511631d2be111d5c8eaaa7"
+    "sha256": "a0572d8799cd608c6b459193941115f775d3f89a1bc7d8e64861be6e6ed334e9"
   },
   {
     "path": "references/method.md",
-    "sha256": "afefbc722d10152bb04ea8687da3aba2fbe79ea3c8ea25a81177ad8fdb142305"
+    "sha256": "17eb260c67c94d857557a3505c90fae79475ba39ec1c363908b5f99a20045261"
   },
   {
     "path": "references/onboarding.md",
-    "sha256": "3a8c2060aa6199f64c961dd11aad7bbff852425df8eee74cc21d82bcaf767897"
+    "sha256": "c4e7635880a958e6948c56c4e3e9013511f9bbc94a94503d39e4cc9b603948e4"
   },
   {
     "path": "references/patterns.md",
-    "sha256": "72a1741850d1f05dd34cba0fa9b45838f036cc6aee482997e4b193cf6161e0fe"
+    "sha256": "be9b24954efd252177d28dcf12064c40472753c321c3f8f71da09c826fbdae69"
   },
   {
     "path": "references/principles.md",
-    "sha256": "c5d9e52ad4251a38a71a094b18adc1f14ff49f577b0ad47bdc21bfc2291ff130"
+    "sha256": "bfaaa51a0801121be7fac0ee5c44cb035a9a308ae16d75aa12d8d8a3434d176b"
   },
   {
     "path": "references/systems.md",
-    "sha256": "c34e68a7912c16a174ff71ea98c99e1cc93f4620540fe3243bb65d9b8edb9b4f"
+    "sha256": "7fd0c6729d64a5e7a1842c355ba64f920273bab4e47bda0353e42d5035ec6ef9"
   },
   {
     "path": "references/transitions.md",
-    "sha256": "fd875bc444f4f313c26a12abe48299c0b27cf7c444b0e275f1a421856506b6ad"
+    "sha256": "4db80f91b2a6aa293b9c2187a6c61ade0a9d72b9fd5b099610b8d19f23b0db38"
   }
 ]
