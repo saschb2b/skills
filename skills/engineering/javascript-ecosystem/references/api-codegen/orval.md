@@ -3,7 +3,7 @@ type: Library Notes
 title: "Orval (REST / OpenAPI)"
 description: "Orval still defaults to generating named hooks, but it is now configurable: you can suppress hooks (`useQuery: false`) and emit `queryOptions` instead, choose the HTTP layer via `httpClient`..."
 tags: [javascript, api-codegen]
-timestamp: 2026-06-04T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-04T00:00:00Z }
 ---
 # Orval (REST / OpenAPI)
 

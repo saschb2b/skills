@@ -3,7 +3,12 @@ type: Concept
 title: "Agent Context Collapse"
 description: "Why coding agents systematically write comments about the edit rather than the code, and why the failure is structural rather than careless."
 tags: [agents, comments, failure-modes]
-timestamp: 2026-07-26T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-07-26T00:00:00Z }
+sources:
+  - resource: https://web.stanford.edu/~ouster/cgi-bin/book.php
+    title: "Ousterhout, A Philosophy of Software Design, ch. 15, \"Write the comments first\""
+  - resource: https://google.github.io/eng-practices/review/developer/cl-descriptions.html
+    title: "Google Engineering Practices, Writing good CL descriptions"
 ---
 # Agent Context Collapse
 
@@ -32,8 +37,3 @@ Not because they are more disciplined. Because their context decays. A developer
 - The same collapse produces the inverse smell. Because the agent is focused on the delta, the non-obvious decisions it did not change go uncommented, which is Pillar 3 of the [catalog](../catalog.md). A file can be dense with commentary about last week's edit and silent about the invariant that will break production.
 
 This concept is the reason the skill's default mode is implicit rather than on request. A review-time skill catches the smell after it has shipped; the whole value is in catching it in the turn that writes it. The audience asymmetry it collapses is described in [comment-audience.md](./comment-audience.md).
-
-# Citations
-
-- Ousterhout, A Philosophy of Software Design, ch. 15, "Write the comments first" (https://web.stanford.edu/~ouster/cgi-bin/book.php)
-- Google Engineering Practices, Writing good CL descriptions (https://google.github.io/eng-practices/review/developer/cl-descriptions.html)

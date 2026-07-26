@@ -3,7 +3,7 @@ type: Library Notes
 title: "Tailwind CSS"
 description: "v4 is a ground-up rewrite on the Rust \"Oxide\" engine with a CSS-first configuration model."
 tags: [javascript, ui]
-timestamp: 2026-06-04T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-04T00:00:00Z }
 ---
 # Tailwind CSS
 

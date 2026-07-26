@@ -3,7 +3,7 @@ type: Reference
 title: "Publishing and Distributing an MCP Server"
 description: "The official registry, server.json, the mcp-publisher flow, distribution channels (npm, PyPI, OCI, MCPB), and the mcpServers config block consumers paste."
 tags: [mcp, registry, publishing, distribution, server-json]
-timestamp: 2026-06-21T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-21T00:00:00Z }
 ---
 
 # Publishing and Distributing an MCP Server

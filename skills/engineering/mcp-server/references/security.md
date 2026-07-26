@@ -3,7 +3,7 @@ type: Reference
 title: "MCP Security and Authorization"
 description: "The MCP threat model (confused deputy, token passthrough, session hijacking, tool poisoning, rug pulls, line jumping, cross-server shadowing), OAuth 2.1 authorization, server hardening, and supply chain."
 tags: [mcp, security, oauth, authorization, threat-model]
-timestamp: 2026-06-21T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-21T00:00:00Z }
 ---
 
 # MCP Security and Authorization

@@ -3,7 +3,7 @@ type: Reference
 title: "SceneTree, Lifecycle & Pausing Reference"
 description: "For the per-node callback order (`_init` / `_enter_tree` / `_ready` bottom-up / `_process`), see [architecture.md](architecture.md)."
 tags: [godot, gamedev, gdscript]
-timestamp: 2026-06-06T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-06T00:00:00Z }
 ---
 # SceneTree, Lifecycle & Pausing Reference
 

@@ -3,7 +3,7 @@ type: Reference
 title: "Fragment Masking"
 description: "Fragment masking solves a problem that comes up the moment a GraphQL component tree has more than one layer: how do you type the data flowing to a child component without generating a new type for…"
 tags: [openapi, graphql, codegen, typescript]
-timestamp: 2026-05-12T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-05-12T00:00:00Z }
 ---
 # Fragment Masking
 

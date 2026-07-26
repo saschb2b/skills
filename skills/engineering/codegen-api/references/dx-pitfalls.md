@@ -3,7 +3,7 @@ type: Reference
 title: "DX Pitfalls in Codegen Workflows"
 description: "Two sharp edges that surface in any real graphql-codegen project."
 tags: [openapi, graphql, codegen, typescript]
-timestamp: 2026-05-12T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-05-12T00:00:00Z }
 ---
 # DX Pitfalls in Codegen Workflows
 

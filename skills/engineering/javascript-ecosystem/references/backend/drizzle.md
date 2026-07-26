@@ -3,7 +3,7 @@ type: Library Notes
 title: "Drizzle ORM"
 description: "v1 (RC) introduces Relational Queries v2 (a rewritten `db.query` and relations format), an opt-in JIT-compiled row mapper, validator integrations collapsed into `drizzle-orm` subpaths, and a..."
 tags: [javascript, backend]
-timestamp: 2026-06-05T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-05T00:00:00Z }
 ---
 # Drizzle ORM
 

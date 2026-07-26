@@ -3,7 +3,7 @@ type: Library Notes
 title: "React"
 description: "React 19 made Actions, the `use()` primitive, `ref` as a regular prop, and `<form action>` first-class."
 tags: [javascript, frameworks]
-timestamp: 2026-06-05T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-05T00:00:00Z }
 ---
 # React
 

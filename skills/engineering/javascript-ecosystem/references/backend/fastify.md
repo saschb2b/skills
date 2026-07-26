@@ -3,7 +3,7 @@ type: Library Notes
 title: "Fastify"
 description: "Fastify 5 is a maintenance-and-modernization major: it requires Node 20+, removes years of deprecated APIs, and tightens defaults rather than adding features."
 tags: [javascript, backend]
-timestamp: 2026-06-05T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-05T00:00:00Z }
 ---
 # Fastify
 

@@ -3,7 +3,7 @@ type: Library Notes
 title: "Auth.js (formerly NextAuth.js)"
 description: "The project rebranded to Auth.js and split into a framework-agnostic core (`@auth/core`) with wrappers (`next-auth`, `@auth/sveltekit`, `@auth/express`) and separate `@auth/*-adapter` packages."
 tags: [javascript, auth]
-timestamp: 2026-06-04T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-04T00:00:00Z }
 ---
 # Auth.js (formerly NextAuth.js)
 

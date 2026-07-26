@@ -3,7 +3,7 @@ type: Playbook
 title: "MCP Maintenance and Operations"
 description: "Versioning and deprecation without breaking agents, list_changed notifications, the _meta extension point, toolsets, pagination, observability, the stdio to Streamable HTTP operational cliff, and production pitfalls."
 tags: [mcp, versioning, operations, observability, maintenance]
-timestamp: 2026-06-21T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-21T00:00:00Z }
 ---
 
 # MCP Maintenance and Operations

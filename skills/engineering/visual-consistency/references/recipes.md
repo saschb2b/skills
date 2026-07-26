@@ -3,7 +3,7 @@ type: Playbook
 title: "Visual Consistency Recipes"
 description: "Copy-pasteable fixes for the flagship cases in [catalog.md](./catalog.md)."
 tags: [css, ui, layout, visual-consistency]
-timestamp: 2026-06-17T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-17T00:00:00Z }
 ---
 # Visual Consistency Recipes
 

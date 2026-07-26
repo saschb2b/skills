@@ -3,7 +3,36 @@ type: Smell Catalog
 title: "Comment Stinky Catalog"
 description: "The full code-comment smell catalog, in six pillars and 37 categories, language and framework agnostic."
 tags: [comments, code-quality, documentation, smells]
-timestamp: 2026-07-26T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-07-26T00:00:00Z }
+sources:
+  - resource: https://web.stanford.edu/~ouster/cgi-bin/book.php
+    title: "Ousterhout, A Philosophy of Software Design"
+  - resource: https://antirez.com/news/124
+    title: "Sanfilippo, Writing System Software: Code Comments"
+  - resource: https://google.github.io/styleguide/cppguide.html#Comments
+    title: "Google C++ Style Guide, Comments"
+  - resource: https://google.github.io/styleguide/pyguide.html#38-comments-and-docstrings
+    title: "Google Python Style Guide, Comments and Docstrings"
+  - resource: https://google.github.io/eng-practices/review/developer/cl-descriptions.html
+    title: "Google Engineering Practices, Writing good CL descriptions"
+  - resource: https://martinfowler.com/bliki/CodeAsDocumentation.html
+    title: "Fowler, CodeAsDocumentation"
+  - resource: https://refactoring.guru/smells/comments
+    title: "Fowler, Refactoring, the Comments smell"
+  - resource: https://blog.codinghorror.com/code-tells-you-how-comments-tell-you-why/
+    title: "Atwood, Code Tells You How, Comments Tell You Why"
+  - resource: https://cbea.ms/git-commit/
+    title: "Beams, How to Write a Git Commit Message"
+  - resource: https://www.kernel.org/doc/html/latest/process/coding-style.html#commenting
+    title: "Linux kernel coding style, Commenting"
+  - resource: https://rust-lang.github.io/api-guidelines/documentation.html
+    title: "Rust API Guidelines, Documentation"
+  - resource: https://go.dev/doc/comment
+    title: "Go Doc Comments"
+  - resource: https://peps.python.org/pep-0257/
+    title: "PEP 257, Docstring Conventions"
+  - resource: https://tsdoc.org/
+    title: "TSDoc"
 ---
 # Comment Stinky Catalog
 
@@ -260,20 +289,3 @@ Prose style in general belongs to `no-slop`. These four are the register problem
 - **Fix:** plain declarative sentences. Save the emphasis for the one genuinely dangerous thing in the file, where all-caps still works because it is rare.
 - **Don't flag:** a project that consistently uses a marker convention (`// SAFETY:`, `// NOTE:`, `// PERF:`) which is structure, not decoration, and often machine-greppable.
 - **Source:** Linux kernel coding style, Commenting (https://www.kernel.org/doc/html/latest/process/coding-style.html#commenting).
-
-# Citations
-
-- Ousterhout, A Philosophy of Software Design (https://web.stanford.edu/~ouster/cgi-bin/book.php)
-- Sanfilippo, Writing System Software: Code Comments (https://antirez.com/news/124)
-- Google C++ Style Guide, Comments (https://google.github.io/styleguide/cppguide.html#Comments)
-- Google Python Style Guide, Comments and Docstrings (https://google.github.io/styleguide/pyguide.html#38-comments-and-docstrings)
-- Google Engineering Practices, Writing good CL descriptions (https://google.github.io/eng-practices/review/developer/cl-descriptions.html)
-- Fowler, CodeAsDocumentation (https://martinfowler.com/bliki/CodeAsDocumentation.html)
-- Fowler, Refactoring, the Comments smell (https://refactoring.guru/smells/comments)
-- Atwood, Code Tells You How, Comments Tell You Why (https://blog.codinghorror.com/code-tells-you-how-comments-tell-you-why/)
-- Beams, How to Write a Git Commit Message (https://cbea.ms/git-commit/)
-- Linux kernel coding style, Commenting (https://www.kernel.org/doc/html/latest/process/coding-style.html#commenting)
-- Rust API Guidelines, Documentation (https://rust-lang.github.io/api-guidelines/documentation.html)
-- Go Doc Comments (https://go.dev/doc/comment)
-- PEP 257, Docstring Conventions (https://peps.python.org/pep-0257/)
-- TSDoc (https://tsdoc.org/)

@@ -3,7 +3,7 @@ type: Library Notes
 title: "Apollo Client (React)"
 description: "v4 splits React out of the core, so hooks import from `@apollo/client/react` and the core is framework-agnostic."
 tags: [javascript, graphql]
-timestamp: 2026-06-04T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-04T00:00:00Z }
 ---
 # Apollo Client (React)
 

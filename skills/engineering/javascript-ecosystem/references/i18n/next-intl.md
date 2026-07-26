@@ -3,7 +3,7 @@ type: Library Notes
 title: "next-intl"
 description: "next-intl is App Router native with strict typing."
 tags: [javascript, i18n]
-timestamp: 2026-06-04T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-04T00:00:00Z }
 ---
 # next-intl
 

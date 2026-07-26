@@ -3,7 +3,7 @@ type: Library Notes
 title: "Package managers (pnpm / npm / Bun)"
 description: "pnpm went security-by-default in v10: no implicit pre/post-install scripts, plus a `minimumReleaseAge` cooldown to dodge zero-day supply-chain attacks."
 tags: [javascript, tooling]
-timestamp: 2026-06-04T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-04T00:00:00Z }
 ---
 # Package managers (pnpm / npm / Bun)
 

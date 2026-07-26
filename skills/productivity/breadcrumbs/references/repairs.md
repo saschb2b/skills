@@ -3,7 +3,7 @@ type: Repair Pattern Catalog
 title: Repair patterns
 description: Durable transformations that reduce future tracing without creating a separate knowledge system.
 tags: [maintainability, refactoring, documentation]
-timestamp: 2026-07-12T21:15:00Z
+generated: { by: claude-code/unversioned, at: 2026-07-12T21:15:00Z }
 ---
 
 # Contents

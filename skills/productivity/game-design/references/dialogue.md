@@ -3,7 +3,7 @@ type: Reference
 title: "Dialogue and Narrative UI"
 description: "Designing conversation. Text-box and caption presentation, branching versus hub structures, the dialogue wheel and the paraphrase problem, skill-check dialogue, choice and consequence telegraphing, authoring tools, and systemic barks."
 tags: [game-design, dialogue, narrative, ui, choice]
-timestamp: 2026-06-24T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-24T00:00:00Z }
 ---
 
 # Dialogue and Narrative UI

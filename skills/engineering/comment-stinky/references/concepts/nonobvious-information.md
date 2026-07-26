@@ -3,7 +3,14 @@ type: Concept
 title: "Non-Obvious Information"
 description: "The test that decides whether a comment should exist at all, why the knowledge it captures is unrecoverable rather than merely inconvenient to recover, and how to find the gaps."
 tags: [comments, design, rationale]
-timestamp: 2026-07-26T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-07-26T00:00:00Z }
+sources:
+  - resource: https://web.stanford.edu/~ouster/cgi-bin/book.php
+    title: "Ousterhout, A Philosophy of Software Design, ch. 12, \"Why Write Comments?\""
+  - resource: https://antirez.com/news/124
+    title: "Sanfilippo, Writing System Software: Code Comments"
+  - resource: https://google.github.io/styleguide/cppguide.html#Implementation_Comments
+    title: "Google C++ Style Guide, Implementation Comments"
 ---
 # Non-Obvious Information
 
@@ -40,9 +47,3 @@ Each unanswered prompt is a finding, and the absence of a comment is as reportab
 "Non-obvious" is a bar, not an invitation. It does not license commenting every line in case someone finds it hard, and it does not license the essay ([essay-comment](../catalog.md)). The test is whether a competent reader of this codebase would be stuck, not whether a novice might be. And where the non-obvious thing can be made obvious instead, by a name, a type, or an extraction, doing that beats explaining it ([information-routing.md](./information-routing.md)).
 
 The interaction with agent-written code cuts both ways. Agents over-produce comments on the obvious, because they are narrating their own edit ([agent-context-collapse.md](./agent-context-collapse.md)), and under-produce them on the non-obvious, because the non-obvious parts are usually the ones they did not touch this turn.
-
-# Citations
-
-- Ousterhout, A Philosophy of Software Design, ch. 12, "Why Write Comments?" (https://web.stanford.edu/~ouster/cgi-bin/book.php)
-- Sanfilippo, Writing System Software: Code Comments (https://antirez.com/news/124)
-- Google C++ Style Guide, Implementation Comments (https://google.github.io/styleguide/cppguide.html#Implementation_Comments)

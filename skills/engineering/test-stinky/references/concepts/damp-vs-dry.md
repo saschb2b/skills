@@ -3,7 +3,16 @@ type: Principle
 title: "DAMP vs DRY"
 description: "Why test code optimizes for descriptive, self-contained readability over deduplication, and the builder vocabulary that resolves the tension."
 tags: [testing, damp, fixtures, readability]
-timestamp: 2026-07-17T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-07-17T00:00:00Z }
+sources:
+  - resource: https://testing.googleblog.com/2019/12/testing-on-toilet-tests-too-dry-make.html
+    title: "Google Testing Blog, Tests Too DRY? Make Them DAMP!"
+  - resource: https://abseil.io/resources/swe-book/html/ch12.html
+    title: "Software Engineering at Google, Unit Testing"
+  - resource: http://xunitpatterns.com/Creation%20Method.html
+    title: "Meszaros, xUnit Test Patterns, Test Data Builder territory under Fixture Setup"
+  - resource: https://kentcdodds.com/blog/aha-testing
+    title: "Kent C. Dodds, AHA Testing"
 ---
 # DAMP vs DRY
 
@@ -26,10 +35,3 @@ Minimal fixture
 
 Intent-revealing fixture name
 : When data must live outside the test, the name carries the relevant fact (`invoice_with_negative_total.json`), so the reader does not open the file to understand the assert.
-
-# Citations
-
-- Google Testing Blog, Tests Too DRY? Make Them DAMP! (https://testing.googleblog.com/2019/12/testing-on-toilet-tests-too-dry-make.html)
-- Software Engineering at Google, Unit Testing (https://abseil.io/resources/swe-book/html/ch12.html)
-- Meszaros, xUnit Test Patterns, Test Data Builder territory under Fixture Setup (http://xunitpatterns.com/Creation%20Method.html)
-- Kent C. Dodds, AHA Testing (https://kentcdodds.com/blog/aha-testing)

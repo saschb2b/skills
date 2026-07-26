@@ -3,7 +3,7 @@ type: Library Notes
 title: "Clerk"
 description: "Clerk is the leading managed and hosted identity provider, with prebuilt components (`<ClerkProvider>`, `<SignIn/>`, `<UserButton/>`) and hooks (`useUser`, `useAuth`)."
 tags: [javascript, auth]
-timestamp: 2026-06-04T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-04T00:00:00Z }
 ---
 # Clerk
 

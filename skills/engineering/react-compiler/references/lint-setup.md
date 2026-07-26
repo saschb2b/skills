@@ -3,7 +3,7 @@ type: Reference
 title: "React Compiler Lint Setup"
 description: "Since late 2025, the compiler's lint rules live in `eslint-plugin-react-hooks` v6+."
 tags: [react, react-compiler, memoization, lint]
-timestamp: 2026-05-12T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-05-12T00:00:00Z }
 ---
 # React Compiler Lint Setup
 

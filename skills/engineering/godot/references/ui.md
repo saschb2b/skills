@@ -3,7 +3,7 @@ type: Reference
 title: "UI / Control Reference"
 description: "UI lives under `Control` nodes, not `Node2D`."
 tags: [godot, gamedev, gdscript]
-timestamp: 2026-06-19T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-19T00:00:00Z }
 ---
 # UI / Control Reference
 

@@ -3,7 +3,7 @@ type: Knowledge Smell Catalog
 title: Knowledge smell catalog
 description: Observable expectation failures that reveal avoidable codebase understanding friction.
 tags: [maintainability, diagnosis, documentation]
-timestamp: 2026-07-12T21:15:00Z
+generated: { by: claude-code/unversioned, at: 2026-07-12T21:15:00Z }
 ---
 
 # Diagnose the friction

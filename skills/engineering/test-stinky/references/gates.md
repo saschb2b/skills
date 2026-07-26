@@ -3,7 +3,7 @@ type: Runbook
 title: "Test Stinky: Gate Stack"
 description: "The mechanical enforcement layer that keeps a slimmed suite honest, lint rules, order shuffle, duration budgets, flake detection, mutation spot-checks, and CI lane wiring, with per-ecosystem tooling."
 tags: [testing, ci, quality-gates, flakiness, mutation-testing]
-timestamp: 2026-07-17T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-07-17T00:00:00Z }
 ---
 # Test Stinky: Gate Stack
 

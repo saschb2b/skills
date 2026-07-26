@@ -3,7 +3,7 @@ type: Smell Catalog
 title: "Test Stinky Catalog"
 description: "The full test-suite smell catalog, in nine pillars, language and framework agnostic."
 tags: [testing, test-smells, flakiness, quality]
-timestamp: 2026-07-17T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-07-17T00:00:00Z }
 ---
 # Test Stinky Catalog
 

@@ -3,7 +3,7 @@ type: Runbook
 title: "Tauri Stinky: Gate Stack"
 description: "The mechanical quality-gate stack for a Tauri workspace, fmt, clippy, test, audit, deny, machete, plus the Cargo lints table and CI wiring."
 tags: [rust, tauri, ci, quality-gates, clippy]
-timestamp: 2026-07-15T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-07-15T00:00:00Z }
 ---
 # Tauri Stinky: Gate Stack
 

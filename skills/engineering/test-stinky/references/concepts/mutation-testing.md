@@ -3,7 +3,14 @@ type: Technique
 title: "Mutation Testing"
 description: "Seeding artificial bugs to measure whether the suite can fail, the honest complement to line coverage, with per-ecosystem tools and a sustainable sampling strategy."
 tags: [testing, mutation-testing, coverage, quality]
-timestamp: 2026-07-17T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-07-17T00:00:00Z }
+sources:
+  - resource: https://testing.googleblog.com/2021/04/mutation-testing.html
+    title: "Google Testing Blog, Mutation Testing"
+  - resource: https://research.google/pubs/pub46584/
+    title: "Petrovic and Ivankovic, State of Mutation Testing at Google"
+  - resource: https://testing.googleblog.com/2020/08/code-coverage-best-practices.html
+    title: "Google Testing Blog, Code Coverage Best Practices"
 ---
 # Mutation Testing
 
@@ -26,9 +33,3 @@ The point over line coverage: coverage proves the code *ran*, mutation score pro
 - **Read survivors as findings, not as a score to chase.** Each survivor names a missing assert or a can't-fail test; fixing those is the value. A mutation-score target invites the same gaming as a coverage target.
 - **Equivalent mutants exist** (mutations that change no observable behavior); triage survivors rather than demanding zero.
 - The manual fallback needs no tool: deliberately break the code under a suspicious test and watch whether anything fails. One minute, and it settles category 44 for that test.
-
-# Citations
-
-- Google Testing Blog, Mutation Testing (https://testing.googleblog.com/2021/04/mutation-testing.html)
-- Petrovic and Ivankovic, State of Mutation Testing at Google (https://research.google/pubs/pub46584/)
-- Google Testing Blog, Code Coverage Best Practices (https://testing.googleblog.com/2020/08/code-coverage-best-practices.html)

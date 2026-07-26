@@ -3,7 +3,16 @@ type: Concept
 title: "Test Pyramid and Placement"
 description: "The layer model for test suites (pyramid, trophy, Google's test sizes) and the placement rule the shapes all reduce to."
 tags: [testing, test-pyramid, architecture]
-timestamp: 2026-07-17T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-07-17T00:00:00Z }
+sources:
+  - resource: https://martinfowler.com/bliki/TestPyramid.html
+    title: "Fowler, TestPyramid"
+  - resource: https://martinfowler.com/articles/practical-test-pyramid.html
+    title: "Vocke, The Practical Test Pyramid"
+  - resource: https://kentcdodds.com/blog/write-tests
+    title: "Kent C. Dodds, Write tests. Not too many. Mostly integration."
+  - resource: https://testing.googleblog.com/2010/12/test-sizes.html
+    title: "Google Testing Blog, Test Sizes"
 ---
 # Test Pyramid and Placement
 
@@ -31,10 +40,3 @@ Test sizes
 - Pure logic with a reachable seam belongs in a unit test; an e2e that proves it is paying browser prices for arithmetic (catalog category 35).
 - A behavior asserted at several layers has one earned home; the rest is accreted duplication unless it defends a business-critical invariant on purpose (category 37).
 - Push-downs come paired with retirements: every unit test that takes over a proof should retire the expensive test above it, or the suite only grows.
-
-# Citations
-
-- Fowler, TestPyramid (https://martinfowler.com/bliki/TestPyramid.html)
-- Vocke, The Practical Test Pyramid (https://martinfowler.com/articles/practical-test-pyramid.html)
-- Kent C. Dodds, Write tests. Not too many. Mostly integration. (https://kentcdodds.com/blog/write-tests)
-- Google Testing Blog, Test Sizes (https://testing.googleblog.com/2010/12/test-sizes.html)

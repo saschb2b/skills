@@ -3,7 +3,18 @@ type: Taxonomy
 title: "Test Doubles"
 description: "The five kinds of test double, the classical vs mockist split, and the contract-test obligation that keeps fakes honest."
 tags: [testing, mocks, fakes, contract-testing]
-timestamp: 2026-07-17T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-07-17T00:00:00Z }
+sources:
+  - resource: https://martinfowler.com/articles/mocksArentStubs.html
+    title: "Fowler, Mocks Aren't Stubs"
+  - resource: http://xunitpatterns.com/Test%20Double.html
+    title: "Meszaros, xUnit Test Patterns, Test Double"
+  - resource: https://abseil.io/resources/swe-book/html/ch13.html
+    title: "Software Engineering at Google, Test Doubles"
+  - resource: http://jmock.org/oopsla2004.pdf
+    title: "Freeman and Pryce, Mock Roles, not Objects"
+  - resource: https://martinfowler.com/bliki/ContractTest.html
+    title: "Fowler, ContractTest"
 ---
 # Test Doubles
 
@@ -33,11 +44,3 @@ Classical (state-based) testing uses real objects where practical and asserts on
 ## Ownership rule
 
 Do not double types you do not own (category 20). Wrap the third-party surface in a thin adapter you own, double the adapter, and cover the adapter with a narrow integration or contract test. This localizes vendor drift to one seam.
-
-# Citations
-
-- Fowler, Mocks Aren't Stubs (https://martinfowler.com/articles/mocksArentStubs.html)
-- Meszaros, xUnit Test Patterns, Test Double (http://xunitpatterns.com/Test%20Double.html)
-- Software Engineering at Google, Test Doubles (https://abseil.io/resources/swe-book/html/ch13.html)
-- Freeman and Pryce, Mock Roles, not Objects (http://jmock.org/oopsla2004.pdf)
-- Fowler, ContractTest (https://martinfowler.com/bliki/ContractTest.html)

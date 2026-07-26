@@ -3,7 +3,7 @@ type: Library Notes
 title: "Strapi"
 description: "Strapi 5 replaces the Entity Service API with the Document Service API: content is modeled as documents identified by a string `documentId`, and Draft & Publish treats draft and published as..."
 tags: [javascript, cms]
-timestamp: 2026-06-04T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-04T00:00:00Z }
 ---
 # Strapi
 

@@ -3,7 +3,7 @@ type: Library Notes
 title: "React Compiler rules (full teachable reference)"
 description: "Self-contained reference for enabling the React Compiler safely, so this skill teaches the whole thing without any other skill installed."
 tags: [javascript, frameworks]
-timestamp: 2026-06-05T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-05T00:00:00Z }
 ---
 # React Compiler rules (full teachable reference)
 

@@ -3,7 +3,7 @@ type: Library Notes
 title: "Transloco (Angular i18n)"
 description: "Transloco is Angular's runtime i18n library, with live language switching, lazy scopes, and a signal-based API."
 tags: [javascript, i18n]
-timestamp: 2026-06-05T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-05T00:00:00Z }
 ---
 # Transloco (Angular i18n)
 

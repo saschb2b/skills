@@ -3,7 +3,7 @@ type: Reference
 title: "Input Prompts and Button Glyphs"
 description: "The most literal signifier, the key or button hint. Where to place it, swapping glyphs to the active device, keeping it rebinding-aware, glyph asset sources, encoding tap versus hold, and the console and accessibility rules."
 tags: [game-design, ui, input, controls, accessibility]
-timestamp: 2026-06-24T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-24T00:00:00Z }
 ---
 
 # Input Prompts and Button Glyphs

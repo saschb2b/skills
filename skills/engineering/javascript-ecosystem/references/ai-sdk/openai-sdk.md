@@ -3,7 +3,7 @@ type: Library Notes
 title: "OpenAI JS/TS SDK (`openai`)"
 description: "The Responses API (`client.responses.create`) is OpenAI's recommended API for new projects (Chat Completions remains supported and is not deprecated)."
 tags: [javascript, ai-sdk]
-timestamp: 2026-06-04T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-04T00:00:00Z }
 ---
 # OpenAI JS/TS SDK (`openai`)
 

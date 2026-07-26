@@ -3,7 +3,7 @@ type: Render Spec
 title: "Visual card and render feed"
 description: "How a trust card draws as a Magic-style SVG cartridge, the data the skill exposes for rendering, and this repo's reference renderer and feed."
 tags: [trust, provenance, rendering, svg]
-timestamp: 2026-06-29T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-29T00:00:00Z }
 ---
 
 # Visual card and render feed

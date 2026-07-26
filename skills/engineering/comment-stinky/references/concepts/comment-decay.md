@@ -3,7 +3,14 @@ type: Concept
 title: "Comment Decay"
 description: "Why comments drift out of agreement with the code, which kinds rot fastest, and the structural properties that slow it down."
 tags: [comments, maintenance, staleness]
-timestamp: 2026-07-26T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-07-26T00:00:00Z }
+sources:
+  - resource: https://web.stanford.edu/~ouster/cgi-bin/book.php
+    title: "Ousterhout, A Philosophy of Software Design, ch. 16, \"Modifying Existing Code\""
+  - resource: https://martinfowler.com/bliki/CodeAsDocumentation.html
+    title: "Fowler, CodeAsDocumentation"
+  - resource: https://doc.rust-lang.org/rustdoc/write-documentation/documentation-tests.html
+    title: "rustdoc, Documentation tests"
 ---
 # Comment Decay
 
@@ -32,9 +39,3 @@ Ranked by how much they actually help:
 A change-narrating comment is not merely useless on arrival. It is **pre-decayed**: it describes a state that stopped existing at the moment of the commit that introduced it, so it enters the codebase already referring to something the reader cannot find. Every property that makes ordinary comments rot slowly, adjacency, enforceability, present-tense claims about the current code, is absent from it by construction.
 
 That is the connection between this concept and [agent-context-collapse.md](./agent-context-collapse.md): the volume of agent-written code makes the rot rate matter more, and the agent's natural comment style produces the fastest-rotting kind. The audit for the accumulated result is the [catalog](../catalog.md); the prevention is the [write gate](../write-gate.md).
-
-# Citations
-
-- Ousterhout, A Philosophy of Software Design, ch. 16, "Modifying Existing Code" (https://web.stanford.edu/~ouster/cgi-bin/book.php)
-- Fowler, CodeAsDocumentation (https://martinfowler.com/bliki/CodeAsDocumentation.html)
-- rustdoc, Documentation tests (https://doc.rust-lang.org/rustdoc/write-documentation/documentation-tests.html)

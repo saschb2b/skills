@@ -3,7 +3,7 @@ type: Library Notes
 title: "ESLint"
 description: "Flat config (`eslint.config.js`) became the default in v9 and is the only config system in v10, which removed the legacy `eslintrc` system entirely."
 tags: [javascript, tooling]
-timestamp: 2026-06-04T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-04T00:00:00Z }
 ---
 # ESLint
 

@@ -3,7 +3,7 @@ type: Library Notes
 title: "graphql-request"
 description: "graphql-request remains the minimal, fetch-based, dependency-light client for scripts and simple apps (no cache, no React integration)."
 tags: [javascript, graphql]
-timestamp: 2026-06-04T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-04T00:00:00Z }
 ---
 # graphql-request
 

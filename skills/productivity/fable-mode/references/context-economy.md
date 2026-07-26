@@ -3,7 +3,7 @@ type: Doctrine
 title: Context economy
 description: Act when ready; never re-derive established facts, re-litigate decisions, or narrate unpursued options; read the slice, not the file; keep raw bulk out of the main context.
 tags: [workflow, context, efficiency]
-timestamp: 2026-07-16T10:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-07-16T10:00:00Z }
 ---
 
 # Act when ready

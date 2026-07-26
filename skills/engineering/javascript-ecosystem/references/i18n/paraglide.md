@@ -3,7 +3,7 @@ type: Library Notes
 title: "Paraglide JS (inlang)"
 description: "Paraglide is compiler-based, not a runtime dictionary."
 tags: [javascript, i18n]
-timestamp: 2026-06-04T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-04T00:00:00Z }
 ---
 # Paraglide JS (inlang)
 

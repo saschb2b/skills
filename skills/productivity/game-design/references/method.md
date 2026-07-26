@@ -3,7 +3,7 @@ type: Playbook
 title: "The Dissection Method"
 description: "The repeatable lens for reading any game or mechanic. Iconic mechanic, core dialectic, macro loop, design tensions, ludonarrative resonance, patterns, lessons, and the concept-page anatomy."
 tags: [game-design, analysis, method, patterns]
-timestamp: 2026-06-21T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-21T00:00:00Z }
 ---
 
 # The Dissection Method

@@ -3,7 +3,7 @@ type: Library Notes
 title: "Vitest"
 description: "Vitest is the default test runner for Vite-based projects, having displaced Jest for new Vite, React, Vue, and Svelte work because it reuses the Vite config and transform pipeline and runs ESM and..."
 tags: [javascript, testing]
-timestamp: 2026-06-04T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-04T00:00:00Z }
 ---
 # Vitest
 

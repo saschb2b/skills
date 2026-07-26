@@ -3,7 +3,14 @@ type: Technique
 title: "Property-Based Testing"
 description: "Testing invariants over generated inputs with shrinking and reported seeds, the disciplined form of randomness and the replacement for mega-parametrization."
 tags: [testing, property-based, generators, randomness]
-timestamp: 2026-07-17T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-07-17T00:00:00Z }
+sources:
+  - resource: https://dl.acm.org/doi/10.1145/351240.351266
+    title: "Claessen and Hughes, QuickCheck"
+  - resource: https://hypothesis.readthedocs.io/
+    title: "Hypothesis documentation"
+  - resource: https://fast-check.dev/
+    title: "fast-check documentation"
 ---
 # Property-Based Testing
 
@@ -28,9 +35,3 @@ That seed-and-shrink discipline is why the [catalog](../catalog.md) exempts it f
 | JVM | jqwik |
 
 Keep example-based tests beside the properties for the boundary values a reviewer should see spelled out ([DAMP](damp-vs-dry.md) applies to properties too: the invariant statement is the meaningful phrase, keep it readable).
-
-# Citations
-
-- Claessen and Hughes, QuickCheck (https://dl.acm.org/doi/10.1145/351240.351266)
-- Hypothesis documentation (https://hypothesis.readthedocs.io/)
-- fast-check documentation (https://fast-check.dev/)

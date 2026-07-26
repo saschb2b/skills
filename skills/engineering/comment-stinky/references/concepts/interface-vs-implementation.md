@@ -3,7 +3,18 @@ type: Concept
 title: "Interface Comments vs Implementation Comments"
 description: "The two populations of comment, the different readers they serve, and why mixing them is what makes doc comments both bloated and wrong."
 tags: [comments, api-design, documentation]
-timestamp: 2026-07-26T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-07-26T00:00:00Z }
+sources:
+  - resource: https://web.stanford.edu/~ouster/cgi-bin/book.php
+    title: "Ousterhout, A Philosophy of Software Design, ch. 13, \"Interface vs implementation comments\""
+  - resource: https://rust-lang.github.io/api-guidelines/documentation.html
+    title: "Rust API Guidelines, Documentation"
+  - resource: https://go.dev/doc/comment
+    title: "Go Doc Comments"
+  - resource: https://peps.python.org/pep-0257/
+    title: "PEP 257, Docstring Conventions"
+  - resource: https://tsdoc.org/
+    title: "TSDoc"
 ---
 # Interface Comments vs Implementation Comments
 
@@ -40,11 +51,3 @@ Ousterhout frames it as the difference between the abstraction a module presents
 Each ecosystem then fixes the channel and the shape: rustdoc and the Rust API guidelines, godoc, PEP 257, TSDoc. Follow the local one over any generic advice, including this document.
 
 Related: [taxonomy.md](../taxonomy.md) gives the contract comment its own entry as kind 2, and [comment-decay.md](./comment-decay.md) explains why the interface population rots more slowly when its examples are executable.
-
-# Citations
-
-- Ousterhout, A Philosophy of Software Design, ch. 13, "Interface vs implementation comments" (https://web.stanford.edu/~ouster/cgi-bin/book.php)
-- Rust API Guidelines, Documentation (https://rust-lang.github.io/api-guidelines/documentation.html)
-- Go Doc Comments (https://go.dev/doc/comment)
-- PEP 257, Docstring Conventions (https://peps.python.org/pep-0257/)
-- TSDoc (https://tsdoc.org/)

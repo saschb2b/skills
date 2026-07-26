@@ -3,7 +3,7 @@ type: Library Notes
 title: "Vite"
 description: "Vite is ESM-only since v7."
 tags: [javascript, tooling]
-timestamp: 2026-06-04T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-04T00:00:00Z }
 ---
 # Vite
 

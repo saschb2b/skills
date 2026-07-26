@@ -3,7 +3,7 @@ type: Library Notes
 title: "Redux Toolkit (RTK + RTK Query)"
 description: "Redux is RTK now. Redux Toolkit is the official way to write Redux, and `createStore` is formally deprecated in the core."
 tags: [javascript, data]
-timestamp: 2026-06-04T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-04T00:00:00Z }
 ---
 # Redux Toolkit (RTK + RTK Query)
 

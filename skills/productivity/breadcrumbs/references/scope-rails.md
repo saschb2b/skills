@@ -3,7 +3,7 @@ type: Autonomy Decision Guide
 title: Scope and autonomy rails
 description: Decide whether an understanding repair is safe to apply now, needs more evidence, or should be surfaced.
 tags: [autonomy, risk, verification]
-timestamp: 2026-07-12T21:15:00Z
+generated: { by: claude-code/unversioned, at: 2026-07-12T21:15:00Z }
 ---
 
 # Decide before expanding the diff

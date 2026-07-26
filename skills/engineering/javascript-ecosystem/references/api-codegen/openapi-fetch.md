@@ -3,7 +3,7 @@ type: Library Notes
 title: "openapi-typescript + openapi-fetch + openapi-react-query"
 description: "Codegen produces only types; runtime safety comes from inference."
 tags: [javascript, api-codegen]
-timestamp: 2026-06-04T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-04T00:00:00Z }
 ---
 # openapi-typescript + openapi-fetch + openapi-react-query
 

@@ -3,7 +3,7 @@ type: Library Notes
 title: "Temporal (TC39)"
 description: "Temporal is a finished standard that replaces the broken `Date`."
 tags: [javascript, dates]
-timestamp: 2026-06-04T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-04T00:00:00Z }
 ---
 # Temporal (TC39)
 

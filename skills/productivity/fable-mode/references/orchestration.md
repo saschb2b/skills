@@ -3,7 +3,7 @@ type: Doctrine
 title: Orchestration patterns
 description: Multi-agent structure for scale and confidence; pipeline over barrier, adversarial verification, loop-until-dry, judge panels, multi-modal sweeps, and no silent caps.
 tags: [workflow, subagents, verification, scale]
-timestamp: 2026-07-16T10:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-07-16T10:00:00Z }
 ---
 
 # When work graduates to orchestration

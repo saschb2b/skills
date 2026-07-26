@@ -3,7 +3,7 @@ type: Reference
 title: "Design Moves Worth Stealing"
 description: "The load-bearing, transferable design principles the cross-game catalog repeats, each with its caveat and the games that source it."
 tags: [game-design, principles, lessons, heuristics]
-timestamp: 2026-07-06T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-07-06T00:00:00Z }
 ---
 
 # Design Moves Worth Stealing

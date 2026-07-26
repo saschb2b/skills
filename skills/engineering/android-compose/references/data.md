@@ -3,7 +3,7 @@ type: Reference
 title: "Data Layer"
 description: "A repository exposes data to the rest of the app and hides where it comes from."
 tags: [android, jetpack-compose, kotlin]
-timestamp: 2026-06-15T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-15T00:00:00Z }
 ---
 # Data Layer
 

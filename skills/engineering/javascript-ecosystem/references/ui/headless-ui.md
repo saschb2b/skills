@@ -3,7 +3,7 @@ type: Library Notes
 title: "Headless UI primitives (Radix UI, Base UI, React Aria)"
 description: "The headless and primitive layer (unstyled, accessible behavior you style yourself) is the structural winner in React UI; shadcn/ui is copy-in components built on it."
 tags: [javascript, ui]
-timestamp: 2026-06-05T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-05T00:00:00Z }
 ---
 # Headless UI primitives (Radix UI, Base UI, React Aria)
 

@@ -3,7 +3,7 @@ type: Reference
 title: "Guidance and Feedback"
 description: "How a game tells the player where to go and acknowledges what they did. Wayfinding and signposting, affordances and feedforward, juice for the interface and its counterweight, error prevention, and the waypoint debate."
 tags: [game-design, guidance, feedback, signposting, juice]
-timestamp: 2026-06-24T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-24T00:00:00Z }
 ---
 
 # Guidance and Feedback

@@ -3,7 +3,14 @@ type: Concept
 title: "Commit Message Craft"
 description: "The destination for everything the write gate strips out of a comment, what belongs in the subject and the body, and why the commit is a better home for change narration than the source file."
 tags: [git, commits, documentation, comments]
-timestamp: 2026-07-26T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-07-26T00:00:00Z }
+sources:
+  - resource: https://cbea.ms/git-commit/
+    title: "Beams, How to Write a Git Commit Message"
+  - resource: https://google.github.io/eng-practices/review/developer/cl-descriptions.html
+    title: "Google Engineering Practices, Writing good CL descriptions"
+  - resource: https://git-scm.com/docs/git-commit#_discussion
+    title: "Git documentation, git-commit discussion"
 ---
 # Commit Message Craft
 
@@ -46,9 +53,3 @@ A useful working order: write the comment first, at its most natural and most di
 ## The failure this prevents
 
 When a project has weak commit messages ("fix", "update", "wip"), the pressure to narrate changes in comments becomes real, because there is nowhere else for that information to go. The comment smell and the commit smell are the same shortage seen twice. Fixing the second is what makes the first fixable, which is why [information-routing.md](./information-routing.md) treats them as one decision rather than two rules.
-
-# Citations
-
-- Beams, How to Write a Git Commit Message (https://cbea.ms/git-commit/)
-- Google Engineering Practices, Writing good CL descriptions (https://google.github.io/eng-practices/review/developer/cl-descriptions.html)
-- Git documentation, git-commit discussion (https://git-scm.com/docs/git-commit#_discussion)

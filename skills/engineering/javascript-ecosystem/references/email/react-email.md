@@ -3,7 +3,7 @@ type: Library Notes
 title: "React Email"
 description: "As of v6 everything is unified into the single `react-email` package, so you no longer install or import `@react-email/components` separately, and `render()` is async (returns a `Promise<string>`)."
 tags: [javascript, email]
-timestamp: 2026-06-04T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-04T00:00:00Z }
 ---
 # React Email
 

@@ -3,7 +3,14 @@ type: Concept
 title: "Hermeticity and Lanes"
 description: "What makes a test hermetic, why the fast lane demands it, and how an honestly-marked integration lane earns its exceptions."
 tags: [testing, hermetic, isolation, ci]
-timestamp: 2026-07-17T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-07-17T00:00:00Z }
+sources:
+  - resource: https://testing.googleblog.com/2012/10/hermetic-servers.html
+    title: "Google Testing Blog, Hermetic Servers"
+  - resource: https://testing.googleblog.com/2010/12/test-sizes.html
+    title: "Google Testing Blog, Test Sizes"
+  - resource: http://xunitpatterns.com/Erratic%20Test.html
+    title: "Meszaros, xUnit Test Patterns, Erratic Test"
 ---
 # Hermeticity and Lanes
 
@@ -24,9 +31,3 @@ The dishonest middle is the smell: integration-weight tests squatting in the uni
 - One mutable world per test: unique temp dir, per-worker database or schema, transaction rollback; share only immutable ground.
 - Reset state in setup, not teardown; a crashed test never runs its teardown.
 - Emulate the outside at the boundary: in-process fakes with contract tests ([doubles](test-doubles.md)), official emulators, containers the suite owns.
-
-# Citations
-
-- Google Testing Blog, Hermetic Servers (https://testing.googleblog.com/2012/10/hermetic-servers.html)
-- Google Testing Blog, Test Sizes (https://testing.googleblog.com/2010/12/test-sizes.html)
-- Meszaros, xUnit Test Patterns, Erratic Test (http://xunitpatterns.com/Erratic%20Test.html)

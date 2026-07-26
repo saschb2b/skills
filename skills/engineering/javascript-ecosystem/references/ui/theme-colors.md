@@ -3,7 +3,7 @@ type: Library Notes
 title: "Theme colors (full teachable reference)"
 description: "Self-contained reference for role-based color so this skill teaches it without any other skill installed."
 tags: [javascript, ui]
-timestamp: 2026-06-05T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-05T00:00:00Z }
 ---
 # Theme colors (full teachable reference)
 

@@ -3,7 +3,7 @@ type: Library Notes
 title: "Svelte"
 description: "Svelte 5 replaced implicit reactivity with explicit runes (`$state`, `$derived`, `$effect`, `$props`, `$bindable`), which give fine-grained reactivity that also works in `.svelte.js` and..."
 tags: [javascript, frameworks]
-timestamp: 2026-06-05T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-05T00:00:00Z }
 ---
 # Svelte
 

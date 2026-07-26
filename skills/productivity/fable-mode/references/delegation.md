@@ -3,7 +3,7 @@ type: Doctrine
 title: Delegation economy
 description: When a lookup stays local, when it becomes a subagent sweep, and how delegation protects the main context by returning conclusions instead of file dumps.
 tags: [workflow, subagents, context]
-timestamp: 2026-07-16T10:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-07-16T10:00:00Z }
 ---
 
 # The trade

@@ -3,7 +3,7 @@ type: Layer Reference
 title: "Card layers"
 description: "What each trust layer proves, its mechanism and trust anchor, what the script covers today, and the hard limit that crypto certifies origin not behavior."
 tags: [trust, provenance, security, okf]
-timestamp: 2026-06-29T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-29T00:00:00Z }
 ---
 
 # Card layers

@@ -3,7 +3,7 @@ type: Library Notes
 title: "Biome"
 description: "Biome is the maintained successor to Rome, a single Rust binary that does both lint and format, aiming to replace ESLint plus Prettier."
 tags: [javascript, tooling]
-timestamp: 2026-06-04T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-04T00:00:00Z }
 ---
 # Biome
 

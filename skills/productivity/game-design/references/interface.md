@@ -3,7 +3,7 @@ type: Reference
 title: "Game Interface and UX Foundations"
 description: "The UX foundations under every game screen. Usability versus engageability, the diegesis matrix, game usability heuristics, the cognition that constrains an interface, and the readability floor."
 tags: [game-design, ui, ux, hud, readability]
-timestamp: 2026-06-24T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-24T00:00:00Z }
 ---
 
 # Game Interface and UX Foundations

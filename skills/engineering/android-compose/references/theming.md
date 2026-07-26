@@ -3,7 +3,7 @@ type: Reference
 title: "Theming, Color, Type, Edge-to-Edge"
 description: "Material 3 color is a set of *roles*, not hex codes."
 tags: [android, jetpack-compose, kotlin]
-timestamp: 2026-06-15T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-15T00:00:00Z }
 ---
 # Theming, Color, Type, Edge-to-Edge
 

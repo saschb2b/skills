@@ -3,7 +3,7 @@ type: Library Notes
 title: "Vercel AI SDK (`ai`)"
 description: "v5 split messages into `UIMessage` (UI state, an ordered `parts` array) versus `ModelMessage` (LLM input), moved to native SSE streaming, and renamed the tool surface."
 tags: [javascript, ai-sdk]
-timestamp: 2026-06-04T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-04T00:00:00Z }
 ---
 # Vercel AI SDK (`ai`)
 

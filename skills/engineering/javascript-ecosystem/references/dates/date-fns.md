@@ -3,7 +3,7 @@ type: Library Notes
 title: "date-fns"
 description: "v4 adds first-class time-zone support for the first time via the `@date-fns/tz` package (a `TZDate` class and a `tz()` helper) and a new `in` context option that nearly every function accepts."
 tags: [javascript, dates]
-timestamp: 2026-06-04T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-04T00:00:00Z }
 ---
 # date-fns
 

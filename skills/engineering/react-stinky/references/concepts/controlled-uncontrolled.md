@@ -3,7 +3,14 @@ type: Concept
 title: "Controlled vs Uncontrolled"
 description: "Who owns a piece of interactive state, the value/onChange/defaultValue contract that encodes the answer, and the key-remount reset that follows from it."
 tags: [react, state, forms, api-design]
-timestamp: 2026-07-17T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-07-17T00:00:00Z }
+sources:
+  - resource: https://react.dev/learn/sharing-state-between-components#controlled-and-uncontrolled-components
+    title: "React, controlled and uncontrolled components"
+  - resource: https://react.dev/reference/react-dom/components/input
+    title: "React, input reference"
+  - resource: https://react.dev/learn/preserving-and-resetting-state
+    title: "React, Preserving and Resetting State"
 ---
 # Controlled vs Uncontrolled
 
@@ -24,9 +31,3 @@ One trio per independent dimension, using the native names so consumers' instinc
 - **Never flip modes mid-life.** A `value` fed `undefined` on the first render mounts uncontrolled and flips controlled when data arrives; React warns and the field can reset. Keep it controlled from the first render (`value={user?.name ?? ''}`).
 - **Reset by remount, not by effect.** When state should restart because the subject changed, change `key={id}` at the call site and let React rebuild the subtree; a `resetTrigger` prop plus `useEffect` re-implements `key`, worse (categories 8, 31).
 - **Copying a prop into state is a mode error.** `useState(props.value)` takes ownership while looking like it follows the parent; nothing syncs later changes (category 20). Either stay controlled (read the prop) or be honestly uncontrolled (`defaultValue`).
-
-# Citations
-
-- React, controlled and uncontrolled components (https://react.dev/learn/sharing-state-between-components#controlled-and-uncontrolled-components)
-- React, input reference (https://react.dev/reference/react-dom/components/input)
-- React, Preserving and Resetting State (https://react.dev/learn/preserving-and-resetting-state)

@@ -3,7 +3,7 @@ type: Playbook
 title: "Test Stinky: Suite Pass"
 description: "A sweep-level audit of the whole suite's shape, layers, runtime, flake surface, and redundancy, plus the slimming procedure for an oversized suite."
 tags: [testing, audit, test-pyramid, flakiness]
-timestamp: 2026-07-17T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-07-17T00:00:00Z }
 ---
 # Test Stinky: Suite Pass
 

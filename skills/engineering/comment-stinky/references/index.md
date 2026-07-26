@@ -1,5 +1,5 @@
 ---
-okf_version: "0.1"
+okf_version: "0.2"
 ---
 
 # Comment taxonomy, smell catalog, write gate, and background concepts behind the comment-stinky skill.

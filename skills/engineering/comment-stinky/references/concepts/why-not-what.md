@@ -3,7 +3,14 @@ type: Concept
 title: "The What, How, and Why Ladder"
 description: "The three levels a comment can address, why only two of them are worth a line, and the narrow cases where a what-comment is the right answer."
 tags: [comments, rationale, documentation]
-timestamp: 2026-07-26T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-07-26T00:00:00Z }
+sources:
+  - resource: https://blog.codinghorror.com/code-tells-you-how-comments-tell-you-why/
+    title: "Atwood, Code Tells You How, Comments Tell You Why"
+  - resource: https://web.stanford.edu/~ouster/cgi-bin/book.php
+    title: "Ousterhout, A Philosophy of Software Design, ch. 13"
+  - resource: https://www.kernel.org/doc/html/latest/process/coding-style.html#commenting
+    title: "Linux kernel coding style, Commenting"
 ---
 # The What, How, and Why Ladder
 
@@ -44,9 +51,3 @@ The strongest why-comments name a specific force and its consequence, in that or
 - A hazard. "Empty ids arrive from the legacy importer and would key the cache at the root."
 
 Each is falsifiable, each survives a rewrite of the code beneath it, and none of them requires knowing that anything ever changed ([comment-audience.md](./comment-audience.md)).
-
-# Citations
-
-- Atwood, Code Tells You How, Comments Tell You Why (https://blog.codinghorror.com/code-tells-you-how-comments-tell-you-why/)
-- Ousterhout, A Philosophy of Software Design, ch. 13 (https://web.stanford.edu/~ouster/cgi-bin/book.php)
-- Linux kernel coding style, Commenting (https://www.kernel.org/doc/html/latest/process/coding-style.html#commenting)

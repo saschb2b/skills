@@ -3,7 +3,16 @@ type: Concept
 title: "Routing Information to Its Real Home"
 description: "The set of durable homes a fact about code can live in, the property that makes each the right destination, and why a comment is the fallback rather than the default."
 tags: [comments, documentation, architecture]
-timestamp: 2026-07-26T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-07-26T00:00:00Z }
+sources:
+  - resource: https://martinfowler.com/bliki/CodeAsDocumentation.html
+    title: "Fowler, CodeAsDocumentation"
+  - resource: https://cbea.ms/git-commit/
+    title: "Beams, How to Write a Git Commit Message"
+  - resource: https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions
+    title: "Nygard, Documenting Architecture Decisions"
+  - resource: https://web.stanford.edu/~ouster/cgi-bin/book.php
+    title: "Ousterhout, A Philosophy of Software Design, ch. 14"
 ---
 # Routing Information to Its Real Home
 
@@ -37,10 +46,3 @@ The ordering matters. A fact should live in the strongest home that can hold it,
 A comment is the only home with no enforcement and no review cadence. Nothing compiles it, nothing runs it, nothing lists it, and nothing notices when the code beneath it changes ([comment-decay.md](./comment-decay.md)). That makes it uniquely suited to the one thing nothing else can carry, the reasoning that produced the code, and uniquely bad at everything else.
 
 So the routing question in the [write gate](../write-gate.md) is not a formality. Asking "is a comment the best home for this?" moves a large fraction of would-be comments into artifacts that will actually defend themselves, and the ones that survive are the ones worth reading. The nine that survive are catalogued in [taxonomy.md](../taxonomy.md), and the rung they occupy is in [why-not-what.md](./why-not-what.md).
-
-# Citations
-
-- Fowler, CodeAsDocumentation (https://martinfowler.com/bliki/CodeAsDocumentation.html)
-- Beams, How to Write a Git Commit Message (https://cbea.ms/git-commit/)
-- Nygard, Documenting Architecture Decisions (https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions)
-- Ousterhout, A Philosophy of Software Design, ch. 14 (https://web.stanford.edu/~ouster/cgi-bin/book.php)

@@ -3,7 +3,12 @@ type: Concept
 title: "The Comment's Real Audience"
 description: "A comment is read by someone holding only the file, never the diff that produced it, and every rule in the skill follows from that asymmetry."
 tags: [comments, readers, rationale]
-timestamp: 2026-07-26T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-07-26T00:00:00Z }
+sources:
+  - resource: https://web.stanford.edu/~ouster/cgi-bin/book.php
+    title: "Ousterhout, A Philosophy of Software Design, ch. 13"
+  - resource: https://martinfowler.com/bliki/CodeAsDocumentation.html
+    title: "Fowler, CodeAsDocumentation"
 ---
 # The Comment's Real Audience
 
@@ -33,8 +38,3 @@ Write for a reader who has only this file and does not know a change ever happen
 The one nuance that keeps this from over-firing is the **comparative test**. Comparisons are not the problem; comparisons against invisible things are. "Average rather than sum" compares against what a reader would assume on their own, so it resolves fine. "Rather than the fixed breakpoint we had" compares against a deleted line, so it does not. The distinction is in [false-comparative](../catalog.md) and it is the guard that keeps this skill from making people afraid to explain themselves.
 
 Related: [why-not-what.md](./why-not-what.md) covers what to say once you know who you are saying it to, [information-routing.md](./information-routing.md) covers where the rejected material goes, and [agent-context-collapse.md](./agent-context-collapse.md) covers why coding agents get this wrong so consistently.
-
-# Citations
-
-- Ousterhout, A Philosophy of Software Design, ch. 13 (https://web.stanford.edu/~ouster/cgi-bin/book.php)
-- Fowler, CodeAsDocumentation (https://martinfowler.com/bliki/CodeAsDocumentation.html)

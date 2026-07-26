@@ -3,7 +3,7 @@ type: Library Notes
 title: "TanStack Form"
 description: "TanStack Form reached production-stable v1 with a headless, fully type-safe, framework-agnostic core (React, Vue, Angular, Solid, Svelte, Lit)."
 tags: [javascript, forms]
-timestamp: 2026-06-04T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-04T00:00:00Z }
 ---
 # TanStack Form
 

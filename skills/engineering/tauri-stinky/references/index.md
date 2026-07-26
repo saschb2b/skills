@@ -1,5 +1,5 @@
 ---
-okf_version: "0.1"
+okf_version: "0.2"
 ---
 
 # Detection catalogs, boundary audit, and gate stack behind the tauri-stinky skill.

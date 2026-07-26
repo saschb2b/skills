@@ -3,7 +3,7 @@ type: Worked Example Set
 title: Worked healing examples
 description: End-to-end examples of turning understanding friction into small durable codebase repairs.
 tags: [maintainability, examples, agent-workflow]
-timestamp: 2026-07-12T20:50:00Z
+generated: { by: claude-code/unversioned, at: 2026-07-12T20:50:00Z }
 ---
 
 # Read the contrast

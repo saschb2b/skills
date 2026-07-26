@@ -3,7 +3,16 @@ type: Procedure
 title: "The Comment Write Gate"
 description: "The four-question gate to run before any comment lands, the trigger-phrase table that catches change narration mechanically, the rewrite recipes, and the self-check command for auditing the comments in your own diff."
 tags: [comments, procedure, code-review, agents]
-timestamp: 2026-07-26T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-07-26T00:00:00Z }
+sources:
+  - resource: https://cbea.ms/git-commit/
+    title: "Beams, How to Write a Git Commit Message"
+  - resource: https://google.github.io/eng-practices/review/developer/cl-descriptions.html
+    title: "Google Engineering Practices, Writing good CL descriptions"
+  - resource: https://web.stanford.edu/~ouster/cgi-bin/book.php
+    title: "Ousterhout, A Philosophy of Software Design, ch. 13 and 15"
+  - resource: https://antirez.com/news/124
+    title: "Sanfilippo, Writing System Software: Code Comments"
 ---
 # The Comment Write Gate
 
@@ -169,10 +178,3 @@ The gate rejects far more comments than it should delete outright. Most rejected
 - **A design doc or knowledge bundle** takes anything longer than a paragraph, with a one-line pointer from the file header.
 
 A comment deleted without its content being routed is information lost, so a finding from this gate always names the destination.
-
-# Citations
-
-- Beams, How to Write a Git Commit Message (https://cbea.ms/git-commit/)
-- Google Engineering Practices, Writing good CL descriptions (https://google.github.io/eng-practices/review/developer/cl-descriptions.html)
-- Ousterhout, A Philosophy of Software Design, ch. 13 and 15 (https://web.stanford.edu/~ouster/cgi-bin/book.php)
-- Sanfilippo, Writing System Software: Code Comments (https://antirez.com/news/124)

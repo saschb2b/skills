@@ -3,7 +3,20 @@ type: Pattern Catalog
 title: "The Nine Comments Worth Writing"
 description: "The positive taxonomy of code comments, what each kind is for, the form it takes, and the smell it degrades into, plus the routing table for information that belongs somewhere other than a comment."
 tags: [comments, documentation, patterns, code-quality]
-timestamp: 2026-07-26T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-07-26T00:00:00Z }
+sources:
+  - resource: https://antirez.com/news/124
+    title: "Sanfilippo, Writing System Software: Code Comments"
+  - resource: https://web.stanford.edu/~ouster/cgi-bin/book.php
+    title: "Ousterhout, A Philosophy of Software Design, ch. 12 to 16"
+  - resource: https://blog.codinghorror.com/code-tells-you-how-comments-tell-you-why/
+    title: "Atwood, Code Tells You How, Comments Tell You Why"
+  - resource: https://martinfowler.com/bliki/CodeAsDocumentation.html
+    title: "Fowler, CodeAsDocumentation"
+  - resource: https://google.github.io/styleguide/cppguide.html#TODO_Comments
+    title: "Google C++ Style Guide, TODO Comments"
+  - resource: https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions
+    title: "Nygard, Documenting Architecture Decisions"
 ---
 # The Nine Comments Worth Writing
 
@@ -141,12 +154,3 @@ There is no ratio. The right count is one per non-obvious decision and zero per 
 - **Every non-obvious decision should survive the stranger test.** Hand the file to someone who has never seen it. Every "why is this like that?" they ask is a missing comment, and those are Pillar 3 findings.
 
 Both are mechanized in [write-gate.md](./write-gate.md).
-
-# Citations
-
-- Sanfilippo, Writing System Software: Code Comments (https://antirez.com/news/124)
-- Ousterhout, A Philosophy of Software Design, ch. 12 to 16 (https://web.stanford.edu/~ouster/cgi-bin/book.php)
-- Atwood, Code Tells You How, Comments Tell You Why (https://blog.codinghorror.com/code-tells-you-how-comments-tell-you-why/)
-- Fowler, CodeAsDocumentation (https://martinfowler.com/bliki/CodeAsDocumentation.html)
-- Google C++ Style Guide, TODO Comments (https://google.github.io/styleguide/cppguide.html#TODO_Comments)
-- Nygard, Documenting Architecture Decisions (https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions)

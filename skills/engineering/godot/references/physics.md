@@ -3,7 +3,7 @@ type: Reference
 title: "Physics & Movement Reference"
 description: "`AnimatableBody2D` is a `StaticBody2D` that reports motion to the physics engine (moving platforms)."
 tags: [godot, gamedev, gdscript]
-timestamp: 2026-06-19T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-19T00:00:00Z }
 ---
 # Physics & Movement Reference
 

@@ -3,7 +3,7 @@ type: Library Notes
 title: "Chakra UI"
 description: "v3 is a complete rewrite."
 tags: [javascript, ui]
-timestamp: 2026-06-04T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-04T00:00:00Z }
 ---
 # Chakra UI
 

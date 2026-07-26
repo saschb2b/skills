@@ -3,7 +3,7 @@ type: Library Notes
 title: "Sentry (JavaScript SDK)"
 description: "Integrations became tree-shakable functions in v8 (`Sentry.browserTracingIntegration()`, not `new Sentry.BrowserTracing()`), and the Node SDK was re-architected on OpenTelemetry for tracing and..."
 tags: [javascript, observability]
-timestamp: 2026-06-04T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-04T00:00:00Z }
 ---
 # Sentry (JavaScript SDK)
 

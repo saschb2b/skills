@@ -3,7 +3,7 @@ type: Playbook
 title: "Transitions: Screen, Scene, and Audio"
 description: "Moving between screens, spaces, and states. What a transition is for, the visual vocabulary, the frequency-as-budget rule, a per-case playbook, the audio craft (fade, crossfade, duck, bar-synced), and the accessibility limits."
 tags: [game-design, transitions, audio, pacing, ui]
-timestamp: 2026-06-24T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-24T00:00:00Z }
 ---
 
 # Transitions: Screen, Scene, and Audio

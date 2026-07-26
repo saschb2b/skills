@@ -3,7 +3,7 @@ type: Library Notes
 title: "API codegen setup (full teachable reference)"
 description: "Self-contained setup for the api-codegen tools, so this skill teaches the whole workflow without any other skill installed."
 tags: [javascript, api-codegen]
-timestamp: 2026-06-05T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-05T00:00:00Z }
 ---
 # API codegen setup (full teachable reference)
 

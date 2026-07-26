@@ -3,7 +3,7 @@ type: Reference
 title: "React Compiler Exceptions"
 description: "Five patterns drop the surrounding function out of compilation, often silently."
 tags: [react, react-compiler, memoization, lint]
-timestamp: 2026-05-12T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-05-12T00:00:00Z }
 ---
 # React Compiler Exceptions
 

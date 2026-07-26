@@ -3,7 +3,7 @@ type: Library Notes
 title: "Angular"
 description: "Angular is signal-first and zoneless."
 tags: [javascript, frameworks]
-timestamp: 2026-06-05T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-05T00:00:00Z }
 ---
 # Angular
 

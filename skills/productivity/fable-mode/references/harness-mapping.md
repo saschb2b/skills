@@ -3,7 +3,7 @@ type: Runbook
 title: Harness mapping
 description: How to project the Fable doctrine onto whatever harness is running; the capability inventory, the projection table, and the graceful degradations when a capability is missing.
 tags: [adoption, portability, harness]
-timestamp: 2026-07-16T10:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-07-16T10:00:00Z }
 ---
 
 # When this runs

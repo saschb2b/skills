@@ -3,7 +3,7 @@ type: Reference
 title: "Godot Pitfalls & Breaking Changes"
 description: "@export @onready var speed: float = 100.0"
 tags: [godot, gamedev, gdscript]
-timestamp: 2026-06-19T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-19T00:00:00Z }
 ---
 # Godot Pitfalls & Breaking Changes
 

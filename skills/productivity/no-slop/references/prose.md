@@ -3,7 +3,7 @@ type: Reference
 title: "no-slop: prose before and after"
 description: "Concrete rewrites for each tell."
 tags: [writing, ai-slop, style, editing]
-timestamp: 2026-06-14T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-14T00:00:00Z }
 ---
 # no-slop: prose before and after
 

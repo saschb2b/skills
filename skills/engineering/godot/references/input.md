@@ -3,7 +3,7 @@ type: Reference
 title: "Input Reference"
 description: "For input *propagation order* (`_input` / `_gui_input` / `_unhandled_input`) and the event-vs-polling decision, see [architecture.md](architecture.md)."
 tags: [godot, gamedev, gdscript]
-timestamp: 2026-06-19T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-19T00:00:00Z }
 ---
 # Input Reference
 

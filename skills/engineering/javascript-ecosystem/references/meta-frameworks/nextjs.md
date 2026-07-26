@@ -3,7 +3,7 @@ type: Library Notes
 title: "Next.js"
 description: "The App Router is the only modern path and Server Components are the default."
 tags: [javascript, meta-frameworks]
-timestamp: 2026-06-04T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-04T00:00:00Z }
 ---
 # Next.js
 

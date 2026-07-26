@@ -3,7 +3,7 @@ type: Library Notes
 title: "NgRx"
 description: "NgRx is Angular's dominant state library (its Redux Toolkit)."
 tags: [javascript, data]
-timestamp: 2026-06-05T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-05T00:00:00Z }
 ---
 # NgRx
 

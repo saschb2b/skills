@@ -3,7 +3,7 @@ type: Smell Catalog
 title: "Visual Consistency Catalog"
 description: "Every smell with its objective detection signal, fix, exception, severity, and autonomy."
 tags: [css, ui, layout, visual-consistency]
-timestamp: 2026-06-29T00:00:00Z
+generated: { by: claude-code/unversioned, at: 2026-06-29T00:00:00Z }
 ---
 # Visual Consistency Catalog
 
