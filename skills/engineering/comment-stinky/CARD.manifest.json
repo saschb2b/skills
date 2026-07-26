@@ -1,0 +1,66 @@
+[
+  {
+    "path": "SKILL.md",
+    "sha256": "40104e69cee1826c6e2fd85901d1ac2673da2023a1ccd0efb4c1776c4a1dfca6"
+  },
+  {
+    "path": "permissions.yaml",
+    "sha256": "a59c33d37ea2d14fbd0b443829a952a6a6ff099c8ffcdc1f12ff6a8e9c8112aa"
+  },
+  {
+    "path": "references/catalog.md",
+    "sha256": "2f5792d1da783fede120d54f3c21728b5fe61bafe0b779bccefd9cf83e3b4849"
+  },
+  {
+    "path": "references/concepts/agent-context-collapse.md",
+    "sha256": "fde6165bb182b93891cf2cd3a98b523b9797903d81b98949395ad38fbdece3ef"
+  },
+  {
+    "path": "references/concepts/comment-audience.md",
+    "sha256": "ac6ea79d583410ae81942dc87178e3755585aadbfb92433aeff914b54e07270a"
+  },
+  {
+    "path": "references/concepts/comment-decay.md",
+    "sha256": "af8bbd41f8d32d83d22480ee7c9fd73fb85309d3ef6fb5bd15f538e8832816c5"
+  },
+  {
+    "path": "references/concepts/commit-message-craft.md",
+    "sha256": "f3384a897723f7c848ec2fe1f2d0c67fefd7f0636104d324f4f7d0753259cd1f"
+  },
+  {
+    "path": "references/concepts/index.md",
+    "sha256": "da5d655e98f12705cf7179d0c19d16ba4723b75c5cc7c30f49e51bbd103f934e"
+  },
+  {
+    "path": "references/concepts/information-routing.md",
+    "sha256": "b872d12021e17bde44f987bca1f6813bc280184149d40a28b2198b33aa3eef43"
+  },
+  {
+    "path": "references/concepts/interface-vs-implementation.md",
+    "sha256": "1fc834d5e71ead50f5b4dd2bf698471fe830c4e1c9536aefde44fe16d8ffcff0"
+  },
+  {
+    "path": "references/concepts/nonobvious-information.md",
+    "sha256": "9339c75db0e8e7f756a221d119b0e4461d56fa8cbcbd6e35d83354c7c58dd2f9"
+  },
+  {
+    "path": "references/concepts/why-not-what.md",
+    "sha256": "3ad6b2b8c25377e7809dd54543ca3c75c75e2565fd16d74d763eeff516a3ad96"
+  },
+  {
+    "path": "references/index.md",
+    "sha256": "48efa49b60e962ff55bf0a38e02c94614a77ae1be1202680019c767b5d77bd81"
+  },
+  {
+    "path": "references/log.md",
+    "sha256": "134757a5e0fb0ac601f6302c55798c93a58202e389c28bc119ebe037d0f09035"
+  },
+  {
+    "path": "references/taxonomy.md",
+    "sha256": "99ec05cff12d74cdba29a1e72c7c5e994bfae33173daa56869be4cbb9b89364a"
+  },
+  {
+    "path": "references/write-gate.md",
+    "sha256": "4934e6a275b144bf356e01884a1ed84b474a00811a78f62d472b2e5db032b743"
+  }
+]

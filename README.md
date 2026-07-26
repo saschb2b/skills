@@ -39,6 +39,7 @@ npx skills@latest add saschb2b/skills --skill mcp-server
 npx skills@latest add saschb2b/skills --skill react-compiler
 npx skills@latest add saschb2b/skills --skill react-stinky
 npx skills@latest add saschb2b/skills --skill test-stinky
+npx skills@latest add saschb2b/skills --skill comment-stinky
 npx skills@latest add saschb2b/skills --skill codegen-api
 npx skills@latest add saschb2b/skills --skill theme-colors
 npx skills@latest add saschb2b/skills --skill javascript-ecosystem
@@ -116,6 +117,7 @@ Skills install by slug, and the agent auto-invokes one by reading its `descripti
 | Skill | What it does |
 | --- | --- |
 | **[test-stinky](./skills/engineering/test-stinky/SKILL.md)** | Detect test-suite quality smells in any language or framework, the counterweight to agents that blindly chase coverage and ship huge, slow, flaky suites. Nine pillars, 49 categories: test intent and shape, assertions (assertion-free, weak, tautological, snapshot-everything), fixtures and duplication (DAMP over DRY, mystery guests), test doubles (over-mocking, mock drift), determinism (time, randomness, order, shared state, hermeticity), async and waiting (sleeps vs condition waits), speed and cost (inverted pyramid, heavy setup, redundant layers), coverage theater, and lifecycle hygiene (skipped-test rot, retries as policy, green-by-rerun, silent conditional passes). Rates each Rancid, Funky, or Whiff with the fix and a source, runs a sweep-level suite pass with a slimming procedure for oversized suites, and ships a mechanical gate stack (test lint, order shuffle, duration budgets, lane split, flake detection, mutation spot-checks). Defers production-code smells to `react-stinky` and `tauri-stinky`. |
+| **[comment-stinky](./skills/engineering/comment-stinky/SKILL.md)** | Detect code-comment smells in any language, and gate the comment before it lands. The counterweight to agents whose comments narrate the edit they just made (`now`, `no longer`, `instead of the old X`) rather than the standing reason the code has its shape, because the reader only ever has the file, never the diff. Six pillars, 37 categories: change narration and diff residue, redundancy, missing intent (magic constants, workarounds, swallowed errors, unstated invariants), truth and decay, placement and form, and voice. Ships a positive taxonomy of the nine comments worth writing, a routing table that sends everything else to a commit message, a name, a type, a test, or a ticket, and a four-question write gate with a self-check command for your own diff. Runs implicitly at write time, not just on review. Defers prose register to `no-slop`. |
 
 ### Security & supply chain
 

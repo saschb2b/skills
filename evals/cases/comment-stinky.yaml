@@ -1,0 +1,30 @@
+owner: comment-stinky
+
+should_fire:
+  - review the comments in this file
+  - the agent's comments all explain what it changed instead of why the code is like this
+  - audit the code comments across this repo
+  - our comments are full of "now" and "no longer" and none of it makes sense anymore
+  - add a comment explaining why this timeout is 320ms
+  - clean up the comments in this diff before I merge it
+  - half these comments just restate the line below them
+  - there is a doc comment here that documents a parameter that no longer exists
+  - this file is full of commented-out code and bare TODOs
+  - document this function for callers
+  - why does this codebase have comments referring to an old palette that isn't there
+  - check the comments I just added for anything that only makes sense with the diff open
+
+route_to_sibling:
+  - prompt: this README sounds like it was written by ChatGPT, make it plainer
+    expect: no-slop
+  - prompt: our test suite is huge and slow, slim it down
+    expect: test-stinky
+  - prompt: this React component does fetching, state, and rendering all at once
+    expect: react-stinky
+  - prompt: tracing this feature took an hour because the names were misleading, fix the codebase so the next person does not lose that time
+    expect: breadcrumbs
+
+should_not_fire:
+  - deploy the staging branch
+  - what does the spread operator do in JavaScript
+  - rebase this branch onto main

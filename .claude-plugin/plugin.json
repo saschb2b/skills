@@ -7,6 +7,7 @@
     "./skills/engineering/react-stinky",
     "./skills/engineering/tauri-stinky",
     "./skills/engineering/test-stinky",
+    "./skills/engineering/comment-stinky",
     "./skills/engineering/codegen-api",
     "./skills/engineering/theme-colors",
     "./skills/engineering/javascript-ecosystem",
