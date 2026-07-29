@@ -80,14 +80,19 @@ The system is ASD-STE100 Simplified Technical English. The aerospace industry st
 
 ## Check the draft
 
-Read once against the rules above. Then, when the text is a file and the change matters, measure it:
+Read once against the rules above. Then run the linter. Paths below are relative to this skill's directory, so resolve `slop-lint.mjs` next to this SKILL.md.
 
 ```sh
-node skills/productivity/no-slop/slop-lint.mjs draft.md          # flavored, the default
-node skills/productivity/no-slop/slop-lint.mjs --strict runbook.md
+node slop-lint.mjs README.md              # a file, flavored mode
+node slop-lint.mjs --strict runbook.md    # procedures, 20-word cap
+echo "$draft" | node slop-lint.mjs        # prose you have not written to a file yet
 ```
 
-The score is violations per 100 words across the construction rules and the tells. Read it as a delta, never as a grade. Lint the draft, revise, lint again, and the drop is the signal. An absolute number only compares against another version of the same text, and a document that quotes slop on purpose scores high while being correct. Two rules stay a human read, because a checker cannot know that "the cache" and "the store" are the same component. One name for one thing, and one meaning per word.
+Run it in three cases. You edited a prose file, so lint before and after and report the delta. You are about to hand over a draft longer than a paragraph, so pipe it through stdin first. The user asked for a slop pass by name, so show them the score. Skip it for a one-line commit message, and skip it when `node` is unavailable, since the rules above stand on their own.
+
+The score is violations per 100 words across the construction rules and the tells. Read it as a delta, never as a grade. Lint the draft, revise, lint again, and the drop is the signal. An absolute number only compares against another version of the same text, and a document that quotes slop on purpose scores high while being correct. Under about 50 words the number is noise, so trust it on longer text.
+
+Two rules stay a human read, because a checker cannot know that "the cache" and "the store" are the same component. One name for one thing, and one meaning per word.
 
 ## Beyond prose
 
