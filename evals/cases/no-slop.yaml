@@ -4,10 +4,15 @@ should_fire:
   - rewrite this paragraph so it doesn't read as AI-generated
   - edit this blog intro to sound human and drop the em dashes
   - clean up the slop in this README section
+  - rewrite these install steps in simplified technical english
+  - this error message is too wordy, make it plain and unambiguous
+  - enforce a controlled writing style on our docs
 
 route_to_sibling:
   - prompt: rewrite this ticket as a proper user story
     expect: to-story
+  - prompt: should this comment exist at all or does the code already say it
+    expect: comment-stinky
 
 should_not_fire:
   - refactor this function for readability

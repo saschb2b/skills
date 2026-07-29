@@ -1,34 +1,46 @@
 [
   {
     "path": "SKILL.md",
-    "sha256": "24aaab0769ae40633fdec62950ee6901f697513552aa732b166216db0249df6a"
+    "sha256": "bea232f8ae39e14e2fd9df01b3743347ff8603acc65727d9ffd966acb434e7b3"
   },
   {
     "path": "permissions.yaml",
-    "sha256": "a59c33d37ea2d14fbd0b443829a952a6a6ff099c8ffcdc1f12ff6a8e9c8112aa"
+    "sha256": "71845d24730a9bb4543416d384102b10eeea9f80c2f0658c8afe8cda98583512"
   },
   {
     "path": "references/code-comments.md",
-    "sha256": "a5e2f2372cb5d679d4e8939f3700ff78d6ee2c7a30a893e11ef5f8b6fb902299"
+    "sha256": "9f7d0b5a5ddd9c969ad298f92fcf92737f70ea60754c97eeee95ff65ef163ee4"
   },
   {
     "path": "references/code-strings.md",
-    "sha256": "ef6aa59ad593650a48e5c52ac369d47443572ec19c5c77066424db11c739c9ae"
+    "sha256": "6f8634840c3e936b7c59f955cff296ae28a7daaed57ddb6b788b6dee03817205"
   },
   {
     "path": "references/commits-and-prs.md",
-    "sha256": "8fc46bea6f9633e3aea51e07ff0fdecb337df07fa82500b8f995125189346d31"
+    "sha256": "ddf242900d7d50caa54326f429d51f27c7acd5b71b7058e628e7da9614a8868e"
   },
   {
     "path": "references/formatting.md",
-    "sha256": "bcef7e1fbd9a0a433c8fe380852e2bfd93c53da8002f6e26d77a34f6c0351c84"
+    "sha256": "b4ae838104c27b1e695e5128e07a1a6d40f1b6d6dbff68a6bf5d52344bbb4d58"
   },
   {
     "path": "references/index.md",
-    "sha256": "bdda6e74334a107e33f366064795b4612d9e4c7699081c7f2e866a4138db0402"
+    "sha256": "d3ebda7bc939d24e545f8added61a8a17da1a59972328045b8a8ce225eea6bc0"
+  },
+  {
+    "path": "references/log.md",
+    "sha256": "db66932c75db6885982d9a5e00d5028f43810039d76d061f4cf573495484f0d4"
   },
   {
     "path": "references/prose.md",
-    "sha256": "f5fcc46b7ca6a112c3b3f42e2e3055f563400c505cafb44ac30ab843331e349f"
+    "sha256": "90508d2ac48cc31f75a355f32e2b31b463b865c8a8fd36beb749af2e8f96f70f"
+  },
+  {
+    "path": "references/ste.md",
+    "sha256": "e9037078b34ff453f95d93e8104cd7bd877638ebb1b9091f6384434ce9f9a201"
+  },
+  {
+    "path": "slop-lint.mjs",
+    "sha256": "ac016c21365b50f857f23ade6434d8149d30368aa85ea94ab8699bd8ae6db0dc"
   }
 ]
