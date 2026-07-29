@@ -4,10 +4,26 @@ should_fire:
   - rewrite this paragraph so it doesn't read as AI-generated
   - edit this blog intro to sound human and drop the em dashes
   - clean up the slop in this README section
+  - rewrite these install steps in simplified technical english
+  - this error message is too wordy, make it plain and unambiguous
+  - enforce a controlled writing style on our docs
+
+in_context:
+  - |-
+    (mid-session, adding a feature to a Node service)
+    User: ok the endpoint works. now write the README section documenting it, and keep it plain, no marketing voice
+  - |-
+    (mid-session, finishing a refactor)
+    User: before you open the PR, go over the description you drafted and take the AI tone out of it
+  - |-
+    (mid-session, wiring up validation)
+    User: these error strings are way too chatty. rewrite them so an on-call engineer can act on them
 
 route_to_sibling:
   - prompt: rewrite this ticket as a proper user story
     expect: to-story
+  - prompt: should this comment exist at all or does the code already say it
+    expect: comment-stinky
 
 should_not_fire:
   - refactor this function for readability

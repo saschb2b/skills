@@ -1338,11 +1338,11 @@
       "bucket": "productivity",
       "domain": "Writing",
       "title": "no-slop",
-      "description": "Write and revise human-facing prose in a plain, precise, professional register, stripping the tells that mark text as AI-generated. Use when writing or editing a README, blog post, doc, PR or commit...",
+      "description": "Write and revise human-facing prose in a plain, precise, professional register, stripping the tells that mark text as AI-generated. Builds sentences with ASD-STE100 Simplified Technical English, the...",
       "risk_tier": "executable-L1",
-      "target_digest": "sha256:ea986e2f841e61161b6bb266a992ca58bc76c711abb62cc42c53e10f93c9f1ee",
+      "target_digest": "sha256:1de515ad63a1e56195c6459947604f8d68e992415bbab741e39d75076ab4f47d",
       "identity": "did:web:saschb2b.com",
-      "expires": "2027-07-27",
+      "expires": "2027-07-29",
       "capability": {
         "model": "executable",
         "manifest_declared": "permissions.yaml",
@@ -1352,7 +1352,10 @@
         "filesystem_writes": null,
         "network_evidence": [],
         "shell_evidence": [],
-        "declared_external_sources": []
+        "declared_external_sources": [
+          "https://asd-ste100.org",
+          "https://github.com/woosal1337/blog/tree/main/videos/ep01-the-cure-for-ai-slop"
+        ]
       },
       "layers": [
         "integrity",
@@ -1364,7 +1367,7 @@
       ],
       "grades": {
         "integrity": "STRONG",
-        "authorship": "ABSENT",
+        "authorship": "STRONG",
         "capability": "MEDIUM",
         "content_provenance": "UNVERIFIED",
         "vouching": "ABSENT",
@@ -1372,15 +1375,15 @@
       },
       "notes": {
         "integrity": "digest matches live bundle",
-        "authorship": "card is unsigned",
+        "authorship": "sigstore + rekor, cosign verify-blob OK; signer not pinned (pass --cert-identity to assert who)",
         "capability": "permission manifest declared (enforce in sandbox)",
         "content_provenance": "n/a for executable skills",
         "vouching": "0 attestation(s) bound to this digest",
         "freshness": "not expired"
       },
-      "trust_score": 7,
+      "trust_score": 10,
       "reachable": 13,
-      "rarity": "uncommon",
+      "rarity": "rare",
       "art": {
         "svg": "CARD.svg",
         "hero": null

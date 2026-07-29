@@ -3,15 +3,19 @@ type: Card
 card_version: 0.1
 title: no-slop
 target_version: 0.0.0
-description: Write and revise human-facing prose in a plain, precise, professional register, stripping the tells that mark text as AI-generated. Use when writing or editing a README, blog post, doc, PR or commit...
-timestamp: "2026-07-26T23:25:04Z"
-target_digest: "sha256:ea986e2f841e61161b6bb266a992ca58bc76c711abb62cc42c53e10f93c9f1ee"
+description: Write and revise human-facing prose in a plain, precise, professional register, stripping the tells that mark text as AI-generated. Builds sentences with ASD-STE100 Simplified Technical English, the...
+timestamp: "2026-07-29T20:32:56Z"
+target_digest: "sha256:1de515ad63a1e56195c6459947604f8d68e992415bbab741e39d75076ab4f47d"
 bom:
-  files: 8
+  files: 11
   algorithm: sha256-manifest
 identity: "did:web:saschb2b.com"
-signing: null
-transparency: null
+signing:
+  scheme: sigstore-keyless
+  bundle: CARD.md.sigstore
+transparency:
+  log: rekor
+  stapled: true
 capability:
   model: executable
   manifest_declared: permissions.yaml
@@ -21,12 +25,14 @@ capability:
   filesystem_writes: null
   network_evidence: []
   shell_evidence: []
-  declared_external_sources: []
+  declared_external_sources:
+    - "https://asd-ste100.org"
+    - "https://github.com/woosal1337/blog/tree/main/videos/ep01-the-cure-for-ai-slop"
 risk_tier: executable-L1
 content_provenance:
   applicable: false
 attestations: []
-expires: 2027-07-27
+expires: 2027-07-29
 supersedes: null
 ---
 
@@ -34,4 +40,4 @@ supersedes: null
 
 Trust card for `no-slop` (skill). Evidence is graded by the consumer, not asserted here. Run `card.py verify` against the live bundle to evaluate it.
 
-<!--card-data {"type":"Card","card_version":"0.1","title":"no-slop","target_version":"0.0.0","description":"Write and revise human-facing prose in a plain, precise, professional register, stripping the tells that mark text as AI-generated. Use when writing or editing a README, blog post, doc, PR or commit...","timestamp":"2026-07-26T23:25:04Z","target_digest":"sha256:ea986e2f841e61161b6bb266a992ca58bc76c711abb62cc42c53e10f93c9f1ee","bom":{"files":8,"algorithm":"sha256-manifest"},"identity":"did:web:saschb2b.com","signing":null,"transparency":null,"capability":{"model":"executable","manifest_declared":"permissions.yaml","source":"declared","network":"see-manifest","shell":null,"filesystem_writes":null,"network_evidence":[],"shell_evidence":[],"declared_external_sources":[]},"risk_tier":"executable-L1","content_provenance":{"applicable":false},"attestations":[],"expires":"2027-07-27","supersedes":null,"_body":"# no-slop\n\nTrust card for `no-slop` (skill). Evidence is graded by the consumer, not asserted here. Run `card.py verify` against the live bundle to evaluate it."} -->
+<!--card-data {"type":"Card","card_version":"0.1","title":"no-slop","target_version":"0.0.0","description":"Write and revise human-facing prose in a plain, precise, professional register, stripping the tells that mark text as AI-generated. Builds sentences with ASD-STE100 Simplified Technical English, the...","timestamp":"2026-07-29T20:32:56Z","target_digest":"sha256:1de515ad63a1e56195c6459947604f8d68e992415bbab741e39d75076ab4f47d","bom":{"files":11,"algorithm":"sha256-manifest"},"identity":"did:web:saschb2b.com","signing":{"scheme":"sigstore-keyless","bundle":"CARD.md.sigstore"},"transparency":{"log":"rekor","stapled":true},"capability":{"model":"executable","manifest_declared":"permissions.yaml","source":"declared","network":"see-manifest","shell":null,"filesystem_writes":null,"network_evidence":[],"shell_evidence":[],"declared_external_sources":["https://asd-ste100.org","https://github.com/woosal1337/blog/tree/main/videos/ep01-the-cure-for-ai-slop"]},"risk_tier":"executable-L1","content_provenance":{"applicable":false},"attestations":[],"expires":"2027-07-29","supersedes":null,"_body":"# no-slop\n\nTrust card for `no-slop` (skill). Evidence is graded by the consumer, not asserted here. Run `card.py verify` against the live bundle to evaluate it."} -->
