@@ -17,7 +17,7 @@ Most "AI slop" is not wrong, it is over-written. Too warm, too balanced, too eag
 
 ## How to apply
 
-- **Writing new prose** (README, docs, email, post, commit or PR message, release note): hold the register while drafting. Then read once against the construction rules and the five rules below.
+- **Writing new prose** (README, docs, email, post, commit or PR message, release note): hold the register while drafting. Then read once against the two tables below, construction first, then the tells.
 - **Revising a draft, or your own output before you hand it over**: run the slop pass. Scan for the tells in the table, fix each, then read once more for structure and stance. See [prose.md](./references/prose.md) for before/after rewrites.
 - **Writing inside code** (a comment, commit message, PR description, test name, error or log string): apply the same register. Then check the matching sibling file under Beyond prose below.
 - **Match the surrounding text.** A codebase, a thread, or a doc has an established voice. These rules sharpen prose. They do not override a house style the user already follows.
@@ -59,7 +59,9 @@ The system is ASD-STE100 Simplified Technical English, standardized by the aeros
 | Padding a list to a round number ("5 tips" with two filler entries) | keep only the real items |
 | Reflexive hedging ("It's important to note that", "arguably", "may potentially") | cut, or make the qualification real and specific |
 | Validation or flattery ("Great question", "You're absolutely right") | answer the thing |
-| Slop vocabulary (delve, leverage, robust, seamless, crucial, foster) | the plain word |
+| Slop vocabulary (delve, leverage, navigate, realm, landscape, tapestry, intricate, robust, seamless, crucial, vital, foster, harness) | the plain word |
+| Category noun where a specific one exists ("the relevant component") | name the thing ("the auth middleware") |
+| Numbers on an unordered set | bullets, since numbers imply sequence or rank |
 | Significance inflation ("stands as a testament", "marks a pivotal moment") | state the plain fact, drop the importance claim |
 | Inflated copula ("boasts", "serves as", "features" where "is" or "has" fits) | restore the plain verb |
 | Vague authority ("studies show", "experts agree", "it is widely regarded") | name the source, or cut the claim |
@@ -68,17 +70,9 @@ The system is ASD-STE100 Simplified Technical English, standardized by the aeros
 | Chatbot scaffolding ("Let's dive in", "As you can see", "Happy coding!") | delete, start and end at the content |
 | Negative-space hype ("Say goodbye to X", "Gone are the days of Y") | state what the thing does |
 
-## The five rules
+The tables catch phrases. These habits decide whether the fix lands. Lead with the point, so the first sentence carries it. When you cut a vague phrase, replace it with a fact rather than a quieter adjective. A hedged rewrite is the same slop at lower volume. Do not dodge a listed word into something more contorted, and rephrase the sentence instead of reaching for a thesaurus. Match the medium, since an email is not a slide deck and a prose post is not API docs.
 
-**Punctuation.** No em dashes. No semicolons, write two sentences. No "not X, but Y". Avoid the tricolon unless all three terms earn their place.
-
-**Structure.** Lead with the point. No throat-clearing opener, no self-summarizing close. Cut transitional padding. One idea per sentence where you can. Short declaratives over long coordinated chains.
-
-**Vocabulary.** Default to plain words. Drop: delve, leverage, navigate, realm, landscape, tapestry, intricate, robust, seamless, crucial, vital, foster, harness. Do not dodge a banned word into something more contorted. If the plain word is the right one, rephrase the sentence instead of reaching for a thesaurus.
-
-**Stance.** No validation or flattery. State the claim, then qualify only if the qualification is real. Concrete over abstract: the specific noun beats the category noun ("the auth middleware", not "the relevant component"). When you cut a vague phrase, replace it with a fact, not a quieter adjective.
-
-**Formatting.** Default to prose. Reach for a list only when the items are genuinely parallel and independent: steps, options, criteria. When ideas connect or need context, write the paragraph. Do not announce a count and then enumerate it ("Here are three reasons"). Make the points. Do not number an unordered set, since numbers imply sequence or rank. Do not pad to a round number. If three points are real, ship three, not a padded five. Match the medium: an email or a prose post is not a slide deck or API docs.
+Default to prose. Reach for a list only when the items are genuinely parallel and independent, meaning steps, options, or criteria. When ideas connect or need context, write the paragraph.
 
 ## Check the draft
 
@@ -117,6 +111,6 @@ The rules remove warmth that was not earned. They do not require coldness. Watch
 - **Banning contrast itself.** A real contrast sometimes needs "but". The target is the inflated "not just X, it's Y" cadence, not the word.
 - **Strict STE where it does not belong.** The 20-word cap and the expanded contraction are right in a runbook. In a blog post they read as stiff rather than precise. Default to flavored, and escalate only when a misreading costs something.
 - **Chasing the score.** The linter counts what it can match. A text can reach zero violations and still say nothing, because these rules fix the form of slop and never the substance.
-- **Treating every list as slop.** A real sequence of steps or set of options belongs in a list. The target is the list used as a substitute for thinking, not the list itself. An accurate count ("the five rules") is fine. A padded or announced-then-listed one is not.
+- **Treating every list as slop.** A real sequence of steps or set of options belongs in a list. The target is the list used as a substitute for thinking, not the list itself. An accurate count ("the twelve construction rules") is fine. A padded or announced-then-listed one is not.
 
 When in doubt, read it aloud. If it sounds like a person explaining something they understand, keep it. If it sounds like a brochure, fix it.

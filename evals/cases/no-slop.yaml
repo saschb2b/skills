@@ -8,6 +8,17 @@ should_fire:
   - this error message is too wordy, make it plain and unambiguous
   - enforce a controlled writing style on our docs
 
+in_context:
+  - |-
+    (mid-session, adding a feature to a Node service)
+    User: ok the endpoint works. now write the README section documenting it, and keep it plain, no marketing voice
+  - |-
+    (mid-session, finishing a refactor)
+    User: before you open the PR, go over the description you drafted and take the AI tone out of it
+  - |-
+    (mid-session, wiring up validation)
+    User: these error strings are way too chatty. rewrite them so an on-call engineer can act on them
+
 route_to_sibling:
   - prompt: rewrite this ticket as a proper user story
     expect: to-story

@@ -1340,7 +1340,7 @@
       "title": "no-slop",
       "description": "Write and revise human-facing prose in a plain, precise, professional register, stripping the tells that mark text as AI-generated. Builds sentences with ASD-STE100 Simplified Technical English, the...",
       "risk_tier": "executable-L1",
-      "target_digest": "sha256:b09edd38b86869dba557c6ef4ed721ac25b6ad5fd8e36d86f1aa20168589138c",
+      "target_digest": "sha256:1de515ad63a1e56195c6459947604f8d68e992415bbab741e39d75076ab4f47d",
       "identity": "did:web:saschb2b.com",
       "expires": "2027-07-29",
       "capability": {
