@@ -19,7 +19,7 @@ The tells table in SKILL.md is a diagnostic list. A diagnostic list is the weake
 
 ## What STE is
 
-Simplified Technical English is a controlled language. The European aerospace industry standardized it in 1986 as AECMA Simplified English. The target reader was a mechanic in any country, reading a maintenance manual at three in the morning, who could not afford to guess. It is now ASD-STE100, currently Issue 9, and free from asd-ste100.org.[^asd-ste100]
+Simplified Technical English is a controlled language. The European aerospace industry standardized it in 1986 as AECMA Simplified English. It governed maintenance manuals for mechanics who often did not speak English first. It is now ASD-STE100, currently Issue 9, and free from asd-ste100.org.[^asd-ste100]
 
 It is two things bound together. A writing-rule set of roughly 60 rules, and a controlled dictionary of about 900 approved words. Each dictionary entry carries one approved meaning and one approved part of speech.
 
@@ -27,7 +27,7 @@ STE strips voice on purpose. That is the correct trade in a procedure and the wr
 
 # The construction rules
 
-The subset below is the mechanical half, which is the half slop lives in. The judgment half needs a human. Is this the right technical noun, and does the sentence make good sense to its reader? No checker certifies that.
+The subset below is the mechanical half, the half a checker can see. The judgment half needs a human. Is this the right technical noun, and does the sentence make good sense to its reader? No checker certifies that.
 
 ## Words
 
@@ -39,7 +39,7 @@ The subset below is the mechanical half, which is the half slop lives in. The ju
 | No marketing adjective | the measured property | seamless, robust, powerful, effortless, world-class, next-generation |
 | One spelling convention | American, consistently | mixed |
 
-The one-name rule is the same defect that [prose.md](prose.md) catalogs as elegant variation, arrived at from the other direction. STE forbids the synonym swap because a reader cannot tell whether two names mean two things; no-slop forbids it because the swap reads as stilted. Both fixes are identical. Repeat the plain noun.
+The one-name rule is the same defect that [prose.md](prose.md) catalogs as elegant variation, arrived at from the other direction. STE forbids the synonym swap because a reader cannot tell whether two names mean two things. no-slop forbids it because the swap reads as stilted. Either way the fix is to repeat the plain noun.
 
 ## Verbs
 
@@ -104,7 +104,9 @@ A first-party test asked whether a writing system actually beats the folk fix.[^
 
 What holds on both models. Any real writing system cuts measured slop by half or more. STE was best on Claude and effectively tied with Orwell on gpt-5.5.
 
-What does not generalize. The banned-word list cut 3% on Claude and 40% on gpt-5.5. So "banning words does nothing" is a Claude result, not a law. The two models also slop differently. Claude's default slop is loud, through em dashes, marketing adjectives, and run-ons. gpt-5.5 shipped zero em dashes and zero marketing adjectives by default. It slopped through passive voice and long sentences instead. On one task of six, STE scored slightly worse than baseline, from a long-paragraph heuristic that penalized many short sentences.
+What does not generalize. The banned-word list cut 3% on Claude and 40% on gpt-5.5. So "banning words does nothing" is a Claude result, not a law.
+
+The two models also slop differently. Claude's default slop is loud, through em dashes, marketing adjectives, and run-ons. gpt-5.5 shipped zero em dashes and zero marketing adjectives by default. It slopped through passive voice and long sentences instead. On one task of six, STE scored slightly worse than baseline. A long-paragraph heuristic had penalized its many short sentences.
 
 The honest caveats. A heuristic linter, n=6, two models, so directional rather than proof. Violations per 100 words is noisy under about 50 words, where a single hit reads as 10/100w. And STE fixes the form of slop, never the substance. It cannot make a hollow paragraph true.
 

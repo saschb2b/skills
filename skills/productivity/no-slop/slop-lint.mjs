@@ -230,11 +230,26 @@ function lint(text, { strict = false } = {}) {
   const labelled = lines.filter((l) => /^\s*[-*+]\s+\*\*[^*]+\*\*\s*[:.]/.test(l)).length;
   if (labelled >= 3)
     add("bold_label_list", 0, `${labelled} items`, "prose, or plain bullets without the bold label");
-  for (const p of text.split(/\n\s*\n/)) {
-    const ss = sentences(stripCode(p));
-    if (ss.length > 6 && !/^\s*(?:[-*+]|\d+[.)]|\||#)/m.test(p))
-      add("long_paragraph(>6s)", ss[0].line, `${ss.length} sentences`, "split the topic");
-  }
+  // Group the already-stripped lines into blocks, so frontmatter and fenced
+  // code do not read as one very long paragraph. Grouping by line rather than
+  // by a split on the text keeps the reported line number the real one.
+  const proseLines = prose.split("\n");
+  let block = [];
+  let blockStart = 0;
+  const flushBlock = () => {
+    const text = block.join("\n");
+    const ss = sentences(text);
+    if (ss.length > 6 && !/^\s*(?:[-*+]|\d+[.)]|\||#|>)/m.test(text))
+      add("long_paragraph(>6s)", blockStart, `${ss.length} sentences`, "split the topic");
+    block = [];
+  };
+  proseLines.forEach((l, i) => {
+    if (l.trim()) {
+      if (!block.length) blockStart = i + 1;
+      block.push(l);
+    } else flushBlock();
+  });
+  flushBlock();
 
   const violations = [...found.entries()]
     .map(([id, v]) => ({ id, count: v.hits.length, fix: v.fix, hits: v.hits }))

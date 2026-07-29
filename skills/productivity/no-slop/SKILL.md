@@ -9,7 +9,9 @@ date: 2026-07-29
 
 ## The register
 
-Target voice: a German professional writing English at C2 level. Precise, direct, structurally clean. Reserved rather than enthusiastic. Clarity and exactness over flourish or warmth. This is a register, not an accent. Do not introduce Germanisms, false friends, or grammar errors. Near-native English, just without the bubbly American default.
+Target voice: a German professional writing English at C2 level. Precise, direct, structurally clean. Reserved rather than enthusiastic. Clarity and exactness over flourish or warmth.
+
+This is a register, not an accent. Do not introduce Germanisms, false friends, or grammar errors. Near-native English, just without the bubbly American default.
 
 Most "AI slop" is not wrong, it is over-written. Too warm, too balanced, too eager to summarize itself. Strip that and the text gets shorter and better. The goal is prose that reads like a competent person wrote it on purpose.
 
@@ -24,7 +26,7 @@ Most "AI slop" is not wrong, it is over-written. Too warm, too balanced, too eag
 
 Build with the construction rules first, then check against the tells. Order matters. Given only a list of forbidden words, Claude cut measured slop by 3%. Given a whole writing system, it cut 74%. A banned-word list treats symptoms, so reach for it last.
 
-The system is ASD-STE100 Simplified Technical English. The aerospace industry standardized it in 1986, so that a mechanic anywhere could read a maintenance manual without guessing. Its mechanical subset is where slop lives.
+The system is ASD-STE100 Simplified Technical English, standardized by the aerospace industry in 1986 for maintenance manuals that had to survive a non-native reader. Its mechanical rules are the ones that catch slop, and they are the subset below.
 
 | Rule | Write this | Not this |
 |---|---|---|
@@ -99,7 +101,7 @@ Two rules stay a human read, because a checker cannot know that "the cache" and 
 The register and the tells apply wherever you write, not only in essays and docs. Each surface carries its own slop, with the tells and rewrites in a sibling file:
 
 - **Formatting** (headings, bold, lists, emoji, badges, smart quotes). See [formatting.md](./references/formatting.md).
-- **Code comments** that narrate the diff or restate the code. See [code-comments.md](./references/code-comments.md). That page is the register pass. `comment-stinky` is the deep version, covering whether a comment should exist at all, what it should say instead, and the write-time gate. Use it when the task is about the comments themselves rather than about the prose sounding generated.
+- **Code comments** that narrate the diff or restate the code. See [code-comments.md](./references/code-comments.md). That page is the register pass. `comment-stinky` is the deep version. It covers whether a comment should exist at all, what it should say instead, and the write-time gate. Use it when the task is about the comments themselves rather than the prose sounding generated.
 - **Commit messages and PR descriptions** that restate the diff instead of the reason for it. See [commits-and-prs.md](./references/commits-and-prs.md).
 - **Strings in code** (test names, error and log messages). See [code-strings.md](./references/code-strings.md).
 
@@ -114,7 +116,7 @@ The rules remove warmth that was not earned. They do not require coldness. Watch
 - **Cutting a transition that was doing real work.** Drop filler, keep the connective a reader needs to follow the logic.
 - **Banning contrast itself.** A real contrast sometimes needs "but". The target is the inflated "not just X, it's Y" cadence, not the word.
 - **Strict STE where it does not belong.** The 20-word cap and the expanded contraction are right in a runbook. In a blog post they read as stiff rather than precise. Default to flavored, and escalate only when a misreading costs something.
-- **Chasing the score.** The linter counts what it can match. A text can reach zero violations and still say nothing. STE fixes the form of slop, never the substance, and it cannot make a hollow paragraph true.
+- **Chasing the score.** The linter counts what it can match. A text can reach zero violations and still say nothing, because these rules fix the form of slop and never the substance.
 - **Treating every list as slop.** A real sequence of steps or set of options belongs in a list. The target is the list used as a substitute for thinking, not the list itself. An accurate count ("the five rules") is fine. A padded or announced-then-listed one is not.
 
 When in doubt, read it aloud. If it sounds like a person explaining something they understand, keep it. If it sounds like a brochure, fix it.
