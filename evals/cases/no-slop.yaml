@@ -7,6 +7,9 @@ should_fire:
   - rewrite these install steps in simplified technical english
   - this error message is too wordy, make it plain and unambiguous
   - enforce a controlled writing style on our docs
+  - go through this page and make the wording more inclusive
+  - our docs say "click here" and "the button above" everywhere, fix that
+  - rewrite this to follow the Microsoft writing style guide
 
 in_context:
   - |-
