@@ -79,8 +79,8 @@ Touches: many concept files, a `references/` subtree, `index.md` at each level, 
 
 Connect two concepts and say what the connection means.
 
-1. Prefer a bundle-absolute target beginning with `/`, for example `/tables/customers.md`. It survives moving the source file within its directory. Relative targets like `customers.md` are valid too.
-2. Put the relationship in the prose around the link, not in the link. `Joined with [customers](/tables/customers.md) on \`customer_id\`` says what the edge means; the link alone does not.
+1. Default to a relative target resolved from the linking file's directory: `customers.md` for a sibling, `../tables/customers.md` across directories. The spec recommends the bundle-absolute form (`/tables/customers.md`) for stability when files move, but GitHub resolves it against the repository root and serves a 404, and the reference visualizer drops such edges, so absolute targets fail exactly where humans read bundles. After moving a file, re-run `okf-validate`; it reports the links the move broke.
+2. Put the relationship in the prose around the link, not in the link. `Joined with [customers](customers.md) on \`customer_id\`` says what the edge means; the link alone does not.
 3. A broken link is tolerated, not an error, so linking ahead of a concept you have not written yet is fine. Note it in `log.md` if you want to come back.
 4. Link to *concepts*, not to an `index.md`. The index is generated navigation (`index`), not a graph node, so a consumer that builds the concept graph treats a link into an `index.md` as broken. Point at the concrete concept you mean.
 

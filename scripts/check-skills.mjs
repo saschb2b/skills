@@ -68,7 +68,10 @@ for (const file of skillFiles) {
 
   // Every relative link in every file under the skill must resolve.
   for (const md of walk(skillDir).filter((f) => f.endsWith(".md"))) {
-    const body = readFileSync(md, "utf8");
+    // Fenced code blocks hold illustrative examples (worked concept documents,
+    // grep patterns), not real cross-references; a link inside one must not be
+    // resolved against the skill directory.
+    const body = readFileSync(md, "utf8").replace(/```[\s\S]*?```/g, "");
     for (const m of body.matchAll(/\]\((\.[^)]+)\)/g)) {
       const target = join(dirname(md), m[1].split("#")[0]);
       if (!existsSync(target)) errors.push(`${relative(repo, md)}: broken link -> ${m[1]}`);

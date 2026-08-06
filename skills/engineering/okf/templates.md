@@ -1,6 +1,6 @@
 # OKF templates
 
-Copy, fill, validate. Every example uses bundle-absolute links (beginning with `/`) because the spec recommends them for stability. Relative links like `customers.md` are equally valid. Rules behind these shapes are in [spec.md](./spec.md); the form-per-fact table they follow (diagrams for topology, TeX for formulas, definition lists for terms, task lists for stateful checklists, footnotes for caveats) is in [SKILL.md](./SKILL.md).
+Copy, fill, validate. Every example uses relative link targets (`customers.md` for a sibling, `../tables/events.md` across directories) because they resolve wherever bundles are read: GitHub resolves the spec-recommended bundle-absolute form (`/tables/customers.md`) against the repository root and serves a 404, and Google's own sample bundles switched to relative for that reason. Both forms are valid OKF; after moving a file, re-run the validator to catch the relative links the move broke. Rules behind these shapes are in [spec.md](./spec.md); the form-per-fact table they follow (diagrams for topology, TeX for formulas, definition lists for terms, task lists for stateful checklists, footnotes for caveats) is in [SKILL.md](./SKILL.md).
 
 ## Structured work artifact envelope
 
@@ -278,12 +278,12 @@ sources:
 | Column | Type | Description |
 |--------|------|-------------|
 | `order_id` | STRING | Globally unique order identifier. |
-| `customer_id` | STRING | Foreign key to [customers](/tables/customers.md). |
+| `customer_id` | STRING | Foreign key to [customers](customers.md). |
 | `amount_usd` | NUMERIC | Order total in USD, tax included. |
 | `created_at` | TIMESTAMP | When the order was placed (UTC). |
 
 # Joins
-Joined with [customers](/tables/customers.md) on `customer_id`. One customer has many orders.[^dictionary]
+Joined with [customers](customers.md) on `customer_id`. One customer has many orders.[^dictionary]
 
 \`\`\`mermaid
 erDiagram
@@ -322,7 +322,7 @@ sources:
 ---
 
 # Definition
-A user is "active" on a day if they emit at least one event in [events](/tables/events.md)
+A user is "active" on a day if they emit at least one event in [events](../tables/events.md)
 whose `event_name` is in the qualifying set. WAU on date D counts users active anywhere
 in the trailing window:
 
@@ -341,7 +341,7 @@ WHERE event_date BETWEEN DATE_SUB(@d, INTERVAL 6 DAY) AND @d
 \`\`\`
 
 # Notes
-Bot traffic is excluded upstream in [events](/tables/events.md). Do not re-filter here.[^defs]
+Bot traffic is excluded upstream in [events](../tables/events.md). Do not re-filter here.[^defs]
 
 [^defs]: Engagement metrics definitions
 ```
@@ -364,7 +364,7 @@ status: stable
 ---
 
 # When this fires
-The `orders_daily_load` job reports a non-zero exit, or [orders](/tables/orders.md)
+The `orders_daily_load` job reports a non-zero exit, or [orders](../tables/orders.md)
 is missing yesterday's partition.
 
 # Preflight
@@ -376,7 +376,7 @@ Confirm before touching anything:
 
 # Steps
 1. If the source export is late, wait and re-run; do not backfill by hand[^backfill].
-2. If the schema changed, update [orders](/tables/orders.md) and the load config together.
+2. If the schema changed, update [orders](../tables/orders.md) and the load config together.
 3. Re-run `orders_daily_load` for the missing partition only.
 
 # Escalation
@@ -407,10 +407,10 @@ Order
 
 Lifetime value
 : A customer's summed order totals, $\mathrm{LTV} = \sum_i \mathrm{amount\_usd}_i$,
-  over [orders](/tables/orders.md).
+  over [orders](../tables/orders.md).
 
 Active user
-: Defined by [weekly active users](/metrics/weekly_active_users.md); do not redefine
+: Defined by [weekly active users](metrics/weekly_active_users.md); do not redefine
   per report.
 
 [^carts]: Carts live in the app database and never reach the warehouse export.
@@ -447,10 +447,10 @@ DOM.[^reactdev] Since React 19, the React Compiler handles memoization
 automatically.[^recalled]
 
 # Role in this bundle
-The primary frontend library in [technical expertise](/expertise.md), used
-across most [projects](/projects/synthwave-drive.md) and examined in articles
-such as [React state management in 2026](/articles/react-state-management-2026.md)
-and [React structure, then and now](/articles/react-structure-then-and-now.md).[^cv]
+The primary frontend library in [technical expertise](../expertise.md), used
+across most [projects](../projects/synthwave-drive.md) and examined in articles
+such as [React state management in 2026](../articles/react-state-management-2026.md)
+and [React structure, then and now](../articles/react-structure-then-and-now.md).[^cv]
 
 [^reactdev]: react.dev, official documentation
 [^cv]: Work, saschb2b.com
@@ -489,7 +489,7 @@ Each row is one event, with nested `event_params` and `user_properties` records.
 # Key points
 * The export is append-only; intraday data lands in `events_intraday_YYYYMMDD`.[^ga4-schema]
 * `event_timestamp` is microseconds since the Unix epoch (UTC).
-* Cited by [events](/tables/events.md) and [weekly active users](/metrics/weekly_active_users.md).
+* Cited by [events](../tables/events.md) and [weekly active users](../metrics/weekly_active_users.md).
 
 [^ga4-schema]: BigQuery Export schema
 ```
@@ -524,7 +524,7 @@ sources:
 ---
 
 Recognized revenue follows the shipment date, not the order date.[^rev-policy]
-Used by [monthly revenue](/metrics/monthly_revenue.md).
+Used by [monthly revenue](../metrics/monthly_revenue.md).
 
 # Computation
 \`\`\`sql
