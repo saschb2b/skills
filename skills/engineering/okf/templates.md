@@ -539,3 +539,43 @@ WHERE fiscal_year = @year;
 Long or generated SQL goes in a file instead: set `computation: /computations/lib/revenue.sql` and drop the `# Computation` fence. Use one form or the other, never both.
 
 Two things this example is making explicit. `verified` says a human agreed the *definition* matches Finance's policy; it says nothing about any particular run, which is what the attester is for. And the attester checks both halves: *provenance*, that the executed SQL equals this computation bound with the claimed `year`, compared canonicalized so formatting is not a loophole; and *fidelity*, that the number a consumer displays matches the receipt's result re-read by `job_id` rather than copied out of the agent's prose.
+
+## Worked example: a field report (a dated snapshot)
+
+`ecosystem/adoption.md`. The shape for measured, time-sensitive knowledge: an ecosystem survey, a benchmark, a market reading, a dependency audit. Durable concepts state what is true; a field report states what was *measured*, so three things are load-bearing that other concepts omit. `status: draft` plus a `stale_after` on the date the reading should be retaken, the measurement date and the **instrument** named in the body, and claims phrased as readings rather than facts. State the instrument because it bounds the error: a count taken from self-announcements in a forum thread can undercount an ecosystem tenfold against a count taken from a topic index or registry, and a reader who knows which instrument produced the number knows what it can miss.
+
+```markdown
+---
+type: Field Report
+title: State of adoption
+description: Who builds on the format as of August 2026, measured rather than claimed.
+status: draft
+stale_after: 2026-11-05
+generated: { by: survey_agent/model-x, at: 2026-08-05T16:00:00Z }
+sources:
+  - id: topic
+    resource: "GitHub topic <format-topic> and per-repository metadata, read 2026-08-05"
+    title: Repository metadata, read per project
+    last_modified: 2026-08-05
+---
+
+# Read this as a dated snapshot
+
+Every number below comes from a measurement taken on **2026-08-05**. Re-measure
+before quoting; that is what the `stale_after` is for.
+
+# The measured numbers
+
+| Signal | Value on 2026-08-05 |
+| --- | --- |
+| Repositories on the topic | 108 |
+| Registry entries | 479, from 395 authors |
+
+# What the numbers do not support
+
+Counting from self-announcements missed roughly an order of magnitude of this
+ecosystem.[^topic] State which instrument produced a count, and expect it to
+still be a floor.
+```
+
+A consumer filters field reports out of durable-fact retrieval in one predicate (`status: draft` with a `stale_after`), and the expiry turns "is this still true?" into a date comparison. When the reading is retaken, replace the concept's numbers and move `stale_after` forward; the old reading survives in git, not in the bundle.
