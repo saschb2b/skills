@@ -170,7 +170,7 @@
     {
       "skill": "comment-stinky",
       "bucket": "engineering",
-      "domain": "AI & Agents",
+      "domain": "Testing & Quality",
       "title": "comment-stinky",
       "description": "Detect code-comment smells in any language, explain the cost of each, and propose the rewrite. Built against the failure mode where a comment narrates the edit that produced it (now, no longer...",
       "risk_tier": "executable-L1",
@@ -514,7 +514,7 @@
       "title": "okf",
       "description": "Create, inspect, retrieve, author, revise, enrich, audit, repair, research, analyze change impact, migrate, validate, and maintain knowledge for AI agents as conformant Open Knowledge Format (OKF)...",
       "risk_tier": "executable-L1",
-      "target_digest": "sha256:3b56a7cb7a697ab94a67232318dd58ca5b8aab5242557cdf9adda0f38ac94270",
+      "target_digest": "sha256:90599a0c2f098c496d33ad48414887900b11ca5415861b432a10a12f8ed78e1e",
       "identity": "did:web:saschb2b.com",
       "expires": "2027-07-27",
       "capability": {
@@ -549,7 +549,7 @@
         "freshness"
       ],
       "grades": {
-        "integrity": "ABSENT",
+        "integrity": "STRONG",
         "authorship": "ABSENT",
         "capability": "MEDIUM",
         "content_provenance": "UNVERIFIED",
@@ -557,16 +557,16 @@
         "freshness": "MEDIUM"
       },
       "notes": {
-        "integrity": "MISMATCH live=sha256:b5f11399cd163113b2df4d68319cc17ad011f2fbff583c18e3738619744a71a3",
+        "integrity": "digest matches live bundle",
         "authorship": "card is unsigned",
         "capability": "permission manifest declared (enforce in sandbox)",
         "content_provenance": "n/a for executable skills",
         "vouching": "0 attestation(s) bound to this digest",
         "freshness": "not expired"
       },
-      "trust_score": 4,
+      "trust_score": 7,
       "reachable": 13,
-      "rarity": "common",
+      "rarity": "uncommon",
       "art": {
         "svg": "CARD.svg",
         "hero": null
@@ -704,7 +704,7 @@
     {
       "skill": "tauri-stinky",
       "bucket": "engineering",
-      "domain": "AI & Agents",
+      "domain": "Desktop",
       "title": "tauri-stinky",
       "description": "Detect Rust and Tauri maintainability smells across the backend crate, the IPC boundary, and the app shell, explain the cost of each, and propose a fix with a source link. Covers Rust discipline...",
       "risk_tier": "executable-L1",
@@ -778,7 +778,7 @@
     {
       "skill": "test-stinky",
       "bucket": "engineering",
-      "domain": "AI & Agents",
+      "domain": "Testing & Quality",
       "title": "test-stinky",
       "description": "Detect test-suite quality smells in any language or framework, explain the cost of each, and propose a fix with a source link. A counterweight to agents that blindly chase coverage and ship huge...",
       "risk_tier": "executable-L1",
@@ -911,7 +911,7 @@
       "title": "trust-card",
       "description": "Generate, sign, attest, and verify holistic trust cards for OKF knowledge bundles and agent skills. A card binds content, artifact, and capability provenance into one OKF concept and renders a graded...",
       "risk_tier": "executable-L1",
-      "target_digest": "sha256:47eac9b761bed93fe19ea5183264d9684996e0bd0e1cc2ec3152c1016b2fd6a2",
+      "target_digest": "sha256:1856e0cb89180df6f49c7d777e80ac05502884ac1e639965727d4c850b94b801",
       "identity": "did:web:saschb2b.com",
       "expires": "2027-07-27",
       "capability": {
@@ -922,10 +922,10 @@
         "shell": null,
         "filesystem_writes": null,
         "network_evidence": [
-          "scripts\\card.py"
+          "scripts/card.py"
         ],
         "shell_evidence": [
-          "scripts\\card.py"
+          "scripts/card.py"
         ],
         "declared_external_sources": []
       },
@@ -1146,7 +1146,7 @@
     {
       "skill": "breadcrumbs",
       "bucket": "productivity",
-      "domain": "AI & Agents",
+      "domain": "Writing",
       "title": "breadcrumbs",
       "description": "Heal codebase understanding gaps exposed during implementation, debugging, or investigation. Use when tracing reveals misleading names, repeated backtracking, disconnected navigation paths, hidden...",
       "risk_tier": "executable-L1",
@@ -1207,7 +1207,7 @@
     {
       "skill": "fable-mode",
       "bucket": "productivity",
-      "domain": "AI & Agents",
+      "domain": "Writing",
       "title": "fable-mode",
       "description": "Adopt the structural operating discipline of Anthropic's Fable model in whatever agent harness is running, so the host model (GPT 5.6, Gemini, or any coding agent) orients, parallelizes, delegates...",
       "risk_tier": "executable-L1",

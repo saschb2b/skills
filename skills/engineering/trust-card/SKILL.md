@@ -4,7 +4,7 @@ description: >-
   Generate, sign, attest, and verify holistic trust cards for OKF knowledge
   bundles and agent skills. A card binds content, artifact, and capability
   provenance into one OKF concept and renders a graded trust gradient instead of
-  a binary "verified" badge, and can be drawn as a shareable SVG cartridge. Use
+  a binary "verified" badge, and can be drawn as a shareable SVG book cover. Use
   this skill whenever the user wants to make a
   skill card, trust card, or provenance card; render or visualize a card; sign or attest a bundle or skill;
   prove a bundle is unaltered; declare or check a permission/capability manifest;
@@ -110,12 +110,13 @@ python scripts/card.py validate <dir>/CARD.md
 
 ## Visual card and render feed
 
-A card can be drawn as a shareable SVG "cartridge", laid out like a Magic the
-Gathering card. The frame color is the skill's domain, a cost pip shows the risk
-tier, a rarity symbol and score box show the trust gradient, and the trust bars
-and description sit in a parchment text box. `CARD.svg` and any `hero.*` art are
-**decoration excluded from the integrity digest**, so styling a card never
-changes what it attests.
+A card can be drawn as a shareable SVG book cover. Its digest seeds a palette,
+one of six abstract print compositions, one of four layouts, and a typographic
+voice. The skill's domain becomes the series line; the title and description
+become cover copy; and a fixed colophon shows the six trust meters, rarity,
+score, risk tier, capability model, digest barcode, and expiry. `CARD.svg` and
+any `hero.*` art are **decoration excluded from the integrity digest**, so
+styling a card never changes what it attests.
 
 - `card.py verify --json` emits the graded gradient as JSON, the input a
   renderer reads (so the picture never re-implements grading).

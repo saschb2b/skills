@@ -34,7 +34,7 @@ import argparse, base64, datetime, hashlib, json, os, re, shutil, subprocess, sy
 SKIP = {".git", ".DS_Store"}
 # Card-related artifacts never count toward the bundle digest, so signing or
 # attesting (which writes these) can't change the thing being attested. The
-# rendered label (CARD.svg) and a skill's optional hero art (hero.*) are
+# rendered cover (CARD.svg) and a skill's optional hero art (hero.*) are
 # decoration, also kept out of the digest.
 CARD_SUFFIXES = (".manifest.json", ".sigstore", ".key", ".pem")
 CARD_NAMES = {"CARD.md", "CARD.svg"}

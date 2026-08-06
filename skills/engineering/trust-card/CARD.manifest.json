@@ -1,7 +1,7 @@
 [
   {
     "path": "SKILL.md",
-    "sha256": "c23d6622c53ad213fd720ccb0fc8edce13c1d39ade042257b68cae5d409244ed"
+    "sha256": "af7f92b9b4cb91e2bddcaa2f23e773ac4c7a7be75fdd6658a22f549d65d7b7fc"
   },
   {
     "path": "assets/card.template.md",
@@ -17,18 +17,22 @@
   },
   {
     "path": "references/index.md",
-    "sha256": "5c8f61c80c9d16ee0cf0ff1312ed34a17c56a042a40f5be995268b2a2cf77678"
+    "sha256": "e01d87dbbab4e8e912819de243993ad12ae04ced46dc918aa209ecb2cea12b2a"
   },
   {
     "path": "references/layers.md",
     "sha256": "ff2c6da84ddfd36972fb5a6591051b6fa42fff1ffc4c8f2459c3aa6ecc0d2999"
   },
   {
+    "path": "references/log.md",
+    "sha256": "b4e98194c5b8ee274629dd2a638667a2e7f9e5c0b4aa4748d1abb431ff2cad62"
+  },
+  {
     "path": "references/rendering.md",
-    "sha256": "213a219ed22565b021b8227d4c9d97a7353443a564bd0fb8b7a996417e79d8b0"
+    "sha256": "378360e38959ae3c71fcb5955c2c23bb8edaea38d3ddb3bdb42fb94e195122b0"
   },
   {
     "path": "scripts/card.py",
-    "sha256": "394cdd24d1fce54f25f0c8e9b8b4847b1f691157fc0273c4ab1e9088ccca9af7"
+    "sha256": "ebe3cddb9f5eaee91deb5ced2a8b57574603e0452902084e7175aa31119a8d1f"
   }
 ]
