@@ -10,6 +10,8 @@ should_fire:
   - go through this page and make the wording more inclusive
   - our docs say "click here" and "the button above" everywhere, fix that
   - rewrite this to follow the Microsoft writing style guide
+  - this doc reads like AI wrote it, don't just reword it, restructure it
+  - our README ballooned to 400 lines of generated sections, rethink the structure and cut it down
 
 in_context:
   - |-
@@ -21,6 +23,9 @@ in_context:
   - |-
     (mid-session, wiring up validation)
     User: these error strings are way too chatty. rewrite them so an on-call engineer can act on them
+  - |-
+    (mid-session, docs cleanup)
+    User: the migration guide buries the actual steps under three background sections. fix the structure, then the wording
 
 route_to_sibling:
   - prompt: rewrite this ticket as a proper user story
