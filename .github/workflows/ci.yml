@@ -39,3 +39,5 @@ jobs:
         run: pnpm eval:validate
       - name: Trust cards current (no card stale against its bundle)
         run: pnpm cards:check
+      - name: Trust card visual identity
+        run: pnpm cards:test

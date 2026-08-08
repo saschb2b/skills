@@ -8,6 +8,7 @@
     "freshness": "node scripts/check-freshness.mjs",
     "cards": "node scripts/build-cards.mjs",
     "cards:check": "node scripts/build-cards.mjs --check",
+    "cards:test": "node --test scripts/card-visual-identity.test.mjs",
     "eval": "node evals/run.mjs",
     "eval:validate": "node evals/validate.mjs",
     "eval:build": "node evals/run.mjs --build",

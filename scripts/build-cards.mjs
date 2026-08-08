@@ -1,13 +1,13 @@
 #!/usr/bin/env node
 // Build the trust-card render feed: cards.json (the aggregate) plus a CARD.svg
-// per skill. Each SVG is an abstract generated book cover: the bundle's sha256
-// digest seeds a PRNG that picks a palette from the shared cover theme, one of
+// per skill. Each SVG is an abstract generated book cover: a permanent visual
+// seed picks a palette from the shared cover theme, one of
 // six flat print-style compositions (sun arcs, organic blob, op-art waves,
 // bauhaus grid, torn-paper collage, diagonal beams), one of four layouts, and
 // every shape parameter. The cover combines the skill title and tagline with
 // trust data in a fixed colophon: six layer meters, score, rarity, tier, and the
-// digest drawn as an ISBN-style barcode. Content changes the digest, so a new
-// edition of the skill gets a new cover. Everything is deterministic, so files
+// digest drawn as an ISBN-style barcode. Content metrics only nudge bounded art
+// details, so a new edition remains recognizably the same skill. Everything is deterministic, so files
 // commit and CI-diff cleanly. Regenerate with:
 //   pnpm cards                write cards.json + every CARD.svg
 //   pnpm cards <skill...>     regenerate only those skills; their cards.json
@@ -17,6 +17,8 @@
 //                             also accepts skill names to scope the check
 import { execFileSync } from "node:child_process";
 import { readdirSync, existsSync, readFileSync, writeFileSync } from "node:fs";
+import { pathToFileURL } from "node:url";
+import { contentDynamics, contentProfile, visualIdentity } from "./card-visual-identity.mjs";
 
 const CARD = "skills/engineering/trust-card/scripts/card.py";
 const buckets = ["engineering", "productivity"];
@@ -36,14 +38,16 @@ const DOMAIN = {
   "audit-actions": "security", "trust-card": "security",
 };
 
-// Domain gives the cover its series line; everything generative comes from the
-// digest and one global pool of curated print palettes, so a shelf varies like
-// a real publisher's list instead of rhyming by category.
+// Domain gives the cover its series line. A permanent per-skill identity picks
+// from one global pool of curated print palettes, so the shelf varies like a
+// real publisher's list while each title remains recognizable across editions.
 const LABEL = {
   frontend: "Frontend / UI", game: "Game", ai: "AI & Agents", writing: "Writing",
   mobile: "Mobile", desktop: "Desktop", quality: "Testing & Quality", security: "Security",
 };
 
+// Append new palettes. Reordering or inserting entries would change established
+// identities because the permanent seed selects by index.
 const PALETTES = [
   { bg: "#f1ece1", ink: "#1e3050", acc: ["#3a6ea8", "#e2703a", "#eec643"] },
   { bg: "#14304e", ink: "#f2ecdf", acc: ["#6fa8d8", "#e2703a", "#eec643"] },
@@ -127,7 +131,7 @@ function wrap(text, max, maxLines) {
 }
 
 // ---------------------------------------------------------------- generative
-// Deterministic PRNG seeded from the digest: the art IS the provenance.
+// Deterministic PRNG seeded from the permanent visual identity.
 function mulberry32(a) {
   return function () {
     a |= 0; a = (a + 0x6d2b79f5) | 0;
@@ -308,6 +312,7 @@ function styleBeams(rng, pal, W, AH) {
   return s;
 }
 
+// These identity-bearing arrays are append-only for the same reason as palettes.
 const STYLES = [styleSun, styleBlob, styleWaves, styleBauhaus, styleCollage, styleBeams];
 
 // Digest hex as an ISBN-style barcode: bar and gap widths from the bytes.
@@ -332,22 +337,25 @@ const FONTS = [
 const MONO = "ui-monospace,SFMono-Regular,Menlo,monospace";
 
 // ------------------------------------------------------------------ the cover
-function renderSvg(e, heroDataUri) {
+export function renderSvg(e, heroDataUri, profile) {
   const W = 672, H = 936, MID = W / 2;
   const label = LABEL[DOMAIN[e.skill] || "ai"];
   const bytes = digestBytes(e.target_digest);
-  const seed = ((bytes[0] << 24) | (bytes[1] << 16) | (bytes[2] << 8) | bytes[3]) >>> 0;
-  const rng = mulberry32(seed);
-  const pal = PALETTES[bytes[5] % PALETTES.length];
+  const visual = visualIdentity(e.skill, PALETTES.length, STYLES.length, FONTS.length);
+  const identityBytes = visual.bytes;
+  const rng = mulberry32(visual.seed);
+  const pal = PALETTES[visual.paletteIndex];
+  const dynamics = contentDynamics(profile);
   const dark = lum(pal.bg) < 0.5;
   const score = trustScore(e.grades), reach = reachableMax(e.grades, (e.capability || {}).model), rar = rarity(e.grades);
 
-  // Structural picks, all from the digest: composition, layout, voice, alignment.
-  const style = STYLES[bytes[4] % STYLES.length];
-  let layout = bytes[7] % 4; // 0 art-top, 1 art-below-title, 2 poster, 3 typographic
+  // Structural picks come only from the permanent visual identity. Live
+  // content can move the art within narrow bounds but cannot redesign it.
+  const style = STYLES[visual.styleIndex];
+  let layout = visual.layout; // 0 art-top, 1 art-below-title, 2 poster, 3 typographic
   if (heroDataUri && layout === 3) layout = 0;
-  const font = FONTS[bytes[8] % FONTS.length];
-  const align = layout <= 1 && bytes[9] % 5 < 2 ? "left" : "center";
+  const font = FONTS[visual.fontIndex];
+  const align = layout <= 1 && identityBytes[9] % 5 < 2 ? "left" : "center";
   const tx = align === "left" ? 64 : MID, anchor = align === "left" ? "start" : "middle";
 
   const words = String(e.skill).toUpperCase().split("-");
@@ -358,10 +366,11 @@ function renderSvg(e, heroDataUri) {
   const artAt = (y0, h) =>
     `<clipPath id="artc"><rect x="0" y="${y0}" width="${W}" height="${h}"/></clipPath>`
     + `<g clip-path="url(#artc)"><g transform="translate(0 ${y0})">`
+    + `<g transform="translate(${(MID + dynamics.shiftX).toFixed(1)} ${(h / 2 + dynamics.shiftY).toFixed(1)}) rotate(${dynamics.rotate.toFixed(2)}) scale(${dynamics.scale.toFixed(4)}) translate(${-MID} ${(-h / 2).toFixed(1)})">`
     + (heroDataUri
       ? `<image x="0" y="0" width="${W}" height="${h}" href="${heroDataUri}" preserveAspectRatio="xMidYMid slice"/>`
       : style(rng, pal, W, h))
-    + `</g></g>`;
+    + `</g></g></g>`;
   const seriesEl = (y) => `<text x="${tx}" y="${y}" text-anchor="${anchor}" font-size="14" letter-spacing="4" fill="${pal.ink}" opacity="0.75" font-family="${MONO}">${esc(label.toUpperCase())}</text>`;
   const titleEl = (y, fs) => words.map((w, i) =>
     `<text x="${tx}" y="${(y + i * fs * 1.06).toFixed(0)}" text-anchor="${anchor}" font-size="${fs}" font-weight="bold" letter-spacing="${font.ls}" fill="${pal.ink}" font-family="${font.fam}">${esc(w)}</text>`).join("");
@@ -443,9 +452,9 @@ function renderSvg(e, heroDataUri) {
   const bc = barcode(bytes, 26, pal.ink);
   const shortDigest = (String(e.target_digest).split(":").pop() || "").slice(0, 12);
 
-  return `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" font-family="Georgia,'Times New Roman',serif">
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" font-family="Georgia,'Times New Roman',serif" data-visual-key="${visual.key}" data-palette="${visual.paletteIndex}" data-style="${visual.styleIndex}" data-layout="${layout}" data-content-files="${profile.files}" data-content-words="${profile.words}" data-content-headings="${profile.headings}">
 <defs>
-<filter id="grain"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="${bytes[6]}" stitchTiles="stitch"/><feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.55 0.55 0.55 0 0"/></filter>
+<filter id="grain"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="${identityBytes[6]}" stitchTiles="stitch"/><feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.55 0.55 0.55 0 0"/></filter>
 </defs>
 <rect width="${W}" height="${H}" fill="${pal.bg}"/>
 ${body}
@@ -457,11 +466,12 @@ ${meters}
 <g transform="translate(${616 - bc.width} 858)">${bc.svg}</g>
 <text x="616" y="900" text-anchor="end" font-size="10" fill="${pal.ink}" opacity="0.75" font-family="ui-monospace,SFMono-Regular,Menlo,monospace">sha256 ${esc(shortDigest)}</text>
 <text x="616" y="914" text-anchor="end" font-size="10" fill="${pal.ink}" opacity="0.75" font-family="ui-monospace,SFMono-Regular,Menlo,monospace">EXP ${esc(e.expires || "-")}</text>
-<rect width="${W}" height="${H}" filter="url(#grain)" opacity="0.28"/>
+<rect width="${W}" height="${H}" filter="url(#grain)" opacity="${dynamics.grainOpacity.toFixed(3)}"/>
 </svg>
 `;
 }
 
+function main() {
 // Positional args scope the run to those skills: only they are re-verified and
 // re-rendered, and their cards.json entries are patched into the existing feed.
 const only = process.argv.slice(2).filter((a) => !a.startsWith("--"));
@@ -491,7 +501,7 @@ for (const bucket of buckets) {
       trust_score: trustScore(grades), reachable: reachableMax(grades, (verify.capability || {}).model), rarity: rarity(grades).key,
       art: { svg: "CARD.svg", hero },
     };
-    writeFileSync(`${dir}/CARD.svg`, renderSvg(entry, heroDataUri));
+    writeFileSync(`${dir}/CARD.svg`, renderSvg(entry, heroDataUri, contentProfile(dir)));
     skills.push(entry);
   }
 }
@@ -535,3 +545,6 @@ if (process.argv.includes("--check")) {
   }
   console.log("cards check: all integrity STRONG");
 }
+}
+
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) main();

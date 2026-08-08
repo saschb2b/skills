@@ -60,6 +60,14 @@ The lifecycle when you edit a skill's content, in order (finish all content edit
 
 The full command reference and the layer-by-layer trust model live in `skills/engineering/trust-card/SKILL.md` and its `references/layers.md`.
 
+`CARD.svg` has a permanent per-skill visual identity. Existing cover seeds are
+frozen in `scripts/card-visual-identity.mjs`; never rotate one when the skill's
+content or digest changes. New skills derive their seed from the stable slug.
+Palette, composition, layout, typography, and base geometry come from that
+identity. File count, word count, and heading count may only make the bounded
+edition-level adjustments defined there. Keep the palette, style, and font
+arrays append-only, then run `pnpm cards:test` when changing card rendering.
+
 ## Skill-invocation evals
 
 The `description` is the only field the agent reads when deciding to auto-invoke a skill, so a reword can silently stop the agent reaching for it, or make it grab a sibling instead. The harness in `evals/` is the regression test. Run it on your own whenever you touch a skill:
