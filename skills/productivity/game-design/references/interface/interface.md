@@ -8,14 +8,14 @@ generated: { by: claude-code/unversioned, at: 2026-06-24T00:00:00Z }
 
 # Game Interface and UX Foundations
 
-The interface layer of the skill. Where [method.md](method.md) reads a game by its mechanics, these notes read it by its screens, menus, prompts, and feedback, the surface the player actually touches. This file is the hub and the theory; the concrete surfaces are split across [menus-and-screens.md](menus-and-screens.md), teaching in [onboarding.md](onboarding.md), conversation in [dialogue.md](dialogue.md), wayfinding and acknowledgment in [guidance-and-feedback.md](guidance-and-feedback.md), and the universal-access floor in [accessibility.md](accessibility.md). The load-bearing idea: a brilliant mechanic the player cannot perceive, parse, or operate is a broken mechanic. UI is where dynamics become legible, so it is part of the design, not a coat of paint over it.
+The interface layer of the skill. Where [method.md](../design/method.md) reads a game by its mechanics, these notes read it by its screens, menus, prompts, and feedback, the surface the player actually touches. This file is the hub and the theory; the concrete surfaces are split across [menus-and-screens.md](menus-and-screens.md), teaching in [onboarding.md](onboarding.md), conversation in [dialogue.md](dialogue.md), wayfinding and acknowledgment in [guidance-and-feedback.md](guidance-and-feedback.md), and the universal-access floor in [accessibility.md](accessibility.md). The load-bearing idea: a brilliant mechanic the player cannot perceive, parse, or operate is a broken mechanic. UI is where dynamics become legible, so it is part of the design, not a coat of paint over it.
 
 ## Usability versus engageability
 
 Celia Hodent's split ([The Gamer's Brain](https://celiahodent.com/gamers-brain-part-3-ux-engagement-immersion-retention-gdc17-talk/), 2017) is the frame to hold. Game UX has two separable jobs, and they fail for different reasons:
 
 - **Usability** asks "can the player use it". Hodent's pillars: signs and feedback, clarity (are those signs perceived), form follows function, consistency, minimum workload, error prevention and recovery, and flexibility. The critical caveat: usability pillars apply only where friction is **accidental**. A Souls boss is hard on purpose; a menu the player cannot find is hard by accident. Never sand down intended challenge in the name of usability.
-- **Engageability** asks "does the player want to keep going". Its pillars are motivation, emotion, and game flow. This is where the [frameworks.md](frameworks.md) motivation and flow models live; usability gets out of the way, engageability pulls forward.
+- **Engageability** asks "does the player want to keep going". Its pillars are motivation, emotion, and game flow. This is where the [frameworks.md](../design/frameworks.md) motivation and flow models live; usability gets out of the way, engageability pulls forward.
 
 Diagnose a complaint by which side it is on. "I didn't know I could do that" and "I clicked the wrong thing" are usability. "It got boring" and "I stopped caring" are engageability. The fixes do not transfer.
 
@@ -34,7 +34,7 @@ Use it as a placement tool, not a scorecard. Pushing UI toward diegetic deepens 
 
 ## Usability heuristics for games
 
-Nielsen's ten usability heuristics give a precise vocabulary for traditional interface faults and still apply, but they say nothing about what makes a game worth playing (fun, challenge, story, emotion), which is exactly why game-specific sets were built to extend them: Desurvire's HEP ([CHI 2004](https://dl.acm.org/doi/10.1145/985921.986102), 43 heuristics over game play, story, mechanics, usability), the empirically refined PLAY ([Desurvire and Wiberg, 2009](https://link.springer.com/chapter/10.1007/978-3-642-02774-1_60)), and Pinelle, Wong and Stach's set derived from analyzing 108 GameSpot reviews ([CHI 2008](https://dl.acm.org/doi/10.1145/1357054.1357282)). Treat them as an inspection checklist when reviewing a build; the design-review smell catalog in [critique.md](critique.md) folds the most load-bearing ones in.
+Nielsen's ten usability heuristics give a precise vocabulary for traditional interface faults and still apply, but they say nothing about what makes a game worth playing (fun, challenge, story, emotion), which is exactly why game-specific sets were built to extend them: Desurvire's HEP ([CHI 2004](https://dl.acm.org/doi/10.1145/985921.986102), 43 heuristics over game play, story, mechanics, usability), the empirically refined PLAY ([Desurvire and Wiberg, 2009](https://link.springer.com/chapter/10.1007/978-3-642-02774-1_60)), and Pinelle, Wong and Stach's set derived from analyzing 108 GameSpot reviews ([CHI 2008](https://dl.acm.org/doi/10.1145/1357054.1357282)). Treat them as an inspection checklist when reviewing a build; the design-review smell catalog in [critique.md](../design/critique.md) folds the most load-bearing ones in.
 
 ## The cognition the interface has to respect
 

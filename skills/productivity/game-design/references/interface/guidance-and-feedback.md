@@ -8,7 +8,7 @@ generated: { by: claude-code/unversioned, at: 2026-06-24T00:00:00Z }
 
 # Guidance and Feedback
 
-The two halves of the conversation between game and player that are not dialogue: **guidance** (where do I go, what can I do) before an action, and **feedback** (what just happened) after it. Three timing windows are worth keeping distinct, because each is a different design problem: a **signifier** says "this is interactable", **feedforward** says "here is what this action will do", and **feedback** says "here is what happened". Guidance is the gentle cousin of the honest telegraph in [critique.md](critique.md) and [principles.md](principles.md); feedback is the UI-scale relative of game feel in [frameworks.md](frameworks.md).
+The two halves of the conversation between game and player that are not dialogue: **guidance** (where do I go, what can I do) before an action, and **feedback** (what just happened) after it. Three timing windows are worth keeping distinct, because each is a different design problem: a **signifier** says "this is interactable", **feedforward** says "here is what this action will do", and **feedback** says "here is what happened". Guidance is the gentle cousin of the honest telegraph in [critique.md](../design/critique.md) and [principles.md](../design/principles.md); feedback is the UI-scale relative of game feel in [frameworks.md](../design/frameworks.md).
 
 ## Wayfinding and signposting
 
@@ -26,7 +26,7 @@ The vocabulary is Don Norman's: an affordance is a possible action, a [signifier
 
 Feedback presentation, the number pop, the reward toast, the confirmed-selection snap, is what makes an identical mechanic feel responsive. Make it carry information, not just sparkle: color-code magnitude (a crit reads differently from a tick), prioritize what matters, and stack notifications so they do not bury each other.
 
-The counterweight is the one most often forgotten. **Over-juicing hides game state.** When the screen fills with particles and wobbling numbers, the player cannot read what mattered, and feedback becomes a smokescreen for a thin underlying system. Strategy and decision-heavy moments in particular need calm and clarity over flash. The core game-feel theory (Swink, "Juice it or lose it", the Art of Screenshake) is in [frameworks.md](frameworks.md); the rule for the interface is the same as for the HUD, juice only as far as it keeps the state legible.
+The counterweight is the one most often forgotten. **Over-juicing hides game state.** When the screen fills with particles and wobbling numbers, the player cannot read what mattered, and feedback becomes a smokescreen for a thin underlying system. Strategy and decision-heavy moments in particular need calm and clarity over flash. The core game-feel theory (Swink, "Juice it or lose it", the Art of Screenshake) is in [frameworks.md](../design/frameworks.md); the rule for the interface is the same as for the HUD, juice only as far as it keeps the state legible.
 
 ## Error prevention and confirmation
 

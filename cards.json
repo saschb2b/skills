@@ -1264,11 +1264,11 @@
       "bucket": "productivity",
       "domain": "Game",
       "title": "game-design",
-      "description": "Analyze, design, critique, balance, and rework video game mechanics, systems, and interface, grounded in a cross-game pattern catalog and design frameworks (MDA, core loops, flow, motivation, game...",
+      "description": "Analyze, design, critique, balance, and rework video game mechanics, systems, and interface, grounded in a cross-game pattern catalog and design frameworks (MDA, core loops, flow, game feel...",
       "risk_tier": "executable-L1",
-      "target_digest": "sha256:f828eb665e7f958084e3c0948734ebe1bcccad2a6e23190980b12758107c7b4b",
+      "target_digest": "sha256:c69d2a42af7df224cdb1c203796848ad3f89637390e36cdaf522df25a4756337",
       "identity": "did:web:saschb2b.com",
-      "expires": "2027-07-27",
+      "expires": "2027-08-10",
       "capability": {
         "model": "executable",
         "manifest_declared": "permissions.yaml",
@@ -1281,6 +1281,7 @@
         "declared_external_sources": [
           "http://algorithmancy.8kindsoffun.com/",
           "http://mycours.es/gamedesign2014/files/2014/10/Game-Feel-Steve-Swink-chapter-1.pdf",
+          "http://technicalgamedesign.blogspot.com/2011/04/pillars.html",
           "https://accessible.games/accessible-player-experiences/",
           "https://archive.org/details/sequelitis-mega-man-classic-vs.-mega-man-x",
           "https://books.google.com/books/about/Game_Mechanics.html?id=_Azio0txIdAC",
@@ -1297,8 +1298,7 @@
           "https://gameaccessibilityguidelines.com/",
           "https://gameaccessibilityguidelines.com/allow-controls-to-be-remapped-reconfigured/",
           "https://gameaccessibilityguidelines.com/avoid-flickering-images-and-repetitive-patterns/",
-          "https://gameaccessibilityguidelines.com/use-an-easily-readable-default-font-size/",
-          "https://gamebalanceconcepts.wordpress.com/2010/07/21/level-3-transitive-mechanics-and-cost-curves/"
+          "https://gameaccessibilityguidelines.com/use-an-easily-readable-default-font-size/"
         ]
       },
       "layers": [

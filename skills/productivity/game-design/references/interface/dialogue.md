@@ -8,7 +8,7 @@ generated: { by: claude-code/unversioned, at: 2026-06-24T00:00:00Z }
 
 # Dialogue and Narrative UI
 
-The interface of conversation: how a game presents speech, structures choice, and signals consequence. This is where narrative meets usability, and where [method.md](method.md)'s ludonarrative-resonance lens gets a concrete surface, the player's words are a verb, and the gap between what they choose and what the character says is a resonance gap. Presentation overlaps the [interface.md](interface.md) readability floor and [accessibility.md](accessibility.md) caption rules; choice consequence overlaps the feedforward idea in [guidance-and-feedback.md](guidance-and-feedback.md).
+The interface of conversation: how a game presents speech, structures choice, and signals consequence. This is where narrative meets usability, and where [method.md](../design/method.md)'s ludonarrative-resonance lens gets a concrete surface, the player's words are a verb, and the gap between what they choose and what the character says is a resonance gap. Presentation overlaps the [interface.md](interface.md) readability floor and [accessibility.md](accessibility.md) caption rules; choice consequence overlaps the feedforward idea in [guidance-and-feedback.md](guidance-and-feedback.md).
 
 ## Presentation
 
@@ -34,7 +34,7 @@ Mass Effect's wheel (2007) maps tone to a fixed position (diplomatic top, aggres
 
 Disco Elysium (2019) is the modern high-water mark: 24 skills, each an internal **voice** that argues with the player, gate and color the conversation. Worth stealing precisely:
 
-- **White checks** can be retried after investing a skill point; **red checks** cannot. The distinction tells the player which failures are learnable and which are final, a telegraph in the [critique.md](critique.md) sense.
+- **White checks** can be retried after investing a skill point; **red checks** cannot. The distinction tells the player which failures are learnable and which are final, a telegraph in the [critique.md](../design/critique.md) sense.
 - **Passive checks** resolve silently and surface lore and characterization rather than gating progress, so stats shape the *texture* of the world, not just pass/fail gates.
 - The **Thought Cabinet** internalizes ideas over time for buffs and debuffs, turning reflection into a mechanic.
 

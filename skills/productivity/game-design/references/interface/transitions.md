@@ -8,7 +8,7 @@ generated: { by: claude-code/unversioned, at: 2026-06-24T00:00:00Z }
 
 # Transitions: Screen, Scene, and Audio
 
-The moment between two screens, spaces, or states: main menu into the save, in and out of the pause menu, through a door, death back to spawn, room to room in a dungeon. It runs on two channels at once, the visual cut and the audio handoff, and most "it feels off" problems are one of them fighting the other. This is the procedure; the screens themselves are in [menus-and-screens.md](menus-and-screens.md), the juice that dresses a transition (and its over-juice counterweight) is in [guidance-and-feedback.md](guidance-and-feedback.md), and the pacing it serves is the flow corridor in [frameworks.md](frameworks.md).
+The moment between two screens, spaces, or states: main menu into the save, in and out of the pause menu, through a door, death back to spawn, room to room in a dungeon. It runs on two channels at once, the visual cut and the audio handoff, and most "it feels off" problems are one of them fighting the other. This is the procedure; the screens themselves are in [menus-and-screens.md](menus-and-screens.md), the juice that dresses a transition (and its over-juice counterweight) is in [guidance-and-feedback.md](guidance-and-feedback.md), and the pacing it serves is the flow corridor in [frameworks.md](../design/frameworks.md).
 
 ## What a transition is for
 

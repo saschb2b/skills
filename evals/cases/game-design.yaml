@@ -22,6 +22,12 @@ should_fire:
   - what kind of screen transition should I use moving room to room in my roguelike
   - should the music crossfade, duck, or cut when the player opens the pause menu
   - should my inventory be a grid puzzle, a weight limit, or just unlimited slots
+  - I have an idea for a game, help me turn it into a proper concept before I start coding
+  - write a game design document for my farming roguelike
+  - help me define design pillars and a vision statement for my new project
+  - turn my game idea into a pitch I could show a publisher
+  - where should I write down my game's world, art style, and audio direction so it doesn't live in my head
+  - set up a concept doc for my game that I can keep iterating on as it grows
   - design a loot rarity and itemization system for my action RPG
   - my players hoard consumables and never use them, how do I fix that
   - how should equipment slots and set bonuses work without making one build mandatory
@@ -59,6 +65,10 @@ route_to_sibling:
     expect: ask-ux
   - prompt: redesign the checkout flow on our web app, it has a high drop-off
     expect: ask-ux
+  - prompt: turn our internal wiki's runbook pages into an OKF bundle
+    expect: okf
+  - prompt: validate the knowledge bundle in our data repo and fix any broken links
+    expect: okf
 
 should_not_fire:
   - set up TanStack Query for this API

@@ -5,78 +5,106 @@
   },
   {
     "path": "SKILL.md",
-    "sha256": "2a4a3358fea4217a45d61d9806aefae3c7489dc426d8c742466bd7fbf7f58fca"
+    "sha256": "8d41c66b3503461b8b5fd9fb81b7361bd64720a8918cb831ddaa59aa0f95ee51"
   },
   {
     "path": "permissions.yaml",
-    "sha256": "a59c33d37ea2d14fbd0b443829a952a6a6ff099c8ffcdc1f12ff6a8e9c8112aa"
+    "sha256": "5bc4fbd0597f8a5eea7163513fc5296d1f666d659af00294f96b2dee23fe3955"
   },
   {
-    "path": "references/accessibility.md",
-    "sha256": "99a6769c9edafdb02213a6e776dce2770947aae2381ce360506e1fafde6e7b60"
+    "path": "references/concept/concept-bundle.md",
+    "sha256": "2ba929f9e333140f948bdee1839d4f3f660b7ce52e6a865659dcefd10ba4d886"
   },
   {
-    "path": "references/critique.md",
+    "path": "references/concept/index.md",
+    "sha256": "16e032b7512f0515f20d2599fb41f0c5c3f16d5c09bbb5c6bfad4b338f7db159"
+  },
+  {
+    "path": "references/concept/seeding.md",
+    "sha256": "bee328491964659a5e50dc1d09adf2a3b83f74ef4dcc9f95e5a8fc7f9d717595"
+  },
+  {
+    "path": "references/concept/templates.md",
+    "sha256": "d5c134013525135f43fb3295869e38df287310abb0ab7e773644d37d82e92d74"
+  },
+  {
+    "path": "references/concept/tending.md",
+    "sha256": "021174578c76b5cc3d6fc6626e2b7763c80195c6833b21ca4e8e19cc5050fc17"
+  },
+  {
+    "path": "references/design/critique.md",
     "sha256": "ea95984b8a24f0e65d54a5f4cb6daab537b3a3585b3b73d8c9e606116418fd02"
   },
   {
-    "path": "references/dialogue.md",
-    "sha256": "a2c209434f1471dbd8b41d56e42540ef295ff133e9b88a4a4ae29fce1089336e"
-  },
-  {
-    "path": "references/frameworks.md",
+    "path": "references/design/frameworks.md",
     "sha256": "44214a3032023330c5ca911f6536ca0f161173469015aa0c67f49009391c640d"
   },
   {
-    "path": "references/guidance-and-feedback.md",
-    "sha256": "c410d557e739430cdb3cd616373f61838fd3ad3ed56cef9f9b9a485223a2415f"
+    "path": "references/design/index.md",
+    "sha256": "f7eaa86e18afde30c537471e480fb1d4368d732036c6ee695eaba684810907e0"
   },
   {
-    "path": "references/index.md",
-    "sha256": "e6ca380fa3e487faa26d032235c762c9ae3d8eb9ea38a04667d2c0931e887d29"
+    "path": "references/design/inventory.md",
+    "sha256": "947f09403776b8d74ca5df188d474e02269e54d950079a4c73bfc12876a9d9f7"
   },
   {
-    "path": "references/input-prompts.md",
-    "sha256": "d5d699134ee770f6a7f9040b03619d61786363d1f20c4aa33971260598be2967"
-  },
-  {
-    "path": "references/interface.md",
-    "sha256": "ec036517cf2ec50a5bfa5d9b692767f37f91734b0078a819d3a173e8aa54e81c"
-  },
-  {
-    "path": "references/inventory.md",
-    "sha256": "bef6a6580cebd66163f222b8e4745580b95a29ff6ecbea51cfd1944e7c03c2bd"
-  },
-  {
-    "path": "references/log.md",
-    "sha256": "1e63a62b2c643034a77f2ec6e49e9e7d2362621dbe647dff1846e8d5f3b1bcdb"
-  },
-  {
-    "path": "references/menus-and-screens.md",
-    "sha256": "a0572d8799cd608c6b459193941115f775d3f89a1bc7d8e64861be6e6ed334e9"
-  },
-  {
-    "path": "references/method.md",
+    "path": "references/design/method.md",
     "sha256": "17eb260c67c94d857557a3505c90fae79475ba39ec1c363908b5f99a20045261"
   },
   {
-    "path": "references/onboarding.md",
-    "sha256": "c4e7635880a958e6948c56c4e3e9013511f9bbc94a94503d39e4cc9b603948e4"
+    "path": "references/design/patterns.md",
+    "sha256": "ccc5413a75c72402eff7a9169ec68314aeb3e514c8003a104e0b7c43147f14f0"
   },
   {
-    "path": "references/patterns.md",
-    "sha256": "be9b24954efd252177d28dcf12064c40472753c321c3f8f71da09c826fbdae69"
-  },
-  {
-    "path": "references/principles.md",
+    "path": "references/design/principles.md",
     "sha256": "bfaaa51a0801121be7fac0ee5c44cb035a9a308ae16d75aa12d8d8a3434d176b"
   },
   {
-    "path": "references/systems.md",
+    "path": "references/design/systems.md",
     "sha256": "7fd0c6729d64a5e7a1842c355ba64f920273bab4e47bda0353e42d5035ec6ef9"
   },
   {
-    "path": "references/transitions.md",
-    "sha256": "4db80f91b2a6aa293b9c2187a6c61ade0a9d72b9fd5b099610b8d19f23b0db38"
+    "path": "references/index.md",
+    "sha256": "67d5dbd8f8a4588155905828fe63dc2f5b0571ee4e79df96194932217a365b29"
+  },
+  {
+    "path": "references/interface/accessibility.md",
+    "sha256": "6f178c60aafeb13158bfef917c7151510738e46dbf96ed681ba4d0a35b6dfab6"
+  },
+  {
+    "path": "references/interface/dialogue.md",
+    "sha256": "7ed7394807db7d9dfe98e0663641f32b1b0a8156f7ec0c3ca3c8551749540750"
+  },
+  {
+    "path": "references/interface/guidance-and-feedback.md",
+    "sha256": "0786f5921e480dad49519c44f3ba2b3f5627377d17cb31c4d68f1293c6545879"
+  },
+  {
+    "path": "references/interface/index.md",
+    "sha256": "3e71bee7e0631cc5aa81ff987e523f13f81ce89653d6dde4788fdfe9cf8ce931"
+  },
+  {
+    "path": "references/interface/input-prompts.md",
+    "sha256": "d5d699134ee770f6a7f9040b03619d61786363d1f20c4aa33971260598be2967"
+  },
+  {
+    "path": "references/interface/interface.md",
+    "sha256": "fa5b4a80fe0d10398b32ad1424bf2f2f97a71df065b80ea12609bf2a6442dd1b"
+  },
+  {
+    "path": "references/interface/menus-and-screens.md",
+    "sha256": "b2aa794283162d775a6a26d81d6b0f7dac1dc3204fe354054d7f812db51cfcae"
+  },
+  {
+    "path": "references/interface/onboarding.md",
+    "sha256": "6f9f04dea39722749ca5332817da731f220fb6a96e5f41232041dc196523baf2"
+  },
+  {
+    "path": "references/interface/transitions.md",
+    "sha256": "3375d0678ab38cca21e4601e9e4c6b6da3fa522777a25a55d25545db596b9825"
+  },
+  {
+    "path": "references/log.md",
+    "sha256": "aa03c0a8c791830305268123d9c18694fa669a63ab0bda7084540a48ab5d28f6"
   }
 ]

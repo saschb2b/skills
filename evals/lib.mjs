@@ -28,12 +28,17 @@ export function discoverSkills() {
     const text = readFileSync(f, "utf8");
     const fm = text.match(/^---\r?\n([\s\S]*?)\r?\n---/);
     if (!fm) continue;
-    const fields = {};
-    for (const line of fm[1].split(/\r?\n/)) {
-      if (!line.trim() || /^\s/.test(line)) continue; // skip nested/indented YAML
-      const idx = line.indexOf(": ");
-      if (idx < 0) continue;
-      fields[line.slice(0, idx).trim()] = line.slice(idx + 2);
+    let fields;
+    try {
+      fields = parse(fm[1]) ?? {}; // real YAML parse, so block scalars (>-) survive
+    } catch {
+      fields = {};
+      for (const line of fm[1].split(/\r?\n/)) {
+        if (!line.trim() || /^\s/.test(line)) continue; // skip nested/indented YAML
+        const idx = line.indexOf(": ");
+        if (idx < 0) continue;
+        fields[line.slice(0, idx).trim()] = line.slice(idx + 2);
+      }
     }
     if (fields.name && fields.description) out.push({ name: fields.name, description: fields.description });
   }
