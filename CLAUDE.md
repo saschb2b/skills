@@ -98,7 +98,7 @@ source_post: <blog-slug>
 Rules:
 
 - Keep the body under ~100 lines. If it grows past that, move the detail into a `references/` subdirectory and link to it from SKILL.md. The agent reads SKILL.md eagerly and the reference files only when it needs them. This is "progressive disclosure". That `references/` directory is a vendored OKF bundle (see "Vendored knowledge as OKF bundles" below), so it ships in the same install and adds no dependency.
-- The `description` field is critical and capped at 1024 characters. It must include trigger phrases the agent will recognize in user prompts.
+- The `description` field is critical and capped at 1024 characters. See "Writing the description" below.
 - **Never put `: ` (colon followed by a space) inside any frontmatter value.** YAML parses it as a key/value separator inside a plain scalar, gray-matter throws, and the skill is silently dropped from the build. Use a period, semicolon, dash, or rephrase. Colons in URLs, code (`docker:latest`), or compound words without trailing space are fine.
 - **Never put ` #` (a space followed by `#`) inside any frontmatter value.** YAML treats `#` as a comment marker when preceded by whitespace; the rest of the line is silently dropped from the parsed value. If you must mention hex codes in a description, do it in the body of SKILL.md instead.
 - `name` in frontmatter must match the folder name.
@@ -106,6 +106,19 @@ Rules:
 - Dates are ISO 8601 (`YYYY-MM-DD`).
 - `source_post` is a blog slug under `saschb2b.com/blog/<slug>` when the skill was distilled from a post. Optional.
 - `tags` is an optional inline list of lowercase-hyphen facets, domain first then task-type (`tags: [frontend, react, review]`). It is advisory metadata for browsing and for deciding when a cluster has earned its own folder, not something the agent reads to route. Use the inline flow form `[a, b, c]` (a block list of `- item` lines also parses, since the frontmatter checker skips indented lines); the `: ` and ` #` traps still apply, so keep tag values plain.
+
+## Writing the description
+
+The description's only job is selection. Every skill's description is preloaded into every session (the context window is a public good), and the agent routes from it alone; the body carries the how. Distilled from Anthropic's skill-authoring guidance plus this repo's eval experience:
+
+- Two parts, in order: what the skill does (verb-first, third person, never "I" or "you"), then explicit "Use when ..." triggers. Front-load the key use case; hosts truncate long listings.
+- Write triggers in the user's vocabulary, the words a real prompt would contain (file types, tool names, symptoms like "breaks with long text", "too grindy"). A trigger phrase the user would never type is dead weight.
+- No inventory, no mechanism. Counts of pillars or axes, internal section names, and the tools the skill drives under the hood ("via index.json and Playwright") do not help routing and cost every session. Put them in the body.
+- Name the sibling boundary. Where skills overlap, one sentence says which side this one owns ("defers memoization to react-compiler", "rides alongside godot, which writes the engine code"). Disambiguation is the eval column that breaks first, and the boundary sentence is what wins it.
+- Shorter beats fuller even under the 1024 cap, for the same reason: every description loads always. Cut before you compress.
+- After any description edit, run the invocation eval (see "Skill-invocation evals"). The eval is the regression test for everything above.
+
+Body-side practice from the same guidance: link every load-bearing reference file directly from SKILL.md rather than only through intermediate files, because the agent may preview nested references instead of reading them fully. The Reference bundle listing at the bottom of each SKILL.md serves exactly this.
 
 ## Vendored knowledge as OKF bundles
 
