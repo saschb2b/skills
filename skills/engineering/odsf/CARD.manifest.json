@@ -1,11 +1,15 @@
 [
   {
     "path": "SKILL.md",
-    "sha256": "46f809fa1006c277ead25220a2e9d8bc90f07be5d6eb717a74fedd5894666c3e"
+    "sha256": "53dd56ae5e60c2f04be4fd8e798c702cd15ff924c15c07818ced099530a47e52"
   },
   {
     "path": "commands.md",
-    "sha256": "3370892b3dd33dafd86e05dbe73e972e1f895348ffb60dfba15a9618b7e3c8b1"
+    "sha256": "8fe732ba348d302995978a2a40e11ac216717a14419c18a7957f122af12ac898"
+  },
+  {
+    "path": "enrich-machine.md",
+    "sha256": "7f1cf75c136f4901caf9cd72d70c9dbd5f6c39cf61a3275cca50e7d377411c99"
   },
   {
     "path": "odsf-validate.mjs",

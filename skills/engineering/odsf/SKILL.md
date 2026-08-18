@@ -26,7 +26,7 @@ Invoke as `/odsf <command> [target]`. Each is detailed in [commands.md](./comman
 | `token` | Define or update a foundation's `tokens` frontmatter and project it to `styles/tokens.css` (`colors.primary` → `--colors-primary`). Keep the two in sync; reference foundation tokens with `{group.name}`. |
 | `asset` | Author a companion `*.example.html` (or `*.do.html` / `*.dont.html`) plus its `styles/components.css` rules (consuming tokens via `var(--…)`), that renders standalone and shows the minimal correct markup. Foundations get demo sheets (swatches, specimens, scales); iconography gets the full glyph gallery. |
 | `edit` | Change an existing concept in place (a new variant, a retuned token). Follows the ripple checklist so a token change reaches `tokens.css`, `components.css`, the example, the variant table, each touched concept's `generated`, and the log, none skipped. |
-| `enrich` | Turn a source (a token export, a component library, a docs site, a Figma spec) into concepts, then a second pass that adds tokens, assets, behaviors, and citations. |
+| `enrich` | Turn a source (a token export, a component library, a docs site, a Figma spec) into concepts, then a second pass that adds tokens, assets, behaviors, and citations. For URL sources, run the [enrichment state machine](./enrich-machine.md): bounded crawl, coverage ledger, loop until a full sweep finds nothing new. |
 | `link` | Connect concepts with markdown links and name the relationship in prose (a component to the foundations it uses, a pattern to the components it composes). |
 | `index` | Generate or refresh `index.md` listings so an agent can navigate by progressive disclosure. |
 | `log` | Append a dated `log.md` entry (Creation, Update, Deprecation), newest first. |
@@ -78,6 +78,7 @@ It errors (exit 1) only on the hard requirements (a concept missing frontmatter 
 
 - [spec.md](./spec.md). The full ODSF v0.2 normative reference (conformance, the token model, the type vocabulary, assets, body conventions, the `status` reconciliation with OKF v0.2, versioning, changes from v0.1, non-goals).
 - [commands.md](./commands.md). Each command end to end, with the files it touches and the validate checklist.
+- [enrich-machine.md](./enrich-machine.md). The enrichment state machine for URL sources: S0–S10, the coverage ledger, interrupts, and the loop-until-dry convergence rule.
 - [templates.md](./templates.md). Concept shells per type (foundation, component, pattern, behavior, guideline, reference), root and sub `index.md`, `log.md`, plus the self-rendering example and `tokens.css` asset templates.
 - [odsf-validate.mjs](./odsf-validate.mjs). The zero-dependency conformance checker.
 
