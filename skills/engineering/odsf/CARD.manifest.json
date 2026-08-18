@@ -1,11 +1,11 @@
 [
   {
     "path": "SKILL.md",
-    "sha256": "9ae83e86eee59d81bb4152fae237b0149c4a0c654afb3e7ff7affaa8c2078066"
+    "sha256": "46f809fa1006c277ead25220a2e9d8bc90f07be5d6eb717a74fedd5894666c3e"
   },
   {
     "path": "commands.md",
-    "sha256": "96ea136176d1684d768cc660de10ff9b7155596bed36e759d6ab67f45305bbee"
+    "sha256": "3370892b3dd33dafd86e05dbe73e972e1f895348ffb60dfba15a9618b7e3c8b1"
   },
   {
     "path": "odsf-validate.mjs",
@@ -21,6 +21,6 @@
   },
   {
     "path": "templates.md",
-    "sha256": "309220bd00ec187a561e44a9929ed6c639ed44f72a78af01c59cf341cb4b8fe8"
+    "sha256": "33079b543b8c1b720a24aa4ad11eaf636347ab70d09acf3d3516631fc50aa170"
   }
 ]

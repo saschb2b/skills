@@ -80,10 +80,13 @@ sources:
 <the few convictions that explain the look and behavior>
 
 # How to use this bundle
-Start here, pull foundations from [`/styles/tokens.css`](/styles/tokens.css), descend to the
-[components](/components/) and [patterns](/patterns/) the task needs, copy from the example
+Start here, then open the [landing page](/patterns/landing-page.example.html) — the whole system
+composed into one page. Pull foundations from [`/styles/tokens.css`](/styles/tokens.css), descend
+to the [components](/components/) and [patterns](/patterns/) the task needs, copy from the example
 assets, and honor the [guidelines](/guidelines/).
 ```
+
+A mature bundle carries that **composition pattern**: one `patterns/landing-page.md` (or the domain's equivalent) whose example assembles a full, lifelike page from the bundle's own classes — header to footer, nothing bespoke. Author it last, link it from the overview, and treat it as the bundle's acceptance test.
 
 ## Foundation concept (token set)
 

@@ -24,14 +24,14 @@ Invoke as `/odsf <command> [target]`. Each is detailed in [commands.md](./comman
 | `init` | Create a bundle. Make the directory, a root `index.md` declaring `odsf_version` and `okf_version`, and the domain folders (`foundations/`, `components/`, …). |
 | `add` | Write one concept document. Pick a design `type` (§5), fill the recommended frontmatter, body it with the per-type headings (`# Tokens`, `# Anatomy`, `# Do & Don't`). |
 | `token` | Define or update a foundation's `tokens` frontmatter and project it to `styles/tokens.css` (`colors.primary` → `--colors-primary`). Keep the two in sync; reference foundation tokens with `{group.name}`. |
-| `asset` | Author a companion `*.example.html` (or `*.do.html` / `*.dont.html`) plus its `styles/components.css` rules (consuming tokens via `var(--…)`), that renders standalone and shows the minimal correct markup. |
+| `asset` | Author a companion `*.example.html` (or `*.do.html` / `*.dont.html`) plus its `styles/components.css` rules (consuming tokens via `var(--…)`), that renders standalone and shows the minimal correct markup. Foundations get demo sheets (swatches, specimens, scales); iconography gets the full glyph gallery. |
 | `edit` | Change an existing concept in place (a new variant, a retuned token). Follows the ripple checklist so a token change reaches `tokens.css`, `components.css`, the example, the variant table, each touched concept's `generated`, and the log, none skipped. |
 | `enrich` | Turn a source (a token export, a component library, a docs site, a Figma spec) into concepts, then a second pass that adds tokens, assets, behaviors, and citations. |
 | `link` | Connect concepts with markdown links and name the relationship in prose (a component to the foundations it uses, a pattern to the components it composes). |
 | `index` | Generate or refresh `index.md` listings so an agent can navigate by progressive disclosure. |
 | `log` | Append a dated `log.md` entry (Creation, Update, Deprecation), newest first. |
 | `validate` | Run the conformance check. `node odsf-validate.mjs <bundle>`, or the manual checklist in [commands.md](./commands.md). |
-| `export` | Convert an existing source into a conformant bundle: a token file, a component library, a Storybook, a brand site, or a design.md. The producer role. |
+| `export` | Convert an existing source into a conformant bundle: a token file, a component library, a Storybook, a brand site, or a design.md. The producer role. For a live brand site, follow the live-site procedure in [commands.md](./commands.md): confirm every component against the fetched DOM (stylesheets keep dead generations), embed the site's real public assets as data URIs, demo every foundation, compose one full page, then reconcile against the source stylesheet and render-verify with screenshots. |
 | `migrate` | Adopt an existing OKF bundle. Add `odsf_version` to the root `index.md` (the one required edit, since ODSF rule 1 is OKF conformance), then optionally enrich with tokens, assets, and types. Moving an ODSF v0.1 bundle to v0.2 is OKF's own v0.1-to-v0.2 procedure plus bumping `odsf_version`. |
 | `consume` | Read a bundle to apply it to a design task. Orient at `index.md`, pull foundations, descend by need, copy from the example assets, honor the guidelines. |
 
