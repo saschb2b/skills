@@ -1,11 +1,11 @@
 [
   {
     "path": "SKILL.md",
-    "sha256": "53dd56ae5e60c2f04be4fd8e798c702cd15ff924c15c07818ced099530a47e52"
+    "sha256": "454f9f865022fe71950a1aaa29af943cf3ef97ddfbbc4a1aa031ea55ed30054c"
   },
   {
     "path": "commands.md",
-    "sha256": "8fe732ba348d302995978a2a40e11ac216717a14419c18a7957f122af12ac898"
+    "sha256": "d37299558e9246c4f207fb747b9851e37f0810a7b152154d599d6c333a09092a"
   },
   {
     "path": "enrich-machine.md",
