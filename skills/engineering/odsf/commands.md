@@ -100,7 +100,7 @@ Touches: the source concept's body.
 
 Keep each directory's `index.md` current so an agent can choose where to descend without reading everything.
 
-1. For each directory, list its concepts as a bulleted set of links with a short description each, and link the example asset inline where one exists (`([example](button.example.html))`). Group under headings; link subdirectories with a trailing slash.
+1. For each directory, list its concepts as a bulleted set of links with a short description each, and link the example asset inline where one exists (`([example](button.example.html))`). Group under headings; link subdirectories with a trailing slash. When a directory outgrows a single scan — around fifteen concepts — group its index under function headings (actions & links, forms, feedback & status, navigation, content & media, data display) instead of one alphabetical run; mature systems catalog by function, and agents descend faster through a category than a list.
 2. An `index.md` carries no frontmatter, except the bundle-root one, which keeps its `odsf_version` and `okf_version`.
 3. Regenerate the affected `index.md` whenever you add, rename, remove, or re-describe a concept in that directory. A stale index is the most common drift.
 
@@ -161,6 +161,8 @@ The producer role: turn an existing design system into a bundle. (If your source
 Note ODSF ships no turnkey DTCG/Tailwind importer or exporter, the compatibility is in the token shape (spec §12), so a conversion either way is a producer task you script per project.
 
 The output of either path is a plain directory you can commit, tar, or drop into a larger repo.
+
+Optionally emit a **dense digest** beside the bundle — an `llms.txt` generated *from* it (identity, guideline/behavior one-liners with paths, concept index, the resolved token projection), a few KB for context-limited consumers who cannot hold the bundle. It is a lossy artifact of the bundle, never a second source of truth: generate it mechanically, regenerate it with every change, and never hand-edit it.
 
 ## `migrate`: adopt an existing OKF bundle
 

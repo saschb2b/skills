@@ -452,7 +452,7 @@
       "title": "odsf",
       "description": "Author, validate, and maintain a design system for AI agents as a conformant Open Design System Format (ODSF) bundle, a profile (v0.2) of Open Knowledge Format v0.2 that adds design tokens, runnable...",
       "risk_tier": "executable-L1",
-      "target_digest": "sha256:ad2d47f979d29d9864dd79a696b3930716239ae7b9cc7396e2980c2707c458f8",
+      "target_digest": "sha256:bc8bdf2bbdc8493ba19b90c0513c63b18632e5ff087c2ab38cd64364739aa863",
       "identity": "did:web:saschb2b.com",
       "expires": "2027-06-29",
       "capability": {
