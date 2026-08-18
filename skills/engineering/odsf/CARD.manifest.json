@@ -5,11 +5,11 @@
   },
   {
     "path": "commands.md",
-    "sha256": "d37299558e9246c4f207fb747b9851e37f0810a7b152154d599d6c333a09092a"
+    "sha256": "d807152b9626313b360419226810f05bbae78c1804c90a45c4e83062a1916874"
   },
   {
     "path": "enrich-machine.md",
-    "sha256": "7f1cf75c136f4901caf9cd72d70c9dbd5f6c39cf61a3275cca50e7d377411c99"
+    "sha256": "969da09a51d4ce7711cfbe64ad3a4fddc7815a12acdf24f60306dc0d55fed07d"
   },
   {
     "path": "odsf-validate.mjs",

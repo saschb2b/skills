@@ -46,7 +46,17 @@ Unit states advance monotonically: `inventoried → authored → reconciled → 
 
 **S8 · RENDER-VERIFY.** Screenshot every example (headless browser) beside the live site. Fix what differs — clipped or wrapping layout under fallback fonts, wrong glyph directions, states that should not exist at rest. Re-shoot until it matches; mark units `verified`. → S9.
 
-**S9 · SWEEP.** Re-walk one fetched page end to end and diff its DOM inventory against the ledger. Anything new → new `inventoried` rows, page marked `Dry: no`, → S4. Nothing new → page marked `Dry: yes`. Any page not dry → S9 on the next page. All pages dry and all units verified → S10.
+**S9 · SWEEP.** Re-walk one fetched page end to end and diff its DOM inventory against the ledger. Anything new → new `inventoried` rows, page marked `Dry: no`, → S4. Nothing new → page marked `Dry: yes`. Any page not dry → S9 on the next page. All pages dry and all units verified → the coverage gate, then S10.
+
+**The holistic coverage gate.** Page sweeps find what the pages show; they never ask what a design system *should* contain. Before sealing, walk the canonical anatomy and, for each section, either the bundle has it or the ledger records **why not** ("no evidence in source" is a valid and honest answer; silence is not):
+
+- *Foundations*: color, typography, iconography, spacing, layout/grid, elevation/shape, motion — plus the ones single passes always miss: an **interactive-states matrix** (one behavior, not per-component notes), a **layering/z-index scale** (the CSS census will show one), and **imagery** (what photography looks like, scrims, decorative textures — on a brand site this is a signature, not a nicety).
+- *Content*: a **`Voice` concept** — naming conventions (trademark prefixes are hard evidence in the copy), tagline usage, register, localization surface. Mark observational parts `draft`.
+- *Access*: an **`Accessibility` concept** consolidating the ARIA contracts you verified from the DOM, the contrast pairs the palette guarantees, and the focus policy — the per-component notes cite it, not the other way round.
+- *Navigation aids*: a **site-vocabulary reference** mapping the production markup's dialect (its module names, its internal prefixes, which generation is current) to bundle concepts, so a consumer reading live pages can orient.
+- *Facts about absence*: what the source deliberately lacks (no dark mode, no data-viz, no illustration system) is itself knowledge — record it in the owning foundation instead of leaving the question open.
+
+A gap found here is a new `inventoried` unit → S4. The gate passes when every canonical section is either shipped or accounted for. → S10.
 
 **S10 · SEAL.** `node odsf-validate.mjs <bundle> --strict` to zero errors *and* zero warnings, a closing `log.md` entry, and a coverage report to the user: pages crawled, units shipped, anything deliberately skipped and why. Halt.
 
