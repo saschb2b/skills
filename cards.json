@@ -1340,9 +1340,9 @@
       "title": "game-design",
       "description": "Analyze, design, critique, balance, and rework video game mechanics, systems, and interface, grounded in a cross-game pattern catalog and design frameworks (MDA, core loops, flow, game feel...",
       "risk_tier": "executable-L1",
-      "target_digest": "sha256:c69d2a42af7df224cdb1c203796848ad3f89637390e36cdaf522df25a4756337",
+      "target_digest": "sha256:8e08e58cca9d7ce53da6f09a5d59931cd9644699b1f622cdfc83a0f6ccfd1889",
       "identity": "did:web:saschb2b.com",
-      "expires": "2027-08-10",
+      "expires": "2027-08-21",
       "capability": {
         "model": "executable",
         "manifest_declared": "permissions.yaml",
@@ -1384,24 +1384,24 @@
         "freshness"
       ],
       "grades": {
-        "integrity": "ABSENT",
-        "authorship": "ABSENT",
+        "integrity": "STRONG",
+        "authorship": "STRONG",
         "capability": "MEDIUM",
         "content_provenance": "UNVERIFIED",
         "vouching": "ABSENT",
         "freshness": "MEDIUM"
       },
       "notes": {
-        "integrity": "MISMATCH live=sha256:8e08e58cca9d7ce53da6f09a5d59931cd9644699b1f622cdfc83a0f6ccfd1889",
-        "authorship": "card is unsigned",
+        "integrity": "digest matches live bundle",
+        "authorship": "sigstore + rekor, cosign verify-blob OK; signer not pinned (pass --cert-identity to assert who)",
         "capability": "permission manifest declared (enforce in sandbox)",
         "content_provenance": "n/a for executable skills",
         "vouching": "0 attestation(s) bound to this digest",
         "freshness": "not expired"
       },
-      "trust_score": 4,
+      "trust_score": 10,
       "reachable": 13,
-      "rarity": "common",
+      "rarity": "rare",
       "art": {
         "svg": "CARD.svg",
         "hero": null
