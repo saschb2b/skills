@@ -3,16 +3,16 @@ type: Library Notes
 title: "Turborepo"
 description: "v2 renamed the `turbo.json` `pipeline` key to `tasks`, shipped first-class Watch Mode (`turbo watch`) and Boundaries (module-boundary enforcement), and the engine is fully Rust."
 tags: [javascript, tooling]
-generated: { by: claude-code/unversioned, at: 2026-06-04T00:00:00Z }
+generated: { by: claude-code/unversioned, at: 2026-08-21T00:00:00Z }
 ---
 # Turborepo
 
-**Verified 2026-06-04.** Check the installed `turbo` version and `turbo.json` first; re-verify if newer than below.
+**Verified 2026-08-20.** Check the installed `turbo` version and `turbo.json` first; re-verify if newer than below.
 
-**Current stable**: v2 (2.9). **LLM default bias**: Turborepo 1.x, where the top-level config key was `pipeline` and the engine was a Go binary.
+**Current stable**: v2 (2.10, Jun 2026). **LLM default bias**: Turborepo 1.x, where the top-level config key was `pipeline` and the engine was a Go binary.
 
 ## The shift
-v2 renamed the `turbo.json` `pipeline` key to `tasks`, shipped first-class Watch Mode (`turbo watch`) and Boundaries (module-boundary enforcement), and the engine is fully Rust. By 2.9, `turbo query` (affected queries over the monorepo) is stable. It is owned and developed by Vercel.
+v2 renamed the `turbo.json` `pipeline` key to `tasks`, shipped first-class Watch Mode (`turbo watch`) and Boundaries (module-boundary enforcement), and the engine is fully Rust. By 2.9, `turbo query` (affected queries over the monorepo) is stable and Future Flags let a repo opt into 3.0 behavior early. 2.10 adds graceful task shutdown, deferred input hashing, composable `--affected` with `--filter`, and local cache eviction. It is owned and developed by Vercel.
 
 ## Stop / Start
 | Stop (Turborepo 1.x) | Start (Turborepo 2) |
@@ -26,9 +26,13 @@ v2 renamed the `turbo.json` `pipeline` key to `tasks`, shipped first-class Watch
 
 ## Gotchas
 - Run `npx @turbo/codemod migrate` to auto-rename `pipeline` to `tasks` and apply other v1 to v2 transforms.
-- Boundaries and OpenTelemetry logging are still experimental in 2.9; do not present them as fully stable.
+- Boundaries and OpenTelemetry logging are still experimental through 2.10; do not present them as fully stable.
+- 2.9 and later carry deprecations and Future Flags aimed at 3.0. Turn the flags on incrementally instead of waiting for the major.
 - v2 tightened env handling: env vars must be declared (`env`/`globalEnv`) for correct hashing, or caching is wrong.
+
+## Companion
+[nx.md](./nx.md) is the heavier alternative when the monorepo needs generators, inferred targets, and polyglot support.
 
 ## Sources
 - https://turborepo.dev/docs/reference/configuration
-- https://turborepo.dev/blog/2-9
+- https://turborepo.dev/blog/2-10

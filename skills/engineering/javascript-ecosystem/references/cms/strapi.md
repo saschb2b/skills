@@ -3,13 +3,13 @@ type: Library Notes
 title: "Strapi"
 description: "Strapi 5 replaces the Entity Service API with the Document Service API: content is modeled as documents identified by a string `documentId`, and Draft & Publish treats draft and published as..."
 tags: [javascript, cms]
-generated: { by: claude-code/unversioned, at: 2026-06-04T00:00:00Z }
+generated: { by: claude-code/unversioned, at: 2026-08-21T00:00:00Z }
 ---
 # Strapi
 
-**Verified 2026-06-04.** Check the installed `@strapi/strapi` version first; re-verify if newer than below.
+**Verified 2026-08-20.** Check the installed `@strapi/strapi` version first; re-verify if newer than below.
 
-**Current stable**: 5.x (5.47); 5.0 shipped Sep 2024. **LLM default bias**: Strapi v4. The Entity Service API (`strapi.entityService.*`), the nested `data.attributes` REST wrapper, numeric `id` as the only identifier, and draft/publish as a boolean.
+**Current stable**: 5.x (5.52); 5.0 shipped Sep 2024. **LLM default bias**: Strapi v4. The Entity Service API (`strapi.entityService.*`), the nested `data.attributes` REST wrapper, numeric `id` as the only identifier, and draft/publish as a boolean.
 
 ## The shift
 Strapi 5 replaces the Entity Service API with the Document Service API: content is modeled as documents identified by a string `documentId`, and Draft & Publish treats draft and published as distinct document versions. The REST and GraphQL response shape is flattened so attributes are no longer wrapped in `data.attributes`. Strapi 5 is TypeScript-first with an automated upgrade tool.
@@ -29,6 +29,9 @@ Strapi 5 replaces the Entity Service API with the Document Service API: content 
 - Use the `Strapi-Response-Format: v4` request header as a temporary shim to migrate REST consumers endpoint-by-endpoint.
 - REST still exposes a legacy `id` alongside `documentId`, but standardize new code on `documentId`.
 - Strapi v4 support ended around April 2026.
+
+## Companion
+[payload.md](./payload.md) is the TypeScript-native option inside Next.js, and [sanity.md](./sanity.md) is the hosted structured-content option with GROQ.
 
 ## Sources
 - https://docs.strapi.io/cms/migration/v4-to-v5/introduction-and-faq

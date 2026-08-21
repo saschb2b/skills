@@ -3,13 +3,13 @@ type: Library Notes
 title: "date-fns"
 description: "v4 adds first-class time-zone support for the first time via the `@date-fns/tz` package (a `TZDate` class and a `tz()` helper) and a new `in` context option that nearly every function accepts."
 tags: [javascript, dates]
-generated: { by: claude-code/unversioned, at: 2026-06-04T00:00:00Z }
+generated: { by: claude-code/unversioned, at: 2026-08-20T00:00:00Z }
 ---
 # date-fns
 
-**Verified 2026-06-04.** Check the installed `date-fns` version first; re-verify if newer than below.
+**Verified 2026-08-20.** Check the installed `date-fns` version first; re-verify if newer than below.
 
-**Current stable**: v4 (Sep 2024), with `@date-fns/tz` for time zones. **LLM default bias**: v1 and v2 patterns. Deep submodule imports like `import addDays from 'date-fns/addDays'`, and the assumption that date-fns has no built-in time-zone support.
+**Current stable**: 4.4, with `@date-fns/tz` for time zones. **LLM default bias**: v1 and v2 patterns. Deep submodule imports like `import addDays from 'date-fns/addDays'`, and the assumption that date-fns has no built-in time-zone support.
 
 ## The shift
 v4 adds first-class time-zone support for the first time via the `@date-fns/tz` package (a `TZDate` class and a `tz()` helper) and a new `in` context option that nearly every function accepts. The library is ESM-first, with named tree-shakable imports as the standard.
@@ -26,6 +26,7 @@ v4 adds first-class time-zone support for the first time via the `@date-fns/tz` 
 ## Gotchas
 - `@date-fns/tz` is a separate install. `TZDate` is tiny but you opt in per package.
 - v3 to v4 is a light major (mostly TypeScript generics); most app code upgrades cleanly.
+- The bundled CDN scripts are deprecated as of 4.4 and go away in the next major; use the separate `@date-fns/cdn` package.
 - Do not mix the legacy `date-fns-tz` package with the new `@date-fns/tz` model.
 
 ## Companion

@@ -3,9 +3,11 @@ type: Library Notes
 title: "API codegen setup (full teachable reference)"
 description: "Self-contained setup for the api-codegen tools, so this skill teaches the whole workflow without any other skill installed."
 tags: [javascript, api-codegen]
-generated: { by: claude-code/unversioned, at: 2026-06-05T00:00:00Z }
+generated: { by: claude-code/unversioned, at: 2026-08-20T00:00:00Z }
 ---
 # API codegen setup (full teachable reference)
+
+**Verified 2026-08-20.**
 
 Self-contained setup for the api-codegen tools, so this skill teaches the whole workflow without any other skill installed. The standalone **codegen-api** skill is an optional deeper dive on the same material.
 
@@ -47,7 +49,7 @@ const addPet = useMutation({ ...addPetMutation() });
 addPet.mutate({ body: { name: "Kitty" } });
 ```
 
-Suffixes are `Options`, `QueryKey`, `InfiniteOptions`, `Mutation` (each has `.name`/`.case` overrides). Runtime validation is wired through the SDK plugin's `validator` option (`validator: true` / `'zod'` / `{ request: 'zod' }`), backed by the `zod` plugin, not by importing schemas by hand. The SDK emits tree-shakeable flat functions; the old `DefaultService` class output is gone.
+Suffixes are `Options`, `QueryKey`, `InfiniteOptions`, `InfiniteQueryKey`, `Mutation` (each has `.name`/`.case` overrides), and the plugin has sibling packages for Vue, Angular, Svelte, Solid, and Preact. Runtime validation is wired through the SDK plugin's `validator` option (`validator: true` / `'zod'` / `{ request: 'zod' }`), backed by the `zod` plugin, not by importing schemas by hand. The SDK emits tree-shakeable flat functions; the old `DefaultService` class output is gone.
 
 ## Orval (REST, hooks-first but options-capable)
 
@@ -81,7 +83,7 @@ output: {
 },
 ```
 
-The flag is `useInfinite`, not `useInfiniteQuery`. Emit Zod with a separate output target set to `client: "zod"`. v8 notes: `httpClient` now defaults to `fetch`; mock config moved to a `generators` array (`mock: { generators: [{ type: "msw" }, { type: "faker" }] }`) and `mock: true` emits both MSW and Faker; non-GET query keys are namespaced by verb (`["POST", "/pets", body]`); Orval is ESM-only and needs Node 22.18+.
+The flag is `useInfinite`, not `useInfiniteQuery`. Emit Zod with a separate output target set to `client: "zod"`; that target generates Zod v4 by default since 8.19, so a v3 codebase must pin the version in the zod config. v8 notes: `httpClient` now defaults to `fetch`; mock config moved to a `generators` array (`mock: { generators: [{ type: "msw" }, { type: "faker" }] }`) and `mock: true` emits both MSW and Faker; non-GET query keys are namespaced by verb (`["POST", "/pets", body]`); Orval is ESM-only and needs Node 22.18+. Since 8.22, external `$ref` resolution across files is opt-in through `externalRefs`.
 
 ## openapi-typescript + openapi-fetch + openapi-react-query (REST, no generated hooks)
 
@@ -108,7 +110,7 @@ const { data: pet } = $api.useQuery("get", "/pets/{petId}", { params: { path: { 
 $api.useMutation("patch", "/pets").mutate({ body: { name: "Kitty" } });
 ```
 
-Gotchas: the `<paths>` generic goes on `createFetchClient`, not on openapi-react-query's `createClient`. Results are a `{ data, error }` discriminated union, so narrow on which is present instead of using try/catch. `openapi-react-query` needs `@tanstack/react-query` v5 as a peer. The three packages version independently (fetch and react-query are still 0.x).
+Gotchas: the `<paths>` generic goes on `createFetchClient`, not on openapi-react-query's `createClient`. Results are a `{ data, error }` discriminated union, so narrow on which is present instead of using try/catch. `openapi-react-query` needs `@tanstack/react-query` v5 as a peer. The three packages version independently (fetch and react-query are still 0.x), and the maintainers moved `openapi-fetch` and `openapi-react-query` into maintenance mode for 2026 to focus on `openapi-typescript` 8.0, so expect fixes but no new features.
 
 ## graphql-codegen client preset (Apollo / urql)
 
@@ -131,7 +133,9 @@ const config: CodegenConfig = {
 export default config;
 ```
 
-For TanStack Query plus a custom fetch wrapper, add `config.documentMode: "string"` so the codegen emits `TypedDocumentString`.
+For TanStack Query plus a custom fetch wrapper, add `config.documentMode: "string"` so the codegen emits `TypedDocumentString`. The preset ships inside `@graphql-codegen/cli`, so no separate install is needed.
+
+Client-preset 6 (the current line) changes the emitted types, so a 5-to-6 bump needs the migration guide. Nullable result fields are no longer optional (except under `@defer`/`@skip`/`@include`), unmapped scalars are `unknown` rather than `any`, optional `__typename` is dropped unless requested, persisted-document hashes are SHA-256, and Node 22+ is required.
 
 > CRITICAL. `documentMode: "string"` paired with Apollo or urql types all results as `any`. Those clients want the AST default. Only use `"string"` with TanStack Query and a custom fetch wrapper. (Apollo also recommends `typescript-operations` + `typed-document-node` over this preset; see `graphql-codegen.md`.)
 

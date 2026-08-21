@@ -3,13 +3,13 @@ type: Library Notes
 title: "Angular"
 description: "Angular is signal-first and zoneless."
 tags: [javascript, frameworks]
-generated: { by: claude-code/unversioned, at: 2026-06-05T00:00:00Z }
+generated: { by: claude-code/unversioned, at: 2026-08-20T00:00:00Z }
 ---
 # Angular
 
-**Verified 2026-06-05.** Check the installed `@angular/core` version first; re-verify if newer than below.
+**Verified 2026-08-20.** Check the installed `@angular/core` version first; re-verify if newer than below.
 
-**Current stable**: 22 (Jun 2026). **LLM default bias**: Angular 2 through 16. NgModules everywhere, Zone.js, `*ngIf`/`*ngFor`, RxJS for everything, constructor injection.
+**Current stable**: 22.1 (Jul 2026); an incremental minor (custom `set` option on `linkedSignal`, CSS variable namespacing), no paradigm change from v22. **LLM default bias**: Angular 2 through 16. NgModules everywhere, Zone.js, `*ngIf`/`*ngFor`, RxJS for everything, constructor injection.
 
 ## The shift
 Angular is signal-first and zoneless. Signals are the primary reactivity primitive, standalone components are the default (no NgModules), built-in control flow (`@if`/`@for`/`@switch`/`@let`) replaces structural directives, and zoneless change detection is the default from v21. From v22, OnPush is the default change detection strategy: a component with an undefined `changeDetection` is `OnPush`, not eager. As of v22 the resource APIs (`resource`, `rxResource`, `httpResource`) and Signal Forms (`@angular/forms/signals`) are stable.

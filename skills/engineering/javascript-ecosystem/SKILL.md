@@ -2,7 +2,7 @@
 name: javascript-ecosystem
 description: Default to the latest stable major versions of JavaScript and TypeScript frameworks and their current paradigms, instead of the older versions and patterns that dominate LLM training data. A version-and-paradigm changelog index that routes to per-tool notes. Use when writing, reviewing, scaffolding, or upgrading any JS or TS project, when choosing dependency versions, when an agent emits an outdated pattern, or when working with React, Angular, Vue, Svelte, Solid, Next.js, Nuxt, React Router, Remix, SvelteKit, Astro, TanStack Start, Material UI, Tailwind, shadcn, Mantine, Chakra, TanStack Query, Redux, Zustand, Jotai, TypeScript, Vite, Node, ESLint, pnpm, Bun, or Biome. Check the project's installed version first; this snapshot ages.
 tags: [javascript, typescript, frontend, tooling]
-date: 2026-06-05
+date: 2026-08-20
 source_post: llm-default-react-stack
 ---
 
@@ -22,7 +22,7 @@ LLMs default to the framework versions and patterns their training data over-rep
 
 This skill is a dated snapshot of a fast-moving ecosystem, and a snapshot is technical debt: it ages. Treat it as a cache of the official docs, not an oracle.
 
-- **Snapshot date: 2026-06-05** (the `date` in the frontmatter). Each notes file also carries its own `Verified` date.
+- **Snapshot date: 2026-08-20** (the `date` in the frontmatter). Each notes file also carries its own `Verified` date.
 - **Staleness rule.** If today is more than roughly 6 months past the snapshot date, or past a notes file's `Verified` date, treat that file's version numbers and "current stable" claims as suspect. The paradigm sections (`The shift` and the Start column) age far slower than version numbers, so trust those longer and verify the numbers.
 - **Verify the one tool you are about to use.** When a version-specific claim matters for the task, confirm it against that tool's official release notes or migration guide first. If you have web access and find an entry stale, apply the current paradigm and, if you maintain this repo, refresh the notes file.
 
@@ -63,7 +63,7 @@ Each notes file holds the current stable version, the LLM default bias, the para
 | --- | --- | --- |
 | Next.js | App Router + RSC default; explicit `"use cache"`; Turbopack | [nextjs.md](./references/meta-frameworks/nextjs.md) |
 | Nuxt | `app/` srcDir default; Nitro 3 waits for Nuxt 5 | [nuxt.md](./references/meta-frameworks/nuxt.md) |
-| React Router | Remix v2 merged in; framework mode is the successor | [react-router.md](./references/meta-frameworks/react-router.md) |
+| React Router | Remix v2 merged in; v8 adds stable middleware and RSC | [react-router.md](./references/meta-frameworks/react-router.md) |
 | SvelteKit | Runes; remote functions (experimental) | [sveltekit.md](./references/meta-frameworks/sveltekit.md) |
 | Astro | Content Layer API, Server Islands, Actions | [astro.md](./references/meta-frameworks/astro.md) |
 | TanStack Start | v1 RC full-stack on Router + Vite; `createServerFn` | [tanstack-start.md](./references/meta-frameworks/tanstack-start.md) |
@@ -75,14 +75,14 @@ Each notes file holds the current stable version, the LLM default bias, the para
 | --- | --- | --- |
 | Material UI | v9 (no v2/v8); CSS-variables theming; Grid v2 `size` | [mui.md](./references/ui/mui.md) |
 | Tailwind CSS | v4 CSS-first `@theme`; no config file; Oxide engine | [tailwind.md](./references/ui/tailwind.md) |
-| shadcn/ui | `shadcn` CLI; React 19 + Tailwind v4; `data-slot`; OKLCH | [shadcn.md](./references/ui/shadcn.md) |
+| shadcn/ui | `shadcn` CLI; Base UI default since Jul 2026 (Radix, React Aria opt-in); `data-slot` | [shadcn.md](./references/ui/shadcn.md) |
 | Mantine | Emotion gone since v7; v9 is React 19.2+ | [mantine.md](./references/ui/mantine.md) |
 | Chakra UI | v3 rewrite on Ark UI; namespaced compound API | [chakra.md](./references/ui/chakra.md) |
 | UnoCSS | Atomic engine; `presetWind4` tracks Tailwind v4 | [unocss.md](./references/ui/unocss.md) |
 | Motion | `framer-motion` is now `motion`; import `motion/react` | [motion.md](./references/ui/motion.md) |
 | Headless UI | Radix `radix-ui`, Base UI `@base-ui/react`, React Aria | [headless-ui.md](./references/ui/headless-ui.md) |
 | CSS-in-JS | styled-components in maintenance; build-time, RSC-safe CSS | [css-in-js.md](./references/ui/css-in-js.md) |
-| Angular Material | v22 standalone imports; M3 `mat.theme()`; CDK headless | [angular-material.md](./references/ui/angular-material.md) |
+| Angular Material | v22 standalone imports; M3 `mat.theme()`; CDK plus stable `@angular/aria` headless | [angular-material.md](./references/ui/angular-material.md) |
 
 ### Data and state
 | Tool | Headline shift | Notes |
@@ -93,14 +93,14 @@ Each notes file holds the current stable version, the LLM default bias, the para
 | Zustand | v5 `useShallow`; native `useSyncExternalStore` | [zustand.md](./references/data/zustand.md) |
 | Jotai | v2 vanilla store; async atoms hold promises | [jotai.md](./references/data/jotai.md) |
 | NgRx | Angular state; SignalStore (`@ngrx/signals`); functional Store | [ngrx.md](./references/data/ngrx.md) |
-| Pinia | Official Vue store (not Vuex); v3 setup stores | [pinia.md](./references/data/pinia.md) |
+| Pinia | Official Vue store (not Vuex); v4 setup stores, ESM only | [pinia.md](./references/data/pinia.md) |
 
 Picking one: a server-cache library (TanStack Query) for fetched data, a client-state library (Zustand or Jotai) for local global state, and Redux Toolkit for genuinely complex shared client state. Keep server data out of the client-state libraries.
 
 ### Tooling and language
 | Tool | Headline shift | Notes |
 | --- | --- | --- |
-| TypeScript | ESM-first strict configs; Go-based `tsgo` in preview | [typescript.md](./references/tooling/typescript.md) |
+| TypeScript | ESM-first strict configs; TypeScript 7 Go compiler now stable | [typescript.md](./references/tooling/typescript.md) |
 | Vite | ESM-only; Rolldown unifies the bundler | [vite.md](./references/tooling/vite.md) |
 | Node.js | Native TS type stripping; `node:test`; `--watch` | [node.md](./references/tooling/node.md) |
 | ESLint | Flat config (`eslint.config.js`) is the only system | [eslint.md](./references/tooling/eslint.md) |
@@ -108,17 +108,17 @@ Picking one: a server-cache library (TanStack Query) for fetched data, a client-
 | Biome | One Rust binary for lint + format; type-aware rules | [biome.md](./references/tooling/biome.md) |
 | Storybook | v10 ESM-only; testing via the Vitest addon | [storybook.md](./references/tooling/storybook.md) |
 | Turborepo | v2 `tasks` key (not `pipeline`); Rust; `turbo watch` | [turborepo.md](./references/tooling/turborepo.md) |
-| Nx | v22 Project Crystal inferred targets; polyglot | [nx.md](./references/tooling/nx.md) |
+| Nx | v23 Project Crystal inferred targets; polyglot | [nx.md](./references/tooling/nx.md) |
 
 ### Testing
 | Tool | Headline shift | Notes |
 | --- | --- | --- |
 | Vitest | The default Vite-project runner; stable Browser Mode | [vitest.md](./references/testing/vitest.md) |
-| Playwright | The modern e2e default; role locators, auto-wait | [playwright.md](./references/testing/playwright.md) |
+| Playwright | The modern e2e default; role locators, auto-wait, first-party component testing | [playwright.md](./references/testing/playwright.md) |
 | Jest | v30, but legacy for new Vite/ESM projects | [jest.md](./references/testing/jest.md) |
 | Testing Library | RTL 16; async `userEvent.setup()`; accessible queries | [testing-library.md](./references/testing/testing-library.md) |
 | Cypress | v15, now runner-up to Playwright for new e2e | [cypress.md](./references/testing/cypress.md) |
-| Angular testing | Karma deprecated; Vitest default in v21; TestBed standalone | [angular-testing.md](./references/testing/angular-testing.md) |
+| Angular testing | Karma deprecated; Vitest default since v21; TestBed standalone | [angular-testing.md](./references/testing/angular-testing.md) |
 
 New Vite + React + TS default: Vitest (unit and component) plus Testing Library plus Playwright (e2e). Jest and Cypress are the secondary choices, not the defaults.
 
@@ -136,7 +136,7 @@ New Vite + React + TS default: Vitest (unit and component) plus Testing Library 
 | Nitro | Deploy-anywhere; Nitro 3 + h3 v2 rewrite (beta) | [nitro.md](./references/backend/nitro.md) |
 | Drizzle ORM | 1.0 RC; RQB v2; validators as subpaths | [drizzle.md](./references/backend/drizzle.md) |
 | Prisma ORM | v7 drops the Rust engine; driver adapters required | [prisma.md](./references/backend/prisma.md) |
-| tRPC | v11 native TanStack Query options; RSC support | [trpc.md](./references/backend/trpc.md) |
+| tRPC | v11 native TanStack Query options; RSC support; first-party OpenAPI gen (alpha) | [trpc.md](./references/backend/trpc.md) |
 
 ### Forms and validation
 | Tool | Headline shift | Notes |
@@ -152,7 +152,7 @@ New-project default: React Hook Form + Zod 4 via `@hookform/resolvers`, or TanSt
 | --- | --- | --- |
 | Auth.js | NextAuth renamed; v5 beta and maintenance-only | [auth-js.md](./references/auth/auth-js.md) |
 | Better Auth | TS-native, DB-owned; the rising default for new apps | [better-auth.md](./references/auth/better-auth.md) |
-| Clerk | Managed; `clerkMiddleware()` and async `auth()` | [clerk.md](./references/auth/clerk.md) |
+| Clerk | Managed; Core 3 `<Show>`, `clerkMiddleware()`, async `auth()` | [clerk.md](./references/auth/clerk.md) |
 
 Self-hosted new-project default is Better Auth (the Auth.js team steers new work there); Clerk for managed. Lucia is sunset; do not recommend it.
 
@@ -160,7 +160,7 @@ Self-hosted new-project default is Better Auth (the Auth.js team steers new work
 | Tool | Headline shift | Notes |
 | --- | --- | --- |
 | i18next | TypeScript-first; module augmentation; Selector API | [i18next.md](./references/i18n/i18next.md) |
-| next-intl | App Router native; `AppConfig` typing; `setRequestLocale` | [next-intl.md](./references/i18n/next-intl.md) |
+| next-intl | App Router native; `AppConfig` typing; `next/root-params` replaces `setRequestLocale` | [next-intl.md](./references/i18n/next-intl.md) |
 | Paraglide JS | Compiler-based typed message functions; tree-shakable | [paraglide.md](./references/i18n/paraglide.md) |
 | Transloco | Angular runtime i18n; `@jsverse/transloco`; `provideTransloco` | [transloco.md](./references/i18n/transloco.md) |
 
@@ -199,7 +199,7 @@ Apollo or urql for stateful UIs (Apollo recommends its own typed documents over 
 | --- | --- | --- |
 | React Email | v6 unified `react-email` package; async `render()` | [react-email.md](./references/email/react-email.md) |
 | Resend | API-first; pass a React component; batch, idempotency | [resend.md](./references/email/resend.md) |
-| Nodemailer | v8 SMTP; `'NoAuth'` is now `'ENOAUTH'`; SESv2 | [nodemailer.md](./references/email/nodemailer.md) |
+| Nodemailer | v9 validates TLS certs on remote fetches; `'NoAuth'` is now `'ENOAUTH'`; SESv2 | [nodemailer.md](./references/email/nodemailer.md) |
 
 Modern transactional stack: React Email for templates, an API provider (Resend) to send, Nodemailer when you need raw SMTP.
 
@@ -224,7 +224,7 @@ Three complementary layers: errors and replay via Sentry, vendor-neutral traces 
 | Tool | Headline shift | Notes |
 | --- | --- | --- |
 | Payload | v3 runs inside a Next.js app; served from `/admin` | [payload.md](./references/cms/payload.md) |
-| Sanity | Config-as-code Studio v5; GROQ + TypeGen typed queries | [sanity.md](./references/cms/sanity.md) |
+| Sanity | Config-as-code Studio v6 on Vite 8; GROQ + TypeGen typed queries | [sanity.md](./references/cms/sanity.md) |
 | Strapi | v5 Document Service API; `documentId`; flattened responses | [strapi.md](./references/cms/strapi.md) |
 
 Payload for code-first TS inside Next.js; Sanity for structured content with GROQ and typed queries; Strapi for a self-hosted Node backend.
@@ -232,7 +232,7 @@ Payload for code-first TS inside Next.js; Sanity for structured content with GRO
 ### AI SDKs
 | Tool | Headline shift | Notes |
 | --- | --- | --- |
-| Vercel AI SDK | v6 agents; `UIMessage` parts; `inputSchema`, `stopWhen` | [vercel-ai-sdk.md](./references/ai-sdk/vercel-ai-sdk.md) |
+| Vercel AI SDK | v7 agent platform; `UIMessage` parts; `instructions`, `inputSchema`, `isStepCount` | [vercel-ai-sdk.md](./references/ai-sdk/vercel-ai-sdk.md) |
 | Anthropic SDK | Messages API; `messages.stream()`; cache without beta header | [anthropic-sdk.md](./references/ai-sdk/anthropic-sdk.md) |
 | OpenAI SDK | Responses API (`responses.create`) over chat completions | [openai-sdk.md](./references/ai-sdk/openai-sdk.md) |
 
@@ -265,9 +265,10 @@ There are no cross-skill file links anywhere, only by-name pointers. The sibling
 
 ### Prefer first-party agent guidance
 
-When a tool ships its own official agent guidance, it is the most authoritative and current source. Load it and prefer it; treat this skill as the cross-ecosystem index that routes you there, not a replacement. Known first-party resources (verified 2026-06-05):
+When a tool ships its own official agent guidance, it is the most authoritative and current source. Load it and prefer it; treat this skill as the cross-ecosystem index that routes you there, not a replacement. Known first-party resources (verified 2026-08-20):
 
-- **Official agent skills** (`npx skills add <repo>`): Angular (`angular/skills`), Next.js (`vercel-labs/next-skills`), Prisma (`prisma/skills`), Vercel AI SDK (`vercel/ai`), Expo (`expo/skills`), Better Auth (`better-auth/skills`), Clerk (`clerk/skills`).
+- **Official agent skills** (`npx skills add <repo>`): Angular (`angular/skills`), Prisma (`prisma/skills`), Vercel AI SDK (`vercel/ai`, including a `migrate-ai-sdk-v6-to-v7` skill), Expo (`expo/skills`), Better Auth (`better-auth/skills`), Clerk (`clerk.com/SKILL.md`, or `clerk mcp install`). Redux Toolkit ships skill files inside the package itself since 2.12.
+- **Next.js no longer ships a skills repo.** Vercel retired `vercel-labs/next-skills` in 16.3. `next dev` now writes a version-matched `AGENTS.md` block pointing at the docs bundled in `node_modules`.
 - **Official MCP servers**: Svelte and SvelteKit, Nuxt, Astro (its Docs MCP replaced llms.txt), shadcn/ui, Prisma, Clerk, Better Auth.
 - **`llms.txt` / `llms-full.txt`** (fetch `<docs-site>/llms.txt` for the official docs as agent context): React, Vue, SolidJS, Vite, Bun, Zod, Drizzle, TanStack, React Native, and most of the above. Tailwind and TypeScript do not publish one.
 

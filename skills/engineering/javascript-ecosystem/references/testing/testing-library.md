@@ -3,13 +3,13 @@ type: Library Notes
 title: "Testing Library (React + user-event)"
 description: "From RTL 16, `@testing-library/dom` is a separate peer dependency you install explicitly, and RTL 16 supports React 19."
 tags: [javascript, testing]
-generated: { by: claude-code/unversioned, at: 2026-06-04T00:00:00Z }
+generated: { by: claude-code/unversioned, at: 2026-08-20T00:00:00Z }
 ---
 # Testing Library (React + user-event)
 
-**Verified 2026-06-04.** Check the installed `@testing-library/react` and `@testing-library/user-event` versions first; re-verify if newer than below.
+**Verified 2026-08-20.** Check the installed `@testing-library/react` and `@testing-library/user-event` versions first; re-verify if newer than below.
 
-**Current stable**: `@testing-library/react` 16, `@testing-library/user-event` 14. **LLM default bias**: RTL 12 to 13 with a bundled `@testing-library/dom`, user-event v13 (synchronous `userEvent.click()`), heavy `fireEvent` usage, and manual `act()` wrapping.
+**Current stable**: `@testing-library/react` 16.3 (Jan 2026), `@testing-library/user-event` 14.6 (Aug 2026). **LLM default bias**: RTL 12 to 13 with a bundled `@testing-library/dom`, user-event v13 (synchronous `userEvent.click()`), heavy `fireEvent` usage, and manual `act()` wrapping.
 
 ## The shift
 From RTL 16, `@testing-library/dom` is a separate peer dependency you install explicitly, and RTL 16 supports React 19. user-event v14 made interactions async around `userEvent.setup()`. The guidance is to simulate real user interactions over dispatching raw events, and to use accessible queries.

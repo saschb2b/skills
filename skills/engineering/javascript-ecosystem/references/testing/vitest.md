@@ -3,13 +3,13 @@ type: Library Notes
 title: "Vitest"
 description: "Vitest is the default test runner for Vite-based projects, having displaced Jest for new Vite, React, Vue, and Svelte work because it reuses the Vite config and transform pipeline and runs ESM and..."
 tags: [javascript, testing]
-generated: { by: claude-code/unversioned, at: 2026-06-04T00:00:00Z }
+generated: { by: claude-code/unversioned, at: 2026-08-20T00:00:00Z }
 ---
 # Vitest
 
-**Verified 2026-06-04.** Check the installed `vitest` version first; re-verify if newer than below.
+**Verified 2026-08-20.** Check the installed `vitest` version first; re-verify if newer than below.
 
-**Current stable**: 4.x (4.0 GA Dec 2025). **LLM default bias**: 0.x and 1.x config patterns, the assumption that Jest is the default runner, and treating browser mode as experimental.
+**Current stable**: 4.1 (Mar 2026; 4.0 GA Oct 2025, 5.0 in RC). **LLM default bias**: 0.x and 1.x config patterns, the assumption that Jest is the default runner, and treating browser mode as experimental.
 
 ## The shift
 Vitest is the default test runner for Vite-based projects, having displaced Jest for new Vite, React, Vue, and Svelte work because it reuses the Vite config and transform pipeline and runs ESM and TS natively. v4 made Browser Mode stable, so component tests run in a real browser via Playwright instead of JSDOM.
@@ -27,10 +27,13 @@ Vitest is the default test runner for Vite-based projects, having displaced Jest
 - Config lives in `vitest.config.ts`, merged with `vite.config.ts` via `mergeConfig`. Use the `test` key.
 - `vi.fn().mock.invocationCallOrder` now starts at 1 (Jest-aligned), not 0.
 - v4 adds an `agent` reporter tuned for low-token AI-agent output.
+- 4.1 supports Vite 8, adds test tags for grouping and filtering, and adds `--detect-async-leaks`.
+- v5 is in RC (Aug 2026). Its headline breaking change: mocks clear by default before each test. Do not write code against v5 until GA.
 
 ## Companion
 Vite paradigm notes in [../tooling/vite.md](../tooling/vite.md). Component assertions in [testing-library.md](./testing-library.md).
 
 ## Sources
+- https://vitest.dev/blog/vitest-4-1
 - https://vitest.dev/blog/vitest-4
 - https://vitest.dev/guide/migration.html

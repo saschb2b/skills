@@ -3,13 +3,13 @@ type: Library Notes
 title: "Payload CMS"
 description: "Payload 3 is a full rewrite that runs inside a Next.js App Router app rather than as a separate Express server."
 tags: [javascript, cms]
-generated: { by: claude-code/unversioned, at: 2026-06-04T00:00:00Z }
+generated: { by: claude-code/unversioned, at: 2026-08-20T00:00:00Z }
 ---
 # Payload CMS
 
-**Verified 2026-06-04.** Check the installed `payload` version first; re-verify if newer than below.
+**Verified 2026-08-20.** Check the installed `payload` version first; re-verify if newer than below.
 
-**Current stable**: 3.x (3.85). **LLM default bias**: Payload 2.x and 1.x. A standalone Express server with its own `server.ts` started via `payload.init()`, MongoDB-only, and a webpack-bundled admin on a separate Express app.
+**Current stable**: 3.x (3.88). **LLM default bias**: Payload 2.x and 1.x. A standalone Express server with its own `server.ts` started via `payload.init()`, MongoDB-only, and a webpack-bundled admin on a separate Express app.
 
 ## The shift
 Payload 3 is a full rewrite that runs inside a Next.js App Router app rather than as a separate Express server. You install it into an existing Next.js project, it serves the admin from `/admin`, and it ships React Server Components, native Postgres/SQLite (via Drizzle) alongside MongoDB, and serverless deployability. Config stays code-first and TypeScript-native.

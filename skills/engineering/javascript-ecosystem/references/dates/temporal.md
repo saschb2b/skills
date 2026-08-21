@@ -3,13 +3,13 @@ type: Library Notes
 title: "Temporal (TC39)"
 description: "Temporal is a finished standard that replaces the broken `Date`."
 tags: [javascript, dates]
-generated: { by: claude-code/unversioned, at: 2026-06-04T00:00:00Z }
+generated: { by: claude-code/unversioned, at: 2026-08-20T00:00:00Z }
 ---
 # Temporal (TC39)
 
-**Verified 2026-06-04.** Check runtime support and whether the project uses a polyfill; re-verify status if newer than below.
+**Verified 2026-08-20.** Check runtime support and whether the project uses a polyfill; re-verify status if newer than below.
 
-**Current status**: Stage 4 / finished, part of ECMAScript 2026. Native in Firefox 139, Chrome 144 (V8), and Node 26; Safari has it in Technology Preview only. Polyfill via `temporal-polyfill` or `@js-temporal/polyfill`. **LLM default bias**: no native Temporal at all. The legacy `Date` plus Moment/Luxon/date-fns workarounds, and the stale "Temporal is Stage 3, not shippable" framing.
+**Current status**: Stage 4 / finished, part of ECMAScript 2026. Native in Firefox 139, Chrome 144 (V8), and Node 26; Safari has it in Technology Preview 249 only, not in Safari 26.x stable. Polyfill via `temporal-polyfill` or `@js-temporal/polyfill`. **LLM default bias**: no native Temporal at all. The legacy `Date` plus Moment/Luxon/date-fns workarounds, and the stale "Temporal is Stage 3, not shippable" framing.
 
 ## The shift
 Temporal is a finished standard that replaces the broken `Date`. It adds immutable, purpose-specific types (`PlainDate`, `PlainTime`, `PlainDateTime`, `ZonedDateTime`, `Instant`, `Duration`) with first-class IANA time-zone and calendar support, deterministic arithmetic, and no month-zero or mutation footguns.
@@ -25,7 +25,7 @@ Temporal is a finished standard that replaces the broken `Date`. It adds immutab
 | Reaching for Moment or Luxon just for parsing and zones | Native `Temporal` (with a polyfill where Safari or old targets matter) |
 
 ## Gotchas
-- Safari stable lacks it (about 69% coverage), so production front ends should still ship a polyfill or feature-detect.
+- Safari stable still lacks it through 26.6 (about 69% coverage), so production front ends should ship a polyfill or feature-detect.
 - `@js-temporal/polyfill` is alpha and large; `temporal-polyfill` is a smaller, more current alternative.
 - `Temporal.Instant` (exact time) versus `PlainDateTime` (wall-clock, no zone) is a real distinction; converting requires an explicit time zone.
 

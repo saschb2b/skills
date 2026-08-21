@@ -3,13 +3,13 @@ type: Library Notes
 title: "React Hook Form"
 description: "Still on the v7 major and actively maintained (a v8 beta is in flight)."
 tags: [javascript, forms]
-generated: { by: claude-code/unversioned, at: 2026-06-04T00:00:00Z }
+generated: { by: claude-code/unversioned, at: 2026-08-20T00:00:00Z }
 ---
 # React Hook Form
 
-**Verified 2026-06-04.** Check the installed `react-hook-form` version first; re-verify if newer than below.
+**Verified 2026-08-20.** Check the installed `react-hook-form` version first; re-verify if newer than below.
 
-**Current stable**: 7.77 (May 2026); v8 is in beta, not stable. **LLM default bias**: React Hook Form v7 generally, but often older v7 patterns and the v6 `register` ref-callback style (`ref={register}`).
+**Current stable**: 7.85 (August 2026); v8 is still in beta (8.0.0-beta.3), not stable. **LLM default bias**: React Hook Form v7 generally, but often older v7 patterns and the v6 `register` ref-callback style (`ref={register}`).
 
 ## The shift
 Still on the v7 major and actively maintained (a v8 beta is in flight). The current best practice pairs RHF with a schema resolver for validation rather than inline `register` rules, and reserves `<Controller>` for controlled and third-party inputs while keeping native inputs uncontrolled for performance.
@@ -20,12 +20,14 @@ Still on the v7 major and actively maintained (a v8 beta is in flight). The curr
 | `register` as a ref callback (`<input ref={register} name="x" />`) | Spread the return (`<input {...register("x")} />`) |
 | Hand-rolled inline validation rules for complex schemas | A resolver (`useForm({ resolver: zodResolver(schema) })`) |
 | `<Controller>` for every input | Native inputs uncontrolled; `<Controller>` for controlled libraries (MUI, RN) |
-| Reaching for v8 in production | Stay on v7.77 (v8 is beta) |
+| Reaching for v8 in production | Stay on v7.85 (v8 is beta) |
+| Hand-rolling array field wiring around `useFieldArray` | The `<FieldArray />` component (added in 7.81) |
 
 ## Gotchas
-- `@hookform/resolvers` 5.x requires `react-hook-form@7.55.0+`; pair RHF 7.77 with resolvers 5.4.x.
+- `@hookform/resolvers` 5.x requires `react-hook-form@7.55.0+`; pair RHF 7.85 with resolvers 5.9.x.
 - 7.77 added security hardening against prototype-path traversal; bump if you were on an older 7.x.
-- v8 beta changes some internals; do not assume v8 docs apply to the stable v7 line.
+- Recent 7.x additions worth knowing: the opt-in `delayError` option (7.82) and React `<Activity />` support (7.85).
+- v8 beta changes some internals (`<Watch />` takes `name`, the `watch` callback API is gone, `setValue` no longer writes into `useFieldArray`); do not assume v8 docs apply to the stable v7 line.
 
 ## Companion
 Schema validation in [zod.md](./zod.md).

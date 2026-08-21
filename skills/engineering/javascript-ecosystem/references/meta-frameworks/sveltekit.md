@@ -3,16 +3,16 @@ type: Library Notes
 title: "SvelteKit"
 description: "Svelte 5 runes (`$state`, `$derived`, `$effect`, `$props`) replace the implicit Svelte 4 model inside SvelteKit too."
 tags: [javascript, meta-frameworks]
-generated: { by: claude-code/unversioned, at: 2026-06-04T00:00:00Z }
+generated: { by: claude-code/unversioned, at: 2026-08-20T00:00:00Z }
 ---
 # SvelteKit
 
-**Verified 2026-06-04.** Check the installed `@sveltejs/kit` and `svelte` versions first; re-verify if newer than below.
+**Verified 2026-08-20.** Check the installed `@sveltejs/kit` and `svelte` versions first; re-verify if newer than below.
 
 **Current stable**: SvelteKit 2.x with Svelte 5. **LLM default bias**: Svelte 4 reactivity inside SvelteKit, and the assumption that `load` functions plus form actions are the only data path.
 
 ## The shift
-Svelte 5 runes (`$state`, `$derived`, `$effect`, `$props`) replace the implicit Svelte 4 model inside SvelteKit too. SvelteKit added remote functions (`query`, `form`, `command`, `prerender`) for type-safe client-server calls directly in components, an alternative to `load` and form actions, though still experimental.
+Svelte 5 runes (`$state`, `$derived`, `$effect`, `$props`) replace the implicit Svelte 4 model inside SvelteKit too. SvelteKit added remote functions (`query`, `query.batch`, `query.live`, `form`, `command`, `prerender`) for type-safe client-server calls directly in components, an alternative to `load` and form actions, though still experimental.
 
 ## Stop / Start
 | Stop (LLM default) | Start (current SvelteKit) |

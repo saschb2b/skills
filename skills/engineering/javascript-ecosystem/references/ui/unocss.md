@@ -3,13 +3,13 @@ type: Library Notes
 title: "UnoCSS"
 description: "UnoCSS is an atomic-CSS engine (instant, on-demand, preset-driven), not a fixed framework."
 tags: [javascript, ui]
-generated: { by: claude-code/unversioned, at: 2026-06-04T00:00:00Z }
+generated: { by: claude-code/unversioned, at: 2026-08-20T00:00:00Z }
 ---
 # UnoCSS
 
-**Verified 2026-06-04.** Check the installed `unocss` version and `uno.config.ts` presets first; re-verify if newer than below.
+**Verified 2026-08-20.** Check the installed `unocss` version and `uno.config.ts` presets first; re-verify if newer than below.
 
-**Current stable**: 66.x (66.7, May 2026); a single rolling major across all packages. **LLM default bias**: the old `presetUno()` / `@unocss/preset-uno` paired with `@unocss/reset`, and framing UnoCSS as a Tailwind clone rather than an engine.
+**Current stable**: 66.x (66.8, Aug 2026); a single rolling major across all packages. **LLM default bias**: the old `presetUno()` / `@unocss/preset-uno` paired with `@unocss/reset`, and framing UnoCSS as a Tailwind clone rather than an engine.
 
 ## The shift
 UnoCSS is an atomic-CSS engine (instant, on-demand, preset-driven), not a fixed framework. Its Tailwind-compatible layer now tracks Tailwind v4 via `preset-wind4`. `preset-uno` was deprecated in 66.0 in favor of `presetWind3`, and `presetWind4` is the Tailwind-v4-aligned preset that bundles its own reset and emits a CSS-variable-driven theme.

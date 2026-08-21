@@ -3,11 +3,11 @@ type: Library Notes
 title: "Jest"
 description: "Jest 30 is faster and leaner with a modernized toolchain (jsdom 26, dropped legacy Node)."
 tags: [javascript, testing]
-generated: { by: claude-code/unversioned, at: 2026-06-04T00:00:00Z }
+generated: { by: claude-code/unversioned, at: 2026-08-21T00:00:00Z }
 ---
 # Jest
 
-**Verified 2026-06-04.** Check the installed `jest` version first; re-verify if newer than below.
+**Verified 2026-08-20.** Check the installed `jest` version first; re-verify if newer than below.
 
 **Current stable**: 30 (Jun 2025). **LLM default bias**: Jest 27 to 29 with Babel-based CommonJS transforms, `jest.mock()` for CJS, and Jest assumed to be the universal default runner.
 
@@ -27,6 +27,9 @@ Jest 30 is faster and leaner with a modernized toolchain (jsdom 26, dropped lega
 - Config can be authored in TypeScript (`.mts`/`.cts`).
 - The new `globalsCleanup` option (default soft) warns about uncleaned globals; address leaks now.
 - The `using` keyword is supported for auto-cleanup of spies.
+
+## Companion
+[vitest.md](./vitest.md) is the runner to reach for in new Vite or ESM projects, and its API is close enough that migration is mostly config.
 
 ## Sources
 - https://jestjs.io/blog/2025/06/04/jest-30

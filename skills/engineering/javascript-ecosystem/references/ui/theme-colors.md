@@ -3,9 +3,11 @@ type: Library Notes
 title: "Theme colors (full teachable reference)"
 description: "Self-contained reference for role-based color so this skill teaches it without any other skill installed."
 tags: [javascript, ui]
-generated: { by: claude-code/unversioned, at: 2026-06-05T00:00:00Z }
+generated: { by: claude-code/unversioned, at: 2026-08-20T00:00:00Z }
 ---
 # Theme colors (full teachable reference)
+
+**Verified 2026-08-20.** Role-based guidance, not version-pinned; the MUI examples (`alpha()`, `createTheme`, `sx` callbacks) hold unchanged on current MUI v9.
 
 Self-contained reference for role-based color so this skill teaches it without any other skill installed. The standalone **theme-colors** skill is an optional deeper dive on the same material.
 

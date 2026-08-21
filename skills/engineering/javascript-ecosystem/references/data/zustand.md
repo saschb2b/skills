@@ -3,13 +3,13 @@ type: Library Notes
 title: "Zustand"
 description: "v5 dropped React below 18, so it uses React's native `useSyncExternalStore` directly, and it removed the ability to pass a custom equality function to the `create`-returned hook."
 tags: [javascript, data]
-generated: { by: claude-code/unversioned, at: 2026-06-04T00:00:00Z }
+generated: { by: claude-code/unversioned, at: 2026-08-20T00:00:00Z }
 ---
 # Zustand
 
-**Verified 2026-06-04.** Check the installed `zustand` version first; re-verify if newer than below.
+**Verified 2026-08-20.** Check the installed `zustand` version first; re-verify if newer than below.
 
-**Current stable**: v5 (5.0 shipped Oct 2024). **LLM default bias**: v4. `create` with a built-in equality argument, `shallow` passed as a selector's second arg, deep middleware import paths, and the `use-sync-external-store` shim for React below 18.
+**Current stable**: v5 (5.0.15, Aug 2026; 5.0 shipped Oct 2024). **LLM default bias**: v4. `create` with a built-in equality argument, `shallow` passed as a selector's second arg, deep middleware import paths, and the `use-sync-external-store` shim for React below 18.
 
 ## The shift
 v5 dropped React below 18, so it uses React's native `useSyncExternalStore` directly, and it removed the ability to pass a custom equality function to the `create`-returned hook. Shallow comparison now goes through the `useShallow` hook. It is a client-state library, not a server cache.

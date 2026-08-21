@@ -3,13 +3,13 @@ type: Library Notes
 title: "Hono"
 description: "Hono is built directly on Web Standard primitives (the fetch-API `Request`/`Response`, `Headers`, `URL`), so the same code runs unchanged on Cloudflare Workers, Bun, Deno, AWS Lambda, Vercel, and Node."
 tags: [javascript, backend]
-generated: { by: claude-code/unversioned, at: 2026-06-05T00:00:00Z }
+generated: { by: claude-code/unversioned, at: 2026-08-21T00:00:00Z }
 ---
 # Hono
 
-**Verified 2026-06-05.** Check the installed `hono` version first; re-verify if newer than below.
+**Verified 2026-08-20.** Check the installed `hono` version first; re-verify if newer than below.
 
-**Current stable**: 4.x (4.12, May 2026). **LLM default bias**: early Hono v3 or pre-4 patterns, missing the v4 RPC maturity and the web-standard framing.
+**Current stable**: 4.x (4.13, Aug 2026). **LLM default bias**: early Hono v3 or pre-4 patterns, missing the v4 RPC maturity and the web-standard framing.
 
 ## The shift
 Hono is built directly on Web Standard primitives (the fetch-API `Request`/`Response`, `Headers`, `URL`), so the same code runs unchanged on Cloudflare Workers, Bun, Deno, AWS Lambda, Vercel, and Node. Its RPC mode exports the server's route types, giving end-to-end type safety with no codegen and no OpenAPI step.
@@ -28,6 +28,10 @@ Hono is built directly on Web Standard primitives (the fetch-API `Request`/`Resp
 - For RPC inference, chain routes and export the app type (`type AppType = typeof app`). Breaking the chain degrades inference.
 - Middleware is an onion model; `await next()` placement controls pre and post behavior.
 - The validator and OpenAPI helpers are separate packages from the core `hono`. Read validated data with `c.req.valid('json' | 'form' | 'query')` after `zValidator`.
+- 4.13 (Aug 2026) added first-class HTTP QUERY method support (`app.query()`) and a Method Not Allowed middleware, plus core routing performance work.
+
+## Companion
+[fastify.md](./fastify.md) is the Node-native alternative when edge portability is not a requirement, and [nitro.md](./nitro.md) applies a similar deploy-anywhere idea at the meta-framework layer.
 
 ## Sources
 - https://hono.dev/docs

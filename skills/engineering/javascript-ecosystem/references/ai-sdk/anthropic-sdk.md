@@ -3,16 +3,16 @@ type: Library Notes
 title: "Anthropic TypeScript SDK (`@anthropic-ai/sdk`)"
 description: "The Messages API (`client.messages.create` with a structured `messages` array and content blocks) is the API; legacy Text Completions is obsolete."
 tags: [javascript, ai-sdk]
-generated: { by: claude-code/unversioned, at: 2026-06-04T00:00:00Z }
+generated: { by: claude-code/unversioned, at: 2026-08-20T00:00:00Z }
 ---
 # Anthropic TypeScript SDK (`@anthropic-ai/sdk`)
 
-**Verified 2026-06-04.** Check the installed `@anthropic-ai/sdk` version first; re-verify if newer than below.
+**Verified 2026-08-20.** Check the installed `@anthropic-ai/sdk` version first; re-verify if newer than below.
 
-**Current stable**: 0.x (0.100, pre-1.0 but production-grade and actively versioned). **LLM default bias**: the ~0.2x to 0.4x era. The legacy `client.completions.create` Text Completions API with `prompt: "\n\nHuman: ... \n\nAssistant:"`, an `anthropic-beta` header for prompt caching, and hand-built SSE parsing.
+**Current stable**: 0.x (0.120, pre-1.0 but production-grade and actively versioned). **LLM default bias**: the ~0.2x to 0.4x era. The legacy `client.completions.create` Text Completions API with `prompt: "\n\nHuman: ... \n\nAssistant:"`, an `anthropic-beta` header for prompt caching, and hand-built SSE parsing.
 
 ## The shift
-The Messages API (`client.messages.create` with a structured `messages` array and content blocks) is the API; legacy Text Completions is obsolete. Streaming is ergonomic via `client.messages.stream()`, prompt caching no longer needs a beta header, and tool use, the memory tool, and code execution are first-class.
+The Messages API (`client.messages.create` with a structured `messages` array and content blocks) is the API; legacy Text Completions is obsolete. Streaming is ergonomic via `client.messages.stream()`, prompt caching no longer needs a beta header, and tool use, the memory tool, and code execution are first-class. The Files and Skills APIs reached GA in Aug 2026, alongside computer-use and browser-use toolsets.
 
 ## Stop / Start
 | Stop (legacy) | Start (current) |
@@ -27,7 +27,7 @@ The Messages API (`client.messages.create` with a structured `messages` array an
 ## Gotchas
 - Pre-1.0 versioning means minor bumps can carry breaking changes; pin exact versions.
 - Caching is prefix-based: place stable content (system, tools) first and set `cache_control` breakpoints deliberately.
-- For managed deployments use `@anthropic-ai/bedrock-sdk` or `@anthropic-ai/vertex-sdk`.
+- For managed deployments use `@anthropic-ai/bedrock-sdk`, `@anthropic-ai/vertex-sdk`, or `@anthropic-ai/foundry-sdk`.
 
 ## Companion
 The Messages API and the prompt-caching paradigm are covered in the table above. For building Anthropic apps end to end (caching strategy, model migration), the **claude-api** skill is an optional deeper dive that goes beyond version-and-paradigm currency.

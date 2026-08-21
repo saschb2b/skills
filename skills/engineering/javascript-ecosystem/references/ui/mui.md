@@ -3,13 +3,13 @@ type: Library Notes
 title: "Material UI (MUI)"
 description: "The major line jumped v5 to v6 to v7 to v9 (no v2, no v8) to share a major with MUI X."
 tags: [javascript, ui]
-generated: { by: claude-code/unversioned, at: 2026-06-04T00:00:00Z }
+generated: { by: claude-code/unversioned, at: 2026-08-20T00:00:00Z }
 ---
 # Material UI (MUI)
 
-**Verified 2026-06-04.** Check the installed `@mui/material` version first; re-verify if newer than below.
+**Verified 2026-08-20.** Check the installed `@mui/material` version first; re-verify if newer than below.
 
-**Current stable**: v9 (Apr 2026). **LLM default bias**: v5, often v4. `makeStyles`/`withStyles`, the old `Grid` with `item`/`xs`/`md`, and Emotion theming as the assumed default.
+**Current stable**: v9.3 (Aug 2026). **LLM default bias**: v5, often v4. `makeStyles`/`withStyles`, the old `Grid` with `item`/`xs`/`md`, and Emotion theming as the assumed default.
 
 ## The shift
 The major line jumped v5 to v6 to v7 to v9 (no v2, no v8) to share a major with MUI X. The architectural moves across that span are CSS-variables theming (`cssVariables`), a rewritten `Grid` (Grid v2, now just `Grid`), and ongoing decoupling from Emotion. The separately marketed Pigment CSS zero-runtime engine is paused, so it is not the production styling path.
@@ -34,4 +34,4 @@ Color-role usage (the 10 roles, `alpha()`, the audit) is inlined in [theme-color
 
 ## Sources
 - https://mui.com/versions/
-- https://mui.com/material-ui/migration/migrating-to-v6/
+- https://mui.com/material-ui/migration/upgrade-to-v9/

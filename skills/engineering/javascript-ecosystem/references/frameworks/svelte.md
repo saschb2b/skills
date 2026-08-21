@@ -3,11 +3,11 @@ type: Library Notes
 title: "Svelte"
 description: "Svelte 5 replaced implicit reactivity with explicit runes (`$state`, `$derived`, `$effect`, `$props`, `$bindable`), which give fine-grained reactivity that also works in `.svelte.js` and..."
 tags: [javascript, frameworks]
-generated: { by: claude-code/unversioned, at: 2026-06-05T00:00:00Z }
+generated: { by: claude-code/unversioned, at: 2026-08-20T00:00:00Z }
 ---
 # Svelte
 
-**Verified 2026-06-05.** Check the installed `svelte` version first; re-verify if newer than below.
+**Verified 2026-08-20.** Check the installed `svelte` version first; re-verify if newer than below.
 
 **Current stable**: Svelte 5 (Svelte 6 upcoming). **LLM default bias**: Svelte 3 and 4. `let x` implicit reactivity, `$:` labels, `export let` props, `$store` everywhere, `createEventDispatcher` and `on:click`.
 
