@@ -3,13 +3,13 @@ type: Library Notes
 title: "Headless UI primitives (Radix UI, Base UI, React Aria)"
 description: "The headless and primitive layer (unstyled, accessible behavior you style yourself) is the structural winner in React UI; shadcn/ui is copy-in components built on it."
 tags: [javascript, ui]
-generated: { by: claude-code/unversioned, at: 2026-06-05T00:00:00Z }
+generated: { by: claude-code/unversioned, at: 2026-08-20T00:00:00Z }
 ---
 # Headless UI primitives (Radix UI, Base UI, React Aria)
 
-**Verified 2026-06-05.** Check which primitive library and version the project uses first; re-verify if newer than below.
+**Verified 2026-08-20.** Check which primitive library and version the project uses first; re-verify if newer than below.
 
-**Current stable**: Radix UI via the unified `radix-ui` package; Base UI 1.x (`@base-ui/react`); React Aria (`react-aria-components`). **LLM default bias**: per-component `@radix-ui/react-*` installs, the old `@base-ui-components/react` name, and reaching for a fully-styled kit instead of the headless layer.
+**Current stable**: Radix UI via the unified `radix-ui` package; Base UI 1.x (`@base-ui/react`, 1.7 Aug 2026); React Aria (`react-aria-components` 1.x). **LLM default bias**: per-component `@radix-ui/react-*` installs, the old `@base-ui-components/react` name, and reaching for a fully-styled kit instead of the headless layer.
 
 ## The shift
 The headless and primitive layer (unstyled, accessible behavior you style yourself) is the structural winner in React UI; shadcn/ui is copy-in components built on it. Three options dominate: Radix Primitives, Base UI (from the Radix, MUI, and Floating UI authors, now 1.0 stable), and React Aria (Adobe, accessibility-first).
@@ -26,7 +26,7 @@ The headless and primitive layer (unstyled, accessible behavior you style yourse
 ## Gotchas
 - The per-component `@radix-ui/react-*` packages still work, but the docs now steer you to the single `radix-ui` package to avoid version drift.
 - Base UI part trees can differ from Radix (for example an extra `Popover.Positioner`); do not assume identical structures.
-- shadcn/ui sits on top of these; some shadcn distributions now ship Base UI variants.
+- shadcn/ui sits on top of these; since July 2026 new shadcn projects default to Base UI, with Radix still fully supported (`shadcn init -b radix`).
 
 ## Companion
 shadcn/ui notes in [shadcn.md](./shadcn.md); MUI's own Base UI layer in [mui.md](./mui.md).

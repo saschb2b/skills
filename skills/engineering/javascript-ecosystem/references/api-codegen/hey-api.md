@@ -3,13 +3,13 @@ type: Library Notes
 title: "Hey API (REST / OpenAPI)"
 description: "Hey API generates a framework-agnostic SDK (typed functions over a configurable `fetch`/`axios`/`next` client), and a plugin layer composes on top."
 tags: [javascript, api-codegen]
-generated: { by: claude-code/unversioned, at: 2026-06-04T00:00:00Z }
+generated: { by: claude-code/unversioned, at: 2026-08-20T00:00:00Z }
 ---
 # Hey API (REST / OpenAPI)
 
-**Verified 2026-06-04.** Check the installed `@hey-api/openapi-ts` version first; re-verify if newer than below.
+**Verified 2026-08-20.** Check the installed `@hey-api/openapi-ts` version first; re-verify if newer than below.
 
-**Current stable**: 0.98 (still 0.x, production-grade). **LLM default bias**: the old `openapi-typescript-codegen` and early Hey API that emitted monolithic service classes (`PetService.getPetById()`), or the assumption that you import generated named hooks.
+**Current stable**: 0.99 (still 0.x, production-grade). **LLM default bias**: the old `openapi-typescript-codegen` and early Hey API that emitted monolithic service classes (`PetService.getPetById()`), or the assumption that you import generated named hooks.
 
 ## The shift
 Hey API generates a framework-agnostic SDK (typed functions over a configurable `fetch`/`axios`/`next` client), and a plugin layer composes on top. The `@tanstack/react-query` plugin emits **options factories** (`getPetByIdOptions(...)`), not React hooks, so you stay on TanStack's own `useQuery` and spread the options in.
@@ -27,7 +27,7 @@ Hey API generates a framework-agnostic SDK (typed functions over a configurable 
 ## Gotchas
 - Still 0.x; minor bumps can carry breaking config changes. Pin the version (`-E`).
 - A client plugin (`@hey-api/client-fetch`/`-axios`/`-next`) is required; there is no default client since v0.51 (legacy clients removed in v0.87). Configure it at runtime via `client.setConfig(...)`, not in the codegen config.
-- Config is a `plugins: [...]` array; older top-level flags (`services`, `schemas`, `client`) are legacy. The SDK emits flat tree-shakeable functions, not a `DefaultService` class.
+- Config is a `plugins: [...]` array (v0.99 adds a `presets` shorthand for common plugin sets); older top-level flags (`services`, `schemas`, `client`) are legacy. The SDK emits flat tree-shakeable functions, not a `DefaultService` class.
 - Runtime validation is wired through the SDK `validator` option backed by the `zod` plugin, not by importing schemas by hand.
 
 ## Companion

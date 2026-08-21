@@ -3,13 +3,13 @@ type: Library Notes
 title: "openapi-typescript + openapi-fetch + openapi-react-query"
 description: "Codegen produces only types; runtime safety comes from inference."
 tags: [javascript, api-codegen]
-generated: { by: claude-code/unversioned, at: 2026-06-04T00:00:00Z }
+generated: { by: claude-code/unversioned, at: 2026-08-20T00:00:00Z }
 ---
 # openapi-typescript + openapi-fetch + openapi-react-query
 
-**Verified 2026-06-04.** Check the installed `openapi-typescript`, `openapi-fetch`, and `openapi-react-query` versions first; re-verify if newer than below.
+**Verified 2026-08-20.** Check the installed `openapi-typescript`, `openapi-fetch`, and `openapi-react-query` versions first; re-verify if newer than below.
 
-**Current stable**: openapi-typescript 7.x; openapi-fetch 0.17; openapi-react-query 0.5. **LLM default bias**: openapi-typescript 5.x/6.x used types-only, then hand-written fetch calls or a separate hook codegen (e.g. `openapi-react-query-codegen` emitting `useFooServiceGetX`).
+**Current stable**: openapi-typescript 7.13; openapi-fetch 0.17; openapi-react-query 0.5.4 (all three last shipped February 2026). **LLM default bias**: openapi-typescript 5.x/6.x used types-only, then hand-written fetch calls or a separate hook codegen (e.g. `openapi-react-query-codegen` emitting `useFooServiceGetX`).
 
 ## The shift
 Codegen produces only types; runtime safety comes from inference. `openapi-typescript` emits one `paths` type tree, `openapi-fetch`'s `createClient<paths>()` gives a typed `GET`/`POST` with near-zero runtime, and `openapi-react-query` wraps that into `$api.useQuery('get', '/path', ...)`. No per-operation hooks or service classes are generated at all.
@@ -24,6 +24,7 @@ Codegen produces only types; runtime safety comes from inference. `openapi-types
 | Regenerating on every endpoint tweak | Regenerate only the types file; runtime code never changes |
 
 ## Gotchas
+- The maintainers put `openapi-fetch` and `openapi-react-query` into maintenance mode for 2026 (bug and security fixes only, no new features) to concentrate on `openapi-typescript` and its 8.0 line. The runtime pieces still work, but treat them as frozen and weigh Hey API for anything that needs active feature development.
 - Three packages with independent semver; fetch and react-query are still 0.x, so pin and check changelogs.
 - `openapi-react-query` is a thin wrapper and needs `@tanstack/react-query` v5 as a peer.
 - For a richer generated SDK plus Zod, Hey API is the heavier-featured alternative; this stack is the no-generated-hooks path.
@@ -35,3 +36,4 @@ Setup and the REST decision matrix are inlined in [setup.md](./setup.md). The st
 ## Sources
 - https://openapi-ts.dev/openapi-react-query/
 - https://openapi-ts.dev/openapi-fetch/
+- https://github.com/openapi-ts/openapi-typescript/discussions/2559

@@ -3,13 +3,13 @@ type: Library Notes
 title: "Polar"
 description: "Polar is a merchant-of-record (MoR) billing platform, not a PSP."
 tags: [javascript, payments]
-generated: { by: claude-code/unversioned, at: 2026-06-04T00:00:00Z }
+generated: { by: claude-code/unversioned, at: 2026-08-21T00:00:00Z }
 ---
 # Polar
 
-**Verified 2026-06-04.** Check the installed `@polar-sh/sdk` version first; re-verify if newer than below.
+**Verified 2026-08-20.** Check the installed `@polar-sh/sdk` version first; re-verify if newer than below.
 
-**Current stable**: `@polar-sh/sdk` v0.x (pre-1.0); framework adapters (`@polar-sh/nextjs`, etc.) are versioned separately. **LLM default bias**: little to no training coverage. Models tend to not know Polar or conflate it with Stripe, so the risk is an invented API surface.
+**Current stable**: `@polar-sh/sdk` v0.49 (Jul 2026), still pre-1.0; framework adapters (`@polar-sh/nextjs`, etc.) are versioned separately. **LLM default bias**: little to no training coverage. Models tend to not know Polar or conflate it with Stripe, so the risk is an invented API surface.
 
 ## The shift
 Polar is a merchant-of-record (MoR) billing platform, not a PSP. It is the legal seller, so it collects and remits sales tax, VAT, and GST worldwide on your behalf. The mental model is: create a Checkout, redirect or embed it, then react to webhooks that grant entitlements (license keys, GitHub/Discord access, downloads, meter credits), rather than orchestrating PaymentIntents yourself.
@@ -25,11 +25,14 @@ Polar is a merchant-of-record (MoR) billing platform, not a PSP. It is the legal
 | Hand-coding entitlement delivery | Polar "benefits" (license keys, downloads, GitHub/Discord roles, meter credits) |
 
 ## Gotchas
-- The SDK is pre-1.0; the surface moves between minor versions, so pin exact versions.
+- The SDK is pre-1.0; the surface moves between minor versions, so pin exact versions. 0.49 alone shipped dozens of breaking endpoint changes and removed organization access tokens, so read the release notes before bumping.
 - As an MoR, Polar takes the buyer relationship and a higher headline fee than a raw PSP.
 - Use `server: 'sandbox'` in development; production needs the flag switched plus a production token.
 - SDK and framework adapters version independently; check compatibility.
 - Context: Lemon Squeezy was acquired by Stripe; Stripe Managed Payments is Stripe's own MoR offering.
+
+## Companion
+[stripe.md](./stripe.md) is the PSP alternative for when you own tax registration yourself.
 
 ## Sources
 - https://polar.sh/docs/integrate/sdk/typescript

@@ -89,7 +89,7 @@
       ],
       "grades": {
         "integrity": "STRONG",
-        "authorship": "MEDIUM",
+        "authorship": "STRONG",
         "capability": "MEDIUM",
         "content_provenance": "UNVERIFIED",
         "vouching": "ABSENT",
@@ -97,13 +97,13 @@
       },
       "notes": {
         "integrity": "digest matches live bundle",
-        "authorship": "sigstore signature recorded; install cosign to re-verify",
+        "authorship": "sigstore + rekor, cosign verify-blob OK; signer not pinned (pass --cert-identity to assert who)",
         "capability": "permission manifest declared (enforce in sandbox)",
         "content_provenance": "n/a for executable skills",
         "vouching": "0 attestation(s) bound to this digest",
         "freshness": "not expired"
       },
-      "trust_score": 9,
+      "trust_score": 10,
       "reachable": 13,
       "rarity": "rare",
       "art": {
@@ -304,9 +304,9 @@
       "title": "javascript-ecosystem",
       "description": "Default to the latest stable major versions of JavaScript and TypeScript frameworks and their current paradigms, instead of the older versions and patterns that dominate LLM training data. A...",
       "risk_tier": "executable-L1",
-      "target_digest": "sha256:966d0604731c9223fb3371848a05130aa09ee4b076d3a416a697fa565489e887",
+      "target_digest": "sha256:4adc536d8c3f2ead26816b70042ed104b00e0ca5f61f60b937ae8fb1a693ae31",
       "identity": "did:web:saschb2b.com",
-      "expires": "2027-07-27",
+      "expires": "2027-08-21",
       "capability": {
         "model": "executable",
         "manifest_declared": "permissions.yaml",
@@ -317,10 +317,11 @@
         "network_evidence": [],
         "shell_evidence": [],
         "declared_external_sources": [
-          "https://ai-sdk.dev/docs/migration-guides/migration-guide-5-0",
+          "https://ai-sdk.dev/docs/migration-guides/migration-guide-7-0",
           "https://analogjs.org/docs",
           "https://analogjs.org/docs/features/routing/overview",
           "https://angular.dev/ai/mcp",
+          "https://angular.dev/guide/aria/overview",
           "https://angular.dev/guide/signals",
           "https://angular.dev/guide/testing",
           "https://angular.dev/guide/testing/migrating-to-vitest",
@@ -329,14 +330,13 @@
           "https://api.example.com/graphql",
           "https://api.example.com/v1/",
           "https://app.posthog.com",
-          "https://astro.build/blog/astro-5/",
+          "https://astro.build/blog/astro-6/",
+          "https://astro.build/blog/astro-7/",
           "https://authjs.dev/getting-started/migrating-to-v5",
           "https://base-ui.com/react/overview/quick-start",
-          "https://biomejs.dev/",
-          "https://biomejs.dev/linter/plugins/",
-          "https://blog.date-fns.org/v40-with-time-zone-support/",
-          "https://blog.vuejs.org/",
-          "https://bun.com/blog"
+          "https://better-auth.com/blog/security-update-july-2026",
+          "https://better-auth.com/changelog",
+          "https://better-auth.com/docs/plugins/mcp"
         ]
       },
       "layers": [
@@ -956,7 +956,7 @@
       ],
       "grades": {
         "integrity": "STRONG",
-        "authorship": "MEDIUM",
+        "authorship": "STRONG",
         "capability": "MEDIUM",
         "content_provenance": "UNVERIFIED",
         "vouching": "ABSENT",
@@ -964,13 +964,13 @@
       },
       "notes": {
         "integrity": "digest matches live bundle",
-        "authorship": "sigstore signature recorded; install cosign to re-verify",
+        "authorship": "sigstore + rekor, cosign verify-blob OK; signer not pinned (pass --cert-identity to assert who)",
         "capability": "permission manifest declared (enforce in sandbox)",
         "content_provenance": "n/a for executable skills",
         "vouching": "0 attestation(s) bound to this digest",
         "freshness": "not expired"
       },
-      "trust_score": 9,
+      "trust_score": 10,
       "reachable": 13,
       "rarity": "rare",
       "art": {
@@ -1142,7 +1142,7 @@
       ],
       "grades": {
         "integrity": "STRONG",
-        "authorship": "MEDIUM",
+        "authorship": "STRONG",
         "capability": "MEDIUM",
         "content_provenance": "UNVERIFIED",
         "vouching": "ABSENT",
@@ -1150,13 +1150,13 @@
       },
       "notes": {
         "integrity": "digest matches live bundle",
-        "authorship": "sigstore signature recorded; install cosign to re-verify",
+        "authorship": "sigstore + rekor, cosign verify-blob OK; signer not pinned (pass --cert-identity to assert who)",
         "capability": "permission manifest declared (enforce in sandbox)",
         "content_provenance": "n/a for executable skills",
         "vouching": "0 attestation(s) bound to this digest",
         "freshness": "not expired"
       },
-      "trust_score": 9,
+      "trust_score": 10,
       "reachable": 13,
       "rarity": "rare",
       "art": {
@@ -1195,7 +1195,7 @@
       ],
       "grades": {
         "integrity": "STRONG",
-        "authorship": "MEDIUM",
+        "authorship": "STRONG",
         "capability": "MEDIUM",
         "content_provenance": "UNVERIFIED",
         "vouching": "ABSENT",
@@ -1203,13 +1203,13 @@
       },
       "notes": {
         "integrity": "digest matches live bundle",
-        "authorship": "sigstore signature recorded; install cosign to re-verify",
+        "authorship": "sigstore + rekor, cosign verify-blob OK; signer not pinned (pass --cert-identity to assert who)",
         "capability": "permission manifest declared (enforce in sandbox)",
         "content_provenance": "n/a for executable skills",
         "vouching": "0 attestation(s) bound to this digest",
         "freshness": "not expired"
       },
-      "trust_score": 9,
+      "trust_score": 10,
       "reachable": 13,
       "rarity": "rare",
       "art": {
@@ -1384,7 +1384,7 @@
         "freshness"
       ],
       "grades": {
-        "integrity": "STRONG",
+        "integrity": "ABSENT",
         "authorship": "ABSENT",
         "capability": "MEDIUM",
         "content_provenance": "UNVERIFIED",
@@ -1392,16 +1392,16 @@
         "freshness": "MEDIUM"
       },
       "notes": {
-        "integrity": "digest matches live bundle",
+        "integrity": "MISMATCH live=sha256:8e08e58cca9d7ce53da6f09a5d59931cd9644699b1f622cdfc83a0f6ccfd1889",
         "authorship": "card is unsigned",
         "capability": "permission manifest declared (enforce in sandbox)",
         "content_provenance": "n/a for executable skills",
         "vouching": "0 attestation(s) bound to this digest",
         "freshness": "not expired"
       },
-      "trust_score": 7,
+      "trust_score": 4,
       "reachable": 13,
-      "rarity": "uncommon",
+      "rarity": "common",
       "art": {
         "svg": "CARD.svg",
         "hero": null
@@ -1514,7 +1514,7 @@
       ],
       "grades": {
         "integrity": "STRONG",
-        "authorship": "MEDIUM",
+        "authorship": "STRONG",
         "capability": "MEDIUM",
         "content_provenance": "UNVERIFIED",
         "vouching": "ABSENT",
@@ -1522,13 +1522,13 @@
       },
       "notes": {
         "integrity": "digest matches live bundle",
-        "authorship": "sigstore signature recorded; install cosign to re-verify",
+        "authorship": "sigstore + rekor, cosign verify-blob OK; signer not pinned (pass --cert-identity to assert who)",
         "capability": "permission manifest declared (enforce in sandbox)",
         "content_provenance": "n/a for executable skills",
         "vouching": "0 attestation(s) bound to this digest",
         "freshness": "not expired"
       },
-      "trust_score": 9,
+      "trust_score": 10,
       "reachable": 13,
       "rarity": "rare",
       "art": {

@@ -3,13 +3,13 @@ type: Library Notes
 title: "NgRx"
 description: "NgRx is Angular's dominant state library (its Redux Toolkit)."
 tags: [javascript, data]
-generated: { by: claude-code/unversioned, at: 2026-06-05T00:00:00Z }
+generated: { by: claude-code/unversioned, at: 2026-08-20T00:00:00Z }
 ---
 # NgRx
 
-**Verified 2026-06-05.** Check the installed `@ngrx/store` (or `@ngrx/signals`) version first; re-verify if newer than below.
+**Verified 2026-08-20.** Check the installed `@ngrx/store` (or `@ngrx/signals`) version first; re-verify if newer than below.
 
-**Current stable**: v21 (tracks the Angular major). **LLM default bias**: `StoreModule.forRoot`/`EffectsModule.forRoot` NgModules, class-based `@Injectable` effects, hand-written action and reducer boilerplate, `select` + async pipe, and not knowing SignalStore exists.
+**Current stable**: v21 (21.1.1, Jun 2026; tracks the Angular major). v22 is prerelease only (rc, for Angular 22); v21 still runs on Angular 22. **LLM default bias**: `StoreModule.forRoot`/`EffectsModule.forRoot` NgModules, class-based `@Injectable` effects, hand-written action and reducer boilerplate, `select` + async pipe, and not knowing SignalStore exists.
 
 ## The shift
 NgRx is Angular's dominant state library (its Redux Toolkit). The big modern shift is **SignalStore** (`@ngrx/signals`): a signal-based store composed from features, recommended for component and feature state. The classic global `Store`/`Effects` is still supported but uses functional idioms now (`createFeature`, `createActionGroup`, `provideStore`, functional effects).

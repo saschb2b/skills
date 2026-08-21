@@ -3,13 +3,13 @@ type: Library Notes
 title: "TanStack Form"
 description: "TanStack Form reached production-stable v1 with a headless, fully type-safe, framework-agnostic core (React, Vue, Angular, Solid, Svelte, Lit)."
 tags: [javascript, forms]
-generated: { by: claude-code/unversioned, at: 2026-06-04T00:00:00Z }
+generated: { by: claude-code/unversioned, at: 2026-08-20T00:00:00Z }
 ---
 # TanStack Form
 
-**Verified 2026-06-04.** Check the installed `@tanstack/react-form` version first; re-verify if newer than below.
+**Verified 2026-08-20.** Check the installed `@tanstack/react-form` version first; re-verify if newer than below.
 
-**Current stable**: 1.x (v1.0 stable Mar 2025). **LLM default bias**: pre-v1 alpha-era APIs, or simply not knowing it exists and defaulting to Formik or React Hook Form.
+**Current stable**: 1.33 (August 2026); v1.0 stable Mar 2025. **LLM default bias**: pre-v1 alpha-era APIs, or simply not knowing it exists and defaulting to Formik or React Hook Form.
 
 ## The shift
 TanStack Form reached production-stable v1 with a headless, fully type-safe, framework-agnostic core (React, Vue, Angular, Solid, Svelte, Lit). It adopts the Standard Schema spec, so Zod 4 and Valibot schemas plug in directly with no dedicated resolver package, with deep type inference where invalid field names are type errors.
@@ -25,6 +25,8 @@ TanStack Form reached production-stable v1 with a headless, fully type-safe, fra
 
 ## Gotchas
 - Per-framework adapter versions can drift; pin the adapter for your framework explicitly.
+- Since 1.25 the Start, Remix, and Next.js server bindings live in their own packages (`@tanstack/react-form-start`, `@tanstack/react-form-remix`, `@tanstack/react-form-nextjs`); importing them from `@tanstack/react-form` no longer works.
+- Newer 1.x APIs an older corpus will miss: the FormGroup API (1.33) and `withFieldGroup` / `useTypedAppFormContext` for composing typed field sets.
 - It is heavier than RHF (around 20 KB gzipped); choose it for type-safety and large dynamic forms, not minimal bundle size.
 - It is the common recommended target when migrating off the now-unmaintained Formik.
 

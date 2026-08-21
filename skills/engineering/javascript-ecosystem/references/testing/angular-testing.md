@@ -3,21 +3,21 @@ type: Library Notes
 title: "Angular testing (TestBed, Karma to Vitest)"
 description: "Karma was deprecated (2023)."
 tags: [javascript, testing]
-generated: { by: claude-code/unversioned, at: 2026-06-05T00:00:00Z }
+generated: { by: claude-code/unversioned, at: 2026-08-20T00:00:00Z }
 ---
 # Angular testing (TestBed, Karma to Vitest)
 
-**Verified 2026-06-05.** Check the test builder in `angular.json` and the installed Angular version first; re-verify if newer than below.
+**Verified 2026-08-20.** Check the test builder in `angular.json` and the installed Angular version first; re-verify if newer than below.
 
-**Current stable**: Vitest is the default test runner for new projects as of Angular v21 (stable). **LLM default bias**: Karma plus Jasmine as the default, and `TestBed.configureTestingModule({ declarations: [...] })` with NgModule declarations.
+**Current stable**: Vitest is the default test runner for new projects, since Angular v21 and unchanged in v22 (Jun 2026). **LLM default bias**: Karma plus Jasmine as the default, and `TestBed.configureTestingModule({ declarations: [...] })` with NgModule declarations.
 
 ## The shift
-Karma was deprecated (2023). Angular v20 removed its builder from the `application` build system and shipped experimental Vitest support, and v21 promoted Vitest to the stable default (`ng test` runs Vitest with jsdom). TestBed remains the core utility, but standalone components go in `imports`, not `declarations`. Karma and Jasmine are still supported for existing projects.
+Karma was deprecated (2023). Angular v20 removed its builder from the `application` build system and shipped experimental Vitest support, and v21 promoted Vitest to the stable default (`ng test` runs Vitest with jsdom), which v22 (Jun 2026) carries forward unchanged. TestBed remains the core utility, but standalone components go in `imports`, not `declarations`. Karma and Jasmine are still supported for existing projects.
 
 ## Stop / Start
 | Stop (LLM default) | Start (current Angular) |
 | --- | --- |
-| Karma plus Jasmine as the default for new projects | Vitest (default in v21; `ng test`, the `@angular/build:unit-test` builder) |
+| Karma plus Jasmine as the default for new projects | Vitest (default since v21; `ng test`, the `@angular/build:unit-test` builder) |
 | `TestBed.configureTestingModule({ declarations: [Cmp] })` | `TestBed.configureTestingModule({ imports: [Cmp] })` (standalone) |
 | Reconfiguring `TestBed` after `createComponent` | Configure first; `createComponent` freezes the definition |
 | Assuming a first-party Jest builder | Vitest is the supported path; Jest is community-only (`jest-preset-angular`) |

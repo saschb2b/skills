@@ -3,13 +3,13 @@ type: Library Notes
 title: "Redux Toolkit (RTK + RTK Query)"
 description: "Redux is RTK now. Redux Toolkit is the official way to write Redux, and `createStore` is formally deprecated in the core."
 tags: [javascript, data]
-generated: { by: claude-code/unversioned, at: 2026-06-04T00:00:00Z }
+generated: { by: claude-code/unversioned, at: 2026-08-20T00:00:00Z }
 ---
 # Redux Toolkit (RTK + RTK Query)
 
-**Verified 2026-06-04.** Check the installed `@reduxjs/toolkit` version first; re-verify if newer than below.
+**Verified 2026-08-20.** Check the installed `@reduxjs/toolkit` version first; re-verify if newer than below.
 
-**Current stable**: RTK 2.x (2.0 shipped Dec 2023). **LLM default bias**: legacy hand-rolled Redux. `createStore`, separate action-type constants and creators, switch-statement reducers with manual spreads, `connect()`/`mapStateToProps`, and standalone `redux-thunk`/`redux-saga`.
+**Current stable**: RTK 2.12 (May 2026; 2.0 shipped Dec 2023). **LLM default bias**: legacy hand-rolled Redux. `createStore`, separate action-type constants and creators, switch-statement reducers with manual spreads, `connect()`/`mapStateToProps`, and standalone `redux-thunk`/`redux-saga`.
 
 ## The shift
 Redux is RTK now. Redux Toolkit is the official way to write Redux, and `createStore` is formally deprecated in the core. RTK Query (bundled in the package) is the built-in data-fetching layer, so hand-written thunks plus reducers for server data are out. For purely client and UI state, many teams now reach for Zustand or Jotai rather than Redux at all.
@@ -27,7 +27,8 @@ Redux is RTK now. Redux Toolkit is the official way to write Redux, and `createS
 ## Gotchas
 - RTK 2.0 dropped some legacy APIs, went ESM-first, and removed the object syntax for `extraReducers` (use the builder callback).
 - RTK Query ships inside `@reduxjs/toolkit`; no separate install. It is not deprecated and ships regular releases.
-- The hooks integration needs React-Redux v9 with React 18+.
+- The hooks integration needs React-Redux v9 with React 18+. RTK requires TypeScript 5.4+ (rolling two-year support window).
+- Since 2.12 the package ships first-party agent skill files in its own `skills` folder, covering modern RTK, client versus server state, and side effects. Point an agent at those before improvising.
 
 ## Companion
 For server data on a non-Redux stack, see [tanstack-query.md](./tanstack-query.md).
@@ -35,3 +36,4 @@ For server data on a non-Redux stack, see [tanstack-query.md](./tanstack-query.m
 ## Sources
 - https://redux-toolkit.js.org/usage/migrating-rtk-2
 - https://redux.js.org/usage/migrating-to-modern-redux
+- https://github.com/reduxjs/redux-toolkit/releases

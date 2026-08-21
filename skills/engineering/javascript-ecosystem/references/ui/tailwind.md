@@ -3,16 +3,16 @@ type: Library Notes
 title: "Tailwind CSS"
 description: "v4 is a ground-up rewrite on the Rust \"Oxide\" engine with a CSS-first configuration model."
 tags: [javascript, ui]
-generated: { by: claude-code/unversioned, at: 2026-06-04T00:00:00Z }
+generated: { by: claude-code/unversioned, at: 2026-08-20T00:00:00Z }
 ---
 # Tailwind CSS
 
-**Verified 2026-06-04.** Check the installed `tailwindcss` version first; re-verify if newer than below.
+**Verified 2026-08-20.** Check the installed `tailwindcss` version first; re-verify if newer than below.
 
-**Current stable**: v4.x (v4.0 shipped Jan 2025). **LLM default bias**: v3.x. A JavaScript `tailwind.config.js` with `content` globs and `theme.extend`, the `@tailwind base/components/utilities` directives, and PostCSS/JIT as the engine.
+**Current stable**: v4.3 (May 2026; v4.0 shipped Jan 2025). **LLM default bias**: v3.x. A JavaScript `tailwind.config.js` with `content` globs and `theme.extend`, the `@tailwind base/components/utilities` directives, and PostCSS/JIT as the engine.
 
 ## The shift
-v4 is a ground-up rewrite on the Rust "Oxide" engine with a CSS-first configuration model. There is no `tailwind.config.js` by default. You configure the design system inside CSS via `@theme`, and a single `@import "tailwindcss";` replaces the three `@tailwind` directives. v4 is the default for new projects.
+v4 is a ground-up rewrite on the Rust "Oxide" engine with a CSS-first configuration model. There is no `tailwind.config.js` by default. You configure the design system inside CSS via `@theme`, and a single `@import "tailwindcss";` replaces the three `@tailwind` directives. v4 is the default for new projects. v4.2 and v4.3 are additive (scrollbar styling, logical property utilities, new color palettes, zoom and tab-size utilities); the paradigm is unchanged.
 
 ## Stop / Start
 | Stop (LLM default) | Start (Tailwind v4) |
@@ -29,5 +29,6 @@ v4 is a ground-up rewrite on the Rust "Oxide" engine with a CSS-first configurat
 - A JS config still works, but only when loaded explicitly with `@config "./tailwind.config.js";`. It is no longer auto-detected.
 
 ## Sources
+- https://tailwindcss.com/blog/tailwindcss-v4-3
 - https://tailwindcss.com/blog/tailwindcss-v4
 - https://tailwindcss.com/docs/upgrade-guide

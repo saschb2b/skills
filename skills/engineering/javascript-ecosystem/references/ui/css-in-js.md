@@ -3,13 +3,13 @@ type: Library Notes
 title: "CSS-in-JS and styling status"
 description: "Runtime CSS-in-JS lost ground."
 tags: [javascript, ui]
-generated: { by: claude-code/unversioned, at: 2026-06-05T00:00:00Z }
+generated: { by: claude-code/unversioned, at: 2026-08-20T00:00:00Z }
 ---
 # CSS-in-JS and styling status
 
-**Verified 2026-06-05.** Check how the project styles components first; re-verify if newer than below.
+**Verified 2026-08-20.** Check how the project styles components first; re-verify if newer than below.
 
-**Current stable**: styled-components v6 (maintenance mode, v7 in prerelease); Emotion 11; Tailwind v4; vanilla-extract / Panda CSS / StyleX for zero-runtime. **LLM default bias**: defaulting to runtime CSS-in-JS (styled-components, Emotion) for new apps, and using it inside Server Components.
+**Current stable**: styled-components v6 (6.5; maintenance mode, v7 in alpha with its own docs track); Emotion 11; Tailwind v4; vanilla-extract / Panda CSS / StyleX for zero-runtime. **LLM default bias**: defaulting to runtime CSS-in-JS (styled-components, Emotion) for new apps, and using it inside Server Components.
 
 ## The shift
 Runtime CSS-in-JS lost ground. styled-components entered maintenance mode in 2025 (still shipping fixes and even v7 prereleases, but no longer the default choice). The ecosystem moved to build-time CSS: Tailwind and CSS Modules dominate, and the zero-runtime camp (vanilla-extract, Panda CSS, StyleX) emits static CSS. Crucially, runtime CSS-in-JS does not work in React Server Components.
@@ -32,5 +32,6 @@ Material UI styling engine in [mui.md](./mui.md); Tailwind in [tailwind.md](./ta
 
 ## Sources
 - https://styled-components.com/blog/celebrating-a-decade-of-styled-components
+- https://styled-components.com/docs/v7
 - https://nextjs.org/docs/app/guides/css-in-js
 - https://panda-css.com/

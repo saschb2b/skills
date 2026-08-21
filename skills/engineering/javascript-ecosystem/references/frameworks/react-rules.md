@@ -3,15 +3,17 @@ type: Library Notes
 title: "React Compiler rules (full teachable reference)"
 description: "Self-contained reference for enabling the React Compiler safely, so this skill teaches the whole thing without any other skill installed."
 tags: [javascript, frameworks]
-generated: { by: claude-code/unversioned, at: 2026-06-05T00:00:00Z }
+generated: { by: claude-code/unversioned, at: 2026-08-20T00:00:00Z }
 ---
 # React Compiler rules (full teachable reference)
+
+**Verified 2026-08-20** against react.dev/reference/eslint-plugin-react-hooks.
 
 Self-contained reference for enabling the React Compiler safely, so this skill teaches the whole thing without any other skill installed. The standalone **react-compiler** skill is an optional deeper dive on the same material.
 
 ## Strict lint config
 
-The compiler's lint rules are merged into `eslint-plugin-react-hooks` (the v6 generation; react.dev currently labels the reference page `rc`). There is no separate `eslint-plugin-react-compiler` package anymore. react.dev recommends enabling the bundled preset rather than hand-listing rules:
+The compiler's lint rules are merged into `eslint-plugin-react-hooks` (v7, stable since Oct 2025 alongside Compiler 1.0; currently 7.1). There is no separate `eslint-plugin-react-compiler` package anymore. react.dev recommends enabling the bundled preset rather than hand-listing rules:
 
 ```sh
 npm install -D eslint-plugin-react-hooks@latest
@@ -23,9 +25,11 @@ import reactHooks from "eslint-plugin-react-hooks";
 
 export default [
   // bundles the classic rules plus the React Compiler diagnostics
-  reactHooks.configs["recommended-latest"],
+  reactHooks.configs.flat.recommended,
 ];
 ```
+
+Use `configs.recommended` for legacy `.eslintrc` config. The old `recommended-latest` name now maps to the bleeding-edge experimental compiler rules, so do not reach for it as the default.
 
 The diagnostics live under the `react-hooks/` namespace. The names react.dev actually lists include `react-hooks/rules-of-hooks`, `react-hooks/exhaustive-deps`, `react-hooks/unsupported-syntax`, `react-hooks/immutability`, `react-hooks/purity`, `react-hooks/refs`, `react-hooks/set-state-in-render`, `react-hooks/set-state-in-effect`, `react-hooks/preserve-manual-memoization`, `react-hooks/incompatible-library`, and `react-hooks/static-components`. Raise any you want CI to hard-block from `warn` to `error`. `react-hooks/unsupported-syntax` is the load-bearing one for catching silent compiler bails.
 
@@ -48,7 +52,7 @@ The diagnostics live under the `react-hooks/` namespace. The names react.dev act
 | Syntax the compiler cannot compile | `react-hooks/unsupported-syntax` |
 | Class components | Not lintable (design choice) |
 
-The `recommended-latest` preset enables all of these; do not rely on rule names beyond what the plugin docs list for your installed version.
+The `recommended` preset enables all of these; do not rely on rule names beyond what the plugin docs list for your installed version.
 
 ## Cleanup is iterative
 

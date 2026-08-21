@@ -3,13 +3,13 @@ type: Library Notes
 title: "Drizzle ORM"
 description: "v1 (RC) introduces Relational Queries v2 (a rewritten `db.query` and relations format), an opt-in JIT-compiled row mapper, validator integrations collapsed into `drizzle-orm` subpaths, and a..."
 tags: [javascript, backend]
-generated: { by: claude-code/unversioned, at: 2026-06-05T00:00:00Z }
+generated: { by: claude-code/unversioned, at: 2026-08-21T00:00:00Z }
 ---
 # Drizzle ORM
 
-**Verified 2026-06-05.** Check the installed `drizzle-orm` version first; re-verify if newer than below.
+**Verified 2026-08-20.** Check the installed `drizzle-orm` version first; re-verify if newer than below.
 
-**Current stable**: 0.45.x on `latest`; 1.0 is in RC (May 2026), not yet GA. **LLM default bias**: 0.2x to 0.3x, the RQB v1 relational API, the `_journal.json` migration layout, and separate `drizzle-zod`/`drizzle-valibot` packages.
+**Current stable**: 0.45.x on `latest` (0.45.2); 1.0 is in RC (rc.4, Jun 2026), still not GA. **LLM default bias**: 0.2x to 0.3x, the RQB v1 relational API, the `_journal.json` migration layout, and separate `drizzle-zod`/`drizzle-valibot` packages.
 
 ## The shift
 v1 (RC) introduces Relational Queries v2 (a rewritten `db.query` and relations format), an opt-in JIT-compiled row mapper, validator integrations collapsed into `drizzle-orm` subpaths, and a journal-free migration layout. The default install is still 0.45 (0.x); v1 must be requested explicitly.
@@ -25,9 +25,12 @@ v1 (RC) introduces Relational Queries v2 (a rewritten `db.query` and relations f
 
 ## Gotchas
 - `npm i drizzle-orm` still installs 0.45 (0.x), not v1. Request `@rc` or `@beta` to trial v1; do not claim v1 is the default.
-- v1 adds MSSQL support across `drizzle-orm`, `drizzle-kit`, and `drizzle-seed`.
+- v1 adds MSSQL support across `drizzle-orm`, `drizzle-kit`, and `drizzle-seed`, plus native Effect v4 support (from rc.1).
 - RQB v2 is the biggest behavioral break; read the relations and query migration guides rather than assuming a drop-in.
 - RQB v2 many-to-many uses `.through()` on the `from`/`to` columns; the legacy `relations()` helper moved to `drizzle-orm/_relations`.
+
+## Companion
+The other mainstream TypeScript ORM is [prisma.md](./prisma.md), which owns schema-first modelling where Drizzle owns SQL-first control.
 
 ## Sources
 - https://orm.drizzle.team/docs/upgrade-v1

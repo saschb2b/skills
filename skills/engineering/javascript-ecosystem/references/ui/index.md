@@ -7,7 +7,7 @@
 - [Mantine](mantine.md) - The Emotion removal already happened in v7 (native CSS modules plus CSS variables, `createStyles` dropped); that is the shift most LLMs miss.
 - [Motion (formerly Framer Motion)](motion.md) - The library was rebranded from `framer-motion` to `motion` and is now an independent, framework-agnostic project spanning vanilla JavaScript, React (`motion/react`), and Vue (`motion-v`).
 - [Material UI (MUI)](mui.md) - The major line jumped v5 to v6 to v7 to v9 (no v2, no v8) to share a major with MUI X.
-- [shadcn/ui](shadcn.md) - The package and CLI were renamed `shadcn-ui` to `shadcn`.
+- [shadcn/ui](shadcn.md) - Base UI is the default base for new inits since July 2026; the CLI is `shadcn` (renamed from `shadcn-ui`).
 - [Tailwind CSS](tailwind.md) - v4 is a ground-up rewrite on the Rust "Oxide" engine with a CSS-first configuration model.
 - [Theme colors (full teachable reference)](theme-colors.md) - Self-contained reference for role-based color so this skill teaches it without any other skill installed.
 - [UnoCSS](unocss.md) - UnoCSS is an atomic-CSS engine (instant, on-demand, preset-driven), not a fixed framework.

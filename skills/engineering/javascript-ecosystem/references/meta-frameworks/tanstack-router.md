@@ -3,11 +3,11 @@ type: Library Notes
 title: "TanStack Router"
 description: "TanStack Router is a standalone, end-to-end type-safe React router (TanStack Start is the full-stack framework built on top of it)."
 tags: [javascript, meta-frameworks]
-generated: { by: claude-code/unversioned, at: 2026-06-05T00:00:00Z }
+generated: { by: claude-code/unversioned, at: 2026-08-20T00:00:00Z }
 ---
 # TanStack Router
 
-**Verified 2026-06-05.** Check the installed `@tanstack/react-router` version first; re-verify if newer than below.
+**Verified 2026-08-20.** Check the installed `@tanstack/react-router` version first; re-verify if newer than below.
 
 **Current stable**: v1. **LLM default bias**: applying React Router patterns (`<Routes>`/`<Route element>`, `:param`), untyped params and search, and forgetting the route-tree codegen.
 

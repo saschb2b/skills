@@ -3,16 +3,16 @@ type: Library Notes
 title: "Solid"
 description: "Signals stay the foundation (`createSignal`, `createMemo`, `createEffect`)."
 tags: [javascript, frameworks]
-generated: { by: claude-code/unversioned, at: 2026-06-05T00:00:00Z }
+generated: { by: claude-code/unversioned, at: 2026-08-21T00:00:00Z }
 ---
 # Solid
 
-**Verified 2026-06-05.** Check the installed `solid-js` version first; re-verify if newer than below.
+**Verified 2026-08-20.** Check the installed `solid-js` version first; re-verify if newer than below.
 
-**Current stable**: 1.9.x (2.0 in beta). **LLM default bias**: thin corpus overall. Usually `createResource` + `<Suspense>`, manual `batch()`, and React mental models leaking in.
+**Current stable**: 1.9.x (2.0 in RC since Aug 2026). **LLM default bias**: thin corpus overall. Usually `createResource` + `<Suspense>`, manual `batch()`, and React mental models leaking in.
 
 ## The shift
-Signals stay the foundation (`createSignal`, `createMemo`, `createEffect`). Solid 2.0 (beta) makes async first-class. Computations can await promises, the graph suspends and resumes automatically, and `createAsync()` largely supersedes the `createResource` + `<Suspense>` ceremony. Batching becomes automatic.
+Signals stay the foundation (`createSignal`, `createMemo`, `createEffect`). Solid 2.0 (RC) makes async first-class. Computations can await promises, the graph suspends and resumes automatically, and `createAsync()` largely supersedes the `createResource` + `<Suspense>` ceremony. Batching becomes automatic.
 
 ## Stop / Start
 | Stop (LLM default) | Start (current Solid) |
@@ -25,10 +25,13 @@ Signals stay the foundation (`createSignal`, `createMemo`, `createEffect`). Soli
 | React-style immutable spread of whole objects | `createStore` path syntax (`setState("user", "name", v)`) or `produce` |
 
 ## Gotchas
-- 2.0 is beta on the npm `next` tag. Use the 1.9 stable line in production. SolidStart tracks 2.0 in lockstep and is not yet stable on it.
+- 2.0 is an RC (2.0.0-rc.1 on the npm `next` tag, Aug 2026). Use the 1.9 stable line in production. SolidStart v2 went stable in Aug 2026 but runs on Solid 1.x; its Solid 2.0 support is still to come.
 - Props are reactive proxies, not plain objects. Top-level destructuring loses reactivity in both 1.x and 2.0.
 - Components run once; there is no re-render cycle, so only fine-grained reads update.
 - `createAsync` currently ships via `@solidjs/router` (2.0-era), not core `solid-js` 1.9. `createEffect` has no deps array; its optional second argument is an initial value, not dependencies.
+
+## Companion
+[svelte.md](./svelte.md) reaches similar fine-grained reactivity through a compiler where Solid uses signals directly. [react.md](./react.md) is the contrast, since it re-renders components and leans on a compiler for memoization.
 
 ## Sources
 - https://www.solidjs.com/

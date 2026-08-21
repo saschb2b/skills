@@ -3,13 +3,13 @@ type: Library Notes
 title: "Zod"
 description: "Zod 4 is a near-total internal rewrite (much faster parsing, smaller core, far fewer type instantiations)."
 tags: [javascript, forms]
-generated: { by: claude-code/unversioned, at: 2026-06-04T00:00:00Z }
+generated: { by: claude-code/unversioned, at: 2026-08-20T00:00:00Z }
 ---
 # Zod
 
-**Verified 2026-06-04.** Check the installed `zod` version first; re-verify if newer than below.
+**Verified 2026-08-20.** Check the installed `zod` version first; re-verify if newer than below.
 
-**Current stable**: 4.x (4.4); Zod 4.0 stable shipped May 2025. **LLM default bias**: Zod 3.x. `z.string().email()`, single-arg `z.record()`, and the `message`/`invalid_type_error`/`required_error`/`errorMap` error API.
+**Current stable**: 4.4 (4.4.3); Zod 4.0 stable shipped May 2025. **LLM default bias**: Zod 3.x. `z.string().email()`, single-arg `z.record()`, and the `message`/`invalid_type_error`/`required_error`/`errorMap` error API.
 
 ## The shift
 Zod 4 is a near-total internal rewrite (much faster parsing, smaller core, far fewer type instantiations). It promotes string-format validators to tree-shakable top-level functions, unifies all error customization under one `error` param, and adds a `zod/mini` functional variant. Zod is used well beyond forms (API boundaries, env, config), so this matters broadly.

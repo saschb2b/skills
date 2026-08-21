@@ -3,13 +3,13 @@ type: Library Notes
 title: "Day.js"
 description: "Day.js is the roughly 2 KB, immutable, Moment.js-API-compatible drop-in."
 tags: [javascript, dates]
-generated: { by: claude-code/unversioned, at: 2026-06-04T00:00:00Z }
+generated: { by: claude-code/unversioned, at: 2026-08-20T00:00:00Z }
 ---
 # Day.js
 
-**Verified 2026-06-04.** Check the installed `dayjs` version first; re-verify if newer than below.
+**Verified 2026-08-20.** Check the installed `dayjs` version first; re-verify if newer than below.
 
-**Current stable**: 1.11.x. **LLM default bias**: Moment.js idioms and mutable-object thinking carried over from Moment, plus forgetting that Day.js is immutable and plugin-gated.
+**Current stable**: 1.11.x (1.11.23). **LLM default bias**: Moment.js idioms and mutable-object thinking carried over from Moment, plus forgetting that Day.js is immutable and plugin-gated.
 
 ## The shift
 Day.js is the roughly 2 KB, immutable, Moment.js-API-compatible drop-in. Same chainable API surface, but every mutating-looking call returns a new instance, and advanced features (time zone, UTC, custom parse, relative time) are opt-in plugins rather than bundled.

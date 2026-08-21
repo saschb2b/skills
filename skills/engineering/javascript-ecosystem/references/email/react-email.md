@@ -3,13 +3,13 @@ type: Library Notes
 title: "React Email"
 description: "As of v6 everything is unified into the single `react-email` package, so you no longer install or import `@react-email/components` separately, and `render()` is async (returns a `Promise<string>`)."
 tags: [javascript, email]
-generated: { by: claude-code/unversioned, at: 2026-06-04T00:00:00Z }
+generated: { by: claude-code/unversioned, at: 2026-08-20T00:00:00Z }
 ---
 # React Email
 
-**Verified 2026-06-04.** Check the installed `react-email` version first; re-verify if newer than below.
+**Verified 2026-08-20.** Check the installed `react-email` version first; re-verify if newer than below.
 
-**Current stable**: 6.x (the v6 line landed Apr 2026). **LLM default bias**: React Email 1.x/2.x with split packages (`@react-email/components` + `@react-email/render` installed separately) and a synchronous `render(<Email/>)`.
+**Current stable**: 6.9 (the v6 line landed Apr 2026, 6.9 in Aug 2026). **LLM default bias**: React Email 1.x/2.x with split packages (`@react-email/components` + `@react-email/render` installed separately) and a synchronous `render(<Email/>)`.
 
 ## The shift
 As of v6 everything is unified into the single `react-email` package, so you no longer install or import `@react-email/components` separately, and `render()` is async (returns a `Promise<string>`). You author transactional emails as React components and render them to provider-agnostic HTML.
@@ -27,10 +27,12 @@ As of v6 everything is unified into the single `react-email` package, so you no 
 - Because `render()` is async, any inline `transport.sendMail({ html: render(...) })` now sends `[object Promise]`. Await it first.
 - The old per-component packages still exist but are legacy; find-and-replace imports to `react-email`.
 - Output is a plain HTML string; it does not send anything. Pair it with Resend, Nodemailer, or SES.
+- The `<Tailwind>` component dropped `dark:` and other media-query variants under tailwindcss 4.3.3+; fixed in 6.9.1, so stay at or above that.
 
 ## Companion
 Sending via [resend.md](./resend.md) or raw SMTP via [nodemailer.md](./nodemailer.md).
 
 ## Sources
 - https://react.email/docs/changelog
+- https://react.email/docs/getting-started/updating-react-email
 - https://resend.com/blog/react-email-6

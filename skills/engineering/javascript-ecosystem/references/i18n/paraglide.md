@@ -3,13 +3,13 @@ type: Library Notes
 title: "Paraglide JS (inlang)"
 description: "Paraglide is compiler-based, not a runtime dictionary."
 tags: [javascript, i18n]
-generated: { by: claude-code/unversioned, at: 2026-06-04T00:00:00Z }
+generated: { by: claude-code/unversioned, at: 2026-08-21T00:00:00Z }
 ---
 # Paraglide JS (inlang)
 
-**Verified 2026-06-04.** Check the installed `@inlang/paraglide-js` version first; re-verify if newer than below.
+**Verified 2026-08-20.** Check the installed `@inlang/paraglide-js` version first; re-verify if newer than below.
 
-**Current stable**: Paraglide 2 (2.18). **LLM default bias**: Paraglide 1.x with the SvelteKit-centric `@inlang/paraglide-sveltekit` package, or no awareness of it at all.
+**Current stable**: Paraglide 2 (2.24). **LLM default bias**: Paraglide 1.x with the SvelteKit-centric `@inlang/paraglide-sveltekit` package, or no awareness of it at all.
 
 ## The shift
 Paraglide is compiler-based, not a runtime dictionary. Messages compile to typed ESM functions you import and call (`m.greeting({ name })`), so there is no runtime key lookup, unused messages tree-shake out, and keys and params are type-checked at build time. v2 unifies framework support into one core package plus a server middleware and per-framework adapters.
@@ -27,6 +27,9 @@ Paraglide is compiler-based, not a runtime dictionary. Messages compile to typed
 - There is a build step: the compiler emits `paraglide/messages.js` and `paraglide/runtime.js`, wired via a bundler plugin or the CLI.
 - Because resolution is compile-time, fully dynamic runtime key construction is not the model; messages are statically known functions.
 - SSR needs the server middleware for correct request-scoped locale.
+
+## Companion
+[i18next.md](./i18next.md) and [next-intl.md](./next-intl.md) are the runtime-dictionary architecture that Paraglide replaces with compiled message functions.
 
 ## Sources
 - https://paraglidejs.com/

@@ -3,16 +3,16 @@ type: Library Notes
 title: "Vue"
 description: "`<script setup>` Composition API is the idiomatic default."
 tags: [javascript, frameworks]
-generated: { by: claude-code/unversioned, at: 2026-06-05T00:00:00Z }
+generated: { by: claude-code/unversioned, at: 2026-08-20T00:00:00Z }
 ---
 # Vue
 
-**Verified 2026-06-05.** Check the installed `vue` version first; re-verify if newer than below.
+**Verified 2026-08-20.** Check the installed `vue` version first; re-verify if newer than below.
 
-**Current stable**: 3.5 (3.6 with Vapor Mode in beta). **LLM default bias**: Vue 2 Options API, `Vue.component`, mixins, Vuex, plus Options-heavy early Vue 3.
+**Current stable**: 3.5 (3.6 with Vapor Mode in RC since Jul 2026, feature-complete but not yet stable). **LLM default bias**: Vue 2 Options API, `Vue.component`, mixins, Vuex, plus Options-heavy early Vue 3.
 
 ## The shift
-`<script setup>` Composition API is the idiomatic default. Shared logic moves from mixins to composables, state from Vuex to Pinia, two-way binding to `defineModel()`. Vue 3.6 adds Vapor Mode, an opt-in virtual-DOM-free compile path for Solid and Svelte-class performance, still experimental.
+`<script setup>` Composition API is the idiomatic default. Shared logic moves from mixins to composables, state from Vuex to Pinia, two-way binding to `defineModel()`. Vue 3.6 adds Vapor Mode, an opt-in virtual-DOM-free compile path for Solid and Svelte-class performance, feature-complete in the 3.6 RC but not yet stable.
 
 ## Stop / Start
 | Stop (LLM default) | Start (current Vue) |
@@ -27,7 +27,7 @@ generated: { by: claude-code/unversioned, at: 2026-06-05T00:00:00Z }
 | String `ref` + `this.$refs` | `useTemplateRef('name')` (3.5); `useId()` for SSR-safe ids |
 
 ## Gotchas
-- Vapor Mode is opt-in via `<script setup vapor>` (or `createVaporApp` for a whole app) and not production-ready in the 3.6 alpha/beta. Do not assume it.
+- Vapor Mode is opt-in via `<script setup vapor>` (or `createVaporApp` for a whole app) and not production-ready in the 3.6 RC. Do not assume it.
 - The 3.6 reactivity rewrite is internal and mostly backward compatible. Retest performance-sensitive code.
 - `defineModel()` replaces the old `modelValue` prop plus `update:modelValue` emit pattern.
 

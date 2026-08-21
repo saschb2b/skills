@@ -3,13 +3,13 @@ type: Library Notes
 title: "ESLint"
 description: "Flat config (`eslint.config.js`) became the default in v9 and is the only config system in v10, which removed the legacy `eslintrc` system entirely."
 tags: [javascript, tooling]
-generated: { by: claude-code/unversioned, at: 2026-06-04T00:00:00Z }
+generated: { by: claude-code/unversioned, at: 2026-08-20T00:00:00Z }
 ---
 # ESLint
 
-**Verified 2026-06-04.** Check the installed `eslint` version and which config file exists first; re-verify if newer than below.
+**Verified 2026-08-20.** Check the installed `eslint` version and which config file exists first; re-verify if newer than below.
 
-**Current stable**: v9 (flat config default) and v10 (flat config only). **LLM default bias**: `.eslintrc.{js,json,yml}` with `extends`/`env`/`overrides`, and `.eslintignore` files.
+**Current stable**: v10 (10.8, Jul 2026), flat config only. v9 reached end of life on 2026-08-06 and is unmaintained. **LLM default bias**: `.eslintrc.{js,json,yml}` with `extends`/`env`/`overrides`, and `.eslintignore` files.
 
 ## The shift
 Flat config (`eslint.config.js`) became the default in v9 and is the only config system in v10, which removed the legacy `eslintrc` system entirely. Config resolution is per-file-directory, which is monorepo-friendly, rather than cwd-based.
@@ -22,6 +22,7 @@ Flat config (`eslint.config.js`) became the default in v9 and is the only config
 | `env: { browser: true }` | `languageOptions.globals` (e.g. from the `globals` package) |
 | `.eslintignore` | `globalIgnores()` or the `ignores` key |
 | Hand-rewriting an old config | `npx @eslint/migrate-config .eslintrc.json` |
+| Staying on ESLint v9 | v10 (v9 is end of life since 2026-08-06) |
 
 ## Gotchas
 - Plugins must export flat-config-compatible objects. Very old plugins without flat-config support will not load on v10.
@@ -31,4 +32,4 @@ Flat config (`eslint.config.js`) became the default in v9 and is the only config
 
 ## Sources
 - https://eslint.org/docs/latest/use/configure/configuration-files
-- https://eslint.org/blog/2025/03/flat-config-extends-define-config-global-ignores/
+- https://eslint.org/version-support/

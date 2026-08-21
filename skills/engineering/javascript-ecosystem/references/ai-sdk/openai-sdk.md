@@ -3,13 +3,13 @@ type: Library Notes
 title: "OpenAI JS/TS SDK (`openai`)"
 description: "The Responses API (`client.responses.create`) is OpenAI's recommended API for new projects (Chat Completions remains supported and is not deprecated)."
 tags: [javascript, ai-sdk]
-generated: { by: claude-code/unversioned, at: 2026-06-04T00:00:00Z }
+generated: { by: claude-code/unversioned, at: 2026-08-20T00:00:00Z }
 ---
 # OpenAI JS/TS SDK (`openai`)
 
-**Verified 2026-06-04.** Check the installed `openai` version first; re-verify if newer than below.
+**Verified 2026-08-20.** Check the installed `openai` version first; re-verify if newer than below.
 
-**Current stable**: 6.x (6.42); v6 shipped Sep 2025, v5 May 2025. **LLM default bias**: v4. `client.chat.completions.create({ messages, model: 'gpt-4o' })`, reading `choices[0].message.content`, and manual transcript management. Older still, the v3 `Configuration`/`OpenAIApi` class pattern.
+**Current stable**: 7.x (7.5); v7 shipped Jul 2026, v6 Sep 2025, v5 May 2025. **LLM default bias**: v4. `client.chat.completions.create({ messages, model: 'gpt-4o' })`, reading `choices[0].message.content`, and manual transcript management. Older still, the v3 `Configuration`/`OpenAIApi` class pattern.
 
 ## The shift
 The Responses API (`client.responses.create`) is OpenAI's recommended API for new projects (Chat Completions remains supported and is not deprecated). Responses takes `input` plus separate `instructions`, exposes `output_text` and a typed `output` array, supports stateful chaining via `previous_response_id`, and ships built-in tools (web search, file search, code interpreter).
@@ -25,6 +25,7 @@ The Responses API (`client.responses.create`) is OpenAI's recommended API for ne
 | Defaulting to `gpt-4o` | A current model id (verify the exact id for your account) |
 
 ## Gotchas
+- v7.0.0 (Jul 2026) requires Node.js 22 and codifies the supported-runtime policy. That is its only real breaking change, so the upgrade is a runtime bump more than a code change.
 - v6.0.0 had a breaking change: tool-call output types are now `string | Array<...>`, not string-only. Update callsites.
 - Responses is recommended but Chat Completions is not deprecated, so existing apps need not rush; new apps should start on Responses.
 - The Assistants API is separately deprecated (sunset in 2026) in favor of Responses. For multi-agent workflows, `@openai/agents` is a separate framework on top of this SDK.

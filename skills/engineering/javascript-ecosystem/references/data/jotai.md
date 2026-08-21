@@ -3,13 +3,13 @@ type: Library Notes
 title: "Jotai"
 description: "The v2 API exposed a framework-agnostic store (`createStore()` with `store.get`/`store.set`/`store.sub`) and split vanilla (`jotai/vanilla`) from React (`jotai/react`), so atoms can be read and..."
 tags: [javascript, data]
-generated: { by: claude-code/unversioned, at: 2026-06-04T00:00:00Z }
+generated: { by: claude-code/unversioned, at: 2026-08-20T00:00:00Z }
 ---
 # Jotai
 
-**Verified 2026-06-04.** Check the installed `jotai` version first; re-verify if newer than below.
+**Verified 2026-08-20.** Check the installed `jotai` version first; re-verify if newer than below.
 
-**Current stable**: v2.x. **LLM default bias**: v1 (Recoil-inspired). No exposed store API, and `useAtom` behavior where an atom getter auto-resolved promises.
+**Current stable**: v2.x (2.20, Jul 2026). **LLM default bias**: v1 (Recoil-inspired). No exposed store API, and `useAtom` behavior where an atom getter auto-resolved promises.
 
 ## The shift
 The v2 API exposed a framework-agnostic store (`createStore()` with `store.get`/`store.set`/`store.sub`) and split vanilla (`jotai/vanilla`) from React (`jotai/react`), so atoms can be read and written outside React. Async atoms became "just atoms with promise values": the getter returns the promise, only the `useAtom` hook resolves it. v2 is intentionally not Recoil-compatible.
@@ -26,6 +26,7 @@ The v2 API exposed a framework-agnostic store (`createStore()` with `store.get`/
 - The v1 to v2 break is mainly async-atom and store-API behavior. Simple synchronous atom code is mostly unaffected.
 - Jotai is bottom-up atomic client state, good for fine-grained derived state. Like Zustand, it is not a server cache.
 - Devtools live in the separate `jotai-devtools` package.
+- v3 is alpha only (Jul 2026): ESM only, drops CommonJS and old TypeScript targets, redesigned internal building blocks. Stay on v2 until it ships stable; the atom API is unchanged.
 
 ## Companion
 For fetched server data, see [tanstack-query.md](./tanstack-query.md).

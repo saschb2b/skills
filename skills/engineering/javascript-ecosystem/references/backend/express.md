@@ -3,13 +3,13 @@ type: Library Notes
 title: "Express"
 description: "Express 5 finally shipped after a long gestation, focused on stability and security rather than features."
 tags: [javascript, backend]
-generated: { by: claude-code/unversioned, at: 2026-06-05T00:00:00Z }
+generated: { by: claude-code/unversioned, at: 2026-08-21T00:00:00Z }
 ---
 # Express
 
-**Verified 2026-06-05.** Check the installed `express` version first; re-verify if newer than below.
+**Verified 2026-08-20.** Check the installed `express` version first; re-verify if newer than below.
 
-**Current stable**: 5.1 (Mar 2025). **LLM default bias**: Express 4.x. It was the only stable major for roughly a decade, so corpora are saturated with v4 idioms.
+**Current stable**: 5.2 (Dec 2025). **LLM default bias**: Express 4.x. It was the only stable major for roughly a decade, so corpora are saturated with v4 idioms.
 
 ## The shift
 Express 5 finally shipped after a long gestation, focused on stability and security rather than features. The biggest practical change is that rejected promises from `async` handlers now propagate to the error handler automatically, and routing moved to `path-to-regexp@8`.
@@ -28,7 +28,11 @@ Express 5 finally shipped after a long gestation, focused on stability and secur
 - Run `npx codemod@latest @expressjs/v5-migration-recipe` for the codemods, but the new path-matching syntax needs manual review.
 - An unmatched optional param is now omitted from `req.params` entirely (v4 set it to `undefined`).
 - Express 5 requires Node 18+.
+- 5.2.0 shipped an erroneous breaking change to the extended query parser, reverted in 5.2.1. Install at least 5.2.1.
 - Express 4 is still in maintenance into late 2026, so do not assume a recent codebase is v5. Check the version.
+
+## Companion
+[fastify.md](./fastify.md) is the throughput-focused successor for new Node services, and [hono.md](./hono.md) is the web-standard choice when the app must also run on edge runtimes.
 
 ## Sources
 - https://expressjs.com/en/blog/2024-10-15-v5-release

@@ -3,13 +3,13 @@ type: Library Notes
 title: "Chakra UI"
 description: "v3 is a complete rewrite."
 tags: [javascript, ui]
-generated: { by: claude-code/unversioned, at: 2026-06-04T00:00:00Z }
+generated: { by: claude-code/unversioned, at: 2026-08-21T00:00:00Z }
 ---
 # Chakra UI
 
-**Verified 2026-06-04.** Check the installed `@chakra-ui/react` version first; re-verify if newer than below.
+**Verified 2026-08-20.** Check the installed `@chakra-ui/react` version first; re-verify if newer than below.
 
-**Current stable**: v3.x (v3.0 shipped Oct 2024). **LLM default bias**: v2, and v1. The Emotion-based v2 API with `extendTheme`, framer-motion animations, and monolithic components.
+**Current stable**: v3.36 (Jul 2026; v3.0 shipped Oct 2024). **LLM default bias**: v2, and v1. The Emotion-based v2 API with `extendTheme`, framer-motion animations, and monolithic components.
 
 ## The shift
 v3 is a complete rewrite. Styling moved off Emotion onto a Panda-style engine, component logic onto Ark UI (Zag.js state machines), and framer-motion is no longer a dependency. The component API changed pervasively, most visibly to a namespaced compound pattern, with a new theming system via `createSystem`.
@@ -24,9 +24,12 @@ v3 is a complete rewrite. Styling moved off Emotion onto a Panda-style engine, c
 | `@chakra-ui/react@2` | `@chakra-ui/react@3` and the v3 snippets/CLI |
 
 ## Gotchas
-- v3 is a hard break from v2. Nearly everything changed (deps, props, config schema, some token names). An official v2 to v3 codemod exists.
+- v3 is a hard break from v2. Nearly everything changed (deps, props, config schema, some token names). `@chakra-ui/codemod` (50+ transforms, Feb 2026) automates the v2 to v3 migration.
 - v3 supports RSC and Next.js out of the box, unlike the v2 Emotion runtime.
 - Park UI (Ark UI + Panda CSS) is a sibling project whose patterns rhyme with v3. Do not conflate the two.
+
+## Companion
+[mantine.md](./mantine.md) is the closest alternative in scope and hook surface, and [mui.md](./mui.md) is the heavier Material-styled option.
 
 ## Sources
 - https://www.chakra-ui.com/blog/00-announcing-v3

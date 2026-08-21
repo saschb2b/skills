@@ -3,16 +3,16 @@ type: Library Notes
 title: "AnalogJS"
 description: "AnalogJS is the fullstack Angular meta-framework, the Angular equivalent of Next.js, Nuxt, and SvelteKit."
 tags: [javascript, meta-frameworks]
-generated: { by: claude-code/unversioned, at: 2026-06-05T00:00:00Z }
+generated: { by: claude-code/unversioned, at: 2026-08-20T00:00:00Z }
 ---
 # AnalogJS
 
-**Verified 2026-06-05.** Check the installed `@analogjs/platform` version first; re-verify if newer than below.
+**Verified 2026-08-20.** Check the installed `@analogjs/platform` version first; re-verify if newer than below.
 
-**Current stable**: 2.x. **LLM default bias**: not knowing Angular has a Vite meta-framework; assuming Angular CLI plus webpack only; manual `RouterModule.forRoot([...])` route arrays.
+**Current stable**: 2.7 (Aug 2026); 3.0 is in alpha. **LLM default bias**: not knowing Angular has a Vite meta-framework; assuming Angular CLI plus webpack only; manual `RouterModule.forRoot([...])` route arrays.
 
 ## The shift
-AnalogJS is the fullstack Angular meta-framework, the Angular equivalent of Next.js, Nuxt, and SvelteKit. It is Vite-powered (Vite, Vitest, Nitro/h3), with file-based routing, server and API routes, and hybrid SSR/SSG.
+AnalogJS is the fullstack Angular meta-framework, the Angular equivalent of Next.js, Nuxt, and SvelteKit. It is Vite-powered (Vite, Vitest, Nitro/h3), with file-based routing, server and API routes, and hybrid SSR/SSG. 2.7 added server functions and streaming SSR.
 
 ## Stop / Start
 | Stop (LLM default) | Start (AnalogJS) |

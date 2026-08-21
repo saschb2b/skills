@@ -3,13 +3,13 @@ type: Library Notes
 title: "TanStack Start"
 description: "TanStack Start is a full-stack meta-framework on top of TanStack Router plus Vite."
 tags: [javascript, meta-frameworks]
-generated: { by: claude-code/unversioned, at: 2026-06-04T00:00:00Z }
+generated: { by: claude-code/unversioned, at: 2026-08-20T00:00:00Z }
 ---
 # TanStack Start
 
-**Verified 2026-06-04.** Check the installed `@tanstack/react-start` version first; re-verify if newer than below.
+**Verified 2026-08-20.** Check the installed `@tanstack/react-start` version first; re-verify if newer than below.
 
-**Current stable**: v1 Release Candidate, not yet GA (RC announced Sep 2025). **LLM default bias**: thin or wrong. Models tend to not know it, conflate it with TanStack Router, or assume it is a pre-1.0 experiment.
+**Current stable**: v1 Release Candidate, not yet GA (RC announced Sep 2025; still RC as of Aug 2026). **LLM default bias**: thin or wrong. Models tend to not know it, conflate it with TanStack Router, or assume it is a pre-1.0 experiment.
 
 ## The shift
 TanStack Start is a full-stack meta-framework on top of TanStack Router plus Vite. It centers on type-safe file-based routing, isomorphic server functions, server routes, and deep TanStack Query integration with streaming SSR. It is React-first; the underlying TanStack Router also supports Solid.

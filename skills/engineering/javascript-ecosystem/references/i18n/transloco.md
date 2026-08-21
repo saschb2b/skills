@@ -3,13 +3,13 @@ type: Library Notes
 title: "Transloco (Angular i18n)"
 description: "Transloco is Angular's runtime i18n library, with live language switching, lazy scopes, and a signal-based API."
 tags: [javascript, i18n]
-generated: { by: claude-code/unversioned, at: 2026-06-05T00:00:00Z }
+generated: { by: claude-code/unversioned, at: 2026-08-20T00:00:00Z }
 ---
 # Transloco (Angular i18n)
 
-**Verified 2026-06-05.** Check the installed `@jsverse/transloco` version first; re-verify if newer than below.
+**Verified 2026-08-20.** Check the installed `@jsverse/transloco` version first; re-verify if newer than below.
 
-**Current stable**: 8.x under `@jsverse/transloco`. **LLM default bias**: the old `@ngneat/transloco` package (frozen at 6.x), NgModule `TranslocoModule.forRoot` setup, and confusing it with `@angular/localize`.
+**Current stable**: 8.x (8.4) under `@jsverse/transloco`. **LLM default bias**: the old `@ngneat/transloco` package (frozen at 6.x), NgModule `TranslocoModule.forRoot` setup, and confusing it with `@angular/localize`.
 
 ## The shift
 Transloco is Angular's runtime i18n library, with live language switching, lazy scopes, and a signal-based API. It moved scope from `@ngneat` to `@jsverse`, and setup is the standalone `provideTransloco({ config, loader })`.

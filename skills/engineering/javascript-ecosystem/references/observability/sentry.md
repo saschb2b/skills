@@ -3,13 +3,13 @@ type: Library Notes
 title: "Sentry (JavaScript SDK)"
 description: "Integrations became tree-shakable functions in v8 (`Sentry.browserTracingIntegration()`, not `new Sentry.BrowserTracing()`), and the Node SDK was re-architected on OpenTelemetry for tracing and..."
 tags: [javascript, observability]
-generated: { by: claude-code/unversioned, at: 2026-06-04T00:00:00Z }
+generated: { by: claude-code/unversioned, at: 2026-08-20T00:00:00Z }
 ---
 # Sentry (JavaScript SDK)
 
-**Verified 2026-06-04.** Check the installed `@sentry/*` version first; re-verify if newer than below.
+**Verified 2026-08-20.** Check the installed `@sentry/*` version first; re-verify if newer than below.
 
-**Current stable**: 10.x (v10 shipped Jul 2025). **LLM default bias**: v7 and earlier. The separate `@sentry/tracing` package, class-based integrations (`new Sentry.BrowserTracing()`), and the old `sentry.client.config.ts` for Next.js.
+**Current stable**: 10.x (10.70, Aug 2026; v10 shipped Jul 2025). v11 is alpha only, so stay on v10. **LLM default bias**: v7 and earlier. The separate `@sentry/tracing` package, class-based integrations (`new Sentry.BrowserTracing()`), and the old `sentry.client.config.ts` for Next.js.
 
 ## The shift
 Integrations became tree-shakable functions in v8 (`Sentry.browserTracingIntegration()`, not `new Sentry.BrowserTracing()`), and the Node SDK was re-architected on OpenTelemetry for tracing and auto-instrumentation. v9 moved Next.js client init to `instrumentation-client.ts`; v10 bumped the underlying OpenTelemetry dependencies to v2.
@@ -26,6 +26,7 @@ Integrations became tree-shakable functions in v8 (`Sentry.browserTracingIntegra
 
 ## Gotchas
 - v10's main breaking change is the OpenTelemetry v2 bump. If a dependency pins OTel v1, stay on v9 or use `@sentry/node-core`.
+- Since 10.64 the Node SDK registers a minimal `SentryTracerProvider` by default instead of the full OpenTelemetry span pipeline. If you depend on OTel SDK features it does not support, set `openTelemetryBasicTracerProvider: true`.
 - On Node and Next.js servers, init Sentry as early as possible (the instrumentation file) so OpenTelemetry can patch modules before import.
 - v10 stopped reporting the FID web vital (superseded by INP).
 
@@ -35,3 +36,4 @@ Vendor-neutral tracing in [opentelemetry.md](./opentelemetry.md).
 ## Sources
 - https://docs.sentry.io/platforms/javascript/migration/v9-to-v10/
 - https://docs.sentry.io/platforms/javascript/guides/nextjs/manual-setup/
+- https://github.com/getsentry/sentry-javascript/releases
