@@ -39,13 +39,13 @@ bundle/
   components/                   reusable UI elements, each with a runnable example
     button.md  button.example.html  card.md  card.example.html
   patterns/                     compositions of components solving a recurring need
-    form.md  form.example.html
+    form.md  form.example.html  form.wireframe.html
   behaviors/                    interaction and state rules
     focus-visible.md
   guidelines/                   do/don't principles with rationale
     color-not-alone.md  color-not-alone.dont.html
-  styles/                       the token set projected as consumable CSS (assets)
-    tokens.css  components.css
+  styles/                       the shared stylesheets (assets)
+    tokens.css  components.css  wireframe.css
   references/                   external sources mirrored as concepts (OKF carryover)
     design-md.md                type: Reference
 ```
@@ -152,6 +152,7 @@ The asset is what makes an ODSF bundle *transferable* rather than merely *descri
 | Asset | Role |
 | --- | --- |
 | `<concept>.example.html` | The canonical, correct usage. SHOULD be self-rendering. |
+| `<concept>.wireframe.html` | The example's markup with the skin stripped: the structural view (see below). |
 | `<concept>.do.html` | A correct example in a do/don't pair. |
 | `<concept>.dont.html` | The matching counter-example, the mistake the guideline forbids. |
 | `<concept>.css` | Styles specific to this concept, when not in a shared stylesheet. |
@@ -168,6 +169,12 @@ A concept declares its assets in the `examples` frontmatter list and SHOULD link
 
 **Do / Don't pairs.** A `Guideline` or `Component` MAY ship a `*.do.html` / `*.dont.html` pair so the agent sees both the intended result and the specific failure to avoid. The concept's body explains *why* the don't is wrong; the asset shows *what* it looks like.
 
+**Wireframes: structure without skin.** Every CSS property falls into one of two families. **Structure** decides where boxes sit, how big they are, in what order they read, and how they move as space changes: `display`, flex and grid placement, `gap`, `padding`, `margin`, sizing and grow/shrink/wrap behavior, `order`, the type *scale*, and media or container queries. **Skin** restyles pixels in place: color, the type *family*, radius, shadow, imagery, motion. The test, when a property is on the line: change it and watch the boxes. If boxes move, resize, reorder, or read in a different order, it is structure; if the same boxes merely look different, it is skin. (So `font-size` is structure, it resizes boxes and encodes hierarchy, while `font-family` is skin; a border is structure when it takes space or separates regions, skin when it decorates.) The distinction matters to an agent because the two families fail differently: a skin error (a wrong hue, an off radius) is visible at a glance and cheap to fix, while a structure error (a wrong reading order, an off-rhythm gap, a missing reflow, an inverted hierarchy) hides behind correct skin, because a screen with the right colors and radii reads as on-system while being assembled wrong. Tokens carry the skin faithfully; the wireframe is the view that removes it, so structure can be judged on its own.
+
+**The wireframe asset and `styles/wireframe.css`.** A `<concept>.wireframe.html` is the example rendered with the skin stripped. It SHOULD carry the same `<body>` markup as its `<concept>.example.html` **verbatim**, differing only in the `<head>`, where it links one extra stylesheet **last**: `styles/wireframe.css`, a single bundle-wide override sheet that neutralizes skin (grayscale fills, one neutral type family at the scale's own sizes, zero radius, no shadows, no motion, flat gray boxes for imagery) and reveals every box with `outline` (which occupies no space, so layout fidelity is exact where a `border` would shift it). Because the sheet overrides only skin properties, every structural rule in `components.css`, including its media queries, still applies. That is the design's point: the wireframe is not a second drawing that can drift, it is **computed from the same markup and the same structural CSS the example uses**, so it cannot disagree with the system's real structure, and resizing it demonstrates the component's actual reflow with nothing else to look at. This is also the one place `!important` is correct in a bundle: a last-loaded diagnostic sheet must win every specificity contest without editing the rules it inspects. The validator warns when a wireframe's body diverges from its example's.
+
+**What a wireframe is for.** With brand stripped, hierarchy has nowhere to hide: only scale, spacing, grouping, and order carry it, so a wrong reading order, an off-scale gap, or an element that is visually primary but semantically minor shows immediately. Hierarchy lives in two registers that MUST agree, semantic (heading levels, landmarks, DOM order, which is also reading and tab order) and visual (scale, proximity, position), and the wireframe is where a disagreement between them becomes visible. Ship a wireframe for every `Pattern` (a composition *is* structure) and for any `Component` whose internal layout is non-trivial; declare it in `examples` beside the example asset. A wireframe complements the skinned example, never replaces it: the example is the copy source, the wireframe is the structural contract and the review lens. It is a **derived view of real markup, not an ideation sketch**; ODSF documents a system that exists, it does not prototype one.
+
 **Keep the table and the asset in sync.** Every row in a component's `# Variants & States` table SHOULD have a matching element in its example asset, and every variant in the example SHOULD be documented in the table. The validator checks that a declared asset exists, not that it covers every variant, so this one is on the producer.
 
 ## 7. Body conventions
@@ -175,12 +182,14 @@ A concept declares its assets in the `examples` frontmatter list and SHOULD link
 The body is structural markdown (OKF §4). Beyond OKF's `# Schema`, `# Examples`, and `# Computation`, ODSF defines **conventional headings per type**, used when they apply. Provenance is no longer a body section in either format: sources live in `sources` frontmatter, and a claim is attributed with a footnote keyed to a source `id`.
 
 - **Foundation concepts** (`Color`, `Typography`, `Spacing`, …): `# Tokens` (a name / value / usage table), `# Roles` (semantic meaning of each token), `# Usage`, `# Do & Don't`.
-- **`Component`:** `# Anatomy`, `# Tokens` (the component's tokens and the foundation tokens they resolve to), `# Variants & States`, `# Examples` (links to the example assets), `# Behavior` (links to `Behavior` concepts), `# Accessibility`, `# Do & Don't`.
-- **`Pattern`:** `# When to use`, `# Composition` (the linked components it assembles), `# Example`, `# Do & Don't`.
+- **`Component`:** `# Anatomy`, `# Structure` (the skeleton, see below), `# Tokens` (the component's tokens and the foundation tokens they resolve to), `# Variants & States`, `# Examples` (links to the example assets), `# Behavior` (links to `Behavior` concepts), `# Accessibility`, `# Do & Don't`.
+- **`Pattern`:** `# When to use`, `# Composition` (the linked components it assembles), `# Structure` (the page-level skeleton: regions, source order, the collapse story), `# Example`, `# Do & Don't`.
 - **`Behavior`:** `# Rule`, `# States`, `# Example`, `# Accessibility`.
 - **`Guideline`:** `# Rule` (one sentence), `# Why`, `# Do`, `# Don't` (linking the do/don't assets).
 
 A consistent `# Do & Don't` section, with linked `*.do.html` / `*.dont.html` assets, is the single highest-value convention for steering an agent away from plausible-but-wrong output.
+
+**`# Structure`** is the agent-readable skeleton, the prose twin of the wireframe asset (§6): stacking direction and wrap behavior, the order of parts (flagging anywhere visual order differs from DOM order, since reading and tab order follow the DOM), the spacing step between parts named as tokens (`{spacing.xs}` between a label and its field, `{spacing.lg}` between groups), what is fixed and what grows, shrinks, or truncates, alignment, and the reflow story per breakpoint referencing `{breakpoints.*}`. A table works well: Part | Order | Sizing | Space after | Reflow. Write it before `# Tokens`; structure decisions constrain the skin, not the reverse.
 
 ## 8. Cross-linking
 
@@ -236,13 +245,14 @@ How an agent SHOULD use a bundle when handed a design task:
 2. **Pull foundations.** Load the foundation tokens relevant to the task, or simply link/inline `styles/tokens.css`, the runnable projection of all of them.
 3. **Descend by need.** Follow `index.md` listings and cross-links to the `Component`, `Pattern`, and `Behavior` concepts the task requires; don't read the whole bundle.
 4. **Copy from the assets.** Reproduce structure, class names, and attributes from the relevant `*.example.html`. The example *uses* the classes; `styles/components.css` *defines* them (and `tokens.css` defines the values they consume), so read `components.css` for the class contract and any layout primitives (`.stack`, `.row`) and state rules (`:focus-visible`) the example references but does not itself define.
-5. **When a concept you need is absent, degrade, don't stall.** A partial bundle is the normal case. If the **Pattern** you need is missing, compose it from the **Components** it would contain (stack them with the bundle's layout primitives). If a **Component** is missing, reach for the nearest typed sibling (a password field is the text input with `type="password"`) or build a primitive from foundation tokens. If a **token** is missing, keep the literal `{ref}` or pick the closest defined value. Note what you improvised.
-6. **Respect the rules.** Honor the `Guideline` and `Accessibility` concepts in scope, and the `*.dont.html` counter-examples, so the output avoids the system's known failure modes.
-7. **Stay forgiving.** Tolerate everything optional (missing tokens, absent assets, unknown types, broken links). Never refuse a bundle over them.
+5. **Stand the skeleton up before the skin.** Lay out regions, order, spacing steps, and reflow from the `# Structure` sections and the `*.wireframe.html` assets first, and check the result at more than one width; only then let the tokens paint it. Correct skin masks structural error (a screen with the right colors and radii reads as on-system while its order, rhythm, or reflow is wrong), so judge structure while it is still gray. The same move reviews finished work at fine granularity: link `styles/wireframe.css` last into what you built and compare it against the bundle's wireframes.
+6. **When a concept you need is absent, degrade, don't stall.** A partial bundle is the normal case. If the **Pattern** you need is missing, compose it from the **Components** it would contain (stack them with the bundle's layout primitives). If a **Component** is missing, reach for the nearest typed sibling (a password field is the text input with `type="password"`) or build a primitive from foundation tokens. If a **token** is missing, keep the literal `{ref}` or pick the closest defined value. Note what you improvised.
+7. **Respect the rules.** Honor the `Guideline` and `Accessibility` concepts in scope, and the `*.dont.html` counter-examples, so the output avoids the system's known failure modes.
+8. **Stay forgiving.** Tolerate everything optional (missing tokens, absent assets, unknown types, broken links). Never refuse a bundle over them.
 
 **Emitting into a host app.** Copying tokens into real product code is not the same as linking them from a bundle example. Prefer linking or `@import`-ing `tokens.css`, or inline only the `:root` subset you use, or translate to the app's own token system. A bundle stylesheet may carry `@import` and global rules (a `body {}`) you do not want to paste verbatim into a host app; take the custom properties, leave the page chrome.
 
-An agent that also edits the bundle becomes a producer: it follows the ripple checklist (a token or variant change touches the foundation, `tokens.css`, the component's tokens, `components.css`, the example, the `# Variants & States` table, every changed concept's `generated`, `log.md`, and the indexes only if a concept was added/renamed/removed), then re-validates. The producer commands spell this out (see the `edit` command).
+An agent that also edits the bundle becomes a producer: it follows the ripple checklist (a token or variant change touches the foundation, `tokens.css`, the component's tokens, `components.css`, the example and its wireframe, the `# Variants & States` table, every changed concept's `generated`, `log.md`, and the indexes only if a concept was added/renamed/removed), then re-validates. The producer commands spell this out (see the `edit` command).
 
 ## 12. Non-goals
 
@@ -256,13 +266,14 @@ ODSF deliberately does not:
 
 ## 13. Relationship to OKF and design.md
 
-ODSF sits between the two it builds on. **OKF** gives the *container*: the bundle, the concept, the one-field conformance rule, links, indexes, logs, versioning, and the producer/consumer independence that makes a bundle portable; ODSF inherits all of it and stays a strict OKF profile, so OKF tooling reads ODSF bundles unchanged. **design.md** gives the *content seed*: frontmatter design tokens, the `{group.name}` reference syntax, variant/state entries, and the do/don't framing; ODSF embraces that token model and keeps it compatible. **ODSF adds the rest**: first-class `Pattern` / `Behavior` / `Guideline` / `Accessibility` concepts, the OKF-style graph that ties a task to exactly the design knowledge it needs, a runnable `tokens.css` projection, and companion HTML/CSS assets that make an example concrete rather than paraphrased.
+ODSF sits between the two it builds on. **OKF** gives the *container*: the bundle, the concept, the one-field conformance rule, links, indexes, logs, versioning, and the producer/consumer independence that makes a bundle portable; ODSF inherits all of it and stays a strict OKF profile, so OKF tooling reads ODSF bundles unchanged. **design.md** gives the *content seed*: frontmatter design tokens, the `{group.name}` reference syntax, variant/state entries, and the do/don't framing; ODSF embraces that token model and keeps it compatible. **ODSF adds the rest**: first-class `Pattern` / `Behavior` / `Guideline` / `Accessibility` concepts, the OKF-style graph that ties a task to exactly the design knowledge it needs, a runnable `tokens.css` projection, companion HTML/CSS assets that make an example concrete rather than paraphrased, and the wireframe view that strips the skin from those assets so structure stays inspectable on its own.
 
 ## 14. Design principles
 
 - **A profile, not a fork.** ODSF adds the minimum to OKF to make design systems first-class and keeps every ODSF bundle a valid OKF bundle. One new hard rule, the rest recommended.
 - **Two projections, one truth.** Tokens live once and appear twice (agent-readable frontmatter and runnable CSS), so describing the system and using it never diverge.
 - **Show, don't just tell.** Every concept can ship a concrete, self-rendering artifact. An agent copies a correct example far more reliably than it follows prose.
+- **Structure before skin.** How a thing is put together (layout, spacing, order, hierarchy, reflow) is documented and judged separately from how it is painted, because correct skin is exactly what hides structural error. The wireframe keeps that layer inspectable, and it is derived from the example's own markup and CSS so the two views can never drift apart.
 - **Forgiving by default.** A consumer degrades gracefully through every missing optional part, down to "a pile of typed markdown," which is still useful. Adoption beats enforcement.
 - **Format, not platform.** No cloud, model, framework, or account is ever required to read, write, or serve a bundle. ODSF's value is in being a shared format, not in owning it.
 

@@ -14,7 +14,9 @@
 //          follow the actor convention; `stale_after` is an absolute YYYY-MM-DD.
 //   ODSF - root should also declare okf_version; companion assets referenced by a concept
 //          (in `examples` frontmatter or body links) should exist; `{group.name}` token
-//          references should resolve; a bundle should contain only .md, .html, and .css files.
+//          references should resolve; a bundle should contain only .md, .html, and .css files;
+//          a *.wireframe.html should carry the same <body> markup as its *.example.html
+//          sibling (the wireframe is the example with the skin stripped, spec section 6).
 //
 // `status` accepts OKF v0.2's draft|stable|deprecated plus ODSF's own `experimental`
 // extension (spec section 3), which OKF-only consumers see as an unknown value and tolerate.
@@ -306,7 +308,22 @@ for (const file of mdFiles) {
   }
 }
 
-// --- Pass 4: bundle should be text-only (.md/.html/.css). ---
+// --- Pass 4: a wireframe should carry its example's <body> verbatim (structure and skin
+// are two views of one markup; a diverged wireframe silently documents a different component). ---
+const bodyMarkup = (text) => {
+  const m = text.match(/<body[^>]*>([\s\S]*)<\/body>/i);
+  return m ? m[1].replace(/\s+/g, " ").trim() : null;
+};
+for (const wf of files.filter((f) => f.endsWith(".wireframe.html"))) {
+  const ex = wf.replace(/\.wireframe\.html$/, ".example.html");
+  if (!existsSync(ex)) continue;
+  const a = bodyMarkup(readFileSync(wf, "utf8"));
+  const b = bodyMarkup(readFileSync(ex, "utf8"));
+  if (a !== null && b !== null && a !== b)
+    warnings.push(`${rel(wf)}: wireframe <body> diverges from ${basename(ex)} (the two views should share one body)`);
+}
+
+// --- Pass 5: bundle should be text-only (.md/.html/.css). ---
 for (const file of files) {
   const ext = extname(file).toLowerCase();
   if (![".md", ".html", ".css"].includes(ext))

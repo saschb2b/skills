@@ -5,6 +5,8 @@ should_fire:
   - document our color and spacing tokens so an agent builds UI that matches the system
   - create an ODSF bundle for our component library
   - turn our design.md tokens into a bundle with runnable CSS and example HTML
+  - add wireframe views to our design system bundle so agents get the structure right before styling
+  - document the card component's skeleton in the design system, its layout, spacing, order, and responsive reflow
 
 route_to_sibling:
   - prompt: document our BigQuery tables and runbooks as an agent-readable bundle
@@ -13,7 +15,10 @@ route_to_sibling:
     expect: theme-colors
   - prompt: the cards in this grid are all different heights, make them line up
     expect: visual-consistency
+  - prompt: review this rendered dashboard's layout and fix the ragged alignment and arbitrary spacing
+    expect: visual-consistency
 
 should_not_fire:
   - write a SQL migration for the orders table
   - turn this braindump into a user story
+  - sketch a quick wireframe to brainstorm ideas for a new onboarding screen

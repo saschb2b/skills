@@ -1,19 +1,19 @@
 [
   {
     "path": "SKILL.md",
-    "sha256": "454f9f865022fe71950a1aaa29af943cf3ef97ddfbbc4a1aa031ea55ed30054c"
+    "sha256": "3286d6b2acc154482489c02bad2e106222abe460895acad9bf14af14dc26c9f9"
   },
   {
     "path": "commands.md",
-    "sha256": "c57f6aeaffae27462f3e2fd063fd3aa549c77b7264dbafa3aecfd1c81fcdea6d"
+    "sha256": "ba65bd318aa733820438e24d6eab5fa9215695d95e2e9068a6b23676c827ae9c"
   },
   {
     "path": "enrich-machine.md",
-    "sha256": "969da09a51d4ce7711cfbe64ad3a4fddc7815a12acdf24f60306dc0d55fed07d"
+    "sha256": "54d331ad025aab2ef2b3d27a965acb080a9c4dd92a4587aa36c4c81640ce95ad"
   },
   {
     "path": "odsf-validate.mjs",
-    "sha256": "ff19503ccc03e873988bce4300eacc2ac6bc0fe103541730e2a532202d04a768"
+    "sha256": "c3130eac6abada8780eb5d5a9de96bda3dbbbab59d09182545be50d213c9c750"
   },
   {
     "path": "permissions.yaml",
@@ -21,10 +21,10 @@
   },
   {
     "path": "spec.md",
-    "sha256": "b4953509454b36906c635c1b91420016fa43c875e41fcc857f006d4718009416"
+    "sha256": "345e168bae9c1bb168b50e23def230ee6d10e64cb3adbaee78426578c7fb3d3c"
   },
   {
     "path": "templates.md",
-    "sha256": "33079b543b8c1b720a24aa4ad11eaf636347ab70d09acf3d3516631fc50aa170"
+    "sha256": "2519bc9bce4aec363a4f5401e84ff3a21a00c9443eb1559f626e01e4222561da"
   }
 ]

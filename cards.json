@@ -452,9 +452,9 @@
       "title": "odsf",
       "description": "Author, validate, and maintain a design system for AI agents as a conformant Open Design System Format (ODSF) bundle, a profile (v0.2) of Open Knowledge Format v0.2 that adds design tokens, runnable...",
       "risk_tier": "executable-L1",
-      "target_digest": "sha256:bc8bdf2bbdc8493ba19b90c0513c63b18632e5ff087c2ab38cd64364739aa863",
+      "target_digest": "sha256:25010fb2b2c4ccd6ca7d1e1ed88942193ea55ed3883324920b64885be62bd835",
       "identity": "did:web:saschb2b.com",
-      "expires": "2027-06-29",
+      "expires": "2027-08-24",
       "capability": {
         "model": "executable",
         "manifest_declared": "permissions.yaml",
@@ -485,7 +485,7 @@
       ],
       "grades": {
         "integrity": "STRONG",
-        "authorship": "STRONG",
+        "authorship": "ABSENT",
         "capability": "MEDIUM",
         "content_provenance": "UNVERIFIED",
         "vouching": "ABSENT",
@@ -493,15 +493,15 @@
       },
       "notes": {
         "integrity": "digest matches live bundle",
-        "authorship": "sigstore + rekor, cosign verify-blob OK; signer not pinned (pass --cert-identity to assert who)",
+        "authorship": "card is unsigned",
         "capability": "permission manifest declared (enforce in sandbox)",
         "content_provenance": "n/a for executable skills",
         "vouching": "0 attestation(s) bound to this digest",
         "freshness": "not expired"
       },
-      "trust_score": 10,
+      "trust_score": 7,
       "reachable": 13,
-      "rarity": "rare",
+      "rarity": "uncommon",
       "art": {
         "svg": "CARD.svg",
         "hero": null

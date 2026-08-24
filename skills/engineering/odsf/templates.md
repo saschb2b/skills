@@ -41,7 +41,7 @@ No frontmatter below the root. Link the example asset inline where one exists.
 ```markdown
 # Components
 
-* [Button](button.md) - Primary action control. ([example](button.example.html))
+* [Button](button.md) - Primary action control. ([example](button.example.html), [wireframe](button.wireframe.html))
 ```
 
 ## log.md
@@ -86,7 +86,7 @@ to the [components](/components/) and [patterns](/patterns/) the task needs, cop
 assets, and honor the [guidelines](/guidelines/).
 ```
 
-A mature bundle carries that **composition pattern**: one `patterns/landing-page.md` (or the domain's equivalent) whose example assembles a full, lifelike page from the bundle's own classes — header to footer, nothing bespoke. Author it last, link it from the overview, and treat it as the bundle's acceptance test.
+A mature bundle carries that **composition pattern**: one `patterns/landing-page.md` (or the domain's equivalent) whose example assembles a full, lifelike page from the bundle's own classes — header to footer, nothing bespoke. Author it last, link it from the overview, and treat it as the bundle's acceptance test. Its wireframe is the same test at the structural layer: the page skeleton (regions, source order, reflow) judged with the skin stripped.
 
 ## Foundation concept (token set)
 
@@ -136,7 +136,7 @@ tokens:
 
 ## Component concept
 
-`components/<name>.md`, with a `components/<name>.example.html` beside it. Reference foundation tokens with `{group.name}` rather than restating values; express states as separate entries. Every `{group.name}` here must resolve to a token defined in some foundation in the same bundle (`radius.md` below assumes a `Shape` foundation that defines it), or `odsf-validate` warns. A component's tokens do not project to `tokens.css`; they are realized as CSS rules in `styles/components.css` that consume the foundation custom properties with `var(--…)` (see the components.css template below).
+`components/<name>.md`, with `components/<name>.example.html` (and, when the layout is non-trivial, `components/<name>.wireframe.html`) beside it. Reference foundation tokens with `{group.name}` rather than restating values; express states as separate entries. Every `{group.name}` here must resolve to a token defined in some foundation in the same bundle (`radius.md` below assumes a `Shape` foundation that defines it), or `odsf-validate` warns. A component's tokens do not project to `tokens.css`; they are realized as CSS rules in `styles/components.css` that consume the foundation custom properties with `var(--…)` (see the components.css template below).
 
 ```markdown
 ---
@@ -153,6 +153,7 @@ sources:
     title: <source title>
 examples:
   - /components/button.example.html
+  - /components/button.wireframe.html
 tokens:
   button-primary:
     backgroundColor: "{colors.primary}"
@@ -165,6 +166,15 @@ tokens:
 # Anatomy
 <the parts and the class contract>
 
+# Structure
+<the skeleton, written before the tokens: direction and wrap, order (flag anywhere visual
+order differs from DOM order), spacing steps as tokens, sizing behavior, reflow per breakpoint>
+
+| Part | Order | Sizing | Space after | Reflow |
+|------|-------|--------|-------------|--------|
+| Icon | 1 | fixed (1em square) | `{spacing.xs}` | hidden below `{breakpoints.sm}` |
+| Label | 2 | grows, truncates | none | none |
+
 # Tokens
 | Token | Resolves to |
 |-------|-------------|
@@ -175,6 +185,7 @@ tokens:
 
 # Examples
 - [button.example.html](/components/button.example.html) - <what it shows>.
+- [button.wireframe.html](/components/button.wireframe.html) - the same markup, skin stripped; structure only.
 
 # Behavior
 - Focus follows [focus-visible](/behaviors/focus-visible.md).
@@ -205,6 +216,7 @@ sources:
     title: <source title>
 examples:
   - /patterns/form.example.html
+  - /patterns/form.wireframe.html
 ---
 
 # When to use
@@ -216,8 +228,15 @@ examples:
 | Fields | [Text input](/components/text-input.md) | <notes> |
 | Submit | [Button](/components/button.md) | Primary variant. |
 
+# Structure
+<the page-level skeleton: regions and their grid, source order (which is reading and tab
+order), spacing steps between fields and groups as tokens, and the collapse story per
+breakpoint. A pattern is a composition, and a composition is structure, so every pattern
+ships a wireframe>
+
 # Example
 - [form.example.html](/patterns/form.example.html)
+- [form.wireframe.html](/patterns/form.wireframe.html) - the same markup, skin stripped.
 
 # Do & Don't
 - **Do** <…>.
@@ -338,6 +357,52 @@ sources:
   <button type="button" class="btn btn--primary">Save changes</button>
 </body>
 </html>
+```
+
+## Asset: a wireframe (structure without skin)
+
+`components/<name>.wireframe.html`. The same `<body>` as the example, **verbatim** (the validator warns on drift); only the `<head>` differs, linking `wireframe.css` last. Because that sheet strips only skin, every structural rule and media query in `components.css` still applies: open the file and resize it to watch the component's real reflow, with nothing else to look at.
+
+```html
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title><System> · <Concept> · wireframe</title>
+  <link rel="stylesheet" href="../styles/tokens.css">
+  <link rel="stylesheet" href="../styles/components.css">
+  <link rel="stylesheet" href="../styles/wireframe.css">
+</head>
+<body>
+  <!-- The minimal, correct markup an agent should reproduce. -->
+  <button type="button" class="btn btn--primary">Save changes</button>
+</body>
+</html>
+```
+
+## Asset: wireframe.css (the skin stripper)
+
+`styles/wireframe.css`. One sheet per bundle, authored once, linked **last** and only by `*.wireframe.html` assets. It overrides the skin properties (color, type family, radius, shadow, imagery, motion) and touches nothing structural, so layout, spacing, sizing, order, type scale, and breakpoints all come through from `components.css` untouched. This is the one sanctioned use of `!important` in a bundle: a last-loaded diagnostic sheet must outrank every component rule without editing them. `outline` (not `border`) reveals each box because it occupies no space, keeping layout fidelity exact.
+
+```css
+/* Skin stripper: overrides skin, never structure. Linked last, wireframes only. */
+* {
+  background-color: #f1f3f5 !important;
+  background-image: none !important;
+  color: #495057 !important;
+  border-color: #adb5bd !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+  font-family: system-ui, sans-serif !important; /* family is skin; size is structure, so it stays */
+  transition: none !important;
+  animation: none !important;
+  outline: 1px dashed #868e96;   /* outline takes no space, so the layout is untouched */
+  outline-offset: -1px;
+}
+body { background-color: #ffffff !important; }
+img, svg, video, canvas { filter: grayscale(1) contrast(0) !important; } /* keep the box, drop the pixels */
 ```
 
 ## Asset: tokens.css (the token projection)
