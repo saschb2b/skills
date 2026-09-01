@@ -514,9 +514,9 @@
       "title": "okf",
       "description": "Create, inspect, retrieve, author, revise, enrich, audit, repair, research, analyze change impact, migrate, validate, and maintain knowledge for AI agents as conformant Open Knowledge Format (OKF)...",
       "risk_tier": "executable-L1",
-      "target_digest": "sha256:90599a0c2f098c496d33ad48414887900b11ca5415861b432a10a12f8ed78e1e",
+      "target_digest": "sha256:184590b7b9ddcd8efc25d9edfd64175cdffd7e0be0f4af81859fdc5fbe7ef58b",
       "identity": "did:web:saschb2b.com",
-      "expires": "2027-07-27",
+      "expires": "2027-09-01",
       "capability": {
         "model": "executable",
         "manifest_declared": "permissions.yaml",
@@ -531,6 +531,7 @@
           "https://console.cloud.google.com/bigquery?p=acme&d=sales&t=orders",
           "https://developers.google.com/analytics/bigquery/export-schema",
           "https://github.com/GoogleCloudPlatform/knowledge-catalog/blob/main/okf/SPEC.md",
+          "https://github.com/GoogleCloudPlatform/knowledge-catalog/pull/188",
           "https://github.com/GoogleCloudPlatform/knowledge-catalog/tree/main/okf",
           "https://react.dev",
           "https://support.google.com/analytics/answer/7029846",
@@ -550,7 +551,7 @@
       ],
       "grades": {
         "integrity": "STRONG",
-        "authorship": "STRONG",
+        "authorship": "ABSENT",
         "capability": "MEDIUM",
         "content_provenance": "UNVERIFIED",
         "vouching": "ABSENT",
@@ -558,15 +559,15 @@
       },
       "notes": {
         "integrity": "digest matches live bundle",
-        "authorship": "sigstore + rekor, cosign verify-blob OK; signer not pinned (pass --cert-identity to assert who)",
+        "authorship": "card is unsigned",
         "capability": "permission manifest declared (enforce in sandbox)",
         "content_provenance": "n/a for executable skills",
         "vouching": "0 attestation(s) bound to this digest",
         "freshness": "not expired"
       },
-      "trust_score": 10,
+      "trust_score": 7,
       "reachable": 13,
-      "rarity": "rare",
+      "rarity": "uncommon",
       "art": {
         "svg": "CARD.svg",
         "hero": null

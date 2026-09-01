@@ -1,0 +1,6 @@
+# OKF log.md files are append-only, one line per entry, so concurrent
+# additions from parallel branches merge cleanly as a union. Duplicate or
+# out-of-order date headings a union merge leaves behind are flagged by
+# okf-validate.mjs; fold and re-sort, never reword. See the `log` command in
+# skills/engineering/okf/commands.md.
+log.md merge=union

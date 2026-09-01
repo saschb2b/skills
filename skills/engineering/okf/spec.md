@@ -224,6 +224,8 @@ Date headings **MUST** use the ISO 8601 `YYYY-MM-DD` form. Entries beneath a dat
 * **Creation**: Documented the orders table and its join to customers.
 ```
 
+Log entries are append-only. Producers SHOULD add new dated entries rather than editing or deleting past ones, so the log remains a faithful history. A correction SHOULD be recorded as a new entry that supersedes the earlier statement, not as a rewrite of it. (Proposed upstream in [PR #188](https://github.com/GoogleCloudPlatform/knowledge-catalog/pull/188), not merged yet; this skill adopts it as standing practice, and the `log` command in [commands.md](./commands.md) builds its merge-safe write protocol on it.)
+
 ## 10. Attested computations
 
 New in v0.2. A sanctioned computation is a standalone concept of `type: Attested Computation`. It lets a consumer verify that a reported number was produced by the blessed query rather than by an agent writing plausible SQL.

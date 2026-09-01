@@ -243,9 +243,12 @@ No frontmatter below the root.
 
 ## log.md
 
-Newest first, ISO 8601 date headings.
+Newest first, ISO 8601 date headings, one line per entry. The log is append-only: a correction is a new entry that supersedes the old one, never a rewrite. The merge-safe write protocol is under the `log` command in [commands.md](./commands.md).
 
 ```markdown
+## 2026-06-03
+* **Update**: Supersedes 2026-05-28; the column shipped as `loyalty_level`, not `loyalty_tier`.
+
 ## 2026-05-28
 * **Update**: Added the `loyalty_tier` column to the orders schema.
 

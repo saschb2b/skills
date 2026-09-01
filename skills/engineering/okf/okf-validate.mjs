@@ -16,7 +16,9 @@
 //
 // Soft guidance (warnings; never fail the bundle by default, mirroring the
 // permissive consumer the spec requires):
-//   - log.md date headings should be ISO 8601 YYYY-MM-DD
+//   - log.md date headings should be ISO 8601 YYYY-MM-DD, newest first, with
+//     no duplicate date heading (a duplicate or an out-of-order date is the
+//     signature a union merge leaves; fold and re-sort, never reword entries)
 //   - every concept-to-concept link should resolve to a real concept
 //   - every concept should be reachable: no orphans (degree 0)
 //   - `sources` entries carry `resource`; `generated` carries `by`
@@ -214,9 +216,28 @@ for (const file of files) {
   }
 
   if (name === "log.md") {
-    for (const m of text.matchAll(/^##\s+(.+?)\s*$/gm))
+    const dates = [];
+    for (const m of text.matchAll(/^##\s+(.+?)\s*$/gm)) {
       if (!ISO_DATE.test(m[1]))
         warnings.push(`${rel(file)}: log heading "${m[1]}" is not ISO 8601 YYYY-MM-DD`);
+      else dates.push(m[1]);
+    }
+    // Duplicate or out-of-order date headings are what a line-based union
+    // merge leaves behind when two sides logged concurrently. The repair is
+    // structural: fold bullets under one heading per date and re-sort newest
+    // first, moving lines but never rewording or dropping them (the log is
+    // append-only history).
+    const seen = new Set();
+    for (const d of dates) {
+      if (seen.has(d))
+        warnings.push(`${rel(file)}: duplicate date heading "${d}" (merge artifact; fold the bullets under one heading)`);
+      seen.add(d);
+    }
+    for (let i = 1; i < dates.length; i++)
+      if (dates[i] > dates[i - 1]) {
+        warnings.push(`${rel(file)}: date headings not newest-first ("${dates[i]}" after "${dates[i - 1]}"; merge artifact, re-sort the headings)`);
+        break;
+      }
     continue;
   }
 
