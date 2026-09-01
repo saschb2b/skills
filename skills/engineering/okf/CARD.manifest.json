@@ -1,7 +1,7 @@
 [
   {
     "path": "SKILL.md",
-    "sha256": "8bacd394dc109d7fb8e282f4b8c9784727a65084b89dab9e660c030c296511e9"
+    "sha256": "4a5acb239eb260c595e869d542a2c761f02ee829198d85887b4026af15141415"
   },
   {
     "path": "capabilities/audit.md",
@@ -49,11 +49,11 @@
   },
   {
     "path": "commands.md",
-    "sha256": "d027f32d6c6af5e218055549d3ac8f302779bc84291b1d7b416be59ec27d4865"
+    "sha256": "07dc0c11405e788d1b58d4be1f2f0ee5cb9a22c3ea7833e83bee65e5cb73f015"
   },
   {
     "path": "okf-validate.mjs",
-    "sha256": "c059a9f9174876ed2f0a45cd41c29d49336acb1e1975c5b2cf4b25f55e376557"
+    "sha256": "1d5ee6a763155442c1da6fc826b5d107ef7460e86ead9eb6f1956e17e37a17ac"
   },
   {
     "path": "permissions.yaml",
@@ -61,11 +61,11 @@
   },
   {
     "path": "spec.md",
-    "sha256": "0666fce316f4fc4a0a2f20218d1b3f0f4a1cefa22ecea8cb4ca36ad809a49d94"
+    "sha256": "521bb6040a7068711c0eb2134dbcf4396c17df28674c62fccd71fd002ea9d531"
   },
   {
     "path": "templates.md",
-    "sha256": "5e1eac854535fdebeb4965e5a29bf0a81eaf7b9efc5694b85a9ed4c1b1957058"
+    "sha256": "47624379fe1640c66fd802c4587589d033636d6c4328b2c9905d7f141ffeebb6"
   },
   {
     "path": "writing.md",

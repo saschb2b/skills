@@ -98,13 +98,24 @@ Touches: one or more `index.md` files.
 
 ## `log`: record a change
 
-Append a dated entry so consumers and humans can see what moved.
+Append a dated entry so consumers and humans can see what moved. The log is append-only history, and every write follows a protocol that lets parallel producers (branches, worktrees, concurrent agents) touch the same `log.md` without merge conflicts.
 
-1. Use a `## YYYY-MM-DD` heading (ISO 8601, required), newest first.
+1. Use a `## YYYY-MM-DD` heading (ISO 8601, required), newest first. If today's heading already exists, add your bullet under it rather than minting a second one; otherwise insert the heading at the top of the file, directly below the `#` title when there is one.
 2. Lead the entry with a bold word by convention: `**Creation**`, `**Update**`, `**Deprecation**`.
-3. Log meaningful changes (a new concept, a schema change, a deprecation), not every typo.
+3. Keep each entry to a single self-contained line. Git merges line by line, so a one-line entry survives any merge whole, while a multi-line entry can be split between the two sides.
+4. Write one batched entry per unit of work, at the end of it, not a bullet per file touched. Fewer writes into the contended top of the file means fewer chances to collide.
+5. Never edit or delete a past entry, and never reflow or re-wrap existing lines while you are in the file. A correction is a new dated entry that names and supersedes the earlier statement (`**Update**: supersedes 2026-05-22; the join key is customer_id, not email.`).
+6. Log meaningful changes (a new concept, a schema change, a deprecation), not every typo.
 
-Touches: `log.md`.
+Because past entries never change, the only contended region is the top of the file, and git can resolve concurrent additions there mechanically. In a repo where parallel work touches the same bundle, declare a union merge for logs once, in the repo root `.gitattributes`:
+
+```
+log.md merge=union
+```
+
+Union merging keeps both sides' lines with no conflict markers, which is exactly right for one-line append-only entries, but it is line-based: when both sides minted the same date heading it leaves a duplicate, and it can leave date headings out of order. After a merge, repair structure without touching history: fold bullets under one heading per date and re-sort headings newest first, moving lines but never rewording or dropping them. `okf-validate` warns on both artifacts (a duplicate date heading, dates out of order), so a post-merge validate run catches whatever the union merge left behind.
+
+Touches: `log.md`, plus `.gitattributes` once per repo.
 
 ## `validate`: check conformance
 
