@@ -3,13 +3,13 @@ type: Library Notes
 title: "Paraglide JS (inlang)"
 description: "Paraglide is compiler-based, not a runtime dictionary."
 tags: [javascript, i18n]
-generated: { by: claude-code/unversioned, at: 2026-08-21T00:00:00Z }
+generated: { by: claude-code/unversioned, at: 2026-09-09T00:00:00Z }
 ---
 # Paraglide JS (inlang)
 
 **Verified 2026-08-20.** Check the installed `@inlang/paraglide-js` version first; re-verify if newer than below.
 
-**Current stable**: Paraglide 2 (2.24). **LLM default bias**: Paraglide 1.x with the SvelteKit-centric `@inlang/paraglide-sveltekit` package, or no awareness of it at all.
+**Current stable**: Paraglide 2 (2.25). **LLM default bias**: Paraglide 1.x with the SvelteKit-centric `@inlang/paraglide-sveltekit` package, or no awareness of it at all.
 
 ## The shift
 Paraglide is compiler-based, not a runtime dictionary. Messages compile to typed ESM functions you import and call (`m.greeting({ name })`), so there is no runtime key lookup, unused messages tree-shake out, and keys and params are type-checked at build time. v2 unifies framework support into one core package plus a server middleware and per-framework adapters.

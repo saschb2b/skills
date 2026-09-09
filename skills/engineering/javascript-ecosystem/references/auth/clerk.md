@@ -3,13 +3,13 @@ type: Library Notes
 title: "Clerk"
 description: "Clerk is the leading managed and hosted identity provider, with prebuilt components (`<ClerkProvider>`, `<SignIn/>`, `<UserButton/>`) and hooks (`useUser`, `useAuth`)."
 tags: [javascript, auth]
-generated: { by: claude-code/unversioned, at: 2026-08-20T00:00:00Z }
+generated: { by: claude-code/unversioned, at: 2026-09-09T00:00:00Z }
 ---
 # Clerk
 
 **Verified 2026-08-20.** Check the installed `@clerk/nextjs` version first; re-verify if newer than below.
 
-**Current stable**: `@clerk/nextjs` v7 (Core 3, 7.5.x); React lives in the renamed `@clerk/react` (v6). **LLM default bias**: pre-Core 2 Clerk. `authMiddleware()`, synchronous `auth()`, `@clerk/clerk-react`, and `@clerk/nextjs` v4/v5 import paths.
+**Current stable**: `@clerk/nextjs` v7 (Core 3, 7.9.x); React lives in the renamed `@clerk/react` (v6). **LLM default bias**: pre-Core 2 Clerk. `authMiddleware()`, synchronous `auth()`, `@clerk/clerk-react`, and `@clerk/nextjs` v4/v5 import paths.
 
 ## The shift
 Clerk is the leading managed and hosted identity provider, with prebuilt components (`<ClerkProvider>`, `<SignIn/>`, `<UserButton/>`) and hooks (`useUser`, `useAuth`). Two paradigm breaks stack up. `authMiddleware()` became `clerkMiddleware()` and `auth()` became async in the Core 2 / v6 jump. Core 3 (March 2026, `@clerk/nextjs` v7) then collapsed `<SignedIn>`, `<SignedOut>`, and `<Protect>` into a single `<Show>` component and renamed `@clerk/clerk-react` to `@clerk/react`.

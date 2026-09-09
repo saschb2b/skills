@@ -3,13 +3,13 @@ type: Library Notes
 title: "Mantine"
 description: "The Emotion removal already happened in v7 (native CSS modules plus CSS variables, `createStyles` dropped); that is the shift most LLMs miss."
 tags: [javascript, ui]
-generated: { by: claude-code/unversioned, at: 2026-08-21T00:00:00Z }
+generated: { by: claude-code/unversioned, at: 2026-09-09T00:00:00Z }
 ---
 # Mantine
 
 **Verified 2026-08-20.** Check the installed `@mantine/core` version first; re-verify if newer than below.
 
-**Current stable**: v9.5 (Jul 2026), React 19.2+ only. **LLM default bias**: v6 and earlier, frequently the pre-v7 Emotion era with `createStyles`.
+**Current stable**: v9.6 (Sep 2026), React 19.2+ only. **LLM default bias**: v6 and earlier, frequently the pre-v7 Emotion era with `createStyles`.
 
 ## The shift
 The Emotion removal already happened in v7 (native CSS modules plus CSS variables, `createStyles` dropped); that is the shift most LLMs miss. v9 then pushes the baseline to React 19.2+ (uses `useEffectEvent`, `Activity`), changes several defaults, and renames some props.

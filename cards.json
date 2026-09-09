@@ -304,9 +304,9 @@
       "title": "javascript-ecosystem",
       "description": "Default to the latest stable major versions of JavaScript and TypeScript frameworks and their current paradigms, instead of the older versions and patterns that dominate LLM training data. A...",
       "risk_tier": "executable-L1",
-      "target_digest": "sha256:4adc536d8c3f2ead26816b70042ed104b00e0ca5f61f60b937ae8fb1a693ae31",
+      "target_digest": "sha256:97bab8222fba53b9f724a18214cca4cee2dfb701c2ab47acdad0e7acd2ee200b",
       "identity": "did:web:saschb2b.com",
-      "expires": "2027-08-21",
+      "expires": "2027-09-09",
       "capability": {
         "model": "executable",
         "manifest_declared": "permissions.yaml",
@@ -349,7 +349,7 @@
       ],
       "grades": {
         "integrity": "STRONG",
-        "authorship": "STRONG",
+        "authorship": "ABSENT",
         "capability": "MEDIUM",
         "content_provenance": "UNVERIFIED",
         "vouching": "ABSENT",
@@ -357,15 +357,15 @@
       },
       "notes": {
         "integrity": "digest matches live bundle",
-        "authorship": "sigstore + rekor, cosign verify-blob OK; signer not pinned (pass --cert-identity to assert who)",
+        "authorship": "card is unsigned",
         "capability": "permission manifest declared (enforce in sandbox)",
         "content_provenance": "n/a for executable skills",
         "vouching": "0 attestation(s) bound to this digest",
         "freshness": "not expired"
       },
-      "trust_score": 10,
+      "trust_score": 7,
       "reachable": 13,
-      "rarity": "rare",
+      "rarity": "uncommon",
       "art": {
         "svg": "CARD.svg",
         "hero": null

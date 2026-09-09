@@ -3,13 +3,13 @@ type: Library Notes
 title: "Resend"
 description: "Resend is API-first: you send with an API key via `resend.emails.send()` and can pass a React Email component straight to the `react` field instead of pre-rendering HTML."
 tags: [javascript, email]
-generated: { by: claude-code/unversioned, at: 2026-08-20T00:00:00Z }
+generated: { by: claude-code/unversioned, at: 2026-09-09T00:00:00Z }
 ---
 # Resend
 
 **Verified 2026-08-20.** Check the installed `resend` version first; re-verify if newer than below.
 
-**Current stable**: 6.x (6.20). **LLM default bias**: an SMTP-first mental model and older `resend` SDKs. Reaching for Nodemailer plus SMTP credentials, omitting idempotency keys and batch send, and using `svix` for webhooks.
+**Current stable**: 6.x (6.26). **LLM default bias**: an SMTP-first mental model and older `resend` SDKs. Reaching for Nodemailer plus SMTP credentials, omitting idempotency keys and batch send, and using `svix` for webhooks.
 
 ## The shift
 Resend is API-first: you send with an API key via `resend.emails.send()` and can pass a React Email component straight to the `react` field instead of pre-rendering HTML. Modern usage adds idempotency keys, a `batch.send()` endpoint, and webhook verification that moved from `svix` to `standardwebhooks`.

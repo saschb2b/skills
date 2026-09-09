@@ -5,7 +5,7 @@
   },
   {
     "path": "SKILL.md",
-    "sha256": "27048634d2dd33d6eb81fd09997fa831eb8f161b624f8879919e1387f2873e46"
+    "sha256": "cfaced314d6e91b6c1c68cbc8b1095b615c90c74334775031854a518ad57ae4b"
   },
   {
     "path": "_template.md",
@@ -17,7 +17,7 @@
   },
   {
     "path": "references/ai-sdk/anthropic-sdk.md",
-    "sha256": "94bfcafe21971b2b0c2abafa63ff08ef6e9e462c2e656d23e50e193550854c72"
+    "sha256": "3f019561774fe82bfad089cfd85157627cda1e53aff66e96015e7221c8460c18"
   },
   {
     "path": "references/ai-sdk/index.md",
@@ -25,7 +25,7 @@
   },
   {
     "path": "references/ai-sdk/openai-sdk.md",
-    "sha256": "d8c63adf5f867416fa7f9a0d7a639786799ff64c57bcb825ef786b48220cdd3f"
+    "sha256": "e881fbd7259f35f4ce156ed912803ac7384df112e5714e5a75082ad547f1c885"
   },
   {
     "path": "references/ai-sdk/vercel-ai-sdk.md",
@@ -33,7 +33,7 @@
   },
   {
     "path": "references/api-codegen/graphql-codegen.md",
-    "sha256": "aa4cbaababa06c9463e6552009e2c840c44611aea48f76f43efdd8358e5d57d3"
+    "sha256": "2a0dc18bb64b78b218e5956aff3004a2c259edd56fdf6ea128b46672e28ddb97"
   },
   {
     "path": "references/api-codegen/hey-api.md",
@@ -49,7 +49,7 @@
   },
   {
     "path": "references/api-codegen/orval.md",
-    "sha256": "32bcbb5d837c1841a3832ece205e0c5b05785b725c199967665727d6fedd4ecd"
+    "sha256": "6353f82252ec36155e1d5d7f26235e439a3d265fa1a4789c459d8b1b86cc054e"
   },
   {
     "path": "references/api-codegen/setup.md",
@@ -61,11 +61,11 @@
   },
   {
     "path": "references/auth/better-auth.md",
-    "sha256": "841fa6ad55ed047b076b6085f02592cd5ab77543c19c0fef7b55cfbc562cd0e5"
+    "sha256": "bf3586ac9eb01bc56b0436ce7aceadb259250bbad85e790838a84d1fb6065627"
   },
   {
     "path": "references/auth/clerk.md",
-    "sha256": "cfbc83547b14eb58f70c2089d30c427b8763c733e2ec392c14f193b29fac549a"
+    "sha256": "0092af0cb696afdd3eca0e5489533eeb35b1a5247c9497c0f458c7f0788db954"
   },
   {
     "path": "references/auth/index.md",
@@ -89,7 +89,7 @@
   },
   {
     "path": "references/backend/index.md",
-    "sha256": "d9e33d779a61865e83cb3b3fd2666dc165f4344116ddbcb8492292b97c1d5553"
+    "sha256": "4fa23735e242794495429591da2ce032d05aa32f3c5be439a9ae719d6fd8371a"
   },
   {
     "path": "references/backend/nitro.md",
@@ -97,7 +97,7 @@
   },
   {
     "path": "references/backend/prisma.md",
-    "sha256": "c9a96e730bedca503454c9a2bca2733a4b5973f7de0d2aa96b55525db0d5c889"
+    "sha256": "011a45f6e7c38b3a7c73d6711de79a5fdef0533efd00def451e0805017553940"
   },
   {
     "path": "references/backend/trpc.md",
@@ -113,23 +113,23 @@
   },
   {
     "path": "references/cms/sanity.md",
-    "sha256": "254b53f23bac7571eb5eb9bbf7d7904513fda5ba08e37e8227ea0c807eae1ef2"
+    "sha256": "c06e4165e515b0badbf8744778d4a6acb5f4137adcedcf414446b805facb8b6a"
   },
   {
     "path": "references/cms/strapi.md",
-    "sha256": "afb7ddf6233d3595c50765b9075c358c64be38f6d8f34969e2dde401d94498e6"
+    "sha256": "0dba05e2eb255b5a3451f7ebabd2d5fe421963737779220c70ffd7941a87eee6"
   },
   {
     "path": "references/data/index.md",
-    "sha256": "4605fa38e165720b72305294f98f46351ffb21f16060cb56d004e1a500003928"
+    "sha256": "64702271e25f592616161aff1f00d416453161ce809e8a7f30b7218898076636"
   },
   {
     "path": "references/data/jotai.md",
-    "sha256": "8f8efa298f7a5d902f8be06ff5e89ea1a4da9181bf038624603f909e9050fed5"
+    "sha256": "616de95aaf091442aa3b9cdc2e798097129849d14ce1e9f6a95a7bb8a96b3961"
   },
   {
     "path": "references/data/ngrx.md",
-    "sha256": "3e8568c28c68cf3a839f687321eb3f4c234041954343b902ac1e16d02194f294"
+    "sha256": "f7cb5eba8a60cab0ea5a562fd465144f818b37e6eefd947beedb81beda9c9bf6"
   },
   {
     "path": "references/data/pinia.md",
@@ -145,7 +145,7 @@
   },
   {
     "path": "references/data/tanstack-query.md",
-    "sha256": "abf120a7147ab285ed0967ec5259f33fb6e01f90b2fa67ff5e6d592e9ff056e4"
+    "sha256": "8742ed66225b3c7c4e51bd605a2a60f969e9b521c05285779801b489a130b887"
   },
   {
     "path": "references/data/zustand.md",
@@ -169,11 +169,11 @@
   },
   {
     "path": "references/email/index.md",
-    "sha256": "09cb8f8b91c0e79629bf06e631b1c9c32c82093da97b29d36af9cfad3c3b863d"
+    "sha256": "6a42c30103103195c1bb5710f582cbdfe37505001157323b35042bf1ef220611"
   },
   {
     "path": "references/email/nodemailer.md",
-    "sha256": "64aa498e628187739cc86e7d4f8bb0aca964973769232e0deb792c5ba9d4a18e"
+    "sha256": "26a56c39cf80ff848cbf6a11f9ce57291af6cdf4bb6115897f4695b1f769691b"
   },
   {
     "path": "references/email/react-email.md",
@@ -181,15 +181,15 @@
   },
   {
     "path": "references/email/resend.md",
-    "sha256": "965daaa8dc6f8686e2583f1127e67825e404bb2982e51437c4128e8f16df6f68"
+    "sha256": "0a56cccd953881ca9ac065e8099aef112519b4062419d40b841040e2afbb2470"
   },
   {
     "path": "references/forms/index.md",
-    "sha256": "1c14848785a681777aa904399e1f6e516df1fb4617ba1a2c0d6c76259e51cd9c"
+    "sha256": "eb81d3cb25dbb4958c4aed6f65de5c4c2c75e608882b78ab78cc3fdafd372db9"
   },
   {
     "path": "references/forms/react-hook-form.md",
-    "sha256": "83cc5a25d77a5ec6e9d05cad2bfa80c61bbbc5ddffdb6a4771c11dabde11fe9c"
+    "sha256": "600e6c8f9822f2e1dd1b4692e2b8871ccfa10e420b8440e6f7a67c63084093f0"
   },
   {
     "path": "references/forms/tanstack-form.md",
@@ -197,7 +197,7 @@
   },
   {
     "path": "references/forms/zod.md",
-    "sha256": "80f056a6f5549a51c400a06b9745cf76ac8991a818228a0e602f6962b660217c"
+    "sha256": "64b12d6739be975341c23618474f05ab4bb92db515358f18089da306602bdddf"
   },
   {
     "path": "references/frameworks/angular.md",
@@ -205,7 +205,7 @@
   },
   {
     "path": "references/frameworks/index.md",
-    "sha256": "e95e71bee26c427ef650c6911e2e0ab0cf65a498e0bffba2f892f4196a41fd4f"
+    "sha256": "4bd4199c32556e3c9eb5443cd1d9985cc3bd2869e95c2e0dae13b7eaa7081fce"
   },
   {
     "path": "references/frameworks/react-rules.md",
@@ -213,7 +213,7 @@
   },
   {
     "path": "references/frameworks/react.md",
-    "sha256": "0d89c20382fd6f076f37972b7b32d70f3ff09e56c7ec383c616e998ea240e2d2"
+    "sha256": "9c90cf884250133308669e63499f93486406de99644fd17a159335dd7c21033c"
   },
   {
     "path": "references/frameworks/solid.md",
@@ -253,11 +253,11 @@
   },
   {
     "path": "references/i18n/next-intl.md",
-    "sha256": "0177c2ef1320bb6ce118cc53f9bf67bbbfb66c3fb64ea0e195f3310417c2eb57"
+    "sha256": "8e5de513d43e3ee6927a304652c07758428f596efd29951eda89c01a98ee5fa3"
   },
   {
     "path": "references/i18n/paraglide.md",
-    "sha256": "98bb2d44748ab906172dc54f087c8d72a2ad01c025288acfb0a4763ae2975347"
+    "sha256": "3347054d84b9a1e1d075e052175bbd25a7dc0208a0fd6ffc07e7c2c3daf1f265"
   },
   {
     "path": "references/i18n/transloco.md",
@@ -269,7 +269,7 @@
   },
   {
     "path": "references/log.md",
-    "sha256": "2a9f2541cb501a0e763d11a8d1fa81b386e7bcbc8912dbf3fefad85628d5253d"
+    "sha256": "d93d24d2059c3a2639ce79493e8b8b37bc1d3f288fffcfe00943d7f5bc6002b5"
   },
   {
     "path": "references/meta-frameworks/analog.md",
@@ -277,7 +277,7 @@
   },
   {
     "path": "references/meta-frameworks/astro.md",
-    "sha256": "865cb4a3bd8c86ac8c6f12834003c72c8bd8417cbff4b7b900164a3caf917d58"
+    "sha256": "dee423765e4da4713312ef85bc1688ce4462c01b8b895fb29680aada0231668c"
   },
   {
     "path": "references/meta-frameworks/index.md",
@@ -321,15 +321,15 @@
   },
   {
     "path": "references/observability/opentelemetry.md",
-    "sha256": "4a1a62f28ef226aacb3382d243fd6b2803d8d78ceb49bd196ca166b779ae038e"
+    "sha256": "033494bbcdb4bef3cecbfbea17c98b58b2244e006bc0bfae42faab05a9a16c6b"
   },
   {
     "path": "references/observability/posthog.md",
-    "sha256": "32f449d5b1c94d0405f4dff74b0eefc27867cbca82f8f4964ed9606d2be903cf"
+    "sha256": "5fed498078a3b228139d5112a02df0ce5dedf90edbde697ae36c4ec26bf0e111"
   },
   {
     "path": "references/observability/sentry.md",
-    "sha256": "cc35f95541b3a63d1cc0a29204d0bfc32d84eb4738c17bf4c4574b2495a6d1cc"
+    "sha256": "6a4c92569fa8460d3a768aae466663f44d9b9b963d2a276e630d4b9e2bc96565"
   },
   {
     "path": "references/payments/index.md",
@@ -341,7 +341,7 @@
   },
   {
     "path": "references/payments/stripe.md",
-    "sha256": "63d9fb702492b28cbbca431fae011040562187bb20f47d00c727c4b589c55f1d"
+    "sha256": "f2b5d89b419f5c37309daacefff79296ab1ed3e996799aa06f8be8e8cbed1ec8"
   },
   {
     "path": "references/testing/angular-testing.md",
@@ -349,11 +349,11 @@
   },
   {
     "path": "references/testing/cypress.md",
-    "sha256": "b0dbd8ad6afed5ae4024631eab3b3497a47a4b755fc184f5dc8754ac5f70ad03"
+    "sha256": "cd0790298795f17511f1ae0e86c527b87aca4ed8d4f0ed3170078c1619e0cee0"
   },
   {
     "path": "references/testing/index.md",
-    "sha256": "cef623e9dca881bc49f73e25abe70293a19907ab10753a3310b03e3263b4b426"
+    "sha256": "a0c352934edf554904d0f181190e2ebcf655e3facf5470785f45e2efe600e214"
   },
   {
     "path": "references/testing/jest.md",
@@ -361,7 +361,7 @@
   },
   {
     "path": "references/testing/playwright.md",
-    "sha256": "34eeff33cf7459399c4757482bf598d59b2b5cf01063ad19221f91562ffc8728"
+    "sha256": "9b38e717ae638ad1af28e36a685751e845ce8da8f342e798d6e657d0fc2f9a17"
   },
   {
     "path": "references/testing/testing-library.md",
@@ -369,7 +369,7 @@
   },
   {
     "path": "references/testing/vitest.md",
-    "sha256": "30d43885c6924686b4066a6d24e3771f2f222ba805bd6f564273bb0cf65c33df"
+    "sha256": "0cfd103cfb19bc013bc59c930c328209f84a8995cdcf171f2fadf51b9d85d81c"
   },
   {
     "path": "references/tooling/biome.md",
@@ -377,11 +377,11 @@
   },
   {
     "path": "references/tooling/eslint.md",
-    "sha256": "1b0fa0668e1a1fcb819d1604404eb4d66880e729fb812fbeff1487097b4efc78"
+    "sha256": "fe69b2b13f4a613f78129f7edcf2a5b957ad55bcc7ce883564edfe0fa0c3876b"
   },
   {
     "path": "references/tooling/index.md",
-    "sha256": "ea8e4e7c2a21864a8aa763a4ba7a295badb71aefac6110a7e318d9e07723d7ea"
+    "sha256": "22dccb8a92381b720138772a479cede413842c47867086f7dc0a77fd99097eb1"
   },
   {
     "path": "references/tooling/node.md",
@@ -389,15 +389,15 @@
   },
   {
     "path": "references/tooling/nx.md",
-    "sha256": "976d9157db2756e2e407e784bc27e6567a79b30d4adbb33c6414d5fd78e2ad50"
+    "sha256": "5600f6ceaf19a486e1423bef1be8c46523078c1191d51f27cd30b3336cedb08d"
   },
   {
     "path": "references/tooling/package-managers.md",
-    "sha256": "d9f4a62a14e0249bdb64976437ef42f04021ead9f5ddcd61ef400103a09c53ad"
+    "sha256": "43e23ed311af2adeee1840a57f49c988e59c28d2d9c3890fb9f6a5d720d889c3"
   },
   {
     "path": "references/tooling/storybook.md",
-    "sha256": "dfa958e3168b78ebf2121895f6441c8059f03460cf1c39e315eb9dac59755d63"
+    "sha256": "a9c76a1168ce6f97bd014d86eb77c4c1ede5958bf9370eb4491c8924e626e23e"
   },
   {
     "path": "references/tooling/turborepo.md",
@@ -417,7 +417,7 @@
   },
   {
     "path": "references/ui/chakra.md",
-    "sha256": "039af958c0a541de1e5524663de29d7d55f648bf0c3b870ef3062cfa348b6508"
+    "sha256": "983aabdf4950ab74cfb8add5ba0bc315024bb205b23c730c8038b73c69b5f963"
   },
   {
     "path": "references/ui/css-in-js.md",
@@ -425,7 +425,7 @@
   },
   {
     "path": "references/ui/headless-ui.md",
-    "sha256": "1e748c74a5372851e9f590add973728ec649783e407671c9f967fe294f99597e"
+    "sha256": "738cc8decd6446d938142e6783b8b83ff0e8f225bf43ad910e36d5c67cdfea6e"
   },
   {
     "path": "references/ui/index.md",
@@ -433,15 +433,15 @@
   },
   {
     "path": "references/ui/mantine.md",
-    "sha256": "21d27841a002f7d7a5c7175d3ad28d6a84fec07ab1b4781c0c1684b9a574bad3"
+    "sha256": "b9008856a76f94609c320ee7fbdbd78197e29cb7c1ea2f84511d278218f658a1"
   },
   {
     "path": "references/ui/motion.md",
-    "sha256": "0f110773a89e487ca853cae5d86b09b83291fbcd54234f9f77422b7aa54e6167"
+    "sha256": "d4f21552fd6abe9ba64a60bcda9f42d4e9d9a5b99f7b594ec6b27ad2a67c8ec9"
   },
   {
     "path": "references/ui/mui.md",
-    "sha256": "81019650aee45160632cbf46b064d6884ba01e112dda338ea41fe9ba59aeed1b"
+    "sha256": "1b912847add0306bd57de20aded219d356ba83ebf3756adaa82944e22429b0de"
   },
   {
     "path": "references/ui/shadcn.md",
@@ -457,6 +457,6 @@
   },
   {
     "path": "references/ui/unocss.md",
-    "sha256": "6d2ed8eb752904a2d77abe5257c8878ebd59f3623b7505c20e868fbbce2eb77a"
+    "sha256": "05cb9b51b8b3b946af8d1c24fe36246ef00751240637655c09bb33b7d88d36ce"
   }
 ]

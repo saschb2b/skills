@@ -3,13 +3,13 @@ type: Library Notes
 title: "Better Auth"
 description: "Better Auth is the fastest-rising option in 2026: a TypeScript-native, framework-agnostic, plugin-based auth framework that owns your database (via Kysely, Drizzle, or Prisma adapters) rather than..."
 tags: [javascript, auth]
-generated: { by: claude-code/unversioned, at: 2026-08-20T00:00:00Z }
+generated: { by: claude-code/unversioned, at: 2026-09-09T00:00:00Z }
 ---
 # Better Auth
 
 **Verified 2026-08-20.** Check the installed `better-auth` version first; re-verify if newer than below.
 
-**Current stable**: 1.7 (1.7.1, August 2026); stable since 1.0 in Nov 2024. **LLM default bias**: most corpora predate its rise and do not recommend it at all, defaulting to NextAuth or the now-sunset Lucia. That blind spot is the main thing to correct.
+**Current stable**: 1.7 (1.7.3, September 2026); stable since 1.0 in Nov 2024. **LLM default bias**: most corpora predate its rise and do not recommend it at all, defaulting to NextAuth or the now-sunset Lucia. That blind spot is the main thing to correct.
 
 ## The shift
 Better Auth is the fastest-rising option in 2026: a TypeScript-native, framework-agnostic, plugin-based auth framework that owns your database (via Kysely, Drizzle, or Prisma adapters) rather than delegating to an OAuth-only model. It pairs a typed server (`betterAuth({...})`) with a typed client (`createAuthClient`), with end-to-end inference. The Auth.js team now points new projects here.

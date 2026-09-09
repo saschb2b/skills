@@ -3,13 +3,13 @@ type: Library Notes
 title: "OpenAI JS/TS SDK (`openai`)"
 description: "The Responses API (`client.responses.create`) is OpenAI's recommended API for new projects (Chat Completions remains supported and is not deprecated)."
 tags: [javascript, ai-sdk]
-generated: { by: claude-code/unversioned, at: 2026-08-20T00:00:00Z }
+generated: { by: claude-code/unversioned, at: 2026-09-09T00:00:00Z }
 ---
 # OpenAI JS/TS SDK (`openai`)
 
 **Verified 2026-08-20.** Check the installed `openai` version first; re-verify if newer than below.
 
-**Current stable**: 7.x (7.5); v7 shipped Jul 2026, v6 Sep 2025, v5 May 2025. **LLM default bias**: v4. `client.chat.completions.create({ messages, model: 'gpt-4o' })`, reading `choices[0].message.content`, and manual transcript management. Older still, the v3 `Configuration`/`OpenAIApi` class pattern.
+**Current stable**: 7.x (7.13, Sep 2026); v7 shipped Jul 2026, v6 Sep 2025, v5 May 2025. **LLM default bias**: v4. `client.chat.completions.create({ messages, model: 'gpt-4o' })`, reading `choices[0].message.content`, and manual transcript management. Older still, the v3 `Configuration`/`OpenAIApi` class pattern.
 
 ## The shift
 The Responses API (`client.responses.create`) is OpenAI's recommended API for new projects (Chat Completions remains supported and is not deprecated). Responses takes `input` plus separate `instructions`, exposes `output_text` and a typed `output` array, supports stateful chaining via `previous_response_id`, and ships built-in tools (web search, file search, code interpreter).

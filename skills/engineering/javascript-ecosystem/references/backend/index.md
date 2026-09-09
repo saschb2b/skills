@@ -5,5 +5,5 @@
 - [Fastify](fastify.md) - Fastify 5 is a maintenance-and-modernization major: it requires Node 20+, removes years of deprecated APIs, and tightens defaults rather than adding features.
 - [Hono](hono.md) - Hono is built directly on Web Standard primitives (the fetch-API `Request`/`Response`, `Headers`, `URL`), so the same code runs unchanged on Cloudflare Workers, Bun, Deno, AWS Lambda, Vercel, and Node.
 - [Nitro](nitro.md) - Nitro is the deploy-anywhere server toolkit (the engine under Nuxt) that builds one app and ships it to Node, Bun, Deno, Cloudflare, Vercel, and Netlify.
-- [Prisma ORM](prisma.md) - v7 removes the Rust query engine.
+- [Prisma ORM](prisma.md) - v7 removes the Rust query engine; v8 is a release candidate that npm's `latest` tag already points at, so pin `prisma@7` explicitly.
 - [tRPC](trpc.md) - v11's new TanStack Query integration stops wrapping `useQuery`/`useMutation` and instead exposes native `queryOptions`/`mutationOptions`, so you call TanStack's own hooks.

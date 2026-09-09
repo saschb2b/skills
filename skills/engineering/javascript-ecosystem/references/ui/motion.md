@@ -3,13 +3,13 @@ type: Library Notes
 title: "Motion (formerly Framer Motion)"
 description: "The library was rebranded from `framer-motion` to `motion` and is now an independent, framework-agnostic project spanning vanilla JavaScript, React (`motion/react`), and Vue (`motion-v`)."
 tags: [javascript, ui]
-generated: { by: claude-code/unversioned, at: 2026-08-21T00:00:00Z }
+generated: { by: claude-code/unversioned, at: 2026-09-09T00:00:00Z }
 ---
 # Motion (formerly Framer Motion)
 
 **Verified 2026-08-20.** Check whether the project depends on `motion` or the old `framer-motion`; re-verify if newer than below.
 
-**Current stable**: 13.x (13.1, Aug 2026), published as the `motion` package. **LLM default bias**: `framer-motion` with `import { motion } from "framer-motion"`, and the React-only framing.
+**Current stable**: 13.x (13.2, Sep 2026), published as the `motion` package. **LLM default bias**: `framer-motion` with `import { motion } from "framer-motion"`, and the React-only framing.
 
 ## The shift
 The library was rebranded from `framer-motion` to `motion` and is now an independent, framework-agnostic project spanning vanilla JavaScript, React (`motion/react`), and Vue (`motion-v`). The React API itself did not break in the v12 rename; only the package name and import path changed. v13 (Aug 2026) keeps the same package and imports; its one breaking change is dropping the bundled `@emotion/is-prop-valid` prop filtering.
@@ -30,7 +30,7 @@ The library was rebranded from `framer-motion` to `motion` and is now an indepen
 - In the Next.js App Router, motion components still need `"use client"`.
 
 ## Companion
-[../frameworks/react.md](../frameworks/react.md) covers the React version this binds to through the `motion/react` entry point.
+[../frameworks/react.md](../frameworks/react.md) covers the React version this binds to through the `motion/react` entry point. React 19.3's built-in `<ViewTransition>` now covers plain enter, exit, and shared-element transitions without a library; reach for Motion for gesture, layout, and spring-driven animation beyond that.
 
 ## Sources
 - https://motion.dev/docs/react-installation

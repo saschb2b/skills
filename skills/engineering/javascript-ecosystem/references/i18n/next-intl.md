@@ -3,13 +3,13 @@ type: Library Notes
 title: "next-intl"
 description: "next-intl is App Router native with strict typing."
 tags: [javascript, i18n]
-generated: { by: claude-code/unversioned, at: 2026-08-20T00:00:00Z }
+generated: { by: claude-code/unversioned, at: 2026-09-09T00:00:00Z }
 ---
 # next-intl
 
 **Verified 2026-08-20.** Check the installed `next-intl` version first; re-verify if newer than below.
 
-**Current stable**: 4.x (4.13.7), compatible with Next.js 16. **LLM default bias**: v2 to v3. Pages Router patterns, `NextIntlProvider`, and pre-`getRequestConfig` setups that predate the App Router and server-component model.
+**Current stable**: 4.x (4.14), compatible with Next.js 16. **LLM default bias**: v2 to v3. Pages Router patterns, `NextIntlProvider`, and pre-`getRequestConfig` setups that predate the App Router and server-component model.
 
 ## The shift
 next-intl is App Router native with strict typing. v4 centralizes type registration under one `AppConfig` interface (typed `Locale`, typed messages), is ESM-only, and adds ahead-of-time message precompilation. On Next.js 16.3+, `next/root-params` reads the `[locale]` segment directly in Server Components, so static rendering no longer needs the `setRequestLocale` boilerplate.

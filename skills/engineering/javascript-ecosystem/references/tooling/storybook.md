@@ -3,13 +3,13 @@ type: Library Notes
 title: "Storybook"
 description: "Testing moved into the core via the Vitest addon: Storybook 9 rebuilt component testing on Vitest browser mode, running stories as real-browser tests, and slimmed the install by folding the former..."
 tags: [javascript, tooling]
-generated: { by: claude-code/unversioned, at: 2026-08-20T00:00:00Z }
+generated: { by: claude-code/unversioned, at: 2026-09-09T00:00:00Z }
 ---
 # Storybook
 
 **Verified 2026-08-20.** Check the installed `storybook` version first; re-verify if newer than below.
 
-**Current stable**: 10.x (10.5, Aug 2026); v10.0 shipped Nov 2025. **LLM default bias**: Storybook 6/7. `@storybook/addon-essentials`, the standalone `@storybook/test-runner` plus `@storybook/jest`/`@storybook/testing-library`, CommonJS, and the heavyweight multi-addon install.
+**Current stable**: 10.x (10.6, Sep 2026); v10.0 shipped Nov 2025. **LLM default bias**: Storybook 6/7. `@storybook/addon-essentials`, the standalone `@storybook/test-runner` plus `@storybook/jest`/`@storybook/testing-library`, CommonJS, and the heavyweight multi-addon install.
 
 ## The shift
 Testing moved into the core via the Vitest addon: Storybook 9 rebuilt component testing on Vitest browser mode, running stories as real-browser tests, and slimmed the install by folding the former "essentials" (Controls, Actions, Viewport, Backgrounds) into core. Storybook 10 is ESM-only, adds Vitest 4 and Next 16 support, and introduces `sb.mock` module mocking.

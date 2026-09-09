@@ -3,13 +3,13 @@ type: Library Notes
 title: "Sentry (JavaScript SDK)"
 description: "Integrations became tree-shakable functions in v8 (`Sentry.browserTracingIntegration()`, not `new Sentry.BrowserTracing()`), and the Node SDK was re-architected on OpenTelemetry for tracing and..."
 tags: [javascript, observability]
-generated: { by: claude-code/unversioned, at: 2026-08-20T00:00:00Z }
+generated: { by: claude-code/unversioned, at: 2026-09-09T00:00:00Z }
 ---
 # Sentry (JavaScript SDK)
 
 **Verified 2026-08-20.** Check the installed `@sentry/*` version first; re-verify if newer than below.
 
-**Current stable**: 10.x (10.70, Aug 2026; v10 shipped Jul 2025). v11 is alpha only, so stay on v10. **LLM default bias**: v7 and earlier. The separate `@sentry/tracing` package, class-based integrations (`new Sentry.BrowserTracing()`), and the old `sentry.client.config.ts` for Next.js.
+**Current stable**: 10.x (10.74, Sep 2026; v10 shipped Jul 2025). v11 is alpha only, so stay on v10. **LLM default bias**: v7 and earlier. The separate `@sentry/tracing` package, class-based integrations (`new Sentry.BrowserTracing()`), and the old `sentry.client.config.ts` for Next.js.
 
 ## The shift
 Integrations became tree-shakable functions in v8 (`Sentry.browserTracingIntegration()`, not `new Sentry.BrowserTracing()`), and the Node SDK was re-architected on OpenTelemetry for tracing and auto-instrumentation. v9 moved Next.js client init to `instrumentation-client.ts`; v10 bumped the underlying OpenTelemetry dependencies to v2.

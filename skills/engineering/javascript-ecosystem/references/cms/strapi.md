@@ -3,13 +3,13 @@ type: Library Notes
 title: "Strapi"
 description: "Strapi 5 replaces the Entity Service API with the Document Service API: content is modeled as documents identified by a string `documentId`, and Draft & Publish treats draft and published as..."
 tags: [javascript, cms]
-generated: { by: claude-code/unversioned, at: 2026-08-21T00:00:00Z }
+generated: { by: claude-code/unversioned, at: 2026-09-09T00:00:00Z }
 ---
 # Strapi
 
 **Verified 2026-08-20.** Check the installed `@strapi/strapi` version first; re-verify if newer than below.
 
-**Current stable**: 5.x (5.52); 5.0 shipped Sep 2024. **LLM default bias**: Strapi v4. The Entity Service API (`strapi.entityService.*`), the nested `data.attributes` REST wrapper, numeric `id` as the only identifier, and draft/publish as a boolean.
+**Current stable**: 5.x (5.53); 5.0 shipped Sep 2024. **LLM default bias**: Strapi v4. The Entity Service API (`strapi.entityService.*`), the nested `data.attributes` REST wrapper, numeric `id` as the only identifier, and draft/publish as a boolean.
 
 ## The shift
 Strapi 5 replaces the Entity Service API with the Document Service API: content is modeled as documents identified by a string `documentId`, and Draft & Publish treats draft and published as distinct document versions. The REST and GraphQL response shape is flattened so attributes are no longer wrapped in `data.attributes`. Strapi 5 is TypeScript-first with an automated upgrade tool.

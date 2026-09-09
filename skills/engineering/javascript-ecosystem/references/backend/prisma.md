@@ -1,15 +1,15 @@
 ---
 type: Library Notes
 title: "Prisma ORM"
-description: "v7 removes the Rust query engine."
+description: "v7 removes the Rust query engine; v8 is a release candidate that npm's `latest` tag already points at, so pin `prisma@7` explicitly."
 tags: [javascript, backend]
-generated: { by: claude-code/unversioned, at: 2026-08-21T00:00:00Z }
+generated: { by: claude-code/unversioned, at: 2026-09-09T00:00:00Z }
 ---
 # Prisma ORM
 
-**Verified 2026-08-20.** Check the installed `prisma` and `@prisma/client` versions first; re-verify if newer than below.
+**Verified 2026-09-09.** Check the installed `prisma` and `@prisma/client` versions first; re-verify if newer than below.
 
-**Current stable**: 7.x (7.9); the 7.0 line opened Nov 2025. **LLM default bias**: Prisma 4/5/6 with the `prisma-client-js` generator, the Rust query engine, the client generated into `node_modules`, `url` in the datasource, and the `$use()` middleware API.
+**Current stable**: 7.x (7.10, Aug 25, 2026); the 7.0 line opened Nov 2025. Prisma 8 is still a release candidate (8.0.0-rc.13, Sep 4, 2026), but the `prisma` CLI package's npm `latest` tag already points at the RC while `@prisma/client`'s `latest` stays 7.10, so a bare `npm i -D prisma` mixes majors. **LLM default bias**: Prisma 4/5/6 with the `prisma-client-js` generator, the Rust query engine, the client generated into `node_modules`, `url` in the datasource, and the `$use()` middleware API.
 
 ## The shift
 v7 removes the Rust query engine. The client is now a pure-TypeScript, ESM, Rust-free runtime (much smaller bundles, faster queries). It is also config-first and explicit: a driver adapter is required for every database, generated code lives in your source tree, and connection config moves to `prisma.config.ts`. Schema-first authoring (PSL plus `prisma generate`) is unchanged.
@@ -23,13 +23,15 @@ v7 removes the Rust query engine. The client is now a pure-TypeScript, ESM, Rust
 | `url`/`directUrl` in `schema.prisma` | `prisma.config.ts` at the project root |
 | CommonJS assumptions | ESM (`"type": "module"`, `moduleResolution: "bundler"`) |
 | `prisma.$use()` middleware | Client Extensions (`$extends`) |
+| `npm i -D prisma` (unpinned) | `npm i -D prisma@7 && npm i @prisma/client@7`, pinned to the same 7.x |
 
 ## Gotchas
 - Driver adapters are required in v7, not preview. Pass exactly one of `adapter` (direct connection) or `accelerateUrl` (Accelerate); forgetting both yields the "engine type 'client' requires either 'adapter' or 'accelerateUrl'" error.
 - Env vars are no longer auto-loaded. Add `import "dotenv/config"` in `prisma.config.ts`, whose helpers come from `prisma/config` (`defineConfig`, `env`). The `datasource` block keeps only `provider`; the URL lives in `datasource.url` in the config.
 - `prisma generate` and `prisma db seed` are explicit now (the `--skip-generate`/`--skip-seed` flags were removed).
 - Default connection-pool and timeout behavior differs from v6; review pool settings after upgrade.
-- Prisma 8 (announced Mar 2026) is a ground-up TypeScript rewrite in Early Access, with a flatter query API, a typed SQL query builder, TypeScript-defined schemas, and a migration graph. It is not a production release. Prisma 7 stays the recommended version, so do not write v8 APIs into an app.
+- Prisma 8 (announced Mar 2026, RC since Aug 2026) is a ground-up TypeScript rewrite with a flatter query API, a typed SQL query builder, TypeScript-defined schemas, and a migration graph. It is not GA. Prisma 7 stays the production version, so do not write v8 APIs into an app.
+- 7.10 added the `@prisma/prisma7` compatibility package so one repo can run Prisma 7 and Prisma 8 side by side: `prisma` (the v8 CLI) reads `prisma.config.*`, while `npx prisma7` reads `prisma7.config.*`. Only reach for it when trialing v8.
 
 ## Agent skills
 Prisma publishes official agent skills (`npx skills add prisma/skills`, eight skills including `prisma-cli`, `prisma-client-api`, and `prisma-upgrade-v7`, targeting 7.6.x), AI prompts (prisma.io/docs/ai), and an MCP server. For Prisma work, prefer the official skill.
@@ -38,6 +40,7 @@ Prisma publishes official agent skills (`npx skills add prisma/skills`, eight sk
 [drizzle.md](./drizzle.md) is the SQL-first alternative, closer to raw queries where Prisma leans on a generated client.
 
 ## Sources
+- https://github.com/prisma/prisma/releases/tag/7.10.0
 - https://www.prisma.io/blog/announcing-prisma-orm-7-0-0
 - https://www.prisma.io/docs/guides/upgrade-prisma-orm/v7
 - https://www.prisma.io/blog/the-next-evolution-of-prisma-orm

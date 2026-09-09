@@ -1,7 +1,7 @@
 # Client state and data fetching
 
-- [Jotai](jotai.md) - The v2 API exposed a framework-agnostic store (`createStore()` with `store.get`/`store.set`/`store.sub`) and split vanilla (`jotai/vanilla`) from React (`jotai/react`), so atoms can be read and...
-- [NgRx](ngrx.md) - NgRx is Angular's dominant state library (its Redux Toolkit).
+- [Jotai](jotai.md) - The v2 API exposed a framework-agnostic store and split vanilla from React; v3 (Sep 2026) keeps that atom API, goes ESM-only, and moves `atomFamily` and `loadable` out of core.
+- [NgRx](ngrx.md) - NgRx is Angular's dominant state library (its Redux Toolkit); v22 tracks Angular 22 and turns union state slices into per-member deep signals.
 - [Pinia](pinia.md) - Pinia is the official, default Vue store; Vuex is maintenance-only and should not be reached for in new code.
 - [Redux Toolkit (RTK + RTK Query)](redux-toolkit.md) - Redux is RTK now. Redux Toolkit is the official way to write Redux, and `createStore` is formally deprecated in the core.
 - [SWR](swr.md) - SWR is Vercel's minimal stale-while-revalidate data hook, lighter than TanStack Query and Next-aligned.

@@ -3,13 +3,13 @@ type: Library Notes
 title: "React Hook Form"
 description: "Still on the v7 major and actively maintained (a v8 beta is in flight)."
 tags: [javascript, forms]
-generated: { by: claude-code/unversioned, at: 2026-08-20T00:00:00Z }
+generated: { by: claude-code/unversioned, at: 2026-09-09T00:00:00Z }
 ---
 # React Hook Form
 
 **Verified 2026-08-20.** Check the installed `react-hook-form` version first; re-verify if newer than below.
 
-**Current stable**: 7.85 (August 2026); v8 is still in beta (8.0.0-beta.3), not stable. **LLM default bias**: React Hook Form v7 generally, but often older v7 patterns and the v6 `register` ref-callback style (`ref={register}`).
+**Current stable**: 7.87 (August 2026); v8 is still in beta (8.0.0-beta.3), not stable. **LLM default bias**: React Hook Form v7 generally, but often older v7 patterns and the v6 `register` ref-callback style (`ref={register}`).
 
 ## The shift
 Still on the v7 major and actively maintained (a v8 beta is in flight). The current best practice pairs RHF with a schema resolver for validation rather than inline `register` rules, and reserves `<Controller>` for controlled and third-party inputs while keeping native inputs uncontrolled for performance.

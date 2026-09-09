@@ -3,13 +3,13 @@ type: Library Notes
 title: "Stripe"
 description: "The stack moved off the Charges/Sources/Tokens model to PaymentIntents plus Payment Methods, and off the single Card Element to the unified Payment Element."
 tags: [javascript, payments]
-generated: { by: claude-code/unversioned, at: 2026-08-21T00:00:00Z }
+generated: { by: claude-code/unversioned, at: 2026-09-09T00:00:00Z }
 ---
 # Stripe
 
 **Verified 2026-08-20.** Check the installed `stripe`, `@stripe/stripe-js`, and `@stripe/react-stripe-js` versions first; re-verify if newer than below.
 
-**Current stable**: `stripe` (Node) v22 (22.5); `@stripe/react-stripe-js` v6; pinned API version `2026-07-29.dahlia`. **LLM default bias**: `stripe` v8 to v12 with old API versions, the Charges API (`stripe.charges.create`), `react-stripe-js` v1 with `CardElement`, and the raw token flow (`stripe.createToken`).
+**Current stable**: `stripe` (Node) v22 (22.6); `@stripe/react-stripe-js` v6; pinned API version `2026-07-29.dahlia`. **LLM default bias**: `stripe` v8 to v12 with old API versions, the Charges API (`stripe.charges.create`), `react-stripe-js` v1 with `CardElement`, and the raw token flow (`stripe.createToken`).
 
 ## The shift
 The stack moved off the Charges/Sources/Tokens model to PaymentIntents plus Payment Methods, and off the single Card Element to the unified Payment Element. Stripe now recommends the Checkout Sessions API driving the Payment Element for most integrations, with raw PaymentIntents only when you need full control.

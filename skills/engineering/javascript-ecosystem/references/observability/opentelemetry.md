@@ -3,13 +3,13 @@ type: Library Notes
 title: "OpenTelemetry JS"
 description: "SDK 2.0 dropped Node 14/16 (now `^18.19.0 || >=20.6.0`), raised TypeScript to 5.0.4+, retargeted ES2022, and removed classes and namespaces for tree-shaking, while keeping `@opentelemetry/api`..."
 tags: [javascript, observability]
-generated: { by: claude-code/unversioned, at: 2026-08-20T00:00:00Z }
+generated: { by: claude-code/unversioned, at: 2026-09-09T00:00:00Z }
 ---
 # OpenTelemetry JS
 
 **Verified 2026-08-20.** Check the installed `@opentelemetry/*` SDK versions first; re-verify if newer than below.
 
-**Current stable**: SDK 2.x (stable packages at 2.10, experimental at 0.221, Jul 2026). The `@opentelemetry/api` package stays on 1.x by design (1.9). **LLM default bias**: SDK 1.x packages, Node 14/16 setups, and class/namespace-heavy configuration with manual `NodeTracerProvider` wiring.
+**Current stable**: SDK 2.x (stable packages at 2.10, experimental at 0.222, Aug 2026). The `@opentelemetry/api` package stays on 1.x by design (1.9). **LLM default bias**: SDK 1.x packages, Node 14/16 setups, and class/namespace-heavy configuration with manual `NodeTracerProvider` wiring.
 
 ## The shift
 SDK 2.0 dropped Node 14/16 (now `^18.19.0 || >=20.6.0`), raised TypeScript to 5.0.4+, retargeted ES2022, and removed classes and namespaces for tree-shaking, while keeping `@opentelemetry/api` stable so instrumentation code is unaffected. Traces and metrics are stable; logs are a separate, pre-stable Logs Bridge API.

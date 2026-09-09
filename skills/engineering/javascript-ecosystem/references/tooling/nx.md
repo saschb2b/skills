@@ -3,13 +3,13 @@ type: Library Notes
 title: "Nx"
 description: "\"Project Crystal\" (Nx 18) inverts configuration: plugins infer targets from the tool's own config files (`vite.config.ts`, `nest-cli.json`) instead of hand-written `project.json` targets."
 tags: [javascript, tooling]
-generated: { by: claude-code/unversioned, at: 2026-08-21T00:00:00Z }
+generated: { by: claude-code/unversioned, at: 2026-09-09T00:00:00Z }
 ---
 # Nx
 
 **Verified 2026-08-20.** Check the installed `nx` version first; re-verify if newer than below.
 
-**Current stable**: v23 (23.1, Jul 2026); v23.0 shipped Jun 2026. **LLM default bias**: Nx 15 and 16, where every project needed an explicit `project.json` listing all targets, and `nx.json` leaned on `tasksRunnerOptions`. LLMs also still treat Lerna as a live competitor.
+**Current stable**: v23 (23.2, Sep 2026); v23.0 shipped Jun 2026. **LLM default bias**: Nx 15 and 16, where every project needed an explicit `project.json` listing all targets, and `nx.json` leaned on `tasksRunnerOptions`. LLMs also still treat Lerna as a live competitor.
 
 ## The shift
 "Project Crystal" (Nx 18) inverts configuration: plugins infer targets from the tool's own config files (`vite.config.ts`, `nest-cli.json`) instead of hand-written `project.json` targets. Nx 23 is a polyglot build platform (Java/Gradle, Maven, .NET GA) with Self-Healing CI, a Terminal UI, and an agentic multi-major `nx migrate`. Node's native TypeScript stripping and the V8 compile cache are on by default. The inference model (`createNodesV2`) is the default authoring path.

@@ -3,13 +3,13 @@ type: Library Notes
 title: "Playwright"
 description: "Playwright is the dominant modern end-to-end default, ahead of Cypress on satisfaction and adoption."
 tags: [javascript, testing]
-generated: { by: claude-code/unversioned, at: 2026-08-21T00:00:00Z }
+generated: { by: claude-code/unversioned, at: 2026-09-09T00:00:00Z }
 ---
 # Playwright
 
 **Verified 2026-08-20.** Check the installed `@playwright/test` version first; re-verify if newer than below.
 
-**Current stable**: 1.62 (Jul 2026). **LLM default bias**: 1.2x to 1.3x patterns, recommending Cypress as the e2e default, and treating Playwright as a newer alternative rather than the incumbent.
+**Current stable**: 1.63 (Sep 2026). **LLM default bias**: 1.2x to 1.3x patterns, recommending Cypress as the e2e default, and treating Playwright as a newer alternative rather than the incumbent.
 
 ## The shift
 Playwright is the dominant modern end-to-end default, ahead of Cypress on satisfaction and adoption. It offers free parallelization and sharding, real multi-engine coverage (Chromium, Firefox, WebKit), and multi-tab and multi-context testing. Recent releases lean into agent-driven testing (auto-cleanup disposables, AI-optimized accessibility snapshots).

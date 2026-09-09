@@ -3,13 +3,13 @@ type: Library Notes
 title: "Sanity"
 description: "The Studio is config-as-code in a single `sanity.config.ts` (no more `sanity.json`/parts)."
 tags: [javascript, cms]
-generated: { by: claude-code/unversioned, at: 2026-08-21T00:00:00Z }
+generated: { by: claude-code/unversioned, at: 2026-09-09T00:00:00Z }
 ---
 # Sanity
 
 **Verified 2026-08-20.** Check the installed `sanity` version first; re-verify if newer than below.
 
-**Current stable**: Studio v6 (6.10); v5 shipped Dec 2025, v6 Jun 2026. **LLM default bias**: Studio v2 (the `sanity.json`/`parts` system, React 16/17) and pre-TypeGen GROQ with hand-written, untyped result types.
+**Current stable**: Studio v6 (6.13); v5 shipped Dec 2025, v6 Jun 2026. **LLM default bias**: Studio v2 (the `sanity.json`/`parts` system, React 16/17) and pre-TypeGen GROQ with hand-written, untyped result types.
 
 ## The shift
 The Studio is config-as-code in a single `sanity.config.ts` (no more `sanity.json`/parts). Content lives in the hosted Content Lake and is queried with GROQ. Sanity TypeGen is now GA: it reads your schema and `groq`-tagged queries to emit a `sanity.types.ts` for end-to-end typed queries. v5 rebased the Studio on React 19.2, and v6 raised the baseline to Node 22.12, moved the build to Vite 8, and turned React strict mode on by default in development.

@@ -3,13 +3,13 @@ type: Library Notes
 title: "ESLint"
 description: "Flat config (`eslint.config.js`) became the default in v9 and is the only config system in v10, which removed the legacy `eslintrc` system entirely."
 tags: [javascript, tooling]
-generated: { by: claude-code/unversioned, at: 2026-08-20T00:00:00Z }
+generated: { by: claude-code/unversioned, at: 2026-09-09T00:00:00Z }
 ---
 # ESLint
 
 **Verified 2026-08-20.** Check the installed `eslint` version and which config file exists first; re-verify if newer than below.
 
-**Current stable**: v10 (10.8, Jul 2026), flat config only. v9 reached end of life on 2026-08-06 and is unmaintained. **LLM default bias**: `.eslintrc.{js,json,yml}` with `extends`/`env`/`overrides`, and `.eslintignore` files.
+**Current stable**: v10 (10.10, Sep 2026), flat config only. v9 reached end of life on 2026-08-06 and is unmaintained. **LLM default bias**: `.eslintrc.{js,json,yml}` with `extends`/`env`/`overrides`, and `.eslintignore` files.
 
 ## The shift
 Flat config (`eslint.config.js`) became the default in v9 and is the only config system in v10, which removed the legacy `eslintrc` system entirely. Config resolution is per-file-directory, which is monorepo-friendly, rather than cwd-based.

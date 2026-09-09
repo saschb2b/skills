@@ -3,13 +3,13 @@ type: Library Notes
 title: "GraphQL Code Generator (client preset)"
 description: "The client preset is the official recommended path."
 tags: [javascript, api-codegen]
-generated: { by: claude-code/unversioned, at: 2026-08-20T00:00:00Z }
+generated: { by: claude-code/unversioned, at: 2026-09-09T00:00:00Z }
 ---
 # GraphQL Code Generator (client preset)
 
 **Verified 2026-08-20.** Check the installed `@graphql-codegen/cli` and `@graphql-codegen/client-preset` versions first; re-verify if newer than below.
 
-**Current stable**: cli 7.2 (July 2026) with client-preset 6.1 (August 2026). **LLM default bias**: cli 2.x/3.x with per-operation hook plugins, `typescript-react-apollo` (emitting `useFilmsQuery`) or `typescript-react-query`, plus scattered `.graphql` files and `*.generated.ts` siblings.
+**Current stable**: cli 7.4 (September 2026) with client-preset 6.1 (August 2026). **LLM default bias**: cli 2.x/3.x with per-operation hook plugins, `typescript-react-apollo` (emitting `useFilmsQuery`) or `typescript-react-query`, plus scattered `.graphql` files and `*.generated.ts` siblings.
 
 ## The shift
 The client preset is the official recommended path. You write operations inline via a generated, typed `graphql()` function (a `TypedDocumentNode`), pass the document straight into your client's own `useQuery`, and use fragment masking so components declare their own data and receive opaque types until unmasked. The old hook-generator plugins are deprecated.

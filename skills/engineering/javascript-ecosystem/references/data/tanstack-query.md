@@ -3,13 +3,13 @@ type: Library Notes
 title: "TanStack Query (React Query)"
 description: "v5 unified every hook on a single object argument (no positional overloads), and made Suspense first-class via dedicated `useSuspenseQuery`/`useSuspenseInfiniteQuery` where `data` is never typed..."
 tags: [javascript, data]
-generated: { by: claude-code/unversioned, at: 2026-08-20T00:00:00Z }
+generated: { by: claude-code/unversioned, at: 2026-09-09T00:00:00Z }
 ---
 # TanStack Query (React Query)
 
 **Verified 2026-08-20.** Check the installed `@tanstack/react-query` version first; re-verify if newer than below.
 
-**Current stable**: v5.x for React (5.101, Jul 2026; v5.0 shipped Oct 2023). v6 is prerelease only (Solid adapter at rc, migration guides published); do not write v6 APIs yet. **LLM default bias**: v3 and v4 under the old `react-query` package name, the positional `useQuery(key, fn, options)` signature, `cacheTime`, `isLoading`, `keepPreviousData`, and `onSuccess`/`onError` callbacks.
+**Current stable**: v5.x for React (5.102, Aug 2026; v5.0 shipped Oct 2023). v6 is prerelease only (Solid adapter at rc, migration guides published); do not write v6 APIs yet. **LLM default bias**: v3 and v4 under the old `react-query` package name, the positional `useQuery(key, fn, options)` signature, `cacheTime`, `isLoading`, `keepPreviousData`, and `onSuccess`/`onError` callbacks.
 
 ## The shift
 v5 unified every hook on a single object argument (no positional overloads), and made Suspense first-class via dedicated `useSuspenseQuery`/`useSuspenseInfiniteQuery` where `data` is never typed as `undefined`. The package is `@tanstack/react-query`, not `react-query`. It is a server-state cache, not a client-state store.

@@ -2,7 +2,7 @@
 name: javascript-ecosystem
 description: Default to the latest stable major versions of JavaScript and TypeScript frameworks and their current paradigms, instead of the older versions and patterns that dominate LLM training data. A version-and-paradigm changelog index that routes to per-tool notes. Use when writing, reviewing, scaffolding, or upgrading any JS or TS project, when choosing dependency versions, when an agent emits an outdated pattern, or when working with React, Angular, Vue, Svelte, Solid, Next.js, Nuxt, React Router, Remix, SvelteKit, Astro, TanStack Start, Material UI, Tailwind, shadcn, Mantine, Chakra, TanStack Query, Redux, Zustand, Jotai, TypeScript, Vite, Node, ESLint, pnpm, Bun, or Biome. Check the project's installed version first; this snapshot ages.
 tags: [javascript, typescript, frontend, tooling]
-date: 2026-08-20
+date: 2026-09-09
 source_post: llm-default-react-stack
 ---
 
@@ -22,7 +22,7 @@ LLMs default to the framework versions and patterns their training data over-rep
 
 This skill is a dated snapshot of a fast-moving ecosystem, and a snapshot is technical debt: it ages. Treat it as a cache of the official docs, not an oracle.
 
-- **Snapshot date: 2026-08-20** (the `date` in the frontmatter). Each notes file also carries its own `Verified` date.
+- **Snapshot date: 2026-09-09** (the `date` in the frontmatter). Each notes file also carries its own `Verified` date.
 - **Staleness rule.** If today is more than roughly 6 months past the snapshot date, or past a notes file's `Verified` date, treat that file's version numbers and "current stable" claims as suspect. The paradigm sections (`The shift` and the Start column) age far slower than version numbers, so trust those longer and verify the numbers.
 - **Verify the one tool you are about to use.** When a version-specific claim matters for the task, confirm it against that tool's official release notes or migration guide first. If you have web access and find an entry stale, apply the current paradigm and, if you maintain this repo, refresh the notes file.
 
@@ -52,7 +52,7 @@ Each notes file holds the current stable version, the LLM default bias, the para
 ### Frameworks
 | Tool | Headline shift | Notes |
 | --- | --- | --- |
-| React | Compiler auto-memoizes; Actions, `use()`, RSC default | [react.md](./references/frameworks/react.md) |
+| React | 19.3 stable `<ViewTransition>`, Fragment refs; Compiler auto-memoizes; Actions, `use()`, RSC default | [react.md](./references/frameworks/react.md) |
 | Angular | Signals, zoneless, standalone, `@if`/`@for` | [angular.md](./references/frameworks/angular.md) |
 | Vue | `<script setup>` Composition API, Pinia, Vapor coming | [vue.md](./references/frameworks/vue.md) |
 | Svelte | Runes (`$state`/`$derived`/`$effect`), snippets | [svelte.md](./references/frameworks/svelte.md) |
@@ -91,8 +91,8 @@ Each notes file holds the current stable version, the LLM default bias, the para
 | SWR | v2 `isLoading`, `useSWRMutation`; minimal SWR cache | [swr.md](./references/data/swr.md) |
 | Redux Toolkit | Redux is RTK now; `createSlice`; RTK Query built-in | [redux-toolkit.md](./references/data/redux-toolkit.md) |
 | Zustand | v5 `useShallow`; native `useSyncExternalStore` | [zustand.md](./references/data/zustand.md) |
-| Jotai | v2 vanilla store; async atoms hold promises | [jotai.md](./references/data/jotai.md) |
-| NgRx | Angular state; SignalStore (`@ngrx/signals`); functional Store | [ngrx.md](./references/data/ngrx.md) |
+| Jotai | v3 ESM-only; `atomFamily` moved to `jotai-family`; vanilla store | [jotai.md](./references/data/jotai.md) |
+| NgRx | v22 for Angular 22; SignalStore (`@ngrx/signals`); functional Store | [ngrx.md](./references/data/ngrx.md) |
 | Pinia | Official Vue store (not Vuex); v4 setup stores, ESM only | [pinia.md](./references/data/pinia.md) |
 
 Picking one: a server-cache library (TanStack Query) for fetched data, a client-state library (Zustand or Jotai) for local global state, and Redux Toolkit for genuinely complex shared client state. Keep server data out of the client-state libraries.
@@ -104,7 +104,7 @@ Picking one: a server-cache library (TanStack Query) for fetched data, a client-
 | Vite | ESM-only; Rolldown unifies the bundler | [vite.md](./references/tooling/vite.md) |
 | Node.js | Native TS type stripping; `node:test`; `--watch` | [node.md](./references/tooling/node.md) |
 | ESLint | Flat config (`eslint.config.js`) is the only system | [eslint.md](./references/tooling/eslint.md) |
-| Package managers | pnpm security-by-default; Bun full toolchain | [package-managers.md](./references/tooling/package-managers.md) |
+| Package managers | pnpm 12 Rust rewrite; Bun 1.4 Rust port, full toolchain | [package-managers.md](./references/tooling/package-managers.md) |
 | Biome | One Rust binary for lint + format; type-aware rules | [biome.md](./references/tooling/biome.md) |
 | Storybook | v10 ESM-only; testing via the Vitest addon | [storybook.md](./references/tooling/storybook.md) |
 | Turborepo | v2 `tasks` key (not `pipeline`); Rust; `turbo watch` | [turborepo.md](./references/tooling/turborepo.md) |
@@ -113,11 +113,11 @@ Picking one: a server-cache library (TanStack Query) for fetched data, a client-
 ### Testing
 | Tool | Headline shift | Notes |
 | --- | --- | --- |
-| Vitest | The default Vite-project runner; stable Browser Mode | [vitest.md](./references/testing/vitest.md) |
+| Vitest | v5 clears mocks by default, nested projects; stable Browser Mode | [vitest.md](./references/testing/vitest.md) |
 | Playwright | The modern e2e default; role locators, auto-wait, first-party component testing | [playwright.md](./references/testing/playwright.md) |
 | Jest | v30, but legacy for new Vite/ESM projects | [jest.md](./references/testing/jest.md) |
 | Testing Library | RTL 16; async `userEvent.setup()`; accessible queries | [testing-library.md](./references/testing/testing-library.md) |
-| Cypress | v15, now runner-up to Playwright for new e2e | [cypress.md](./references/testing/cypress.md) |
+| Cypress | v16 in-browser interception, `cy.exec()` gone; runner-up to Playwright | [cypress.md](./references/testing/cypress.md) |
 | Angular testing | Karma deprecated; Vitest default since v21; TestBed standalone | [angular-testing.md](./references/testing/angular-testing.md) |
 
 New Vite + React + TS default: Vitest (unit and component) plus Testing Library plus Playwright (e2e). Jest and Cypress are the secondary choices, not the defaults.
@@ -135,7 +135,7 @@ New Vite + React + TS default: Vitest (unit and component) plus Testing Library 
 | Fastify | v5 needs Node 20+; deprecations removed | [fastify.md](./references/backend/fastify.md) |
 | Nitro | Deploy-anywhere; Nitro 3 + h3 v2 rewrite (beta) | [nitro.md](./references/backend/nitro.md) |
 | Drizzle ORM | 1.0 RC; RQB v2; validators as subpaths | [drizzle.md](./references/backend/drizzle.md) |
-| Prisma ORM | v7 drops the Rust engine; driver adapters required | [prisma.md](./references/backend/prisma.md) |
+| Prisma ORM | v7 drops the Rust engine; pin `prisma@7`, npm `latest` is the v8 RC | [prisma.md](./references/backend/prisma.md) |
 | tRPC | v11 native TanStack Query options; RSC support; first-party OpenAPI gen (alpha) | [trpc.md](./references/backend/trpc.md) |
 
 ### Forms and validation
@@ -199,7 +199,7 @@ Apollo or urql for stateful UIs (Apollo recommends its own typed documents over 
 | --- | --- | --- |
 | React Email | v6 unified `react-email` package; async `render()` | [react-email.md](./references/email/react-email.md) |
 | Resend | API-first; pass a React component; batch, idempotency | [resend.md](./references/email/resend.md) |
-| Nodemailer | v9 validates TLS certs on remote fetches; `'NoAuth'` is now `'ENOAUTH'`; SESv2 | [nodemailer.md](./references/email/nodemailer.md) |
+| Nodemailer | v10 TypeScript rewrite, Node 20+; `'NoAuth'` is now `'ENOAUTH'`; SESv2 | [nodemailer.md](./references/email/nodemailer.md) |
 
 Modern transactional stack: React Email for templates, an API provider (Resend) to send, Nodemailer when you need raw SMTP.
 

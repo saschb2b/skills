@@ -3,13 +3,13 @@ type: Library Notes
 title: "Chakra UI"
 description: "v3 is a complete rewrite."
 tags: [javascript, ui]
-generated: { by: claude-code/unversioned, at: 2026-08-21T00:00:00Z }
+generated: { by: claude-code/unversioned, at: 2026-09-09T00:00:00Z }
 ---
 # Chakra UI
 
 **Verified 2026-08-20.** Check the installed `@chakra-ui/react` version first; re-verify if newer than below.
 
-**Current stable**: v3.36 (Jul 2026; v3.0 shipped Oct 2024). **LLM default bias**: v2, and v1. The Emotion-based v2 API with `extendTheme`, framer-motion animations, and monolithic components.
+**Current stable**: v3.37 (Aug 2026; v3.0 shipped Oct 2024). **LLM default bias**: v2, and v1. The Emotion-based v2 API with `extendTheme`, framer-motion animations, and monolithic components.
 
 ## The shift
 v3 is a complete rewrite. Styling moved off Emotion onto a Panda-style engine, component logic onto Ark UI (Zag.js state machines), and framer-motion is no longer a dependency. The component API changed pervasively, most visibly to a namespaced compound pattern, with a new theming system via `createSystem`.
