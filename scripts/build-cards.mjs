@@ -21,6 +21,7 @@ import { pathToFileURL } from "node:url";
 import { contentDynamics, contentProfile, visualIdentity } from "./card-visual-identity.mjs";
 
 const CARD = "skills/engineering/trust-card/scripts/card.py";
+const PYTHON = process.platform === "win32" ? "python" : "python3";
 const buckets = ["engineering", "productivity"];
 
 const RANK = { STRONG: 3, MEDIUM: 2, WEAK: 1, UNVERIFIED: 0, ABSENT: 0 };
@@ -34,7 +35,7 @@ const DOMAIN = {
   "no-slop": "writing", "to-story": "writing", autopilot: "writing", breadcrumbs: "writing", "fable-mode": "writing",
   "android-compose": "mobile",
   "tauri-stinky": "desktop",
-  "comment-stinky": "quality", "test-stinky": "quality",
+  "comment-stinky": "quality", "test-stinky": "quality", proof: "quality",
   "audit-actions": "security", "trust-card": "security",
 };
 
@@ -484,12 +485,12 @@ for (const bucket of buckets) {
     const dir = `${base}/${name}`;
     if (!existsSync(`${dir}/SKILL.md`)) continue;
     if (!existsSync(`${dir}/CARD.md`)) {
-      console.warn(`skip ${name}: no CARD.md (run: python3 ${CARD} generate ${dir})`);
+      console.warn(`skip ${name}: no CARD.md (run: ${PYTHON} ${CARD} generate ${dir})`);
       continue;
     }
     scanOrder.push(name);
     if (only.length && !only.includes(name)) continue;
-    const out = execFileSync("python3", [CARD, "verify", `${dir}/CARD.md`, "--bundle", dir, "--json"], { encoding: "utf8" });
+    const out = execFileSync(PYTHON, [CARD, "verify", `${dir}/CARD.md`, "--bundle", dir, "--json"], { encoding: "utf8" });
     const hero = HERO_FILES.find((h) => existsSync(`${dir}/${h}`)) || null;
     const heroDataUri = hero
       ? `data:${HERO_MIME[hero.split(".").pop()]};base64,${readFileSync(`${dir}/${hero}`).toString("base64")}`

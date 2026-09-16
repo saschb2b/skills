@@ -1,0 +1,4 @@
+interface:
+  display_name: "Proof"
+  short_description: "Carry stories to evidence-backed acceptance"
+  default_prompt: "Use $proof to turn this story into a frozen acceptance contract and carry it through implementation, independent verification, and the completion gate."

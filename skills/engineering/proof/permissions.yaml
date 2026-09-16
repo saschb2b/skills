@@ -1,0 +1,7 @@
+# The CLI reads a Git worktree, writes proof artifacts, and can run a check
+# explicitly supplied by the caller. Child checks inherit the caller's access.
+model: executable
+executes: true
+network: caller-supplied-checks
+shell: true
+filesystem_writes: true

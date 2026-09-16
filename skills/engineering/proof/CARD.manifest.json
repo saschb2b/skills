@@ -1,0 +1,66 @@
+[
+  {
+    "path": "SKILL.md",
+    "sha256": "434a9629d80abd38acef11f64f88bea1ea243554f4f0e3f1ebb6df70de69eeb7"
+  },
+  {
+    "path": "agents/openai.yaml",
+    "sha256": "cd2ff64bbc275177fbcdce1ac0601a8306dbbc454913da432e143f27cb91fefa"
+  },
+  {
+    "path": "permissions.yaml",
+    "sha256": "c76512a4cef746fc60d0eeec6a99288c446299c4c20b443e9917ad623a1cae11"
+  },
+  {
+    "path": "references/acceptance-contract.md",
+    "sha256": "af1b8dd9fc8aed8153b0d070ff546224ce09ae8c9c1a9e332776f07f609fdd8a"
+  },
+  {
+    "path": "references/ears.md",
+    "sha256": "7a0909d6101bc17ad591afb02b9fc5577ff3cd4267a0628f9acd25be4d2013b1"
+  },
+  {
+    "path": "references/gate.md",
+    "sha256": "c470f3ae904f9919ef5657351767909e9694873bc623bcf241431ac351255f91"
+  },
+  {
+    "path": "references/index.md",
+    "sha256": "e2e1ffad52137e19539b0ccdf63afe64222e2dff43022f37b45c59cf4f709e49"
+  },
+  {
+    "path": "references/lifecycle.md",
+    "sha256": "4f27ba84ad6d7f9edb703fe02d08bc5bc5d9087adeb8d7c13043698840d4424a"
+  },
+  {
+    "path": "references/log.md",
+    "sha256": "fa60f5605974e9c4ead786c4b94c8327d18d063e189180b7851a696703247ae7"
+  },
+  {
+    "path": "references/okf-profile.md",
+    "sha256": "41d5619ca3aef36f1544e2459d18a1eb90eea8c69f2068f4295108eeaffe603b"
+  },
+  {
+    "path": "references/project-policy.md",
+    "sha256": "f28d828ef34972750512115659c8770f03cde78ac7b12b329d0a62c2cd88ed13"
+  },
+  {
+    "path": "references/sources.md",
+    "sha256": "139f77a0d7b5ebbc320b1c6cdb6753ce4f6e4f1342ada0c21530796df29904d2"
+  },
+  {
+    "path": "references/verification.md",
+    "sha256": "3bacecb4eda116c6982be4351effb7f170b0141e99dbdedca95d976992271c0a"
+  },
+  {
+    "path": "references/worked-example.md",
+    "sha256": "26da3ab2bae15b3fef310041c4bae029f3e389136549b1011ea8ca21c3a28efc"
+  },
+  {
+    "path": "scripts/proof_gate.py",
+    "sha256": "2a853013edf8a9b7b62703764c5cb2c447b5845380b70ed58e1d8e2245c73064"
+  },
+  {
+    "path": "scripts/test_proof_gate.py",
+    "sha256": "72af2c99dae0a9718dcb6d4e8c4f256ce37d32d3a6cbe88bf8f4180266e39ef7"
+  }
+]

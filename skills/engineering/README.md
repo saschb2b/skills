@@ -2,6 +2,8 @@
 
 Code-adjacent practice the agent can run on a real repo.
 
+- **[proof](./proof/SKILL.md)**. Carry a given story through a frozen acceptance contract, implementation, independent verification, and a deterministic completion gate. Keeps EARS criteria, scoped work, native test tools, graded evidence, and candidate freshness connected through an OKF reference bundle and a dependency-free Python CLI.
+
 - **[audit-actions](./audit-actions/SKILL.md)**. Audit `.github/workflows/` for unsafe `pull_request_target` usage. Greps every workflow, walks a 10-point severity checklist, names findings, proposes the right fix.
 - **[mcp-server](./mcp-server/SKILL.md)**. Build, extend, and maintain a Model Context Protocol server across its whole lifecycle against the current spec (`2025-11-25`). Scaffolds the five-layer architecture (server, tool defs, router, bridge, security), picks a transport (stdio vs Streamable HTTP) and a bridge pattern, then carries the post-init weight: writing tool definitions agents read correctly, extending without breaking existing agents, versioning and deprecation, the security threat model (tool poisoning, token passthrough, prompt injection, OAuth 2.1), testing with the MCP Inspector, and publishing to the registry. Deep knowledge ships as a vendored OKF bundle (protocol, tool design, security, maintenance, testing, publishing).
 - **[react-compiler](./react-compiler/SKILL.md)**. Write and review React as if the Compiler is enabled. Skip manual `useMemo`, `useCallback`, and `React.memo` by default. Audit existing code for stale memoization and the five silent-bail patterns. Counterweight to the pre-compiler bias in agents' React training corpora.

@@ -5,7 +5,7 @@
 **Expert practice, packaged as checklists your coding agent can actually run.**
 
 [![skills.sh](https://skills.sh/b/saschb2b/skills)](https://skills.sh/saschb2b/skills)
-[![Skills](https://img.shields.io/badge/skills-22-2ea44f)](#skill-reference)
+[![Skills](https://img.shields.io/badge/skills-25-2ea44f)](#skill-reference)
 [![Docs](https://img.shields.io/badge/docs-saschb2b.com-0969da)](https://saschb2b.com/skills)
 [![License](https://img.shields.io/badge/license-MIT-0969da)](./LICENSE)
 
@@ -55,6 +55,7 @@ npx skills@latest add saschb2b/skills --skill autopilot
 npx skills@latest add saschb2b/skills --skill fable-mode
 npx skills@latest add saschb2b/skills --skill game-design
 npx skills@latest add saschb2b/skills --skill trust-card
+npx skills@latest add saschb2b/skills --skill proof
 ```
 
 Browse the rendered docs at [saschb2b.com/skills](https://saschb2b.com/skills).
@@ -117,6 +118,7 @@ Skills install by slug, and the agent auto-invokes one by reading its `descripti
 
 | Skill | What it does |
 | --- | --- |
+| **[proof](./skills/engineering/proof/SKILL.md)** | Carry a given story to evidence-backed acceptance. Freezes an observable contract, keeps implementation within scope, hands verification to a fresh context, and gates completion on every check having current PASS evidence. Ships a portable Python CLI and an OKF reference bundle covering EARS, policy, lifecycle, and evidence limits. |
 | **[test-stinky](./skills/engineering/test-stinky/SKILL.md)** | Detect test-suite quality smells in any language or framework, the counterweight to agents that blindly chase coverage and ship huge, slow, flaky suites. Nine pillars, 49 categories: test intent and shape, assertions (assertion-free, weak, tautological, snapshot-everything), fixtures and duplication (DAMP over DRY, mystery guests), test doubles (over-mocking, mock drift), determinism (time, randomness, order, shared state, hermeticity), async and waiting (sleeps vs condition waits), speed and cost (inverted pyramid, heavy setup, redundant layers), coverage theater, and lifecycle hygiene (skipped-test rot, retries as policy, green-by-rerun, silent conditional passes). Rates each Rancid, Funky, or Whiff with the fix and a source, runs a sweep-level suite pass with a slimming procedure for oversized suites, and ships a mechanical gate stack (test lint, order shuffle, duration budgets, lane split, flake detection, mutation spot-checks). Defers production-code smells to `react-stinky` and `tauri-stinky`. |
 | **[comment-stinky](./skills/engineering/comment-stinky/SKILL.md)** | Detect code-comment smells in any language, and gate the comment before it lands. The counterweight to agents whose comments narrate the edit they just made (`now`, `no longer`, `instead of the old X`) rather than the standing reason the code has its shape, because the reader only ever has the file, never the diff. Six pillars, 37 categories: change narration and diff residue, redundancy, missing intent (magic constants, workarounds, swallowed errors, unstated invariants), truth and decay, placement and form, and voice. Ships a positive taxonomy of the nine comments worth writing, a routing table that sends everything else to a commit message, a name, a type, a test, or a ticket, and a four-question write gate with a self-check command for your own diff. Runs implicitly at write time, not just on review. Defers prose register to `no-slop`. |
 

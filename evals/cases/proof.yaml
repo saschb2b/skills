@@ -1,0 +1,32 @@
+owner: proof
+
+should_fire:
+  - turn this agreed story into a frozen acceptance contract and prove it is done
+  - carry STORY-421 through build, independent verification, and a completion gate
+  - tests are green but did we actually satisfy every acceptance criterion in this story?
+  - define checkable EARS criteria with evidence for this implementation task
+  - run the proof gate against the current candidate and explain missing evidence
+  - create the missing acceptance contract between our Scrum story and the agent's delivery
+
+in_context:
+  - |-
+    Assistant: The form is implemented and the unit tests pass.
+    User: Before calling this done, freeze the original story criteria, have a fresh verifier check each one, and gate on the evidence.
+
+route_to_sibling:
+  - prompt: turn this braindump into a proper user story with acceptance criteria
+    expect: to-story
+  - prompt: work on your own and find useful improvements in this repository
+    expect: autopilot
+  - prompt: sign this skill and make a provenance trust card
+    expect: trust-card
+  - prompt: audit these tests for redundant coverage and flaky assertions
+    expect: test-stinky
+  - prompt: create an OKF knowledge bundle documenting our sales metrics
+    expect: okf
+
+should_not_fire:
+  - fix the typo in this button label
+  - implement a function that adds two integers
+  - prove that the square root of two is irrational
+  - summarize yesterday's sprint review
