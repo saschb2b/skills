@@ -1,7 +1,7 @@
 [
   {
     "path": "SKILL.md",
-    "sha256": "8c09de3cb36d3596cf5b65a5284f3fbb941e1521f054b1c68f85f969223ca59d"
+    "sha256": "d3f61bfa5eafcd72e4311c9a95dc8d38d5aa41a552aa615f4e768a1f01c86cd5"
   },
   {
     "path": "permissions.yaml",
@@ -9,15 +9,15 @@
   },
   {
     "path": "references/differential.md",
-    "sha256": "05c3cf8606a7c4ff8a0c86725dc606fae9d92a795d479727ee6fc5be6724d5e6"
+    "sha256": "d36459330e2e40e7a2892138e6c42d619a738302a4221bf4c12aa0bd985412fd"
   },
   {
     "path": "references/goal.md",
-    "sha256": "a59d94d29ea4bdab6b8fc46f316dc9b9d8e99de085527d795ba7d5ea3addffbb"
+    "sha256": "bf9942d47c4c2158f69ae91fc594d02619038574eecb7daad0b13f1d7dc2e8a9"
   },
   {
     "path": "references/harness.md",
-    "sha256": "152eeb33103413c974aaf33bae47d07aca0970b72d1ee840665f6c05d38cdba9"
+    "sha256": "6cdb9adb0e87d4ea2e17cf3a9ce95b59b713a837e386423ec099d22d4e45c364"
   },
   {
     "path": "references/implement.md",
@@ -25,23 +25,23 @@
   },
   {
     "path": "references/index.md",
-    "sha256": "5bd67cea3a15e0ab5a54fe3f5f34185427db9628f49b9d7c4672af8b62c3fd55"
+    "sha256": "d0fea6b550dd2fe788ce95019f86c863050ddbb256812b5af0be267721d2a526"
   },
   {
     "path": "references/ledger.md",
-    "sha256": "4719d4f149e775d73242cacbc3f54639d9ba2d037e1a4c8bba8f096c1bd8ae81"
+    "sha256": "08180f2c29e1a58e864b17b8fca33088ed565e9274512eadb8a13a908f8e5c96"
   },
   {
     "path": "references/locate.md",
-    "sha256": "7f0b4301e60fd0b5da9284f2d5be051f74c8cca0dce3c1b951a6affcb10c6795"
+    "sha256": "6662f3a8e09207a0014fe85d9c34ce36503918af01dc4eeb386be429712e493e"
   },
   {
     "path": "references/log.md",
-    "sha256": "3160822157698ba5a72d60d841afa4cf1d0809a7d159c81517d00e4401eace21"
+    "sha256": "0b94bf92f3e84a0e2f4f4ae1d3069d0cbe336121e7a9bad4abaf9127236f5126"
   },
   {
     "path": "references/pitfalls.md",
-    "sha256": "83cbf50d167e0b81cc1c84f1bef10e965267045e1f89cafe93a19dcf094725b0"
+    "sha256": "7af2a0ef94fb0219e65c09ebc3f4abb74227264bbe089239b8b6484e133cb65f"
   },
   {
     "path": "references/targets.md",

@@ -1,9 +1,9 @@
 ---
 type: Failure Catalog
 title: Pitfalls that cost iterations
-description: Reverse engineering failure modes, most observed in a shipped project and the rest common across target classes, each with the symptom that gives it away and the guard that prevents it.
+description: Reverse engineering failure modes, from a shipped project, from other target classes, and from agent-driven work, each with the symptom that gives it away and the guard that prevents it.
 tags: [reverse-engineering, pitfalls, debugging, lessons]
-generated: { by: claude-code/unversioned, at: 2026-10-17T15:00:00Z }
+generated: { by: claude-code/unversioned, at: 2026-10-17T17:00:00Z }
 sources:
   - id: cwe-changelog
     resource: https://github.com/saschb2b/Mega-Man-Battle-Network-Cyberworld-Endless/blob/main/CHANGELOG.md
@@ -16,11 +16,23 @@ sources:
     title: "Cyberworld Endless, docs/SYMBOLS.md"
   - id: practice
     resource: "scope:author knowledge of reverse engineering native, managed, emulated, and threaded targets"
+  - id: sbk2
+    resource: https://github.com/cdlewis/snowboardkids2-decomp
+    title: "Snowboard Kids 2 decompilation (.claude hooks guarding the reference checksum; agent rules banning inline asm and register pinning), read 2026-10-17"
+  - id: decomp-wtf
+    resource: https://github.com/i12bp8/decomp.wtf
+    title: "decomp.wtf README (sources-only edit surface; inline assembly refused), read 2026-10-17"
+  - id: reverify
+    resource: https://github.com/2akouwu/reverify
+    title: "Reverify README (refutations kept as known false), read 2026-10-17"
+  - id: raptor
+    resource: https://github.com/gadievron/raptor
+    title: "RAPTOR .claude/README.md (untrusted-content envelope), read 2026-10-17"
 ---
 
 # Check this list when a loop stalls
 
-The first table happened in Cyberworld Endless, each row costing at least one iteration.[^cwe-changelog][^cwe-lessons][^cwe-symbols] The second covers what the other [target classes](./targets.md) add.[^practice] Read the symptom column first; the guard is what the [loop](./differential.md) should already have done.
+The first table happened in Cyberworld Endless, each row costing at least one iteration.[^cwe-changelog][^cwe-lessons][^cwe-symbols] The second covers what the other [target classes](./targets.md) add.[^practice] The third covers what agents add when they do the work, from 2026's agent-driven projects.[^sbk2][^decomp-wtf][^reverify][^raptor] Read the symptom column first; the guard is what the [loop](./differential.md) should already have done.
 
 | Pitfall | Symptom | Guard |
 | --- | --- | --- |
@@ -52,6 +64,17 @@ The first table happened in Cyberworld Endless, each row costing at least one it
 | Comparing mid-step on a threaded target | Two identical runs differ at random | Compare at the target's own sync points, such as the end of a tick |
 | Code loaded late | A hook or patch vanishes after a level load | Reapply on the loader's event (overlay, module, JIT) and test that path |
 | Decompiler output taken as truth | Types or control flow the binary does not have | Treat it as a lead; confirm in the debugger at the pinned build |
+
+| Pitfall | Symptom | Guard |
+| --- | --- | --- |
+| The builder edits its own oracle | Passes appear after a checker, hash, or mask changed, or through inline asm | Keep the oracle out of the builder's reach; count escape-hatch passes apart ([differential](./differential.md)) |
+| "It runs" or "tests pass" taken as equivalence | The program works while its rebuilt code is wrong | Only the comparator's output is a pass; add a per-unit differential over generated inputs |
+| Self-reported matches | An agent claims a match the comparator never printed | Accept the tool's verdict only |
+| Mental arithmetic | A hex, endianness, or offset slip sends a hook to the wrong place | Read or convert every number with a tool ([ledger](./ledger.md)) |
+| Instructions inside the target | A string, comment, or decompiled name steers the agent | Target content is data; ask before side effects ([harness](./harness.md)) |
+| Re-proposing a refuted idea | A fresh session repeats a theory already disproved | Keep refuted rows with their evidence |
+| Spending the budget on one stuck unit | Attempt after attempt at the same idea, no improvement | Ratchet attempts, stop at the attempt budget, change approach or escalate |
+| Context flooded by dumps | The agent loses the thread after printing a listing | Write large output to files and query them |
 
 # Turn every stall into a loop change
 

@@ -1,9 +1,9 @@
 ---
 type: Runbook
 title: Differential testing against the original
-description: Prove an implementation matches the original by running both from one state and input, aligned on the target's own clock, with every allowed difference written down, verdicts that cannot pass by accident, mutation checks of the comparator, and a triage path for each failure.
+description: Prove an implementation matches the original by running both from one state and input, aligned on the target's own clock, with every allowed difference written down, an oracle the builder cannot edit, verdicts that cannot pass by accident, mutation checks of the comparator, ratcheted attempts, and a triage path for each failure.
 tags: [reverse-engineering, differential-testing, mutation-testing, oracle]
-generated: { by: claude-code/unversioned, at: 2026-10-17T15:00:00Z }
+generated: { by: claude-code/unversioned, at: 2026-10-17T17:00:00Z }
 sources:
   - id: cwe-devtools
     resource: https://github.com/saschb2b/Mega-Man-Battle-Network-Cyberworld-Endless/blob/main/docs/DEVTOOLS.md
@@ -21,6 +21,15 @@ sources:
     resource: "citation:McKeeman, Differential Testing for Software, Digital Technical Journal 10(1), 1998"
   - id: demillo-1978
     resource: "citation:DeMillo, Lipton, Sayward, Hints on Test Data Selection, IEEE Computer 11(4), 1978"
+  - id: sbk2
+    resource: https://github.com/cdlewis/snowboardkids2-decomp
+    title: "Snowboard Kids 2 decompilation (.claude/hooks block edits to the reference checksum and commits with --no-verify; tools/claude-decomp-env/CLAUDE.md, the 40-attempt stall rule), read 2026-10-17"
+  - id: decomp-wtf
+    resource: https://github.com/i12bp8/decomp.wtf
+    title: "decomp.wtf README (agents edit only sources and headers; a change that breaks a matched function is undone), archived 2026-10-15, read 2026-10-17"
+  - id: llm-decomp-2026
+    resource: https://arxiv.org/abs/2609.05370
+    title: "When LLM Decompilers Recompile More and Preserve Less (2026); seen through search results only, not read"
 ---
 
 # Write specs, then a control
@@ -41,6 +50,16 @@ Pick the oracle's form from the [target profile](./targets.md). An emulator runs
 # Allow a difference only with a reason
 
 Each mask has a name, the part it covers, the exact cells or bits (offset, reference value, subject value), a why, and evidence: both sides' routines by address and the spec that showed it. Masks never cover the subject's own records, which is the thing under test. Keep translations (reading one side in the other's terms) apart from masks. Re-verify, against the image bytes, every "these two routines are twins" claim a mask relies on.[^cwe-xdiff]
+
+# Keep the oracle out of the builder's reach
+
+An agent optimizes whatever the check measures, including the check itself. Put the comparator, reference hashes and expected outputs, masks, specs, and build scripts outside what the builder may change:
+
+- Block edits to them with tool hooks, and block commits that skip verification. Snowboard Kids 2 refuses edits to its reference checksum and `git commit --no-verify`.[^sbk2]
+- Narrow the builder's surface where you can: decomp.wtf let agents write only sources and headers, never targets, assembly, or build scripts.[^decomp-wtf]
+- Pin the comparator's hash in CI. A mask or spec change is an oracle change: its own commit, reviewed, citing both code paths.
+- Accept only the comparator's own output as a pass. A builder's report, a reviewer agent's reading of that report, "it builds", "it runs", and a passing unit-test suite are leads. Rebuilt or decompiled code that passes its tests can still differ on other inputs.[^llm-decomp-2026] Where whole-program specs are thin, add a per-unit differential over generated inputs. Leave the decompiler's unresolved placeholders visible instead of filling them in.
+- Count passes reached through escape hatches (inline asm, register pinning, raw bytes, a transplanted blob where a rewrite was the goal) apart from real ones. Snowboard Kids 2's rule: a match that breaks its requirements is not complete.[^sbk2]
 
 # Read the verdict honestly
 
@@ -65,6 +84,8 @@ A detector that reacts to an event needs a negative control too: run without the
 3. Compare the two routines (twins). Classify: your relocation or recipe, a table not grown, an engine difference, or a harness setup.
 4. Fix at the root. Add a mask only for a proven engine difference, with both routines cited.
 5. Rerun every spec and the mutations, not just the failing spec.
+
+Treat each attempt as a transaction. Keep it only when a fresh oracle run beats the recorded best and nothing that passed before regresses; otherwise reset the worktree. decomp.wtf undid any change that broke an already-matched function.[^decomp-wtf] Give each unit an attempt budget (Snowboard Kids 2 stops after 40 attempts without improvement), then stop it and record the best result, the approaches tried, the remaining diff, and whether it looks solvable.[^sbk2] When a unit stalls, change the approach, escalate to a stronger model, or hand it to a person, rather than spending more attempts on the same idea.
 
 Use the survey view (every difference counted, masked or not) to audit masks that grew too wide.
 

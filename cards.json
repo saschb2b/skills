@@ -774,7 +774,7 @@
       "title": "reverse-engineering",
       "description": "Reverse engineer opaque software toward a stated goal, from console ROMs and disc images to installed PC and mobile games, native or managed binaries, firmware, file and save formats, network...",
       "risk_tier": "executable-L1",
-      "target_digest": "sha256:057b7cbc844ac5f10b04ef3406d273522c36b4956dbf3b7e3570874af3f9cf44",
+      "target_digest": "sha256:61c1ebc580e4099d6c4bc13a11935cbc6b359b662a5c90eddcb3f61b76293547",
       "identity": "did:web:saschb2b.com",
       "expires": "2027-10-17",
       "capability": {
@@ -787,6 +787,18 @@
         "network_evidence": [],
         "shell_evidence": [],
         "declared_external_sources": [
+          "https://arxiv.org/abs/2609.05370",
+          "https://github.com/2389-research/binary-re",
+          "https://github.com/2akouwu/reverify",
+          "https://github.com/banteg/bn",
+          "https://github.com/cdlewis/snowboardkids2-decomp",
+          "https://github.com/cyberkaida/reverse-engineering-assistant",
+          "https://github.com/gadievron/raptor",
+          "https://github.com/gl0bal01/malware-analysis-claude-skills",
+          "https://github.com/i12bp8/decomp.wtf",
+          "https://github.com/itsgrimetime/melee-decomp",
+          "https://github.com/morluto/rea",
+          "https://github.com/mrexodia/ida-pro-mcp",
           "https://github.com/saschb2b/Mega-Man-Battle-Network-Cyberworld-Endless",
           "https://github.com/saschb2b/Mega-Man-Battle-Network-Cyberworld-Endless/blob/main/.claude/skills/playtest-loop/lessons.md",
           "https://github.com/saschb2b/Mega-Man-Battle-Network-Cyberworld-Endless/blob/main/AGENTS.md",
@@ -794,12 +806,7 @@
           "https://github.com/saschb2b/Mega-Man-Battle-Network-Cyberworld-Endless/blob/main/docs/DEVTOOLS.md",
           "https://github.com/saschb2b/Mega-Man-Battle-Network-Cyberworld-Endless/blob/main/docs/EMULATION.md",
           "https://github.com/saschb2b/Mega-Man-Battle-Network-Cyberworld-Endless/blob/main/docs/FIDELITY.md",
-          "https://github.com/saschb2b/Mega-Man-Battle-Network-Cyberworld-Endless/blob/main/docs/MULTIROM.md",
-          "https://github.com/saschb2b/Mega-Man-Battle-Network-Cyberworld-Endless/blob/main/docs/ROM_DATA.md",
-          "https://github.com/saschb2b/Mega-Man-Battle-Network-Cyberworld-Endless/blob/main/docs/SOURCES.md",
-          "https://github.com/saschb2b/Mega-Man-Battle-Network-Cyberworld-Endless/blob/main/docs/SYMBOLS.md",
-          "https://github.com/saschb2b/Mega-Man-Battle-Network-Cyberworld-Endless/blob/main/docs/releases/v0.12.0.md",
-          "https://github.com/saschb2b/Mega-Man-Battle-Network-Cyberworld-Endless/tree/main/tests/xdiff"
+          "https://github.com/saschb2b/Mega-Man-Battle-Network-Cyberworld-Endless/blob/main/docs/MULTIROM.md"
         ]
       },
       "layers": [
