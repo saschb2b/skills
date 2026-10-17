@@ -1,0 +1,471 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reverse engineering dashboard</title>
+<!--
+  Reverse engineering dashboard (reverse-engineering skill).
+  One self-contained file: no network, no dependencies. Copy it next to the
+  project's ledger and rewrite only the JSON in <script id="re-state"> below.
+  Schema and rules: references/dashboard.md in the skill. Write "<" inside
+  JSON strings as < so the block can never close early.
+-->
+<style>
+:root {
+  color-scheme: light;
+  --page: #f9f9f7; --surface: #fcfcfb; --ink: #0b0b0b; --ink-2: #52514e; --muted: #898781;
+  --grid: #e1e0d9; --axis: #c3c2b7; --border: rgba(11,11,11,0.10);
+  --accent: #2a78d6; --track: #cde2fb; --wash: rgba(42,120,214,0.10);
+  --c1: #2a78d6; --c2: #eb6834; --c3: #1baf7a; --c4: #eda100; --c5: #e87ba4;
+  --good: #0ca30c; --warning: #fab219; --serious: #ec835a; --critical: #d03b3b; --good-text: #006300;
+}
+@media (prefers-color-scheme: dark) {
+  :root:where(:not([data-theme="light"])) {
+    color-scheme: dark;
+    --page: #0d0d0d; --surface: #1a1a19; --ink: #f0efec; --ink-2: #c3c2b7; --muted: #898781;
+    --grid: #2c2c2a; --axis: #383835; --border: rgba(255,255,255,0.10);
+    --accent: #3987e5; --track: #184f95; --wash: rgba(57,135,229,0.10);
+    --c1: #3987e5; --c2: #d95926; --c3: #199e70; --c4: #c98500; --c5: #d55181; --good-text: #0ca30c;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --page: #0d0d0d; --surface: #1a1a19; --ink: #f0efec; --ink-2: #c3c2b7; --muted: #898781;
+  --grid: #2c2c2a; --axis: #383835; --border: rgba(255,255,255,0.10);
+  --accent: #3987e5; --track: #184f95; --wash: rgba(57,135,229,0.10);
+  --c1: #3987e5; --c2: #d95926; --c3: #199e70; --c4: #c98500; --c5: #d55181; --good-text: #0ca30c;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--page); color: var(--ink); font: 14px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif; }
+main { max-width: 1180px; margin: 0 auto; padding: 20px 16px 48px; }
+h1 { font-size: 20px; margin: 0 0 4px; font-weight: 650; }
+h2 { font-size: 14px; margin: 0 0 12px; font-weight: 650; }
+p { margin: 0; }
+.sub { color: var(--ink-2); }
+.muted { color: var(--muted); }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 16px; min-width: 0; }
+.grid { display: grid; gap: 12px; margin-top: 12px; }
+.g2 { grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); }
+.kpis { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
+.toolbar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 12px 0 0; }
+button, .filebtn { font: inherit; color: var(--ink); background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 5px 10px; cursor: pointer; }
+button:hover, .filebtn:hover { border-color: var(--axis); }
+.filebtn input { display: none; }
+.badge { font-size: 12px; padding: 2px 8px; border-radius: 999px; border: 1px solid var(--border); color: var(--ink-2); }
+.facts { display: grid; grid-template-columns: max-content 1fr; gap: 4px 12px; margin-top: 12px; }
+.facts dt { color: var(--muted); }
+.facts dd { margin: 0; overflow-wrap: anywhere; }
+code, .mono { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12.5px; }
+.hero { font-size: 48px; font-weight: 650; line-height: 1.05; }
+.tile .v { font-size: 26px; font-weight: 650; margin-top: 2px; }
+.tile .d { font-size: 12px; color: var(--ink-2); margin-top: 2px; }
+.status { display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; }
+.status.wrap { display: flex; align-items: flex-start; white-space: normal; }
+.ico { font-weight: 700; width: 1.1em; text-align: center; }
+ul.plain { list-style: none; margin: 0; padding: 0; }
+ul.plain li { padding: 8px 0; border-top: 1px solid var(--grid); }
+ul.plain li:first-child { border-top: 0; padding-top: 0; }
+.scroll { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; }
+th, td { text-align: left; padding: 8px 10px 8px 0; border-top: 1px solid var(--grid); vertical-align: top; }
+th { color: var(--muted); font-weight: 500; font-size: 12px; border-top: 0; }
+td.num, th.num { font-variant-numeric: tabular-nums; white-space: nowrap; }
+.bar { display: flex; gap: 2px; height: 12px; width: 140px; min-width: 140px; margin-top: 3px; }
+.bar.wide { height: 20px; width: 100%; }
+.seg { height: 100%; min-width: 3px; outline-offset: 2px; }
+.seg:last-child { border-radius: 0 4px 4px 0; }
+.seg:hover, .seg:focus { filter: brightness(1.12); outline: 2px solid var(--ink); }
+.meter { height: 6px; width: 90px; background: var(--track); border-radius: 0 4px 4px 0; margin-top: 6px; }
+.meter > i { display: block; height: 100%; border-radius: 0 4px 4px 0; }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 16px; margin-top: 10px; font-size: 13px; }
+.key { display: inline-flex; align-items: center; gap: 6px; }
+.sw { width: 10px; height: 10px; border-radius: 2px; display: inline-block; }
+.lk { width: 14px; height: 2px; display: inline-block; border-radius: 1px; }
+.chart { position: relative; height: 220px; margin-top: 8px; }
+.chart svg { display: block; width: 100%; height: 100%; }
+details { margin-top: 10px; }
+summary { cursor: pointer; color: var(--ink-2); }
+#tip { position: fixed; pointer-events: none; z-index: 10; background: var(--surface); color: var(--ink); border: 1px solid var(--border); border-radius: 8px; padding: 8px 10px; font-size: 12.5px; box-shadow: 0 4px 16px rgba(0,0,0,0.12); display: none; max-width: 280px; }
+#tip b { font-size: 14px; }
+.tiprow { display: flex; align-items: center; gap: 8px; }
+.error { border-color: var(--critical); }
+.drop { outline: 2px dashed var(--accent); outline-offset: -8px; }
+footer { margin-top: 16px; font-size: 12px; color: var(--muted); }
+</style>
+</head>
+<body>
+<main id="app" aria-live="polite"></main>
+<div id="tip" role="tooltip"></div>
+
+<script type="application/json" id="re-state">
+{
+  "schema": "re-state/1",
+  "example": true,
+  "generated_at": "2026-10-17T12:00:00Z",
+  "generated_by": "example",
+  "project": "Example project: Game B's enemy families in Game A's engine",
+  "target": { "name": "Game A (USA)", "class": "Cartridge console", "build": "rev 0", "hash": "sha256:example-only-0000", "oracle": "Game B's own battle, second emulator instance, lockstep on the battle timer" },
+  "goal": {
+    "acceptance": "Each moved enemy family fights in Game A's engine exactly as in Game B's: every byte of battle memory per aligned frame, seven specs per family, differences only where a mask cites both games' routines.",
+    "non_goals": ["Game B's overworld", "Online play"],
+    "legal": "Numbers and our own code only; both ROMs read from the user's files."
+  },
+  "phase": { "current": 5, "unit": "Family D" },
+  "stop_rule": [
+    { "id": "specs", "met": false, "evidence": "38 of 41 specs pass (run 2026-10-17 11:40)" },
+    { "id": "mutations", "met": false, "evidence": "33 of 34 breaks caught; Family D's relocation break survives" },
+    { "id": "ledger", "met": true, "evidence": "docs/ROM_DATA.md: every offset has a verify step" },
+    { "id": "masks", "met": true, "evidence": "4 masks, each citing both routines" },
+    { "id": "ci", "met": true, "evidence": "unit tests in CI; local: make xdiff" }
+  ],
+  "units": [
+    { "id": "A", "name": "Family A (control: native unit moved)", "phase": 6, "status": "passed", "specs": { "pass": 7, "fail": 0, "inconclusive": 0 }, "mutations": { "caught": 6, "total": 6 }, "attempts": { "used": 3, "budget": 40 }, "note": "Same at every byte for 3,899 frames" },
+    { "id": "B", "name": "Family B", "phase": 6, "status": "passed", "specs": { "pass": 7, "fail": 0, "inconclusive": 0 }, "mutations": { "caught": 5, "total": 5 }, "attempts": { "used": 9, "budget": 40 } },
+    { "id": "C", "name": "Family C (first to draw random numbers)", "phase": 6, "status": "passed", "specs": { "pass": 7, "fail": 0, "inconclusive": 0 }, "mutations": { "caught": 7, "total": 7 }, "attempts": { "used": 14, "budget": 40 }, "note": "RNG followed from the reference" },
+    { "id": "D", "name": "Family D", "phase": 5, "status": "active", "specs": { "pass": 5, "fail": 2, "inconclusive": 0 }, "mutations": { "caught": 4, "total": 5 }, "attempts": { "used": 22, "budget": 40 }, "note": "First divergence: frame 342, ice block size" },
+    { "id": "E", "name": "Family E", "phase": 5, "status": "stalled", "specs": { "pass": 6, "fail": 0, "inconclusive": 1 }, "mutations": { "caught": 5, "total": 5 }, "attempts": { "used": 40, "budget": 40 }, "note": "Inconclusive: the player's own state parts at frame 900" },
+    { "id": "F", "name": "Family F", "phase": 6, "status": "passed", "specs": { "pass": 6, "fail": 0, "inconclusive": 0 }, "mutations": { "caught": 6, "total": 6 }, "attempts": { "used": 6, "budget": 40 } },
+    { "id": "G", "name": "Family G", "phase": 2, "status": "blocked", "specs": { "pass": 0, "fail": 0, "inconclusive": 0 }, "attempts": { "used": 0, "budget": 40 }, "note": "Needs a decision: transplant or reimplement" },
+    { "id": "H", "name": "Family H", "phase": 0, "status": "planned", "specs": { "pass": 0, "fail": 0, "inconclusive": 0 } }
+  ],
+  "ledger": { "source": "docs/ROM_DATA.md", "verified": 142, "derived": 31, "assumed": 9, "open": 6, "refuted": 4 },
+  "masks": [
+    { "name": "Interrupt stack between frames", "reason": "Dead below sp_irq between frames; both games' VBlank handlers cited" },
+    { "name": "Turn change length", "reason": "Game A takes four frames more per turn change; both routines cited" },
+    { "name": "Enemy id copies", "reason": "Id renumbered on install; translated by role, three copies" },
+    { "name": "Name plate archive", "reason": "Families' own text archive; both readers cited" }
+  ],
+  "open_questions": [
+    { "question": "Does Family G's spawn read the Navi table past index 30?", "settles_with": "Write watch on the table in both games during G's spawn" },
+    { "question": "Is the frame-900 divergence in E the player's state or E's?", "settles_with": "Spec with safe=1 and the same deck in both games" }
+  ],
+  "decisions": [
+    { "question": "Family G: transplant its code or reimplement it?", "options": "Transplant keeps fidelity; reimplement avoids three differing twins", "needed_by": "Before G leaves Locate" }
+  ],
+  "not_reached": ["Confusion and blindness statuses", "Family D's version 3", "A hit's own way to a status (only the status step is tested)"],
+  "history": [
+    { "at": "2026-10-10", "specs_pass": 0, "specs_total": 7, "mutations_caught": 0, "mutations_total": 6, "note": "Harness and control" },
+    { "at": "2026-10-11", "specs_pass": 7, "specs_total": 7, "mutations_caught": 6, "mutations_total": 6, "note": "Control passes" },
+    { "at": "2026-10-12", "specs_pass": 11, "specs_total": 14, "mutations_caught": 9, "mutations_total": 11 },
+    { "at": "2026-10-13", "specs_pass": 14, "specs_total": 14, "mutations_caught": 11, "mutations_total": 11, "note": "Family B passes" },
+    { "at": "2026-10-14", "specs_pass": 17, "specs_total": 21, "mutations_caught": 15, "mutations_total": 18 },
+    { "at": "2026-10-15", "specs_pass": 21, "specs_total": 28, "mutations_caught": 18, "mutations_total": 24, "note": "RNG follow added" },
+    { "at": "2026-10-16", "specs_pass": 30, "specs_total": 35, "mutations_caught": 27, "mutations_total": 29 },
+    { "at": "2026-10-17", "specs_pass": 38, "specs_total": 41, "mutations_caught": 33, "mutations_total": 34, "note": "Family D in Test" }
+  ]
+}
+</script>
+
+<script>
+(() => {
+  "use strict";
+  const PHASES = ["Input", "Harness", "Locate", "Understand", "Output", "Test", "Iterate"];
+  const STATUS = {
+    planned: { ico: "○", color: "var(--muted)", label: "Planned" },
+    active: { ico: "◐", color: "var(--accent)", label: "In progress" },
+    passed: { ico: "✓", color: "var(--good)", label: "Passed" },
+    failed: { ico: "✕", color: "var(--critical)", label: "Failed" },
+    stalled: { ico: "‖", color: "var(--serious)", label: "Stalled" },
+    blocked: { ico: "!", color: "var(--warning)", label: "Blocked" },
+  };
+  const STOP_LABELS = {
+    specs: "Every spec in the goal's acceptance passes against the oracle",
+    mutations: "Every mutation fails its spec",
+    ledger: "Every location the output depends on has a ledger row with a re-verify step",
+    masks: "Every allowed difference has its written reason, none added to reach green",
+    ci: "Target-free checks run in CI; target-bound checks run from one local command",
+  };
+  const CLAIMS = [["verified", "Verified", "--c1"], ["derived", "Derived", "--c2"], ["assumed", "Assumed", "--c3"], ["open", "Open", "--c4"], ["refuted", "Refuted", "--c5"]];
+
+  const app = document.getElementById("app");
+  const tip = document.getElementById("tip");
+  const num = (v) => (typeof v === "number" && isFinite(v) ? v : 0);
+  const fmt = (n) => num(n).toLocaleString("en-US");
+
+  // Every string from the state is untrusted (it may quote the target): textContent only.
+  function el(tag, attrs, ...kids) {
+    const n = document.createElement(tag);
+    for (const [k, v] of Object.entries(attrs || {})) {
+      if (v == null || v === false) continue;
+      if (k === "class") n.className = v;
+      else if (k === "style") n.style.cssText = v;
+      else if (k === "tip") n.dataset.tip = JSON.stringify(v);
+      else n.setAttribute(k, v === true ? "" : String(v));
+    }
+    for (const kid of kids.flat()) if (kid != null && kid !== false) n.append(kid instanceof Node ? kid : document.createTextNode(String(kid)));
+    return n;
+  }
+  const svg = (tag, attrs) => {
+    const n = document.createElementNS("http://www.w3.org/2000/svg", tag);
+    for (const [k, v] of Object.entries(attrs || {})) n.setAttribute(k, String(v));
+    return n;
+  };
+
+  function status(s) {
+    const st = STATUS[s] || STATUS.planned;
+    return el("span", { class: "status" }, el("span", { class: "ico", style: `color:${st.color}`, "aria-hidden": "true" }, st.ico), st.label);
+  }
+
+  function showTip(rows, x, y) {
+    tip.replaceChildren(...rows.map(([value, label, color]) => el("div", { class: "tiprow" },
+      color ? el("span", { class: "lk", style: `background:${color}` }) : null, el("b", {}, value), el("span", { class: "sub" }, label))));
+    tip.style.display = "block";
+    const r = tip.getBoundingClientRect();
+    tip.style.left = Math.min(x + 14, innerWidth - r.width - 8) + "px";
+    tip.style.top = Math.max(8, y - r.height - 12) + "px";
+  }
+  const hideTip = () => { tip.style.display = "none"; };
+  document.addEventListener("pointermove", (e) => {
+    const t = e.target.closest && e.target.closest("[data-tip]");
+    if (t) showTip(JSON.parse(t.dataset.tip), e.clientX, e.clientY); else if (!e.target.closest(".chart")) hideTip();
+  });
+  document.addEventListener("focusin", (e) => {
+    const t = e.target.closest("[data-tip]");
+    if (t) { const r = t.getBoundingClientRect(); showTip(JSON.parse(t.dataset.tip), r.left, r.top); }
+  });
+  document.addEventListener("focusout", hideTip);
+
+  function stack(parts, wide, label) {
+    const total = parts.reduce((a, p) => a + num(p.value), 0);
+    const bar = el("div", { class: "bar" + (wide ? " wide" : ""), role: "img", "aria-label": label + ": " + parts.map((p) => `${p.label} ${fmt(p.value)}`).join(", ") });
+    if (!total) { bar.append(el("div", { class: "seg", style: "flex:1;background:var(--grid);border-radius:0 4px 4px 0" })); return bar; }
+    for (const p of parts) if (num(p.value) > 0)
+      bar.append(el("div", { class: "seg", tabindex: 0, style: `flex:${num(p.value)};background:${p.color}`, tip: [[fmt(p.value), p.label, p.color]] }));
+    return bar;
+  }
+
+  function meter(used, budget) {
+    const u = num(used), b = num(budget);
+    if (!b) return el("span", { class: "muted" }, "–");
+    const r = Math.min(1, u / b), color = r >= 1 ? "var(--critical)" : r >= 0.75 ? "var(--warning)" : "var(--accent)";
+    return el("div", {}, `${fmt(u)} / ${fmt(b)}`, el("div", { class: "meter", role: "img", "aria-label": `${u} of ${b} attempts used` }, el("i", { style: `width:${r * 100}%;background:${color}` })));
+  }
+
+  function checks(s) {
+    const out = [];
+    const age = (Date.now() - Date.parse(s.generated_at || "")) / 864e5;
+    if (!s.generated_at || isNaN(age)) out.push(["critical", "The state has no generated_at time."]);
+    else if (age > 7 && !s.example) out.push(["warning", `The state is ${Math.floor(age)} days old.`]);
+    if (!s.target || !s.target.hash) out.push(["critical", "The target build is not pinned by hash."]);
+    for (const u of s.units || []) {
+      const sp = u.specs || {};
+      if (u.status === "passed" && (num(sp.fail) || num(sp.inconclusive))) out.push(["critical", `${u.name}: marked passed with failing or inconclusive specs.`]);
+      if (u.status === "passed" && u.mutations && num(u.mutations.caught) < num(u.mutations.total)) out.push(["serious", `${u.name}: passed while ${num(u.mutations.total) - num(u.mutations.caught)} break(s) survive.`]);
+      if (u.status === "passed" && !u.mutations) out.push(["warning", `${u.name}: passed with no mutation record.`]);
+    }
+    for (const m of s.masks || []) if (!m.reason || !String(m.reason).trim()) out.push(["critical", `Mask "${m.name}" has no written reason.`]);
+    const stop = s.stop_rule || [];
+    const units = s.units || [];
+    if (stop.length && stop.every((x) => x.met) && units.some((u) => u.status !== "passed")) out.push(["serious", "Every stop-rule item reads met, but not every unit has passed."]);
+    for (const x of stop) if (x.met && !x.evidence) out.push(["warning", `Stop rule "${x.id}" reads met without evidence.`]);
+    const tot = (f) => units.reduce((a, u) => a + num(f(u)), 0);
+    const met = (id) => stop.some((x) => x.id === id && x.met);
+    if (met("specs") && tot((u) => u.specs && num(u.specs.fail) + num(u.specs.inconclusive))) out.push(["serious", "Stop rule \"specs\" reads met, but units show failing or inconclusive specs."]);
+    if (met("mutations") && tot((u) => u.mutations && u.mutations.caught) < tot((u) => u.mutations && u.mutations.total)) out.push(["serious", "Stop rule \"mutations\" reads met, but some breaks survive."]);
+    return out;
+  }
+
+  function lineChart(hist) {
+    const box = el("div", { class: "chart" });
+    const draw = () => {
+      box.replaceChildren();
+      const W = box.clientWidth || 600, H = box.clientHeight || 220, L = 36, R = 12, T = 10, B = 26;
+      const max = Math.max(1, ...hist.map((h) => num(h.specs_total)));
+      const raw = max / 4, mag = Math.pow(10, Math.floor(Math.log10(raw))), m = raw / mag;
+      const step = Math.max(1, (m <= 1 ? 1 : m <= 2 ? 2 : m <= 5 ? 5 : 10) * mag);
+      const top = Math.ceil(max / step) * step;
+      const x = (i) => L + (hist.length < 2 ? (W - L - R) / 2 : (i * (W - L - R)) / (hist.length - 1));
+      const y = (v) => T + (H - T - B) * (1 - num(v) / top);
+      const s = svg("svg", { viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": "Specs passing per iteration, with the total" });
+      for (let v = 0; v <= top + 1e-9; v += step) {
+        s.append(svg("line", { x1: L, x2: W - R, y1: y(v), y2: y(v), stroke: "var(--grid)", "stroke-width": 1 }));
+        const t = svg("text", { x: L - 6, y: y(v) + 4, "text-anchor": "end", "font-size": 11, fill: "var(--muted)" }); t.textContent = fmt(v); s.append(t);
+      }
+      s.append(svg("line", { x1: L, x2: W - R, y1: y(0), y2: y(0), stroke: "var(--axis)", "stroke-width": 1 }));
+      const pts = (k) => hist.map((h, i) => `${x(i)},${y(h[k])}`).join(" ");
+      if (hist.length) {
+        s.append(svg("polygon", { points: `${x(0)},${y(0)} ${pts("specs_pass")} ${x(hist.length - 1)},${y(0)}`, fill: "var(--wash)" }));
+        s.append(svg("polyline", { points: pts("specs_total"), fill: "none", stroke: "var(--muted)", "stroke-width": 2, "stroke-linejoin": "round", "stroke-linecap": "round" }));
+        s.append(svg("polyline", { points: pts("specs_pass"), fill: "none", stroke: "var(--accent)", "stroke-width": 2, "stroke-linejoin": "round", "stroke-linecap": "round" }));
+        const last = hist.length - 1;
+        s.append(svg("circle", { cx: x(last), cy: y(hist[last].specs_pass), r: 4, fill: "var(--accent)", stroke: "var(--surface)", "stroke-width": 2 }));
+        for (const i of [0, last]) {
+          const t = svg("text", { x: x(i), y: H - 8, "text-anchor": i === 0 && hist.length > 1 ? "start" : "end", "font-size": 11, fill: "var(--muted)" });
+          t.textContent = hist[i].at || ""; s.append(t);
+        }
+      }
+      const cross = svg("line", { y1: T, y2: H - B, stroke: "var(--axis)", "stroke-width": 1, visibility: "hidden" });
+      s.append(cross);
+      s.addEventListener("pointermove", (e) => {
+        if (!hist.length) return;
+        const px = ((e.clientX - s.getBoundingClientRect().left) / s.getBoundingClientRect().width) * W;
+        let i = 0, best = Infinity;
+        hist.forEach((_, k) => { const d = Math.abs(x(k) - px); if (d < best) { best = d; i = k; } });
+        cross.setAttribute("x1", x(i)); cross.setAttribute("x2", x(i)); cross.setAttribute("visibility", "visible");
+        const h = hist[i];
+        showTip([[fmt(h.specs_pass), "specs passing", "var(--accent)"], [fmt(h.specs_total), "specs in total", "var(--muted)"],
+          [`${fmt(h.mutations_caught)} / ${fmt(h.mutations_total)}`, "breaks caught"], [h.at || "", h.note || ""]], e.clientX, e.clientY);
+      });
+      s.addEventListener("pointerleave", () => { cross.setAttribute("visibility", "hidden"); hideTip(); });
+      box.append(s);
+    };
+    requestAnimationFrame(draw);
+    if (window.ResizeObserver) new ResizeObserver(() => draw()).observe(box);
+    return box;
+  }
+
+  function list(items, render, empty) {
+    return items && items.length ? el("ul", { class: "plain" }, items.map((it) => el("li", {}, render(it)))) : el("p", { class: "muted" }, empty);
+  }
+
+  function render(s) {
+    const units = Array.isArray(s.units) ? s.units : [];
+    const t = s.target || {}, g = s.goal || {}, led = s.ledger || {};
+    const passed = units.filter((u) => u.status === "passed").length;
+    const sum = (f) => units.reduce((a, u) => a + num(f(u)), 0);
+    const sp = sum((u) => u.specs && u.specs.pass), sf = sum((u) => u.specs && u.specs.fail), si = sum((u) => u.specs && u.specs.inconclusive);
+    const mc = sum((u) => u.mutations && u.mutations.caught), mt = sum((u) => u.mutations && u.mutations.total);
+    const masks = Array.isArray(s.masks) ? s.masks : [];
+    const phase = s.phase || {};
+    const found = checks(s);
+    const stop = Array.isArray(s.stop_rule) && s.stop_rule.length ? s.stop_rule : Object.keys(STOP_LABELS).map((id) => ({ id, met: null }));
+
+    app.replaceChildren(
+      el("header", {},
+        el("h1", {}, s.project || "Reverse engineering"),
+        el("p", { class: "sub" }, g.acceptance || "No acceptance written yet. Phase 0 is not done."),
+        el("div", { class: "toolbar" },
+          s.example ? el("span", { class: "badge" }, "Example data") : null,
+          el("span", { class: "badge" }, `Phase ${num(phase.current)} · ${PHASES[num(phase.current)] || "?"}${phase.unit ? " · " + phase.unit : ""}`),
+          el("span", { class: "badge" }, "Updated " + (s.generated_at || "never")),
+          el("label", { class: "filebtn" }, "Load state…", el("input", { type: "file", accept: ".json,application/json", id: "pick" })),
+          el("button", { id: "theme", type: "button" }, "Theme"))),
+
+      el("section", { class: "grid g2" },
+        el("div", { class: "card" },
+          el("h2", {}, "Target and scope"),
+          el("dl", { class: "facts" },
+            el("dt", {}, "Target"), el("dd", {}, [t.name, t.build].filter(Boolean).join(", ") || "–"),
+            el("dt", {}, "Class"), el("dd", {}, t.class || "–"),
+            el("dt", {}, "Pinned"), el("dd", { class: "mono" }, t.hash || "not pinned"),
+            el("dt", {}, "Oracle"), el("dd", {}, t.oracle || "–"),
+            el("dt", {}, "Not in scope"), el("dd", {}, (g.non_goals || []).join("; ") || "–"),
+            el("dt", {}, "Legal line"), el("dd", {}, g.legal || "–"))),
+        el("div", { class: "card" },
+          el("h2", {}, "Units proven"),
+          el("div", { class: "hero" }, `${passed} of ${units.length}`),
+          el("p", { class: "sub" }, "units pass every spec with every break caught"),
+          stack(Object.keys(STATUS).map((k) => ({ label: STATUS[k].label, value: units.filter((u) => (u.status || "planned") === k).length, color: STATUS[k].color })), true, "Units by status"),
+          el("div", { class: "legend" }, Object.keys(STATUS).map((k) => el("span", { class: "key" }, el("span", { class: "sw", style: `background:${STATUS[k].color}` }), `${STATUS[k].label} ${units.filter((u) => (u.status || "planned") === k).length}`))))),
+
+      el("section", { class: "grid kpis", "aria-label": "Key figures" },
+        tile("Specs passing", `${fmt(sp)} / ${fmt(sp + sf + si)}`, `${fmt(sf)} failing, ${fmt(si)} inconclusive`),
+        tile("Breaks caught", `${fmt(mc)} / ${fmt(mt)}`, mt && mc < mt ? `${fmt(mt - mc)} survive` : "every break fails its spec"),
+        tile("Masks", fmt(masks.length), masks.every((m) => m.reason) ? "each with its reason" : "some lack a reason"),
+        tile("Open questions", fmt((s.open_questions || []).length), `${fmt(led.open)} open and ${fmt(led.assumed)} assumed in the ledger`),
+        tile("Decisions needed", fmt((s.decisions || []).length), (s.decisions || []).length ? "waiting on a person" : "none")),
+
+      el("section", { class: "grid g2" },
+        el("div", { class: "card" },
+          el("h2", {}, "Stop rule"),
+          el("ul", { class: "plain" }, stop.map((x) => el("li", {},
+            el("span", { class: "status wrap" }, x.met == null ? el("span", { class: "ico muted" }, "?") : el("span", { class: "ico", style: `color:${x.met ? "var(--good)" : "var(--critical)"}`, "aria-hidden": "true" }, x.met ? "✓" : "✕"),
+              el("span", {}, (x.met == null ? "Unknown: " : x.met ? "Met: " : "Not met: ") + (STOP_LABELS[x.id] || x.label || x.id))),
+            x.evidence ? el("div", { class: "sub", style: "margin-left:1.6em" }, x.evidence) : null)))),
+        el("div", { class: "card" + (found.some((f) => f[0] === "critical") ? " error" : "") },
+          el("h2", {}, "Consistency checks"),
+          el("p", { class: "sub", style: "margin-bottom:8px" }, "What this page found in the state itself. It reports; the agent's evidence decides."),
+          list(found, ([sev, msg]) => el("span", { class: "status wrap" }, el("span", { class: "ico", style: `color:var(--${sev})`, "aria-hidden": "true" }, sev === "warning" ? "!" : "✕"), `${sev[0].toUpperCase() + sev.slice(1)}: ${msg}`), "No inconsistencies found."))),
+
+      el("section", { class: "card", style: "margin-top:12px" },
+        el("h2", {}, "Units of work"),
+        el("div", { class: "scroll" }, el("table", {},
+          el("thead", {}, el("tr", {}, ["Unit", "Phase", "Status", "Specs", "Breaks caught", "Attempts", "Note"].map((h, i) => el("th", { class: i >= 3 && i <= 5 ? "num" : null }, h)))),
+          el("tbody", {}, units.map((u) => {
+            const p = u.specs || {};
+            return el("tr", {},
+              el("td", {}, u.name || u.id || "–"),
+              el("td", { style: "white-space:nowrap" }, `${num(u.phase)} · ${PHASES[num(u.phase)] || "?"}`),
+              el("td", {}, status(u.status)),
+              el("td", { class: "num" }, `${fmt(p.pass)} / ${fmt(num(p.pass) + num(p.fail) + num(p.inconclusive))}`,
+                stack([{ label: "pass", value: p.pass, color: "var(--good)" }, { label: "fail", value: p.fail, color: "var(--critical)" }, { label: "inconclusive", value: p.inconclusive, color: "var(--warning)" }], false, "Specs")),
+              el("td", { class: "num" }, u.mutations ? `${fmt(u.mutations.caught)} / ${fmt(u.mutations.total)}` : "–"),
+              el("td", { class: "num" }, meter(u.attempts && u.attempts.used, u.attempts && u.attempts.budget)),
+              el("td", { class: "sub" }, u.note || ""));
+          }))))),
+
+      el("section", { class: "grid g2" },
+        el("div", { class: "card" },
+          el("h2", {}, "Progress over iterations"),
+          lineChart(Array.isArray(s.history) ? s.history : []),
+          el("div", { class: "legend" }, el("span", { class: "key" }, el("span", { class: "lk", style: "background:var(--accent)" }), "Specs passing"), el("span", { class: "key" }, el("span", { class: "lk", style: "background:var(--muted)" }), "Specs in total")),
+          el("details", {}, el("summary", {}, "Table view"), el("div", { class: "scroll" }, el("table", {},
+            el("thead", {}, el("tr", {}, ["Date", "Specs passing", "Specs total", "Breaks caught", "Note"].map((h, i) => el("th", { class: i && i < 4 ? "num" : null }, h)))),
+            el("tbody", {}, (s.history || []).map((h) => el("tr", {}, el("td", {}, h.at || ""), el("td", { class: "num" }, fmt(h.specs_pass)), el("td", { class: "num" }, fmt(h.specs_total)),
+              el("td", { class: "num" }, `${fmt(h.mutations_caught)} / ${fmt(h.mutations_total)}`), el("td", { class: "sub" }, h.note || "")))))))),
+        el("div", { class: "card" },
+          el("h2", {}, "Ledger claims"),
+          el("p", { class: "sub" }, "From ", el("code", {}, led.source || "the ledger")),
+          el("div", { style: "margin-top:12px" }, stack(CLAIMS.map(([k, label, v]) => ({ label, value: led[k], color: `var(${v})` })), true, "Ledger claims by state")),
+          el("div", { class: "legend" }, CLAIMS.map(([k, label, v]) => el("span", { class: "key" }, el("span", { class: "sw", style: `background:var(${v})` }), `${label} ${fmt(led[k])}`))),
+          el("h2", { style: "margin-top:20px" }, "Allowed differences"),
+          list(masks, (m) => [el("div", {}, m.name || "unnamed"), el("div", { class: "sub" }, m.reason || "No reason written.")], "No masks."))),
+
+      el("section", { class: "grid g2" },
+        el("div", { class: "card" },
+          el("h2", {}, "Decisions needed"),
+          list(s.decisions, (d) => [el("div", {}, d.question || ""), d.options ? el("div", { class: "sub" }, d.options) : null, d.needed_by ? el("div", { class: "muted" }, d.needed_by) : null], "Nothing waits on a person."),
+          el("h2", { style: "margin-top:20px" }, "Open questions"),
+          list(s.open_questions, (q) => [el("div", {}, q.question || ""), q.settles_with ? el("div", { class: "sub" }, "Settled by: " + q.settles_with) : null], "No open questions.")),
+        el("div", { class: "card" },
+          el("h2", {}, "Not reached by any spec"),
+          list(s.not_reached, (x) => x, "Nothing listed. An empty list is a claim too: is coverage complete?"))),
+
+      el("footer", {}, `Schema ${s.schema || "unknown"} · written by ${s.generated_by || "unknown"} · every figure comes from the ledger or the last oracle run, never an estimate.`)
+    );
+    wire();
+  }
+
+  function tile(label, value, delta) {
+    return el("div", { class: "card tile" }, el("div", { class: "sub" }, label), el("div", { class: "v" }, value), el("div", { class: "d" }, delta));
+  }
+
+  function fail(msg) {
+    app.replaceChildren(el("div", { class: "card error" }, el("h2", {}, "The state could not be read"), el("p", {}, msg)), el("div", { class: "toolbar" }, el("label", { class: "filebtn" }, "Load state…", el("input", { type: "file", accept: ".json,application/json", id: "pick" }))));
+    wire();
+  }
+
+  function load(text) {
+    let s;
+    try { s = JSON.parse(text); } catch (e) { return fail("The JSON is not valid: " + e.message); }
+    if (!s || typeof s !== "object") return fail("The state is not an object.");
+    render(s);
+  }
+
+  const THEMES = ["system", "light", "dark"];
+  let theme = "system";
+  try { theme = localStorage.getItem("re-dashboard-theme") || "system"; } catch (e) { /* storage blocked */ }
+  if (new URLSearchParams(location.search).get("theme")) theme = new URLSearchParams(location.search).get("theme");
+  function applyTheme() {
+    if (theme === "system") delete document.documentElement.dataset.theme; else document.documentElement.dataset.theme = theme;
+    const b = document.getElementById("theme"); if (b) b.textContent = "Theme: " + theme;
+  }
+
+  function wire() {
+    applyTheme();
+    const b = document.getElementById("theme");
+    if (b) b.onclick = () => { theme = THEMES[(THEMES.indexOf(theme) + 1) % THEMES.length]; try { localStorage.setItem("re-dashboard-theme", theme); } catch (e) { /* storage blocked */ } applyTheme(); };
+    const p = document.getElementById("pick");
+    if (p) p.onchange = () => { const f = p.files && p.files[0]; if (f) f.text().then(load); };
+  }
+
+  document.addEventListener("dragover", (e) => { e.preventDefault(); app.classList.add("drop"); });
+  document.addEventListener("dragleave", () => app.classList.remove("drop"));
+  document.addEventListener("drop", (e) => { e.preventDefault(); app.classList.remove("drop"); const f = e.dataTransfer.files[0]; if (f) f.text().then(load); });
+
+  load(document.getElementById("re-state").textContent);
+})();
+</script>
+</body>
+</html>

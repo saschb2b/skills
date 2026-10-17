@@ -54,7 +54,7 @@ Stop early and report when the goal needs a decision only the user can make, or 
 
 ## Report
 
-State what you verified and how, what you assumed, and what no spec reached (states, inputs, code paths). An unreached path is a finding, not a footnote. Then name the next unit of work.
+State what you verified and how, what you assumed, and what no spec reached (states, inputs, code paths). An unreached path is a finding, not a footnote. Then name the next unit of work. Keep the project's copy of the [dashboard](./assets/dashboard.html) current for the humans: rewrite its state block from the ledger and the last oracle run at the end of every iteration ([Dashboard](./references/dashboard.md)).
 
 ## Reference bundle
 
@@ -68,4 +68,5 @@ State what you verified and how, what you assumed, and what no spec reached (sta
 - [Implement](./references/implement.md): the integration ladder, patching, hooks, transplants.
 - [Differential](./references/differential.md): lockstep runs, masks, verdicts, a guarded oracle, mutations, ratcheted attempts.
 - [Pitfalls](./references/pitfalls.md): failure modes with their symptoms and guards.
+- [Dashboard](./references/dashboard.md): the human view, its state schema, and what it checks.
 - [Worked example](./references/worked-example.md): the whole loop on a shipped project.

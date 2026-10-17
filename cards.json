@@ -774,7 +774,7 @@
       "title": "reverse-engineering",
       "description": "Reverse engineer opaque software toward a stated goal, from console ROMs and disc images to installed PC and mobile games, native or managed binaries, firmware, file and save formats, network...",
       "risk_tier": "executable-L1",
-      "target_digest": "sha256:61c1ebc580e4099d6c4bc13a11935cbc6b359b662a5c90eddcb3f61b76293547",
+      "target_digest": "sha256:27d3fc26d75d22b843d47fb1df759d3d7c65180a8a8f77c504508435c6b4eed0",
       "identity": "did:web:saschb2b.com",
       "expires": "2027-10-17",
       "capability": {

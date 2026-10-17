@@ -1,11 +1,19 @@
 [
   {
     "path": "SKILL.md",
-    "sha256": "d3f61bfa5eafcd72e4311c9a95dc8d38d5aa41a552aa615f4e768a1f01c86cd5"
+    "sha256": "3730e66c461fb9bc30fef2b32b322e7820e4bc65c57bef4e75de30dceee31e3d"
+  },
+  {
+    "path": "assets/dashboard.html",
+    "sha256": "24d9764b504f5555e2f7a501519d5ebb0e73a8b4cbfd1825905760b05c89d5c2"
   },
   {
     "path": "permissions.yaml",
-    "sha256": "a59c33d37ea2d14fbd0b443829a952a6a6ff099c8ffcdc1f12ff6a8e9c8112aa"
+    "sha256": "3a9eaa398112467c7b5332e98c1b2950507718ce940021193768b65daf0bae69"
+  },
+  {
+    "path": "references/dashboard.md",
+    "sha256": "5ffcc493d56ea60844cff7b6c387d2cf550507740c9088ae150d2e7216ea01bb"
   },
   {
     "path": "references/differential.md",
@@ -25,7 +33,7 @@
   },
   {
     "path": "references/index.md",
-    "sha256": "d0fea6b550dd2fe788ce95019f86c863050ddbb256812b5af0be267721d2a526"
+    "sha256": "639d094f1a38a398e6fbdce136b605a50ab3a2714658b34a094b4e57482ef702"
   },
   {
     "path": "references/ledger.md",
@@ -37,7 +45,7 @@
   },
   {
     "path": "references/log.md",
-    "sha256": "0b94bf92f3e84a0e2f4f4ae1d3069d0cbe336121e7a9bad4abaf9127236f5126"
+    "sha256": "593261bb4e01bcc7423f71710c936af36c659cf96ef18426dded4b69e7887357"
   },
   {
     "path": "references/pitfalls.md",
