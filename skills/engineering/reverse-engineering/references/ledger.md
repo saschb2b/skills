@@ -3,7 +3,7 @@ type: Convention
 title: The knowledge ledger
 description: Record every location and claim once, with how it was found and how to re-verify it, give it a name that code uses, and let lint and generators keep code, docs, and symbol files in step.
 tags: [reverse-engineering, documentation, symbols, lint]
-generated: { by: claude-code/unversioned, at: 2026-10-17T12:00:00Z }
+generated: { by: claude-code/unversioned, at: 2026-10-17T15:00:00Z }
 sources:
   - id: cwe-romdata
     resource: https://github.com/saschb2b/Mega-Man-Battle-Network-Cyberworld-Endless/blob/main/docs/ROM_DATA.md
@@ -40,7 +40,7 @@ That row is from Cyberworld Endless's ROM data document, which pins the ROM's SH
 
 # Name, never number, in code
 
-Give every address and field one symbolic name in one header, with a one-line description, and use only the name elsewhere: `BN6_PLAYER_X`, not `BN6_PLAYER + 0x1C`. Gate it in lint, which Cyberworld Endless runs in CI:[^cwe-agents]
+Give every address, signature, and field one symbolic name in one header, with a one-line description, and use only the name elsewhere: `BN6_PLAYER_X`, not `BN6_PLAYER + 0x1C`. On a relocating loader the header holds module-relative offsets or byte signatures, resolved at load. Gate it in lint, which Cyberworld Endless runs in CI:[^cwe-agents]
 
 - A bare offset outside the names header fails.
 - An offset with no ledger row fails.

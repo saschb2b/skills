@@ -3,7 +3,7 @@ type: Runbook
 title: Differential testing against the original
 description: Prove an implementation matches the original by running both from one state and input, aligned on the target's own clock, with every allowed difference written down, verdicts that cannot pass by accident, mutation checks of the comparator, and a triage path for each failure.
 tags: [reverse-engineering, differential-testing, mutation-testing, oracle]
-generated: { by: claude-code/unversioned, at: 2026-10-17T12:00:00Z }
+generated: { by: claude-code/unversioned, at: 2026-10-17T15:00:00Z }
 sources:
   - id: cwe-devtools
     resource: https://github.com/saschb2b/Mega-Man-Battle-Network-Cyberworld-Endless/blob/main/docs/DEVTOOLS.md
@@ -29,12 +29,14 @@ A spec is one unit in one scenario: start state, setup (flags, inventory, HP), s
 
 Before the first subject, run the control: a unit whose right answer you know, pushed through your pipeline. Three runs, compared every byte: native, native with your install present, and the native unit moved by your pipeline. Native and installed must match exactly (the no-op invariant). The moved control must match native to the end. The control caught a hidden per-ID table (an ice block's size) that the moved unit read past.[^cwe-emulation] Where a variant must differ, add that as a negative arm that fails when it matches.
 
+Pick the oracle's form from the [target profile](./targets.md). An emulator runs both sides in one process. A native or mobile target runs the unmodified build as a second process with the same injected input, compared through state dumps at tick boundaries. A file format's oracle is a round trip through the original application. A matching decompilation's oracle is the original's bytes, compared function by function.
+
 # Run the oracle and the subject in lockstep
 
-- **Align on the target's own clock** (a battle timer, a sequence number), never wall frames or ticks. The side whose clock moved on waits for the other.
-- **Seed both** at the first aligned frame, not at start: an opening that draws a different number of random values desynchronizes everything after it. Where draw counts legitimately differ, let the subject follow the reference's generator state, or replay draws per call site.
+- **Align on the target's own clock** (a battle timer, a game tick, a sequence number), never wall time or the host's frame count. The side whose clock moved on waits for the other.
+- **Seed both** at the first aligned step, not at start: an opening that draws a different number of random values desynchronizes everything after it. Where draw counts legitimately differ, let the subject follow the reference's generator state, or replay draws per call site.
 - **Compare by role.** Match objects by what they are, not by memory slot. Translate IDs and layouts into one numbering before comparing. Compare spawns, sounds, and draws by the call site that made them.
-- **Compare everything** in the subsystem's memory every aligned frame, and require both traces to end at the same length.
+- **Compare everything** in the subsystem's memory at every aligned step, and require both traces to end at the same length.
 
 # Allow a difference only with a reason
 
@@ -44,11 +46,11 @@ Each mask has a name, the part it covers, the exact cells or bits (offset, refer
 
 | Verdict | Means | Next |
 | --- | --- | --- |
-| PASS | No unexplained difference on any aligned frame, traces the same length | Next spec |
-| FAIL | First unexplained difference: frame, address, role, both values | Triage below |
+| PASS | No unexplained difference at any aligned step, traces the same length | Next spec |
+| FAIL | First unexplained difference: step, address, role, both values | Triage below |
 | INCONCLUSIVE | The shared world diverged for a reason that is not the subject (the player's own state, setup) | Fix the harness or spec; never count it as PASS |
 
-A recorded non-PASS (a known, bounded deviation) holds only while the run ends the same way at the same frame.
+A recorded non-PASS (a known, bounded deviation) holds only while the run ends the same way at the same step.
 
 # Prove the comparator can fail
 
@@ -58,7 +60,7 @@ A detector that reacts to an event needs a negative control too: run without the
 
 # Triage a FAIL
 
-1. Open the spec's story view (each side's timeline) at the first divergent frame. Ignore later differences; they are consequences.
+1. Open the spec's story view (each side's timeline) at the first divergent step. Ignore later differences; they are consequences.
 2. Name the role and field that differ, then watch writes to it on both sides to find the routine that wrote each value.
 3. Compare the two routines (twins). Classify: your relocation or recipe, a table not grown, an engine difference, or a harness setup.
 4. Fix at the root. Add a mask only for a proven engine difference, with both routines cited.

@@ -11,6 +11,11 @@ should_fire:
   - the vendor never documented this API, map it from captured traffic and build a compatible client
   - move an enemy's AI code from one game's ROM into the other game's engine
   - set up a test that runs the unmodified game and our patched build side by side and diffs them frame by frame
+  - I want to mod an installed Steam game on Windows, find the function that computes damage and hook it
+  - figure out how this PS1 game's disc image stores its level data so I can make new levels
+  - add a new item to a PSP game by patching its EBOOT while it runs in PPSSPP
+  - make a BepInEx plugin that changes how this Unity game rolls loot, and prove the unmodded drops stay the same
+  - pull apart this Android APK to see how the app talks to its Bluetooth device
 
 in_context:
   - |-

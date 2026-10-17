@@ -3,7 +3,7 @@ type: Worked Example
 title: Cyberworld Endless, the loop end to end
 description: How one shipped project ran every phase of the loop on a GBA ROM, from pinning the target to transplanting another game's code proven by 366 differential specs and 167 caught mutations.
 tags: [reverse-engineering, case-study, emulation, differential-testing]
-generated: { by: claude-code/unversioned, at: 2026-10-17T12:00:00Z }
+generated: { by: claude-code/unversioned, at: 2026-10-17T15:00:00Z }
 sources:
   - id: cwe-repo
     resource: https://github.com/saschb2b/Mega-Man-Battle-Network-Cyberworld-Endless
@@ -41,4 +41,4 @@ By release 0.12.0: 366 specs, 363 passing and 3 stopping at their recorded frame
 
 # What transfers
 
-The game is incidental. The pattern is a pinned target, a harness before any study, a ledger that code reads names from, the least invasive integration, a control before every subject, and an oracle whose masks carry reasons and whose failures are proven by mutation. Each phase links to its concept: [goal](./goal.md), [harness](./harness.md), [locate](./locate.md), [ledger](./ledger.md), [implement](./implement.md), [differential](./differential.md), and the [pitfalls](./pitfalls.md) the project hit on the way.
+The game and the platform are incidental: [target profiles](./targets.md) maps each phase onto PC, disc console, engine, mobile, firmware, format, and protocol targets. The pattern is a pinned target, a harness before any study, a ledger that code reads names from, the least invasive integration, a control before every subject, and an oracle whose masks carry reasons and whose failures are proven by mutation. Each phase links to its concept: [goal](./goal.md), [harness](./harness.md), [locate](./locate.md), [ledger](./ledger.md), [implement](./implement.md), [differential](./differential.md), and the [pitfalls](./pitfalls.md) the project hit on the way.

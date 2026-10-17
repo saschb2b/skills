@@ -1,9 +1,9 @@
 ---
 type: Failure Catalog
 title: Pitfalls that cost iterations
-description: Reverse engineering failure modes observed in a shipped project, each with the symptom that gives it away and the guard that prevents it.
+description: Reverse engineering failure modes, most observed in a shipped project and the rest common across target classes, each with the symptom that gives it away and the guard that prevents it.
 tags: [reverse-engineering, pitfalls, debugging, lessons]
-generated: { by: claude-code/unversioned, at: 2026-10-17T12:00:00Z }
+generated: { by: claude-code/unversioned, at: 2026-10-17T15:00:00Z }
 sources:
   - id: cwe-changelog
     resource: https://github.com/saschb2b/Mega-Man-Battle-Network-Cyberworld-Endless/blob/main/CHANGELOG.md
@@ -14,11 +14,13 @@ sources:
   - id: cwe-symbols
     resource: https://github.com/saschb2b/Mega-Man-Battle-Network-Cyberworld-Endless/blob/main/docs/SYMBOLS.md
     title: "Cyberworld Endless, docs/SYMBOLS.md"
+  - id: practice
+    resource: "scope:author knowledge of reverse engineering native, managed, emulated, and threaded targets"
 ---
 
 # Check this list when a loop stalls
 
-Each row happened in Cyberworld Endless and cost at least one iteration.[^cwe-changelog][^cwe-lessons][^cwe-symbols] Read the symptom column first; the guard is what the [loop](./differential.md) should already have done.
+The first table happened in Cyberworld Endless, each row costing at least one iteration.[^cwe-changelog][^cwe-lessons][^cwe-symbols] The second covers what the other [target classes](./targets.md) add.[^practice] Read the symptom column first; the guard is what the [loop](./differential.md) should already have done.
 
 | Pitfall | Symptom | Guard |
 | --- | --- | --- |
@@ -41,6 +43,15 @@ Each row happened in Cyberworld Endless and cost at least one iteration.[^cwe-ch
 | A detector with no negative control | A price "verified" from stale bytes printed every battle | Run without the event and require silence |
 | Masking to go green | The diff passes and the bug ships | Every mask cites both routines; mutations prove the diff still fails |
 | Blaming yourself for the original | Time spent fixing behavior the original has | Reproduce on the pristine target, then keep or mend it in writing |
+
+| Pitfall | Symptom | Guard |
+| --- | --- | --- |
+| Absolute addresses under a relocating loader | Offsets break on the next launch or patch | Module-relative offsets or byte signatures; pin the executable's hash |
+| An unpinned build | A store update silently moved everything | Refuse to install on a hash or signature mismatch; re-run the ledger's verify steps per build |
+| Trusting an inaccurate emulator | A "difference" that hardware does not show, or the reverse | Cross-check timing-sensitive behavior on a more accurate emulator or hardware |
+| Comparing mid-step on a threaded target | Two identical runs differ at random | Compare at the target's own sync points, such as the end of a tick |
+| Code loaded late | A hook or patch vanishes after a level load | Reapply on the loader's event (overlay, module, JIT) and test that path |
+| Decompiler output taken as truth | Types or control flow the binary does not have | Treat it as a lead; confirm in the debugger at the pinned build |
 
 # Turn every stall into a loop change
 

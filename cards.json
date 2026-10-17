@@ -772,9 +772,9 @@
       "bucket": "engineering",
       "domain": "Reverse Engineering",
       "title": "reverse-engineering",
-      "description": "Reverse engineer an opaque target (ROM, binary, firmware, file or save format, network protocol, undocumented API) toward a stated goal, looping locate, understand, implement, and prove until a...",
+      "description": "Reverse engineer opaque software toward a stated goal, from console ROMs and disc images to installed PC and mobile games, native or managed binaries, firmware, file and save formats, network...",
       "risk_tier": "executable-L1",
-      "target_digest": "sha256:291d366d3e7cf56cb43098213d52d72f1ae3061f9c457200665d9a9507f42f06",
+      "target_digest": "sha256:057b7cbc844ac5f10b04ef3406d273522c36b4956dbf3b7e3570874af3f9cf44",
       "identity": "did:web:saschb2b.com",
       "expires": "2027-10-17",
       "capability": {
