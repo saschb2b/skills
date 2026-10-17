@@ -1,7 +1,7 @@
 {
   "repo": "saschb2b/skills",
   "card_version": "0.1",
-  "count": 25,
+  "count": 26,
   "skills": [
     {
       "skill": "android-compose",
@@ -762,6 +762,73 @@
       "trust_score": 10,
       "reachable": 13,
       "rarity": "rare",
+      "art": {
+        "svg": "CARD.svg",
+        "hero": null
+      }
+    },
+    {
+      "skill": "reverse-engineering",
+      "bucket": "engineering",
+      "domain": "Reverse Engineering",
+      "title": "reverse-engineering",
+      "description": "Reverse engineer an opaque target (ROM, binary, firmware, file or save format, network protocol, undocumented API) toward a stated goal, looping locate, understand, implement, and prove until a...",
+      "risk_tier": "executable-L1",
+      "target_digest": "sha256:291d366d3e7cf56cb43098213d52d72f1ae3061f9c457200665d9a9507f42f06",
+      "identity": "did:web:saschb2b.com",
+      "expires": "2027-10-17",
+      "capability": {
+        "model": "executable",
+        "manifest_declared": "permissions.yaml",
+        "source": "declared",
+        "network": "see-manifest",
+        "shell": null,
+        "filesystem_writes": null,
+        "network_evidence": [],
+        "shell_evidence": [],
+        "declared_external_sources": [
+          "https://github.com/saschb2b/Mega-Man-Battle-Network-Cyberworld-Endless",
+          "https://github.com/saschb2b/Mega-Man-Battle-Network-Cyberworld-Endless/blob/main/.claude/skills/playtest-loop/lessons.md",
+          "https://github.com/saschb2b/Mega-Man-Battle-Network-Cyberworld-Endless/blob/main/AGENTS.md",
+          "https://github.com/saschb2b/Mega-Man-Battle-Network-Cyberworld-Endless/blob/main/CHANGELOG.md",
+          "https://github.com/saschb2b/Mega-Man-Battle-Network-Cyberworld-Endless/blob/main/docs/DEVTOOLS.md",
+          "https://github.com/saschb2b/Mega-Man-Battle-Network-Cyberworld-Endless/blob/main/docs/EMULATION.md",
+          "https://github.com/saschb2b/Mega-Man-Battle-Network-Cyberworld-Endless/blob/main/docs/FIDELITY.md",
+          "https://github.com/saschb2b/Mega-Man-Battle-Network-Cyberworld-Endless/blob/main/docs/MULTIROM.md",
+          "https://github.com/saschb2b/Mega-Man-Battle-Network-Cyberworld-Endless/blob/main/docs/ROM_DATA.md",
+          "https://github.com/saschb2b/Mega-Man-Battle-Network-Cyberworld-Endless/blob/main/docs/SOURCES.md",
+          "https://github.com/saschb2b/Mega-Man-Battle-Network-Cyberworld-Endless/blob/main/docs/SYMBOLS.md",
+          "https://github.com/saschb2b/Mega-Man-Battle-Network-Cyberworld-Endless/blob/main/docs/releases/v0.12.0.md",
+          "https://github.com/saschb2b/Mega-Man-Battle-Network-Cyberworld-Endless/tree/main/tests/xdiff"
+        ]
+      },
+      "layers": [
+        "integrity",
+        "authorship",
+        "capability",
+        "content_provenance",
+        "vouching",
+        "freshness"
+      ],
+      "grades": {
+        "integrity": "STRONG",
+        "authorship": "ABSENT",
+        "capability": "MEDIUM",
+        "content_provenance": "UNVERIFIED",
+        "vouching": "ABSENT",
+        "freshness": "MEDIUM"
+      },
+      "notes": {
+        "integrity": "digest matches live bundle",
+        "authorship": "card is unsigned",
+        "capability": "permission manifest declared (enforce in sandbox)",
+        "content_provenance": "n/a for executable skills",
+        "vouching": "0 attestation(s) bound to this digest",
+        "freshness": "not expired"
+      },
+      "trust_score": 7,
+      "reachable": 13,
+      "rarity": "uncommon",
       "art": {
         "svg": "CARD.svg",
         "hero": null

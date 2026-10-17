@@ -1,0 +1,50 @@
+[
+  {
+    "path": "SKILL.md",
+    "sha256": "28417b5c8c5d4c4b4c905b43b74d53f698d03889d99a782e36b160dbc8a4b9ec"
+  },
+  {
+    "path": "permissions.yaml",
+    "sha256": "a59c33d37ea2d14fbd0b443829a952a6a6ff099c8ffcdc1f12ff6a8e9c8112aa"
+  },
+  {
+    "path": "references/differential.md",
+    "sha256": "37c49f4068f7e9977bf4bb908d64cfaec852ddff9d738b9be57a65241f807cbe"
+  },
+  {
+    "path": "references/goal.md",
+    "sha256": "36b7e9eda188143a8af7c54eb3e63179d36196eb5bd9437741be4ec70c2db6ac"
+  },
+  {
+    "path": "references/harness.md",
+    "sha256": "3b18d7de02f460d9363c03e9c375190bf076ba083facbf444a1f79cc4f0759c3"
+  },
+  {
+    "path": "references/implement.md",
+    "sha256": "dd499b1ca467218e35d03d6c40620c1f3de38e602b7c1ede48ce9f41387aa9d8"
+  },
+  {
+    "path": "references/index.md",
+    "sha256": "94303895117913a59e1bab9c716ba31c8971045576832f051e19f4a1fe372245"
+  },
+  {
+    "path": "references/ledger.md",
+    "sha256": "f834038b56b468245184d57ccc2f33bfa716b4d278fb77fd6f6bc4835cf7685c"
+  },
+  {
+    "path": "references/locate.md",
+    "sha256": "d908c515bbfc3e886e08a8fa8ad6c714d451d5b75ef54d8d3f8e30860179e964"
+  },
+  {
+    "path": "references/log.md",
+    "sha256": "620a734bd929b84d19a7a9d7b2c12571dedcd8aeee95b624dc455cf4bc320af2"
+  },
+  {
+    "path": "references/pitfalls.md",
+    "sha256": "b5b285ac6681d5b56abcedc58096a973822bb2f53b6bbcf8a507f91a46d0450f"
+  },
+  {
+    "path": "references/worked-example.md",
+    "sha256": "3f4475d1bf5c64f39ae5f2188db370f2a7fb17afb2dc6621db3c97417a6f3bd1"
+  }
+]

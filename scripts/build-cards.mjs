@@ -36,6 +36,7 @@ const DOMAIN = {
   "android-compose": "mobile",
   "tauri-stinky": "desktop",
   "comment-stinky": "quality", "test-stinky": "quality", proof: "quality",
+  "reverse-engineering": "reverse",
   "audit-actions": "security", "trust-card": "security",
 };
 
@@ -45,6 +46,7 @@ const DOMAIN = {
 const LABEL = {
   frontend: "Frontend / UI", game: "Game", ai: "AI & Agents", writing: "Writing",
   mobile: "Mobile", desktop: "Desktop", quality: "Testing & Quality", security: "Security",
+  reverse: "Reverse Engineering",
 };
 
 // Append new palettes. Reordering or inserting entries would change established
