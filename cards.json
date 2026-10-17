@@ -1,7 +1,7 @@
 {
   "repo": "saschb2b/skills",
   "card_version": "0.1",
-  "count": 25,
+  "count": 26,
   "skills": [
     {
       "skill": "android-compose",
@@ -762,6 +762,80 @@
       "trust_score": 10,
       "reachable": 13,
       "rarity": "rare",
+      "art": {
+        "svg": "CARD.svg",
+        "hero": null
+      }
+    },
+    {
+      "skill": "reverse-engineering",
+      "bucket": "engineering",
+      "domain": "Reverse Engineering",
+      "title": "reverse-engineering",
+      "description": "Reverse engineer opaque software toward a stated goal, from console ROMs and disc images to installed PC and mobile games, native or managed binaries, firmware, file and save formats, network...",
+      "risk_tier": "executable-L1",
+      "target_digest": "sha256:27d3fc26d75d22b843d47fb1df759d3d7c65180a8a8f77c504508435c6b4eed0",
+      "identity": "did:web:saschb2b.com",
+      "expires": "2027-10-17",
+      "capability": {
+        "model": "executable",
+        "manifest_declared": "permissions.yaml",
+        "source": "declared",
+        "network": "see-manifest",
+        "shell": null,
+        "filesystem_writes": null,
+        "network_evidence": [],
+        "shell_evidence": [],
+        "declared_external_sources": [
+          "https://arxiv.org/abs/2609.05370",
+          "https://github.com/2389-research/binary-re",
+          "https://github.com/2akouwu/reverify",
+          "https://github.com/banteg/bn",
+          "https://github.com/cdlewis/snowboardkids2-decomp",
+          "https://github.com/cyberkaida/reverse-engineering-assistant",
+          "https://github.com/gadievron/raptor",
+          "https://github.com/gl0bal01/malware-analysis-claude-skills",
+          "https://github.com/i12bp8/decomp.wtf",
+          "https://github.com/itsgrimetime/melee-decomp",
+          "https://github.com/morluto/rea",
+          "https://github.com/mrexodia/ida-pro-mcp",
+          "https://github.com/saschb2b/Mega-Man-Battle-Network-Cyberworld-Endless",
+          "https://github.com/saschb2b/Mega-Man-Battle-Network-Cyberworld-Endless/blob/main/.claude/skills/playtest-loop/lessons.md",
+          "https://github.com/saschb2b/Mega-Man-Battle-Network-Cyberworld-Endless/blob/main/AGENTS.md",
+          "https://github.com/saschb2b/Mega-Man-Battle-Network-Cyberworld-Endless/blob/main/CHANGELOG.md",
+          "https://github.com/saschb2b/Mega-Man-Battle-Network-Cyberworld-Endless/blob/main/docs/DEVTOOLS.md",
+          "https://github.com/saschb2b/Mega-Man-Battle-Network-Cyberworld-Endless/blob/main/docs/EMULATION.md",
+          "https://github.com/saschb2b/Mega-Man-Battle-Network-Cyberworld-Endless/blob/main/docs/FIDELITY.md",
+          "https://github.com/saschb2b/Mega-Man-Battle-Network-Cyberworld-Endless/blob/main/docs/MULTIROM.md"
+        ]
+      },
+      "layers": [
+        "integrity",
+        "authorship",
+        "capability",
+        "content_provenance",
+        "vouching",
+        "freshness"
+      ],
+      "grades": {
+        "integrity": "STRONG",
+        "authorship": "ABSENT",
+        "capability": "MEDIUM",
+        "content_provenance": "UNVERIFIED",
+        "vouching": "ABSENT",
+        "freshness": "MEDIUM"
+      },
+      "notes": {
+        "integrity": "digest matches live bundle",
+        "authorship": "card is unsigned",
+        "capability": "permission manifest declared (enforce in sandbox)",
+        "content_provenance": "n/a for executable skills",
+        "vouching": "0 attestation(s) bound to this digest",
+        "freshness": "not expired"
+      },
+      "trust_score": 7,
+      "reachable": 13,
+      "rarity": "uncommon",
       "art": {
         "svg": "CARD.svg",
         "hero": null

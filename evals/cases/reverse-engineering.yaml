@@ -1,0 +1,43 @@
+owner: reverse-engineering
+
+should_fire:
+  - reverse engineer this GBA ROM so I can hook into its battle system
+  - find where the game keeps the player's HP in memory
+  - figure out the save file format of this old game so I can write a save editor
+  - this device speaks an undocumented binary protocol over serial, reverse it and write a client
+  - the disassembly is for the other version of the game and every address is shifted, locate its functions in my ROM
+  - mod the original game by patching its in-memory ROM without shipping any of its code
+  - prove our reimplementation behaves byte for byte like the original executable
+  - the vendor never documented this API, map it from captured traffic and build a compatible client
+  - move an enemy's AI code from one game's ROM into the other game's engine
+  - set up a test that runs the unmodified game and our patched build side by side and diffs them frame by frame
+  - I want to mod an installed Steam game on Windows, find the function that computes damage and hook it
+  - figure out how this PS1 game's disc image stores its level data so I can make new levels
+  - add a new item to a PSP game by patching its EBOOT while it runs in PPSSPP
+  - make a BepInEx plugin that changes how this Unity game rolls loot, and prove the unmodded drops stay the same
+  - pull apart this Android APK to see how the app talks to its Bluetooth device
+
+in_context:
+  - |-
+    Assistant: The chip records start at 0x021DA8, 0x2C bytes each; Cannon reads 40 power, so the stride fits.
+    User: nice. now hook the battle start so our director sees it, and make sure a run with the hook installed still plays exactly like vanilla.
+
+route_to_sibling:
+  - prompt: turn this story into frozen acceptance criteria and gate the delivery on evidence
+    expect: proof
+  - prompt: design the reward curve for my roguelike's boss fights so runs stay interesting
+    expect: game-design
+  - prompt: write the GDScript for an enemy spawner node in Godot 4
+    expect: godot
+  - prompt: our test suite is slow and flaky, audit it for smells
+    expect: test-stinky
+  - prompt: document our warehouse tables as an OKF knowledge bundle
+    expect: okf
+  - prompt: check our GitHub workflows for pull_request_target misuse
+    expect: audit-actions
+
+should_not_fire:
+  - reverse this linked list in place
+  - write a parser for this JSON config, the schema is in the README
+  - sort these user records by signup date
+  - rename this variable across the file

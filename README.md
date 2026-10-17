@@ -5,7 +5,7 @@
 **Expert practice, packaged as checklists your coding agent can actually run.**
 
 [![skills.sh](https://skills.sh/b/saschb2b/skills)](https://skills.sh/saschb2b/skills)
-[![Skills](https://img.shields.io/badge/skills-25-2ea44f)](#skill-reference)
+[![Skills](https://img.shields.io/badge/skills-26-2ea44f)](#skill-reference)
 [![Docs](https://img.shields.io/badge/docs-saschb2b.com-0969da)](https://saschb2b.com/skills)
 [![License](https://img.shields.io/badge/license-MIT-0969da)](./LICENSE)
 
@@ -56,6 +56,7 @@ npx skills@latest add saschb2b/skills --skill fable-mode
 npx skills@latest add saschb2b/skills --skill game-design
 npx skills@latest add saschb2b/skills --skill trust-card
 npx skills@latest add saschb2b/skills --skill proof
+npx skills@latest add saschb2b/skills --skill reverse-engineering
 ```
 
 Browse the rendered docs at [saschb2b.com/skills](https://saschb2b.com/skills).
@@ -121,6 +122,12 @@ Skills install by slug, and the agent auto-invokes one by reading its `descripti
 | **[proof](./skills/engineering/proof/SKILL.md)** | Carry a given story to evidence-backed acceptance. Freezes an observable contract, keeps implementation within scope, hands verification to a fresh context, and gates completion on every check having current PASS evidence. Ships a portable Python CLI and an OKF reference bundle covering EARS, policy, lifecycle, and evidence limits. |
 | **[test-stinky](./skills/engineering/test-stinky/SKILL.md)** | Detect test-suite quality smells in any language or framework, the counterweight to agents that blindly chase coverage and ship huge, slow, flaky suites. Nine pillars, 49 categories: test intent and shape, assertions (assertion-free, weak, tautological, snapshot-everything), fixtures and duplication (DAMP over DRY, mystery guests), test doubles (over-mocking, mock drift), determinism (time, randomness, order, shared state, hermeticity), async and waiting (sleeps vs condition waits), speed and cost (inverted pyramid, heavy setup, redundant layers), coverage theater, and lifecycle hygiene (skipped-test rot, retries as policy, green-by-rerun, silent conditional passes). Rates each Rancid, Funky, or Whiff with the fix and a source, runs a sweep-level suite pass with a slimming procedure for oversized suites, and ships a mechanical gate stack (test lint, order shuffle, duration budgets, lane split, flake detection, mutation spot-checks). Defers production-code smells to `react-stinky` and `tauri-stinky`. |
 | **[comment-stinky](./skills/engineering/comment-stinky/SKILL.md)** | Detect code-comment smells in any language, and gate the comment before it lands. The counterweight to agents whose comments narrate the edit they just made (`now`, `no longer`, `instead of the old X`) rather than the standing reason the code has its shape, because the reader only ever has the file, never the diff. Six pillars, 37 categories: change narration and diff residue, redundancy, missing intent (magic constants, workarounds, swallowed errors, unstated invariants), truth and decay, placement and form, and voice. Ships a positive taxonomy of the nine comments worth writing, a routing table that sends everything else to a commit message, a name, a type, a test, or a ticket, and a four-question write gate with a self-check command for your own diff. Runs implicitly at write time, not just on review. Defers prose register to `no-slop`. |
+
+### Reverse engineering
+
+| Skill | What it does |
+| --- | --- |
+| **[reverse-engineering](./skills/engineering/reverse-engineering/SKILL.md)** | Drive a reverse engineering goal on any opaque software to proven completion, one unit of work per loop: cartridge ROMs and PSX or PSP disc images, installed PC games, Unity, Unreal, and other engine builds, mobile apps, native or managed binaries, firmware, file and save formats, network protocols, and undocumented APIs. A target-profile matrix maps each class to how it is run, hooked, clocked, extended, kept stable across loads and updates, and given an oracle, so the same loop applies to all of them. Pins the target by hash and writes the goal as a falsifiable acceptance, builds a deterministic harness before any study, locates data and logic cheapest technique first with confidence tiers, records every offset with how it was found and how to re-verify it, and integrates at the least invasive rung (read, call, hook, patch, transplant). Fidelity is proven by a lockstep differential against the original in which every allowed difference carries its reason and deliberate breaks prove the comparator can fail. Distilled from Cyberworld Endless, which runs Mega Man Battle Network 6 from the player's ROM and moved Battle Network 5's code into its engine under 366 differential specs. Ships a self-contained HTML dashboard the agent rewrites each iteration, so people see scope, unit progress, the stop rule, open questions, and the decisions waiting on them. Defers story acceptance to `proof` and game design to `game-design`. |
 
 ### Security & supply chain
 

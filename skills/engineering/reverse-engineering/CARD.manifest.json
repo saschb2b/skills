@@ -1,0 +1,62 @@
+[
+  {
+    "path": "SKILL.md",
+    "sha256": "3730e66c461fb9bc30fef2b32b322e7820e4bc65c57bef4e75de30dceee31e3d"
+  },
+  {
+    "path": "assets/dashboard.html",
+    "sha256": "24d9764b504f5555e2f7a501519d5ebb0e73a8b4cbfd1825905760b05c89d5c2"
+  },
+  {
+    "path": "permissions.yaml",
+    "sha256": "3a9eaa398112467c7b5332e98c1b2950507718ce940021193768b65daf0bae69"
+  },
+  {
+    "path": "references/dashboard.md",
+    "sha256": "5ffcc493d56ea60844cff7b6c387d2cf550507740c9088ae150d2e7216ea01bb"
+  },
+  {
+    "path": "references/differential.md",
+    "sha256": "d36459330e2e40e7a2892138e6c42d619a738302a4221bf4c12aa0bd985412fd"
+  },
+  {
+    "path": "references/goal.md",
+    "sha256": "bf9942d47c4c2158f69ae91fc594d02619038574eecb7daad0b13f1d7dc2e8a9"
+  },
+  {
+    "path": "references/harness.md",
+    "sha256": "6cdb9adb0e87d4ea2e17cf3a9ce95b59b713a837e386423ec099d22d4e45c364"
+  },
+  {
+    "path": "references/implement.md",
+    "sha256": "26d35e13e0f8dbd710fc7e52c54a5381f2b45a8263160ab97ef57b4966addb88"
+  },
+  {
+    "path": "references/index.md",
+    "sha256": "639d094f1a38a398e6fbdce136b605a50ab3a2714658b34a094b4e57482ef702"
+  },
+  {
+    "path": "references/ledger.md",
+    "sha256": "08180f2c29e1a58e864b17b8fca33088ed565e9274512eadb8a13a908f8e5c96"
+  },
+  {
+    "path": "references/locate.md",
+    "sha256": "6662f3a8e09207a0014fe85d9c34ce36503918af01dc4eeb386be429712e493e"
+  },
+  {
+    "path": "references/log.md",
+    "sha256": "593261bb4e01bcc7423f71710c936af36c659cf96ef18426dded4b69e7887357"
+  },
+  {
+    "path": "references/pitfalls.md",
+    "sha256": "7af2a0ef94fb0219e65c09ebc3f4abb74227264bbe089239b8b6484e133cb65f"
+  },
+  {
+    "path": "references/targets.md",
+    "sha256": "ce40847b46b5d20617e495a461e482726e1f6181b1d0ffd5b519eba7ebde54c6"
+  },
+  {
+    "path": "references/worked-example.md",
+    "sha256": "5eca74a9558f2f49961419d235237c18b7bf53869e58bbf0ecf28cb33d3aa49f"
+  }
+]
